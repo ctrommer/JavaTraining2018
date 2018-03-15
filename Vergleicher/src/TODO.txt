@@ -1,5 +1,5 @@
 
-Test von Git
+Commit Test von Git
 
 
 Mit Git arbeiten - alternativ die im Beispiel mit XXXVergleicher etc. umbenennen.
