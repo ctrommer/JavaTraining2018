@@ -1,0 +1,63 @@
+
+Test von Git
+
+
+Mit Git arbeiten - alternativ die im Beispiel mit XXXVergleicher etc. umbenennen.
+
+*
+
+toString brauche ich bei meinen Beispielen nicht, da ich ja nicht die Elemente ausgebe, sondern nur das Ergebnis des Vergleichs.
+
+______________________________________________________________________________________________________
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+	Das ganze so umwandeln, dass jede Methode eine kleine Aufgabe mit Beschreibung ist. 
+	Insbesondere zu viel:
+	vergleicheSpielerNachNameRueckwaertsGrossKleinSchreibungIgnorierend
+	
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+______________________________________________________________________________________________________
+
+
+
+
+Kann ich auch Comparable selber basteln "Vergleichbar" ? 
+
+*
+super / extends auseinanderklamüsern ( In Übung reinbringen ) 
+Objects.requireNonNull(keyExtractor); nicht vergessen -> mit Unittest sicherstellen?
+
+ public static <T, U> Comparator<T> comparing(
+            Function<? super T, ? extends U> keyExtractor,
+            Comparator<? super U> keyComparator)
+    {
+        Objects.requireNonNull(keyExtractor);
+
+*
+
+doch git verwenden? Damit bräuchte man dann nicht mehr die Unterscheidung Beispiel / Übung, sondern könnte direkt das Beispiel löschen und neu aufbauen.
+Man hätte dann auch nicht mehr die Verwirrung mit My...
+
+
+***
+
+In sinnvolles Beispiel umwandeln:
+
+Erst mal die Grundlagen der Method Referenz:
+
+https://www.codementor.io/eh3rrera/using-java-8-method-reference-du10866vx
+
+https://stackoverflow.com/questions/25606906/sonar-replace-this-lambda-with-a-method-reference
+
+https://stackoverflow.com/questions/22444731/java-8-maptoint-and-tointfunction-examples
+
+
+***
+
+Mal Beispiel mit super machen:
+Comparator<? super T> real
+
+
+***
