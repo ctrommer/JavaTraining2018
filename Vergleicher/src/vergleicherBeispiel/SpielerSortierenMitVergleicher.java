@@ -28,71 +28,35 @@ public class SpielerSortierenMitVergleicher {
 	
 	private static void vergleicheSpielerNachAlterMitAnonymerInnererKlasse() {
 		
-		Vergleicher<Spieler> spielerVergleicher = new Vergleicher<Spieler>() {
-			@Override
-			public int vergleiche(Spieler p1, Spieler p2) {
-				return p1.getAlter().compareTo(p2.getAlter());
-			}
-		};
-		
-		System.out.println(spielerVergleicher.vergleiche(new Spieler("Karl", 42), new Spieler("Albert", 14)));
+		// System.out.println(spielerVergleicher.vergleiche(new Spieler("Karl", 42), new Spieler("Albert", 14)));
 	}
 
 	private static void vergleicheSpielerNachAlterMitLambda() {
-		Vergleicher<Spieler> spielerVergleicher = ( p1,  p2) -> p1.getAlter().compareTo(p2.getAlter());		
-		System.out.println(spielerVergleicher.vergleiche(new Spieler("Karl", 42), new Spieler("Albert", 14)));
+
 	}
 
 	private static void vergleicheSpielerNachAlterMitLambdaRueckwaerts() {
-		Vergleicher<Spieler> spielerVergleicher = ( t1, t2 ) -> t1.getName().compareTo(t2.getName());
-		Vergleicher<Spieler> spielerVergleicherRueckwaerts = spielerVergleicher.verwandleInRueckwaertsVergleicher();
-		System.out.println(spielerVergleicherRueckwaerts.vergleiche(new Spieler("Karl", 42), new Spieler("Albert", 14)));
+		
 	}	
 
-	private static void vergleicheSpielerNachAlterMitLambdaUndFunktion() {		
-		Funktion<Spieler, Integer> spielerZuAlter = new Funktion<Spieler, Integer>() {			
-			@Override
-			public Integer machEtwas(Spieler p) {
-				return p.getAlter();
-			}
-		};
-
-		Vergleicher<Spieler> spielerVergleicher = (p1,  p2) -> spielerZuAlter.machEtwas(p1).compareTo(spielerZuAlter.machEtwas(p2));		
-		System.out.println(spielerVergleicher.vergleiche(new Spieler("Karl", 42), new Spieler("Albert", 14)));
+	private static void vergleicheSpielerNachAlterMitLambdaUndFunktion() {
+		
 	}
 
 	private static void vergleicheSpielerNachAlterMitStatischerMethodeVonComperator() {
 
-		Funktion<Spieler, Integer> spielerZuAlter = new Funktion<Spieler, Integer>() {			
-			@Override
-			public Integer machEtwas(Spieler p) {
-				return p.getAlter();
-			}
-		};
-
-		Vergleicher<Spieler> spielerVergleicher = Vergleicher.erzeugeVergleicher( spielerZuAlter );
-
-		System.out.println(spielerVergleicher.vergleiche(new Spieler("Karl", 42), new Spieler("Albert", 14)));
 	}
 	
 	private static void vergleicheSpielerNachAlterMitStatischerMethodeVonComperatorMitLambda() {
 
-		Funktion<Spieler, Integer> spielerZuAlter =  p  -> p.getAlter();
-
-		Vergleicher<Spieler> spielerVergleicher = Vergleicher.erzeugeVergleicher( spielerZuAlter );
-
-		System.out.println(spielerVergleicher.vergleiche(new Spieler("Karl", 42), new Spieler("Albert", 14)));
 	}
 
 	private static void vergleicheSpielerNachAlterMitStatischerMethodeVonComperatorMitMethodReferenz() {		
-		Funktion<Spieler, Integer> spielerZuAlter =  Spieler::getAlter;
-		Vergleicher<Spieler> spielerVergleicher = Vergleicher.erzeugeVergleicher( spielerZuAlter );
-		System.out.println(spielerVergleicher.vergleiche(new Spieler("Karl", 42), new Spieler("Albert", 14)));		
+
 	}
 
 	private static void vergleicheSpielerNachAlterMitStatischerMethodeVonComperatorMitMethodReferenzDirekt() {
-		Vergleicher<Spieler> spielerVergleicher = Vergleicher.erzeugeVergleicher( Spieler::getAlter );
-		System.out.println(spielerVergleicher.vergleiche(new Spieler("Karl", 42), new Spieler("Albert", 14)));				
+
 	}
 
 	/**
@@ -101,8 +65,7 @@ public class SpielerSortierenMitVergleicher {
 	 * Verwende die Methode, um Integer rückwärts zu sortieren. 
 	 */
 	private static void vergleicheIntegerRueckwaerts() {
-		Vergleicher<Integer> rueckwaertsVergleicher = Vergleicher.erzeugeRueckwaertsVergleicher();		
-		System.out.println( rueckwaertsVergleicher.vergleiche( 42, 43 ));		
+
 	}
 
 	/**
@@ -114,29 +77,22 @@ public class SpielerSortierenMitVergleicher {
 	 * 
 	 */
 	private static void vergleicheSpielerNachAlterRueckwaerts() {
-		Vergleicher<Spieler> spielerVergleicher = Vergleicher.erzeugeVergleicher( Spieler::getAlter , Vergleicher.erzeugeRueckwaertsVergleicher() );
-		System.out.println(spielerVergleicher.vergleiche(new Spieler("Karl", 42), new Spieler("Albert", 14)));
+
 	}
 
 	private static void vergleicheSpielerNachAlterRueckwaertsDirekt() {
-		System.out.println(Vergleicher.erzeugeVergleicher( Spieler::getAlter ).verwandleInRueckwaertsVergleicher().vergleiche(new Spieler("Karl", 42), new Spieler("Albert", 14)));
+
 	}
 
 	private static void vergleicheZeichenketteGrossKleinSchreibungIgnorierend() {
-		Vergleicher<Zeichenkette> zeichenketteVergleicher = Zeichenkette.GROSS_KLEIN_SCHEIBUNG_IGNORIERENDER_VERGLEICHER;
-		System.out.println(zeichenketteVergleicher.vergleiche(new Zeichenkette("eins" ), new Zeichenkette( "zwei") ) );
+
 	}	
 
 	/**
 	 * Sortieren nach Spitzname
 	 */	
 	private static void vergleicheSpielerNachSpitznameRueckwaertsGrossKleinSchreibungIgnorierend() {
-		
-		Vergleicher<Spieler> erzeugeVergleicher = Vergleicher.erzeugeVergleicher( Spieler::getSpitzname, Zeichenkette.GROSS_KLEIN_SCHEIBUNG_IGNORIERENDER_VERGLEICHER);
-		System.out.println(erzeugeVergleicher.vergleiche(new Spieler("Käfer", 42, "Karl"), new Spieler("Einstein", 14, "Albert")));
-		
-		// So funktionierts:
-		System.out.println(Vergleicher.erzeugeVergleicher( Spieler::getSpitzname, Zeichenkette.GROSS_KLEIN_SCHEIBUNG_IGNORIERENDER_VERGLEICHER).verwandleInRueckwaertsVergleicher().vergleiche(new Spieler("Käfer", 42, "Karl"), new Spieler("Einstein", 14, "Albert")));
+
 	}
 
 	/**
@@ -146,8 +102,6 @@ public class SpielerSortierenMitVergleicher {
 	 */
 	private static void vergleicheSpielerNachAlterUndDannNachName() {
 
-		Vergleicher<Spieler> spielerVergleicher = Vergleicher.erzeugeVergleicher( Spieler::getAlter ).fuegeNaechstesVergleichsKriteriumHinzu(Spieler::getName);
-		System.out.println(spielerVergleicher.vergleiche(new Spieler("Karl", 42), new Spieler("Albert", 14)));				
 	}
 
 	/**
@@ -155,21 +109,6 @@ public class SpielerSortierenMitVergleicher {
 	 * Auch Ruckwaerts vergleichen beruecksichtigen.
 	 */
 	private static void vergleicheSpielerNachAlterMitNullWertenUndDannNachName() {
-		Vergleicher<Spieler> spielerVergleicher = Vergleicher.erzeugeVergleicher( Spieler::getAlter ).fuegeNaechstesVergleichsKriteriumHinzu(Spieler::getName);
-		Vergleicher<Spieler> spielerVergleicherNullZuerst = Vergleicher.erzeugeNullZuerstVergleicher(spielerVergleicher);
-		System.out.println(spielerVergleicherNullZuerst.vergleiche(new Spieler("Karl", 42), new Spieler("Albert", 14)));				
-		System.out.println(spielerVergleicherNullZuerst.vergleiche(null, new Spieler("Albert", 14)));
-		System.out.println(spielerVergleicherNullZuerst.vergleiche(new Spieler("Karl", 42), null));
-		System.out.println(spielerVergleicherNullZuerst.vergleiche(null, null));
-		
-		// Soll auch funktionieren, wenn null als Comparator übergeben wird.
-		Vergleicher<Spieler> spielerVergleicherNullZuerstVergleicherNull = Vergleicher.erzeugeNullZuerstVergleicher(null);
-		spielerVergleicherNullZuerstVergleicherNull.fuegeNaechstesVergleichsKriteriumHinzu(Spieler::getName); // hab ich nicht in einer Zeile hinbekommen
-		
-		System.out.println(spielerVergleicherNullZuerstVergleicherNull.vergleiche(new Spieler("Karl", 42), new Spieler("Albert", 14)));				
-		System.out.println(spielerVergleicherNullZuerstVergleicherNull.vergleiche(null, new Spieler("Albert", 14)));
-		System.out.println(spielerVergleicherNullZuerstVergleicherNull.vergleiche(new Spieler("Karl", 42), null));
-		System.out.println(spielerVergleicherNullZuerstVergleicherNull.vergleiche(null, null));
 
 	}
 
@@ -181,8 +120,8 @@ public class SpielerSortierenMitVergleicher {
 	 * Etwas vergleichen, was auf natürliche Art verglichen werden kann.
 	 */
 	private static void sortiereNachNatuerlicherOrdnung() {
-		Vergleicher<Fussballer> fussballerNummernVergleicher = Vergleicher.erzeugeVergleicherWieComparable();		
-		System.out.println(fussballerNummernVergleicher.vergleiche(new Fussballer(42), new Fussballer(40)));
+
+		// System.out.println(fussballerNummernVergleicher.vergleiche(new Fussballer(42), new Fussballer(40)));
 	}
 	
 }

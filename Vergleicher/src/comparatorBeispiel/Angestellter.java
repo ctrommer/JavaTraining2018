@@ -1,6 +1,6 @@
 package comparatorBeispiel;
 
-public class Angestellter implements Comparable<Angestellter>{
+public class Angestellter {
 	Integer gehalt;
 	
 	public Angestellter(Integer gehalt) {
@@ -12,9 +12,5 @@ public class Angestellter implements Comparable<Angestellter>{
 	public String toString() {
 		return "Angestellter [gehalt=" + gehalt + "]";
 	}	
-	
-	@Override
-	public int compareTo(Angestellter o) {
-		return gehalt.compareTo(o.gehalt);
-	}
+
 }

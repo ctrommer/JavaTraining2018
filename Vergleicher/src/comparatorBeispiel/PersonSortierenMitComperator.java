@@ -50,21 +50,11 @@ public class PersonSortierenMitComperator {
 	
 	private static void vergleichePersonNachNameOhneLambda() {		
 		
-		Comparator<Person> personNachNameComparator = new Comparator<Person>() {
-			@Override
-			public int compare(Person person1, Person person2) {
-				return person1.getName().compareTo(person2.getName());
-			}
-		}; 
-		
-		personen.sort(personNachNameComparator);		
+		// personen.sort(personNachNameComparator);		
 	}
 
 	private static void vergleichePersonNachNameMitLambda() {		
-		
-		Comparator<Person> personNachNameComparator = (person1, person2) -> person1.getName().compareTo(person2.getName());
-		
-		personen.sort(personNachNameComparator);		
+
 	}
 
 	/**
@@ -72,90 +62,50 @@ public class PersonSortierenMitComperator {
 	 */
 	private static void vergleichePersonNachNameMitLambdaUndFunction() {
 		
-		Function<Person, String> personZuNameFunction = new Function<Person, String> () {
-			@Override
-			public String apply(Person person) {
-				return person.getName();
-			}
-		};
-		
-		Comparator<Person> personNachNameComparator = (person1, person2) -> personZuNameFunction.apply(person1).compareTo(personZuNameFunction.apply(person2));
-		
-		personen.sort(personNachNameComparator);		
 	}
 	
 	/**
 	 * Um dieses Problem zu verstehen, sollte man {@link java.util.Comparator#comparing()} anschauen. 
 	 */
 	private static void vergleichePersonNachNameMitStatischerMethodeVonComperator() {
-		Function<Person, String> personZuNameFunction = new Function<Person, String> () {
-			@Override
-			public String apply(Person t) {
-				return t.getName();
-			}
-		};
-		
-		Comparator<Person> personNachNameComparator = Comparator.comparing(personZuNameFunction);
-		
-		personen.sort(personNachNameComparator);
+
 	}
 
 	private static void vergleichePersonNachNameMitStatischerMethodeVonComperatorMitLambda() {
 		
-		Function<Person, String> personZuNameFunction = person -> person.getName();
-		
-		Comparator<Person> personNachNameComparator = Comparator.comparing(personZuNameFunction);
-		
-		personen.sort(personNachNameComparator);		
 	}
 	
 	private static void vergleichePersonNachNameMitStatischerMethodeVonComperatorMitMethodReferenz() {
 		
-		Function<Person, String> personZuNameFunction = Person::getName;
-		
-		Comparator<Person> personNachNameComparator = Comparator.comparing(personZuNameFunction);
-		
-		personen.sort(personNachNameComparator);
 	}		
 	
 	private static void vergleichePersonNachNameMitStatischerMethodeVonComperatorMitMethodReferenzDirekt() {
 		
-		Comparator<Person> personNachNameComparator = Comparator.comparing(Person::getName);
-		
-		personen.sort(personNachNameComparator);
 	}			
 
 	private static void vergleichePersonNachNameRueckwaerts() {
 		
-		Comparator<Person> personNachNameComparator = Comparator.comparing(Person::getName, Comparator.reverseOrder());
-		
-		personen.sort(personNachNameComparator);
 	}
 	
 	private static void vergleichePersonNachNameRueckwaertsDirekt() {
 
-		personen.sort(Comparator.comparing(Person::getName, Comparator.reverseOrder()));
 	}	
 	
 	private static void vergleichePersonNachNameRueckwaertsGrossKleinSchreibungIgnorierend() {
 
-		personen.sort(Comparator.comparing(Person::getName, String.CASE_INSENSITIVE_ORDER.reversed()));
 	}	
 	
 	private static void vergleichePersonNachNameUndDannNachAlter() {
 
-		personen.sort(Comparator.comparing(Person::getName, Comparator.reverseOrder()).thenComparing(Person::getAlter));
 	}
 
 	private static void vergleichePersonNachNameMitNullWertenUndDannNachAlter() {
 		
-		personen.sort(Comparator.nullsLast(Comparator.comparing(Person::getName)).thenComparing(Person::getAlter));
 	}
 
 	private static void sortiereNachNatuerlicherOrdnung() {
-		List<Angestellter> angestelltenListe = Arrays.asList(new Angestellter(43),new Angestellter(22),new Angestellter(42));		 
-		Comparator<Angestellter> angestellterGehaltVergleicher = Comparator.naturalOrder();
-		angestelltenListe.sort(angestellterGehaltVergleicher);
+		List<Angestellter> angestelltenListe = Arrays.asList(new Angestellter(43),new Angestellter(22),new Angestellter(42));
+		
 		System.out.println(angestelltenListe);
 	}
 
