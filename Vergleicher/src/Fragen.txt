@@ -1,5 +1,4 @@
 
-
 *
 
 Wie prüft man, dass Parameter nicht null sind?
@@ -9,3 +8,5 @@ Objects.requireNonNull(keyExtractor);
 
  Wann kann man statt eines Lambdas method Referenzen verwenden?
  Wenn das lambda nur eine Methode ausführt.
+ 
+ 

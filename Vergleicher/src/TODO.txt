@@ -1,9 +1,4 @@
 
-Commit Test von Git
-
-
-Mit Git arbeiten - alternativ die im Beispiel mit XXXVergleicher etc. umbenennen.
-
 *
 
 toString brauche ich bei meinen Beispielen nicht, da ich ja nicht die Elemente ausgebe, sondern nur das Ergebnis des Vergleichs.

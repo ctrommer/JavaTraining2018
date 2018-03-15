@@ -2,5 +2,6 @@
 
 Erweiterung vom Comparator Beispiel
 Übung: 
-Liste ist zu kompliziert. Mal Ehepaar implementieren, das einen Vergleicher als Parameter nimmt und damit vergleicht oder sortiert. Prima: in Java gibt es kein Pair, 
-hier kann ich mich also austoben.
+Liste ist zu kompliziert. Mal Ehepaar implementieren, das einen Vergleicher als Parameter nimmt und damit vergleicht oder sortiert. 
+Prima: in Java gibt es kein Pair, hier kann ich mich also austoben.
+Zusätzlich kann man zum Ehepaar einen Comparator-Ersatz implementieren, der zwei verschiedene Parameter nimmt, einen Mann und eine Frau.

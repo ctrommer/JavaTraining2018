@@ -95,11 +95,24 @@ public class SpielerSortierenMitVergleicher {
 		System.out.println(spielerVergleicher.vergleiche(new Spieler("Karl", 42), new Spieler("Albert", 14)));				
 	}
 
+	/**
+	 * Schreibe Methode von MyVergleicher, die einen Vergleicher erzeugt, der Elemente rückwärts vergleicht, die 
+	 * Comparable implementieren.
+	 * Verwende die Methode, um Integer rückwärts zu sortieren. 
+	 */
 	private static void vergleicheIntegerRueckwaerts() {
 		Vergleicher<Integer> rueckwaertsVergleicher = Vergleicher.erzeugeRueckwaertsVergleicher();		
 		System.out.println( rueckwaertsVergleicher.vergleiche( 42, 43 ));		
 	}
 
+	/**
+	 * Mit Methode, die einen Vergleichskriteriumextrahierer und einen Rueckwaertsvergleicher nimmt.  
+	 * 	  
+	 * Beachte dabei den Unterschied zwischen anonymer innerer Klasse und lambda.
+	 * 
+	 * Für die Übung mit eigenem Vergleicher starke Vereinfachung akzeptabel.
+	 * 
+	 */
 	private static void vergleicheSpielerNachAlterRueckwaerts() {
 		Vergleicher<Spieler> spielerVergleicher = Vergleicher.erzeugeVergleicher( Spieler::getAlter , Vergleicher.erzeugeRueckwaertsVergleicher() );
 		System.out.println(spielerVergleicher.vergleiche(new Spieler("Karl", 42), new Spieler("Albert", 14)));
@@ -114,6 +127,9 @@ public class SpielerSortierenMitVergleicher {
 		System.out.println(zeichenketteVergleicher.vergleiche(new Zeichenkette("eins" ), new Zeichenkette( "zwei") ) );
 	}	
 
+	/**
+	 * Sortieren nach Spitzname
+	 */	
 	private static void vergleicheSpielerNachSpitznameRueckwaertsGrossKleinSchreibungIgnorierend() {
 		
 		Vergleicher<Spieler> erzeugeVergleicher = Vergleicher.erzeugeVergleicher( Spieler::getSpitzname, Zeichenkette.GROSS_KLEIN_SCHEIBUNG_IGNORIERENDER_VERGLEICHER);
@@ -123,12 +139,21 @@ public class SpielerSortierenMitVergleicher {
 		System.out.println(Vergleicher.erzeugeVergleicher( Spieler::getSpitzname, Zeichenkette.GROSS_KLEIN_SCHEIBUNG_IGNORIERENDER_VERGLEICHER).verwandleInRueckwaertsVergleicher().vergleiche(new Spieler("Käfer", 42, "Karl"), new Spieler("Einstein", 14, "Albert")));
 	}
 
+	/**
+	 * Hierzu 2 Methoden schreiben:
+	 * - Methode, die einem Vergleicher einen weiteren Vergleicher hinzufügt. 
+	 * - Methode die die zwei Vergleicher zusammenfügt 
+	 */
 	private static void vergleicheSpielerNachAlterUndDannNachName() {
 
 		Vergleicher<Spieler> spielerVergleicher = Vergleicher.erzeugeVergleicher( Spieler::getAlter ).fuegeNaechstesVergleichsKriteriumHinzu(Spieler::getName);
 		System.out.println(spielerVergleicher.vergleiche(new Spieler("Karl", 42), new Spieler("Albert", 14)));				
 	}
 
+	/**
+	 * NullVergleicher zum Vergleichen erstellen. 
+	 * Auch Ruckwaerts vergleichen beruecksichtigen.
+	 */
 	private static void vergleicheSpielerNachAlterMitNullWertenUndDannNachName() {
 		Vergleicher<Spieler> spielerVergleicher = Vergleicher.erzeugeVergleicher( Spieler::getAlter ).fuegeNaechstesVergleichsKriteriumHinzu(Spieler::getName);
 		Vergleicher<Spieler> spielerVergleicherNullZuerst = Vergleicher.erzeugeNullZuerstVergleicher(spielerVergleicher);
@@ -148,6 +173,13 @@ public class SpielerSortierenMitVergleicher {
 
 	}
 
+	/**
+	 * NullVergleicher zum Vergleichen erstellen.
+	 * Parameter ist ein Vergleicher, also nicht eine Method-Referenz. 
+	 * Auch Ruckwaerts vergleichen beruecksichtigen.
+	 * 
+	 * Etwas vergleichen, was auf natürliche Art verglichen werden kann.
+	 */
 	private static void sortiereNachNatuerlicherOrdnung() {
 		Vergleicher<Fussballer> fussballerNummernVergleicher = Vergleicher.erzeugeVergleicherWieComparable();		
 		System.out.println(fussballerNummernVergleicher.vergleiche(new Fussballer(42), new Fussballer(40)));
