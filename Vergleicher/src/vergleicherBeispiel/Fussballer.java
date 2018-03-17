@@ -13,8 +13,4 @@ public class Fussballer implements Comparable<Fussballer>{
 		return this.nummer.compareTo(o.nummer);
 	}
 
-	@Override
-	public String toString() {
-		return "Fussballer [nummer=" + nummer + "]";
-	}
 }

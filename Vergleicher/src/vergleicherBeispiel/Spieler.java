@@ -20,11 +20,6 @@ public class Spieler {
 		this.spitzname = new Zeichenkette(spitzname);
 	}
 
-	@Override
-	public String toString() {
-		return "Spieler [name=" + name + ", age=" + alter + ", spitzname=" + spitzname + "]";
-	}
-
 	public String getName() { return name; }	
     public Integer getAlter() { return alter; }    
     public Zeichenkette getSpitzname() { return spitzname; }
