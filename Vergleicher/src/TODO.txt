@@ -1,12 +1,16 @@
 
-
 ______________________________________________________________________________________________________
 
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
-	Das ganze so umwandeln, dass jede Methode eine kleine Aufgabe mit Beschreibung ist. 
-	Insbesondere zu viel:
-	vergleicheSpielerNachNameRueckwaertsGrossKleinSchreibungIgnorierend
+	Das ganze so umwandeln, dass jede Methode eine kleine Aufgabe mit Beschreibung ist.
+	
+	Problem:
+		- comparator ist OK: Bei jeder Methode kommt eine Kleinigkeit hinzu 
+		- vergleicher ist daran angelehnt. Dadurch ist aber zu viel in einer Methode. 
+
+	Zur Not:
+		- weiter Hinweise dranschreiben, die bei der Lösung helfen
 	
 
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -17,7 +21,13 @@ ________________________________________________________________________________
 
 Kann ich auch Comparable selber basteln "Vergleichbar" ? 
 
-*
+***
+
+Mal Beispiel mit super machen:
+Comparator<? super T> real
+
+***
+
 super / extends auseinanderklamüsern ( In Übung reinbringen ) 
 Objects.requireNonNull(keyExtractor); nicht vergessen -> mit Unittest sicherstellen?
 
@@ -26,11 +36,6 @@ Objects.requireNonNull(keyExtractor); nicht vergessen -> mit Unittest sicherstel
             Comparator<? super U> keyComparator)
     {
         Objects.requireNonNull(keyExtractor);
-
-*
-
-doch git verwenden? Damit bräuchte man dann nicht mehr die Unterscheidung Beispiel / Übung, sondern könnte direkt das Beispiel löschen und neu aufbauen.
-Man hätte dann auch nicht mehr die Verwirrung mit My...
 
 
 ***
@@ -45,11 +50,6 @@ https://stackoverflow.com/questions/25606906/sonar-replace-this-lambda-with-a-me
 
 https://stackoverflow.com/questions/22444731/java-8-maptoint-and-tointfunction-examples
 
-
-***
-
-Mal Beispiel mit super machen:
-Comparator<? super T> real
 
 
 ***
