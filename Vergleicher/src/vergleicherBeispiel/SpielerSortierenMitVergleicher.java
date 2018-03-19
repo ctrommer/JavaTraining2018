@@ -151,7 +151,8 @@ public class SpielerSortierenMitVergleicher {
 	}
 
 	/**
-	 * NullVergleicher zum Vergleichen erstellen. 
+	 * NullVergleicher zum Vergleichen erstellen.
+	 * Parameter ist ein Vergleicher, also nicht eine Method-Referenz.  
 	 * Auch Ruckwaerts vergleichen beruecksichtigen.
 	 */
 	private static void vergleicheSpielerNachAlterMitNullWertenUndDannNachName() {
@@ -175,8 +176,6 @@ public class SpielerSortierenMitVergleicher {
 
 	/**
 	 * NullVergleicher zum Vergleichen erstellen.
-	 * Parameter ist ein Vergleicher, also nicht eine Method-Referenz. 
-	 * Auch Ruckwaerts vergleichen beruecksichtigen.
 	 * 
 	 * Etwas vergleichen, was auf natürliche Art verglichen werden kann.
 	 */
