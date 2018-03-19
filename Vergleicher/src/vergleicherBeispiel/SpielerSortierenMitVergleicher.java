@@ -105,7 +105,8 @@ public class SpielerSortierenMitVergleicher {
 	}
 
 	/**
-	 * NullVergleicher zum Vergleichen erstellen. 
+	 * NullVergleicher zum Vergleichen erstellen.
+	 * Parameter ist ein Vergleicher, also nicht eine Method-Referenz.  
 	 * Auch Ruckwaerts vergleichen beruecksichtigen.
 	 */
 	private static void vergleicheSpielerNachAlterMitNullWertenUndDannNachName() {
@@ -114,14 +115,11 @@ public class SpielerSortierenMitVergleicher {
 
 	/**
 	 * NullVergleicher zum Vergleichen erstellen.
-	 * Parameter ist ein Vergleicher, also nicht eine Method-Referenz. 
-	 * Auch Ruckwaerts vergleichen beruecksichtigen.
 	 * 
 	 * Etwas vergleichen, was auf natürliche Art verglichen werden kann.
 	 */
 	private static void sortiereNachNatuerlicherOrdnung() {
 
 		// System.out.println(fussballerNummernVergleicher.vergleiche(new Fussballer(42), new Fussballer(40)));
-	}
-	
+	}	
 }
