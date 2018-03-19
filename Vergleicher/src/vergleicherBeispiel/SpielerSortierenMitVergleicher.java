@@ -22,7 +22,9 @@ public class SpielerSortierenMitVergleicher {
 		vergleicheZeichenketteGrossKleinSchreibungIgnorierend();		
 		vergleicheSpielerNachSpitznameRueckwaertsGrossKleinSchreibungIgnorierend();
 		vergleicheSpielerNachAlterUndDannNachName();
-		vergleicheSpielerNachAlterMitNullWertenUndDannNachName();
+		vergleicheSpielerNachAlterNullBeruecksichtigend();
+		vergleicheSpielerNachAlterNullBeruecksichtigendReuckwaerts();
+		vergleicheSpielerNachAlterNullBeruecksichtigendUndDannNachName();
 		sortiereNachNatuerlicherOrdnung();
 	}
 	
@@ -107,15 +109,17 @@ public class SpielerSortierenMitVergleicher {
 	/**
 	 * NullVergleicher zum Vergleichen erstellen.
 	 * Parameter ist ein Vergleicher, also nicht eine Method-Referenz.  
-	 * Auch Ruckwaerts vergleichen beruecksichtigen.
 	 */
-	private static void vergleicheSpielerNachAlterMitNullWertenUndDannNachName() {
-
+	public static void vergleicheSpielerNachAlterNullBeruecksichtigend() {
 	}
 
-	/**
-	 * NullVergleicher zum Vergleichen erstellen.
-	 * 
+	public static void vergleicheSpielerNachAlterNullBeruecksichtigendReuckwaerts() {
+	}
+
+	private static void vergleicheSpielerNachAlterNullBeruecksichtigendUndDannNachName() {
+	}
+	
+	/** 
 	 * Etwas vergleichen, was auf natürliche Art verglichen werden kann.
 	 */
 	private static void sortiereNachNatuerlicherOrdnung() {
