@@ -22,7 +22,9 @@ public class SpielerSortierenMitVergleicher {
 		vergleicheZeichenketteGrossKleinSchreibungIgnorierend();		
 		vergleicheSpielerNachSpitznameRueckwaertsGrossKleinSchreibungIgnorierend();
 		vergleicheSpielerNachAlterUndDannNachName();
-		vergleicheSpielerNachAlterMitNullWertenUndDannNachName();
+		vergleicheSpielerNachAlterNullBeruecksichtigend();
+		vergleicheSpielerNachAlterNullBeruecksichtigendReuckwaerts();
+		vergleicheSpielerNachAlterNullBeruecksichtigendUndDannNachName();
 		sortiereNachNatuerlicherOrdnung();
 	}
 	
@@ -153,30 +155,45 @@ public class SpielerSortierenMitVergleicher {
 	/**
 	 * NullVergleicher zum Vergleichen erstellen.
 	 * Parameter ist ein Vergleicher, also nicht eine Method-Referenz.  
-	 * Auch Ruckwaerts vergleichen beruecksichtigen.
 	 */
-	private static void vergleicheSpielerNachAlterMitNullWertenUndDannNachName() {
-		Vergleicher<Spieler> spielerVergleicher = Vergleicher.erzeugeVergleicher( Spieler::getAlter ).fuegeNaechstesVergleichsKriteriumHinzu(Spieler::getName);
+	public static void vergleicheSpielerNachAlterNullBeruecksichtigend() {
+		Vergleicher<Spieler> spielerVergleicher = Vergleicher.erzeugeVergleicher( Spieler::getAlter );
 		Vergleicher<Spieler> spielerVergleicherNullZuerst = Vergleicher.erzeugeNullZuerstVergleicher(spielerVergleicher);
+		System.out.println(spielerVergleicherNullZuerst.vergleiche(new Spieler("Karl", 42), new Spieler("Albert", 14)));
+		System.out.println(spielerVergleicherNullZuerst.vergleiche(null, new Spieler("Albert", 14)));
+		System.out.println(spielerVergleicherNullZuerst.vergleiche(new Spieler("Karl", 42), null));
+		System.out.println(spielerVergleicherNullZuerst.vergleiche(null, null));
+	}
+
+	public static void vergleicheSpielerNachAlterNullBeruecksichtigendReuckwaerts() {
+		Vergleicher<Spieler> spielerVergleicher = Vergleicher.erzeugeVergleicher( Spieler::getAlter );
+		Vergleicher<Spieler> spielerVergleicherNullZuerst = Vergleicher.erzeugeNullZuerstVergleicher(spielerVergleicher).verwandleInRueckwaertsVergleicher();
+
 		System.out.println(spielerVergleicherNullZuerst.vergleiche(new Spieler("Karl", 42), new Spieler("Albert", 14)));				
 		System.out.println(spielerVergleicherNullZuerst.vergleiche(null, new Spieler("Albert", 14)));
 		System.out.println(spielerVergleicherNullZuerst.vergleiche(new Spieler("Karl", 42), null));
 		System.out.println(spielerVergleicherNullZuerst.vergleiche(null, null));
-		
+	}
+
+	private static void vergleicheSpielerNachAlterNullBeruecksichtigendUndDannNachName() {
+		Vergleicher<Spieler> spielerVergleicher = Vergleicher.erzeugeVergleicher( Spieler::getAlter );
+		Vergleicher<Spieler> spielerVergleicherNullZuerst = Vergleicher.erzeugeNullZuerstVergleicher(spielerVergleicher).fuegeNaechstesVergleichsKriteriumHinzu(Spieler::getName);
+		System.out.println(spielerVergleicherNullZuerst.vergleiche(new Spieler("Karl", 42), new Spieler("Albert", 14)));
+		System.out.println(spielerVergleicherNullZuerst.vergleiche(null, new Spieler("Albert", 14)));
+		System.out.println(spielerVergleicherNullZuerst.vergleiche(new Spieler("Karl", 42), null));
+		System.out.println(spielerVergleicherNullZuerst.vergleiche(null, null));
+
 		// Soll auch funktionieren, wenn null als Comparator übergeben wird.
 		Vergleicher<Spieler> spielerVergleicherNullZuerstVergleicherNull = Vergleicher.erzeugeNullZuerstVergleicher(null);
-		spielerVergleicherNullZuerstVergleicherNull.fuegeNaechstesVergleichsKriteriumHinzu(Spieler::getName); // hab ich nicht in einer Zeile hinbekommen
-		
+		spielerVergleicherNullZuerstVergleicherNull.fuegeNaechstesVergleichsKriteriumHinzu(Spieler::getName);
+
 		System.out.println(spielerVergleicherNullZuerstVergleicherNull.vergleiche(new Spieler("Karl", 42), new Spieler("Albert", 14)));				
 		System.out.println(spielerVergleicherNullZuerstVergleicherNull.vergleiche(null, new Spieler("Albert", 14)));
 		System.out.println(spielerVergleicherNullZuerstVergleicherNull.vergleiche(new Spieler("Karl", 42), null));
 		System.out.println(spielerVergleicherNullZuerstVergleicherNull.vergleiche(null, null));
-
 	}
-
-	/**
-	 * NullVergleicher zum Vergleichen erstellen.
-	 * 
+	
+	/** 
 	 * Etwas vergleichen, was auf natürliche Art verglichen werden kann.
 	 */
 	private static void sortiereNachNatuerlicherOrdnung() {

@@ -1,8 +1,6 @@
 
 ______________________________________________________________________________________________________
 
-!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-
 	Problem: 
 	Beispiel NullberuecksichtigenderVergleicher#erzeugeRueckwaertsvergleicher
 	Es macht keinen Sinn, Methoden zu immplementieren, die ich gar nicht brauche.
@@ -10,10 +8,7 @@ ________________________________________________________________________________
 	Für jede Methode eine Methode, in der ich sie brauche
 	Insbesondere auch Beispiele mit Vererbung
 	Unittests, die dann auch Objects.Require NonNull berücksichtigen
-
 ______________________________________________________________________________________________________
-
-!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 	Das ganze so umwandeln, dass jede Methode eine kleine Aufgabe mit Beschreibung ist.
 	
@@ -23,17 +18,9 @@ ________________________________________________________________________________
 
 	Zur Not:
 		- weiter Hinweise dranschreiben, die bei der Lösung helfen
-	
 
-!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 ______________________________________________________________________________________________________
 
-
-
-
-Kann ich auch Comparable selber basteln "Vergleichbar" ? 
-
-***
 
 Mal Beispiel mit super machen:
 Comparator<? super T> real
@@ -49,8 +36,8 @@ Objects.requireNonNull(keyExtractor); nicht vergessen -> mit Unittest sicherstel
     {
         Objects.requireNonNull(keyExtractor);
 
+______________________________________________________________________________________________________
 
-***
 
 In sinnvolles Beispiel umwandeln:
 
@@ -62,6 +49,5 @@ https://stackoverflow.com/questions/25606906/sonar-replace-this-lambda-with-a-me
 
 https://stackoverflow.com/questions/22444731/java-8-maptoint-and-tointfunction-examples
 
+______________________________________________________________________________________________________
 
-
-***
