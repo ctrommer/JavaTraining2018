@@ -1,4 +1,16 @@
 
+
+
+	// Kommentare der letzten beiden Methoden korrigieren
+	// 
+	// Problem: 
+	// Beispiel NullberuecksichtigenderVergleicher#erzeugeRueckwaertsvergleicher
+	// Es macht keinen Sinn, Methoden zu immplementieren, die ich gar nicht brauche.
+	// Lösung: 
+	// Für jede Methode eine Methode, in der ich sie brauche
+	// Insbesondere auch Beispiele mit Vererbung
+	// Unittests, die dann auch Objects.Require NonNull berücksichtigen
+
 ______________________________________________________________________________________________________
 
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
