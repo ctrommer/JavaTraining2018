@@ -1,6 +1,12 @@
 
 ______________________________________________________________________________________________________
 
+	Mal mit Streams weitermachen. Dabei direkt berücksichtigen:
+	
+	- Jede Übung so formuliert, dass man sie lösen kann ohne zu raten
+	- Direkt im Master mit Unittests absichern
+______________________________________________________________________________________________________
+
 	Problem: 
 	Beispiel NullberuecksichtigenderVergleicher#erzeugeRueckwaertsvergleicher
 	Es macht keinen Sinn, Methoden zu immplementieren, die ich gar nicht brauche.
