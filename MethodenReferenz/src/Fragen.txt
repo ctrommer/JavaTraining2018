@@ -1,0 +1,59 @@
+
+Quelle:
+docs.oracle.com/javase/tutorial/java/javaOO/methodreferences.html
+
+Welche Arten von Method Referenzen gibt es?
+
+
+Types of Method References
+Type							Syntax						Method Reference	Lambda expression
+---------------------------------------------------------------------------------------------------------------
+Reference to a static method	Class::staticMethod			String::valueOf	 	s -> String.valueOf(s)
+
+Reference to an instance method
+of a particular object			instance::instanceMethod	s::toString	 		() -> “string”.toString()
+
+Reference to an instance method
+of an arbitrary object of a 
+particular type					Class:instanceMethod		String::toString	s -> s.toString()
+
+Reference to a constructor		Class::new					String::new	 		() -> new String()
+
+
+
+Types of Method References
+Type	Syntax	Method Reference	Lambda expression
+Reference to a static method	Class::staticMethod	String::valueOf	 s -> String.valueOf(s)
+Reference to an instance method
+of a particular object	instance::instanceMethod	s:toString	 () -> “string”.toString()
+Reference to an instance method
+of an arbitrary object of a particular type	Class:instanceMethod	String::toString	 s -> s.toString()
+Reference to a constructor	Class::new	String::new	
+ () -> new String()
+
+
+
+Reference to a Static Method
+
+
+
+Was ist die Syntax von "Referenz auf statische Methode"?
+ContainingClass::staticMethodName
+
+Was ist die Syntax von "Referenz auf Instanz Methode auf ein bestimmtes Objekt"?
+containingObject::instanceMethodName
+
+Was ist die Syntax von "Referenz auf Instanz Methode auf ein beliebiges Objekt eines bestimmten Typs"?
+ContainingType::methodName
+
+Was ist die Syntax von "Referenz auf eine Konstruktor"?
+ClassName::new
+
+Warum kann man
+	Function<Double, String> kelvinAlsZahlZuCelsiusAlsString = gradInKelvin -> String.valueOf(gradInKelvin - 273.15d);
+nicht in eine Method Referenz umwandeln?
+Weil Method Referenzen keine Parameter nehmen.
+
+Wann verwendet man statt eines Lambdas eine Method Referenz? 
+Wenn das Lambda nur eine Methode aufruft, kann man diese Methode direkt angeben.
+
