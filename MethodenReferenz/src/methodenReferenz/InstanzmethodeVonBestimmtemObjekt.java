@@ -9,10 +9,51 @@ import java.util.function.Function;
 public class InstanzmethodeVonBestimmtemObjekt {
 
 	public static void main(String[] args) {
+		aneinanderhaengenMitFunctionOhneLambda();
+		aneinanderhaengenMitFunctionUndLambda();
 		referenzAufInstanzmethodeEinesBestimmtenObjekts();
 		listeAusgebenMitLambda();
 		listeAusgebenMitMethodReferenz();
 	}	
+	
+	/**
+	 * Hängt zwei Strings aneinander mit Function ohne Lambda.
+	 */
+	private static void aneinanderhaengenMitFunctionOhneLambda() {
+
+		// bestimmtes Objekt
+		String ersterTeil = "erster Teil";			
+		
+		Function<String, String> aneinanderhaengen = new Function<String, String>() {
+
+			@Override
+			public String apply(String t) {
+				// Hier kann ich nur eine Variable verwenden, die explizit oder implizit final ist.
+				// Das Objekt, für das die Instanzmehtode aufgerufen wird, wird also nicht verändert.
+				return ersterTeil.concat(t);
+			}
+		};
+		
+		String zusammengesetzt = aneinanderhaengen.apply(" zweiter Teil");
+		
+		System.out.println(zusammengesetzt);
+	}
+	
+	/**
+	 * Hängt zwei Strings aneinander mit Function und Lambda.
+	 */
+	private static void aneinanderhaengenMitFunctionUndLambda() {
+
+		// bestimmtes Objekt
+		String ersterTeil = "erster Teil";			
+		
+		// Referenz auf Instanzmethode
+		Function<String, String> aneinanderhaengen = s -> ersterTeil.concat(s);
+		
+		String zusammengesetzt = aneinanderhaengen.apply(" zweiter Teil");
+		
+		System.out.println(zusammengesetzt);
+	}
 
 	/**
 	 * Demonstriert die Syntax von Referenz auf Instanzmethode eines bestimmten Objekts 
