@@ -18,27 +18,13 @@ public class InstanzmethodeBestimmterTypBeliebigesObjekt {
 	 * Verwandlt Kleinbuchstaben in Großbuchstaben mit Function ohne Lambda.
 	 */
 	private static void mitAbstrakterMethode() {
-		Function<String, String> zuGrossbuchstaben = new Function<String, String>() {
-			@Override
-			public String apply(String m) {
-				return m.toUpperCase();
-			}
-		};
-		
-		String inGrossbuchstaben = zuGrossbuchstaben.apply("kleinbuchstaben");
-		
-		System.out.println(inGrossbuchstaben);
+
 	}	
 	
 	/**
 	 * Verwandlt Kleinbuchstaben in Großbuchstaben mit Function mit Lambda.
 	 */	
 	private static void mitLambda() {
-		Function<String, String> zuGrossbuchstaben = m -> m.toUpperCase();
-		
-		String inGrossbuchstaben = zuGrossbuchstaben.apply("kleinbuchstaben");
-		
-		System.out.println(inGrossbuchstaben);
 	}	
 
 	/**
@@ -47,11 +33,6 @@ public class InstanzmethodeBestimmterTypBeliebigesObjekt {
 	 * Nur zum Demonstrieren der Syntax, es ginge natürlich einfacher ohne Method Referenz. 
 	 */
 	private static void referenzAufInstanzmethodeEinesBeliebigenObjektsEinesBestimmtenTyps() {
-		Function<String, String> zuGrossbuchstaben = String::toUpperCase;
-		
-		String inGrossbuchstaben = zuGrossbuchstaben.apply("kleinbuchstaben");
-		
-		System.out.println(inGrossbuchstaben);
 		// ginge natürlich auch so:
 		// System.out.println(new String ( "kleinbuchstaben" ).toUpperCase());
 	}	
@@ -64,10 +45,7 @@ public class InstanzmethodeBestimmterTypBeliebigesObjekt {
 	private static void nutzenVonReferenzAufInstanzmethodeEinesBeliebigenObjektsEinesBestimmtenTyps() {
 		
 		List<Mitarbeiter> mitarbeiterListe = Arrays.asList(new Mitarbeiter("Albert"), new Mitarbeiter("Bert" ), new Mitarbeiter( "Karl-Dietrich") );
-		
-		Consumer<Mitarbeiter> nameAusgeber = Mitarbeiter::gebeNameAus; // t -> t.gebeNameAus()
-		
-		mitarbeiterListe.forEach(nameAusgeber);		
+				
 	}
 
 }

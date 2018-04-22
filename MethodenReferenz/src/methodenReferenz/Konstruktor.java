@@ -16,11 +16,6 @@ public class Konstruktor {
 	 * Erzeugt einen Mitarbeiter aus einem String mit einem Lambda und Function.
 	 */
 	private static void lambdaMitKonstruktorGepaart() {
-		Function<String, Mitarbeiter> stringZuPerson = s -> new Mitarbeiter(s); 
-		
-		Mitarbeiter erzeugt = stringZuPerson.apply("Karl");
-		
-		System.out.println(erzeugt);				
 	}
 
 	/**
@@ -30,12 +25,6 @@ public class Konstruktor {
 	 * 
 	 */
 	private static void referenzAufKonstrutor() {
-		// Erst sinnvoll, wenn es als Parameter übergeben wird.
-		Function<String, Mitarbeiter> stringZuPerson = Mitarbeiter::new;		// s -> new Mitarbeiter(s);
-		
-		Mitarbeiter neuerMitarbeiter = stringZuPerson.apply("Karl");
-		
-		System.out.println(neuerMitarbeiter);
 	}
 	
 	/**
@@ -45,13 +34,6 @@ public class Konstruktor {
 	 * Was ist der Nutzen der Konstruktor Referenz?
 	 */
 	private static void referenzAufKonstruktorAlsParameter() {
-		Map<String, Mitarbeiter> mitarbeiterMap = new HashMap<>();
-		
-		Function<String, Mitarbeiter> stringZuMitarbeiter = Mitarbeiter::new;	// s -> new Mitarbeiter(s);
 
-		// Nutzen Konstruktorreferenz: man kann sie einer Methode als Parameter mitgeben. 
-		mitarbeiterMap.computeIfAbsent("Karl", stringZuMitarbeiter);
-		
-		System.out.println(mitarbeiterMap);
 	}
 }

@@ -17,11 +17,6 @@ public class StatischeMethode {
 	 * Wandelt double in String mit Function und Method Referenz auf statische Methode von String.
 	 */
 	private static void referenzAufStatischeMethodeSyntax() {
-		Function<Double, String> doubleToString = String::valueOf; 		// n -> String.valueOf(n)
-		
-		String text = doubleToString.apply(273.15);
-		
-		System.out.println(text);
 	}
 
 	/**
@@ -33,8 +28,7 @@ public class StatischeMethode {
 	 * 	Grad in Kelvin
 	 */
 	private static void kelvinAlsCelsiusAusgeben( Double gradKelvin ) {
-		Double gradCelsius = gradKelvin - 273.15d;
-		System.out.println("Grad Celsius: " + gradCelsius);
+
 	}
 
 	/**
@@ -45,14 +39,6 @@ public class StatischeMethode {
 	private static void listeVonKelvinAlsCelsiusAusgebenMitLambda() {		
 		List<Double> listeGradKelvin = Arrays.asList( 0.0, 273.15, 300.15 );
 
-		// Vorteil: Man kann sie als Parameter für Methoden verwenden, die Funktional Interfaces als Parameter nehmen.
-		// Wann verwendet man für das Lambda eine statische Methode?
-		// - Wenn die Methode zu lang für das Lambda ist.
-		// - Wenn die Methode an mehreren Stellen verwendet wird. 
-		// - Wenn es die statische Methode schon gibt.
-		Consumer<Double> verbraucher = n -> kelvinAlsCelsiusAusgeben(n);
-
-		listeGradKelvin.forEach(verbraucher);
 	}
 
 	/**
@@ -63,10 +49,6 @@ public class StatischeMethode {
 	private static void referenzAufStatischeMethode() {
 		List<Double> listeGradKelvin = Arrays.asList( 1d, 2d, 3d );
 		
-		// Man kann die statische Methode wie ein Lambda verwenden, also als Paramter für Methoden.
-		Consumer<Double> verbraucherNimmtKelvinGibtCelsiusAus = StatischeMethode::kelvinAlsCelsiusAusgeben; // n -> kelvinAlsCelsiusAusgeben(n)
-
-		listeGradKelvin.forEach(verbraucherNimmtKelvinGibtCelsiusAus);
 	}
 
 }
