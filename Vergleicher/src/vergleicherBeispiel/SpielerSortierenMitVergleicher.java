@@ -23,7 +23,7 @@ public class SpielerSortierenMitVergleicher {
 		vergleicheSpielerNachSpitznameRueckwaertsGrossKleinSchreibungIgnorierend();
 		vergleicheSpielerNachAlterUndDannNachName();
 		vergleicheSpielerNachAlterNullBeruecksichtigend();
-		vergleicheSpielerNachAlterNullBeruecksichtigendReuckwaerts();
+		vergleicheSpielerNachAlterNullBeruecksichtigendRueckwaerts();
 		vergleicheSpielerNachAlterNullBeruecksichtigendUndDannNachName();
 		sortiereNachNatuerlicherOrdnung();
 	}
@@ -148,7 +148,7 @@ public class SpielerSortierenMitVergleicher {
 	 */
 	private static void vergleicheSpielerNachAlterUndDannNachName() {
 
-		Vergleicher<Spieler> spielerVergleicher = Vergleicher.erzeugeVergleicher( Spieler::getAlter ).fuegeNaechstesVergleichsKriteriumHinzu(Spieler::getName);
+		Vergleicher<Spieler> spielerVergleicher = Vergleicher.erzeugeVergleicher( Spieler::getAlter ).erzeugeMitNaechstemVergleichsKriterium(Spieler::getName);
 		System.out.println(spielerVergleicher.vergleiche(new Spieler("Karl", 42), new Spieler("Albert", 14)));				
 	}
 
@@ -165,7 +165,7 @@ public class SpielerSortierenMitVergleicher {
 		System.out.println(spielerVergleicherNullZuerst.vergleiche(null, null));
 	}
 
-	public static void vergleicheSpielerNachAlterNullBeruecksichtigendReuckwaerts() {
+	public static void vergleicheSpielerNachAlterNullBeruecksichtigendRueckwaerts() {
 		Vergleicher<Spieler> spielerVergleicher = Vergleicher.erzeugeVergleicher( Spieler::getAlter );
 		Vergleicher<Spieler> spielerVergleicherNullZuerst = Vergleicher.erzeugeNullZuerstVergleicher(spielerVergleicher).verwandleInRueckwaertsVergleicher();
 
@@ -177,7 +177,7 @@ public class SpielerSortierenMitVergleicher {
 
 	private static void vergleicheSpielerNachAlterNullBeruecksichtigendUndDannNachName() {
 		Vergleicher<Spieler> spielerVergleicher = Vergleicher.erzeugeVergleicher( Spieler::getAlter );
-		Vergleicher<Spieler> spielerVergleicherNullZuerst = Vergleicher.erzeugeNullZuerstVergleicher(spielerVergleicher).fuegeNaechstesVergleichsKriteriumHinzu(Spieler::getName);
+		Vergleicher<Spieler> spielerVergleicherNullZuerst = Vergleicher.erzeugeNullZuerstVergleicher(spielerVergleicher).erzeugeMitNaechstemVergleichsKriterium(Spieler::getName);
 		System.out.println(spielerVergleicherNullZuerst.vergleiche(new Spieler("Karl", 42), new Spieler("Albert", 14)));
 		System.out.println(spielerVergleicherNullZuerst.vergleiche(null, new Spieler("Albert", 14)));
 		System.out.println(spielerVergleicherNullZuerst.vergleiche(new Spieler("Karl", 42), null));
@@ -185,7 +185,7 @@ public class SpielerSortierenMitVergleicher {
 
 		// Soll auch funktionieren, wenn null als Comparator übergeben wird.
 		Vergleicher<Spieler> spielerVergleicherNullZuerstVergleicherNull = Vergleicher.erzeugeNullZuerstVergleicher(null);
-		spielerVergleicherNullZuerstVergleicherNull.fuegeNaechstesVergleichsKriteriumHinzu(Spieler::getName);
+		spielerVergleicherNullZuerstVergleicherNull.erzeugeMitNaechstemVergleichsKriterium(Spieler::getName);
 
 		System.out.println(spielerVergleicherNullZuerstVergleicherNull.vergleiche(new Spieler("Karl", 42), new Spieler("Albert", 14)));				
 		System.out.println(spielerVergleicherNullZuerstVergleicherNull.vergleiche(null, new Spieler("Albert", 14)));
