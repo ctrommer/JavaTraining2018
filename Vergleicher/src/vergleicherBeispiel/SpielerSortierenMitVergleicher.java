@@ -23,7 +23,7 @@ public class SpielerSortierenMitVergleicher {
 		vergleicheSpielerNachSpitznameRueckwaertsGrossKleinSchreibungIgnorierend();
 		vergleicheSpielerNachAlterUndDannNachName();
 		vergleicheSpielerNachAlterNullBeruecksichtigend();
-		vergleicheSpielerNachAlterNullBeruecksichtigendReuckwaerts();
+		vergleicheSpielerNachAlterNullBeruecksichtigendRueckwaerts();
 		vergleicheSpielerNachAlterNullBeruecksichtigendUndDannNachName();
 		sortiereNachNatuerlicherOrdnung();
 	}
@@ -113,7 +113,7 @@ public class SpielerSortierenMitVergleicher {
 	public static void vergleicheSpielerNachAlterNullBeruecksichtigend() {
 	}
 
-	public static void vergleicheSpielerNachAlterNullBeruecksichtigendReuckwaerts() {
+	public static void vergleicheSpielerNachAlterNullBeruecksichtigendRueckwaerts() {
 	}
 
 	private static void vergleicheSpielerNachAlterNullBeruecksichtigendUndDannNachName() {
