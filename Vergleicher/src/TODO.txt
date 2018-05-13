@@ -16,14 +16,6 @@ ________________________________________________________________________________
 	Unittests, die dann auch Objects.Require NonNull berücksichtigen
 ______________________________________________________________________________________________________
 
-	Das ganze so umwandeln, dass jede Methode eine kleine Aufgabe mit Beschreibung ist.
-	
-	Problem:
-		- comparator ist OK: Bei jeder Methode kommt eine Kleinigkeit hinzu 
-		- vergleicher ist daran angelehnt. Dadurch ist aber zu viel in einer Methode. 
-
-	Zur Not:
-		- weiter Hinweise dranschreiben, die bei der Lösung helfen
 
 ______________________________________________________________________________________________________
 
