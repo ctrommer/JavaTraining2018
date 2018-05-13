@@ -18,7 +18,6 @@ public class SpielerSortierenMitVergleicher {
 		vergleicheSpielerNachAlterMitStatischerMethodeVonComperatorMitMethodReferenzDirekt();
 		vergleicheIntegerRueckwaerts();
 		vergleicheSpielerNachAlterRueckwaerts();
-		vergleicheSpielerNachAlterRueckwaertsDirekt();
 		vergleicheZeichenketteGrossKleinSchreibungIgnorierend();		
 		vergleicheSpielerNachSpitznameRueckwaertsGrossKleinSchreibungIgnorierend();
 		vergleicheSpielerNachAlterUndDannNachName();
@@ -37,6 +36,9 @@ public class SpielerSortierenMitVergleicher {
 
 	}
 
+	/**
+	 * Ein bereits existierender Vergleicher soll in einen Rückwärtsvergleicher verwandelt werden.
+	 */
 	private static void vergleicheSpielerNachAlterMitLambdaRueckwaerts() {
 		
 	}	
@@ -71,7 +73,7 @@ public class SpielerSortierenMitVergleicher {
 	}
 
 	/**
-	 * Mit Methode, die einen Vergleichskriteriumextrahierer und einen Rueckwaertsvergleicher nimmt.  
+	 * Mit Methode, die einen Vergleicher erzeugt. Dazu nimmt sie einen Vergleichskriteriumextrahierer und einen Rueckwaertsvergleicher.  
 	 * 	  
 	 * Beachte dabei den Unterschied zwischen anonymer innerer Klasse und lambda.
 	 * 
@@ -82,47 +84,58 @@ public class SpielerSortierenMitVergleicher {
 
 	}
 
-	private static void vergleicheSpielerNachAlterRueckwaertsDirekt() {
-
-	}
-
+	/**
+	 * Hierzu nested class in Zeichenkette, von der dann in Zeichenkette eine Konstante erzeugt wird.
+	 */
 	private static void vergleicheZeichenketteGrossKleinSchreibungIgnorierend() {
 
 	}	
 
 	/**
-	 * Sortieren nach Spitzname
+	 * Sortieren nach Spitzname; Spitzname ist eine Zeichenkette.
 	 */	
 	private static void vergleicheSpielerNachSpitznameRueckwaertsGrossKleinSchreibungIgnorierend() {
-
+		
 	}
 
 	/**
 	 * Hierzu 2 Methoden schreiben:
-	 * - Methode, die einem Vergleicher einen weiteren Vergleicher hinzufügt. 
-	 * - Methode die die zwei Vergleicher zusammenfügt 
+	 * - 1. Methode, die aus der als Parameter übergebenen Funktion einen Vergleicher erzeugt und die 2. Methode damit aufruft. 
+	 * - 2. Methode, die einen neuen Vergleicher aus zwei Vergleichern erzeugt. 
 	 */
 	private static void vergleicheSpielerNachAlterUndDannNachName() {
-
+		
 	}
 
 	/**
 	 * NullVergleicher zum Vergleichen erstellen.
 	 * Parameter ist ein Vergleicher, also nicht eine Method-Referenz.  
+	 * Über Vergleicherunterstützer und nestend class.
 	 */
 	public static void vergleicheSpielerNachAlterNullBeruecksichtigend() {
 	}
 
+	/**
+	 * Nur zum testen, ob der Nullvergleicher auch Rueckwaerts berücksichtigt.
+	 */
 	public static void vergleicheSpielerNachAlterNullBeruecksichtigendRueckwaerts() {
 	}
 
+	/**
+	 * Nur zum testen, ob der Nullvergleicher auch zweiten Vergleicher hinzufügen berücksichtigt.
+	 */
 	private static void vergleicheSpielerNachAlterNullBeruecksichtigendUndDannNachName() {
 	}
 	
 	/** 
 	 * Etwas vergleichen, was auf natürliche Art verglichen werden kann.
+	 * 
+	 * Über Vergleicherunterstützer, Enum als Singelton
+	 * 
+	 * Hinweise: enum VergleicherWieComparable implements Vergleicher<Comparable<Object>> {
 	 */
 	private static void sortiereNachNatuerlicherOrdnung() {
+		
 		// System.out.println(fussballerNummernVergleicher.vergleiche(new Fussballer(42), new Fussballer(40)));
 	}	
 }
