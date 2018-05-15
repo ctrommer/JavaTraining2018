@@ -34,7 +34,7 @@ public class StatischeMethode {
 	/**
 	 * Gibt eine Liste von Kelvin Werten als Celsius aus. Verwendet dazu Consumer und Lambda.
 	 * 
-	 * Wann macht es Sinn ein Lambad ( oder eine Method Referenz ) zu verwenden, statt die statische Methode direkt zu verwenden?
+	 * Wann macht es Sinn ein Lambda ( oder eine Method Referenz ) zu verwenden, statt die statische Methode direkt zu verwenden?
 	 */
 	private static void listeVonKelvinAlsCelsiusAusgebenMitLambda() {		
 		List<Double> listeGradKelvin = Arrays.asList( 0.0, 273.15, 300.15 );
