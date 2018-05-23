@@ -37,9 +37,6 @@ public class StreamErzeugen {
 	 * Gebe die Zahlen aus. 
 	 */
 	private static void intStreamAusgeben() {
-		IntStream
-			.rangeClosed(1, 10)
-			.forEach(System.out::println);		
 	}
 
 	/**
@@ -47,8 +44,6 @@ public class StreamErzeugen {
 	 * und Elemente ausgeben
 	 */
 	private static void direktErzeugen() {		
-		Stream.of("Karl", "Arnold", "Franz")
-			.forEach(System.out::println);
 	}
 
 	/**
@@ -57,9 +52,6 @@ public class StreamErzeugen {
 	 * und ausgeben
 	 */
 	private static void primitivesStringArrayZuStream() {
-		String[] namen =  {"Karl", "Arnold", "Franz", "Albert" };
-		Stream.of(namen)
-			.forEach(System.out::println);		
 	}
 
 	/**
@@ -68,9 +60,6 @@ public class StreamErzeugen {
 	 * alle ausgeben
 	 */
 	private static void listeZuStreamAusgeben() {
-		List<String> namen = Arrays.asList("Karl", "Arnold", "Franz", "Albert" );
-		namen.stream()
-			.forEach(System.out::println);			
 	}
 
 	/**
@@ -78,13 +67,5 @@ public class StreamErzeugen {
 	 * alle ausgeben
 	 */
 	private static void dateiZuStream(){
-		try {
-			Stream<String> namen = Files.lines(Paths.get("namen.txt"));
-			namen
-				.forEach(System.out::println);
-			namen.close();
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
 	}
 }

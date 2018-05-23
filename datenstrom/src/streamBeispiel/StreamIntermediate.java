@@ -38,10 +38,6 @@ public class StreamIntermediate {
 	 * und wenn vorhanden ausgeben.
 	 */
 	private static void sortierenUndErstenFinden() {		
-		Stream.of("Karl", "Arnold", "Franz")
-			.sorted()
-			.findFirst()
-			.ifPresent(System.out::println);		
 	}
 
 	/**
@@ -50,9 +46,6 @@ public class StreamIntermediate {
 	 * und ausgeben
 	 */
 	private static void filtern() {
-		Stream.of("Karl", "Arnold", "Franz")
-			.filter(s->s.startsWith("A"))
-			.forEach(System.out::println);
 	}
 	
 	/**
@@ -63,19 +56,6 @@ public class StreamIntermediate {
 	 * und ausgeben
 	 */
 	private static void filternMitAnonymerKlasse() {
-		Stream.of("Karl", "Arnold", "Franz")
-			.filter(new Predicate<String>() {
-				@Override
-				public boolean test(String s) {
-					return s.startsWith("A");
-				}
-			})
-			.forEach(new Consumer<String>() {
-				@Override
-				public void accept(String t) {
-					System.out.println(t);
-				}
-			});		
 	}	
 	
 	/**
@@ -84,9 +64,6 @@ public class StreamIntermediate {
 	 * und ausgeben 
 	 */
 	private static void zuKleinbuchstaben() {
-		Stream.of("Karl", "Arnold", "Franz")
-			.map(String::toLowerCase)
-			.forEach(System.out::println);			
 	}
 
 	/**
@@ -96,11 +73,6 @@ public class StreamIntermediate {
 	 * ausgeben
 	 */
 	private static void zumQuadratUndDurchschnitt() {
-		IntStream
-			.rangeClosed(1, 10)
-			.map( x -> x*x )
-			.average()
-			.ifPresent(System.out::println);		
 	}	
 	
 	/**
@@ -108,10 +80,6 @@ public class StreamIntermediate {
 	 * Mit Stream von int.
 	 */
 	private static void zahlenUeberspringen() {
-		IntStream
-			.rangeClosed(1, 10)
-			.skip(5)
-			.forEach(System.out::print);		
 	}
 	
 	/**
@@ -120,12 +88,5 @@ public class StreamIntermediate {
 	 * Nur für Integer. 
 	 */
 	private static void statistik() {
-		
-		IntSummaryStatistics summaryStatistics = IntStream
-			.rangeClosed(1, 10)
-			.summaryStatistics();
-
-		System.out.println(summaryStatistics);		
 	}
-
 }
