@@ -27,8 +27,6 @@ public class StreamIntermediate {
 		zahlenUeberspringen();
 		System.out.println();
 		
-		statistik();
-		System.out.println();
 	}
 
 	/**
@@ -81,12 +79,5 @@ public class StreamIntermediate {
 	 */
 	private static void zahlenUeberspringen() {
 	}
-	
-	/**
-	 * Erzeuge einen Stream von int, der die Zahlen 1 bis 10 enthält.
-	 * Gebe für die Zahlen die Statistik aus.
-	 * Nur für Integer. 
-	 */
-	private static void statistik() {
-	}
+
 }

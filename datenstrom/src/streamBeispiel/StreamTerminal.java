@@ -7,7 +7,7 @@ import java.util.stream.Stream;
 public class StreamTerminal {
 	public static void main(String[] args) {
 
-		zahlenAusgeben();
+		namenAusgeben();
 		System.out.println();
 		
 		nachNamenSortierenUndErsteAusgeben();
@@ -29,7 +29,7 @@ public class StreamTerminal {
 	/**
 	 * Erzeuge Stream von Namen und gebe die Namen aus.
 	 */
-	private static void zahlenAusgeben() {
+	private static void namenAusgeben() {
 	}
 
 	/**
@@ -69,7 +69,7 @@ public class StreamTerminal {
 	 * Gebe die Statistik der enthaltenen Streams aus.
 	 */
 	private static void statistikEinesStreamsAusgeben() {
-//		System.out.print(summe);		
+//		System.out.print(summaryStatistics);		
 	}
 
 }
