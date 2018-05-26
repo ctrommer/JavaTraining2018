@@ -1,24 +1,7 @@
-
 ______________________________________________________________________________________________________
 
-	Mal mit Streams weitermachen. Dabei direkt berücksichtigen:
-	
-	- Jede Übung so formuliert, dass man sie lösen kann ohne zu raten
-	- Direkt im Master mit Unittests absichern
-______________________________________________________________________________________________________
-
-	Problem: 
-	Beispiel NullberuecksichtigenderVergleicher#erzeugeRueckwaertsvergleicher
-	Es macht keinen Sinn, Methoden zu immplementieren, die ich gar nicht brauche.
-	Lösung: 
-	Für jede Methode eine Methode, in der ich sie brauche
-	Insbesondere auch Beispiele mit Vererbung
 	Unittests, die dann auch Objects.Require NonNull berücksichtigen
 ______________________________________________________________________________________________________
-
-
-______________________________________________________________________________________________________
-
 
 Mal Beispiel mit super machen:
 Comparator<? super T> real
@@ -33,19 +16,4 @@ Objects.requireNonNull(keyExtractor); nicht vergessen -> mit Unittest sicherstel
             Comparator<? super U> keyComparator)
     {
         Objects.requireNonNull(keyExtractor);
-
-______________________________________________________________________________________________________
-
-
-In sinnvolles Beispiel umwandeln:
-
-Erst mal die Grundlagen der Method Referenz:
-
-https://www.codementor.io/eh3rrera/using-java-8-method-reference-du10866vx
-
-https://stackoverflow.com/questions/25606906/sonar-replace-this-lambda-with-a-method-reference
-
-https://stackoverflow.com/questions/22444731/java-8-maptoint-and-tointfunction-examples
-
-______________________________________________________________________________________________________
 

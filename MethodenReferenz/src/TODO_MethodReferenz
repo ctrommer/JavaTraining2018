@@ -16,9 +16,6 @@ particular type					Class:instanceMethod		String::toString	s -> s.toString()
 Reference to a constructor		Class::new					String::new	 		() -> new String()
 
 
-
-Reference to a Static Method
-
 Quellen:
 
 https://docs.oracle.com/javase/tutorial/java/javaOO/methodreferences.html
