@@ -13,7 +13,7 @@ class VergleicherUnterstuetzer {
 		}
 
 		@Override
-		public Vergleicher<Comparable<Object>> verwandleInRueckwaertsVergleicher() {
+		public Vergleicher<Comparable<Object>> erzeugeDarausRueckwaertsVergleicher() {
 			// TODO
 			return null;
 		}		
@@ -51,8 +51,8 @@ class VergleicherUnterstuetzer {
 		}
 
 		@Override
-		public Vergleicher<T> verwandleInRueckwaertsVergleicher() {
-			return new NullBeruecksichtigenderVergleicher<>(!nullZuerst, vergleicher ==  null ? null : vergleicher.verwandleInRueckwaertsVergleicher() );
+		public Vergleicher<T> erzeugeDarausRueckwaertsVergleicher() {
+			return new NullBeruecksichtigenderVergleicher<>(!nullZuerst, vergleicher ==  null ? null : vergleicher.erzeugeDarausRueckwaertsVergleicher() );
 		}
 		
 	}

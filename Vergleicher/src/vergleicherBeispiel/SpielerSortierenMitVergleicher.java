@@ -47,7 +47,7 @@ public class SpielerSortierenMitVergleicher {
 
 	private static void vergleicheSpielerNachAlterMitLambdaRueckwaerts() {
 		Vergleicher<Spieler> spielerVergleicher = ( t1, t2 ) -> t1.getName().compareTo(t2.getName());
-		Vergleicher<Spieler> spielerVergleicherRueckwaerts = spielerVergleicher.verwandleInRueckwaertsVergleicher();
+		Vergleicher<Spieler> spielerVergleicherRueckwaerts = spielerVergleicher.erzeugeDarausRueckwaertsVergleicher();
 		System.out.println(spielerVergleicherRueckwaerts.vergleiche(new Spieler("Karl", 42), new Spieler("Albert", 14)));
 	}	
 
@@ -121,7 +121,7 @@ public class SpielerSortierenMitVergleicher {
 	}
 
 	private static void vergleicheSpielerNachAlterRueckwaertsDirekt() {
-		System.out.println(Vergleicher.erzeugeVergleicher( Spieler::getAlter ).verwandleInRueckwaertsVergleicher().vergleiche(new Spieler("Karl", 42), new Spieler("Albert", 14)));
+		System.out.println(Vergleicher.erzeugeVergleicher( Spieler::getAlter ).erzeugeDarausRueckwaertsVergleicher().vergleiche(new Spieler("Karl", 42), new Spieler("Albert", 14)));
 	}
 
 	private static void vergleicheZeichenketteGrossKleinSchreibungIgnorierend() {
@@ -138,7 +138,7 @@ public class SpielerSortierenMitVergleicher {
 		System.out.println(erzeugeVergleicher.vergleiche(new Spieler("Käfer", 42, "Karl"), new Spieler("Einstein", 14, "Albert")));
 		
 		// So funktionierts:
-		System.out.println(Vergleicher.erzeugeVergleicher( Spieler::getSpitzname, Zeichenkette.GROSS_KLEIN_SCHEIBUNG_IGNORIERENDER_VERGLEICHER).verwandleInRueckwaertsVergleicher().vergleiche(new Spieler("Käfer", 42, "Karl"), new Spieler("Einstein", 14, "Albert")));
+		System.out.println(Vergleicher.erzeugeVergleicher( Spieler::getSpitzname, Zeichenkette.GROSS_KLEIN_SCHEIBUNG_IGNORIERENDER_VERGLEICHER).erzeugeDarausRueckwaertsVergleicher().vergleiche(new Spieler("Käfer", 42, "Karl"), new Spieler("Einstein", 14, "Albert")));
 	}
 
 	/**
@@ -167,7 +167,7 @@ public class SpielerSortierenMitVergleicher {
 
 	public static void vergleicheSpielerNachAlterNullBeruecksichtigendRueckwaerts() {
 		Vergleicher<Spieler> spielerVergleicher = Vergleicher.erzeugeVergleicher( Spieler::getAlter );
-		Vergleicher<Spieler> spielerVergleicherNullZuerst = Vergleicher.erzeugeNullZuerstVergleicher(spielerVergleicher).verwandleInRueckwaertsVergleicher();
+		Vergleicher<Spieler> spielerVergleicherNullZuerst = Vergleicher.erzeugeNullZuerstVergleicher(spielerVergleicher).erzeugeDarausRueckwaertsVergleicher();
 
 		System.out.println(spielerVergleicherNullZuerst.vergleiche(new Spieler("Karl", 42), new Spieler("Albert", 14)));				
 		System.out.println(spielerVergleicherNullZuerst.vergleiche(null, new Spieler("Albert", 14)));

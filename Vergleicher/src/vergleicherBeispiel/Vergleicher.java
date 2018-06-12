@@ -104,7 +104,7 @@ public interface Vergleicher<T> {
 	 * @return
 	 * Vergleicher, der umgedreht vergleicht.
 	 */
-	default Vergleicher<T> verwandleInRueckwaertsVergleicher() {
+	default Vergleicher<T> erzeugeDarausRueckwaertsVergleicher() {
 		Vergleicher<T> rueckwaertsVergleicher = ( p1, p2 ) -> vergleiche(p2, p1);
 		return rueckwaertsVergleicher;
 	}
