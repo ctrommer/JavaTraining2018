@@ -1,0 +1,120 @@
+
+_________________________________________________________________________________________________________
+
+Quelle:
+https://stackoverflow.com/questions/4343202/difference-between-super-t-and-extends-t-in-java
+
+*
+extends
+=======
+
+	Zuweisung
+	=========
+
+Nenne drei legale Zuweisungen für List<? extends Number> myList.
+ 
+List<? extends Number> myList = new ArrayList<Number>();  // Number "extends" Number (in this context)
+List<? extends Number> myList = new ArrayList<Integer>(); // Integer extends Number
+List<? extends Number> myList = new ArrayList<Double>();  // Double extends Number
+
+	Hinzufügen
+	==========
+
+Kann man List<? extends Number> myList einen Integer hinufügen?
+Nein
+
+Warum kann man List<? extends Number> myList keinen Integer hinzufügen? 
+Weil List<? extends Number> auf new ArrayList<Double>() zeigen könnte.
+
+	*
+
+Kann man List<? extends Number> myList eine Number hinufügen?
+Nein
+
+Warum kann man List<? extends Number> myList keine Number hinzufügen? 
+Weil List<? extends Number> auf new ArrayList<Double>() zeigen könnte.
+
+	Lesen
+	=====
+	
+Kann man aus List<? extends Number> myList einen Integer lesen?
+Nein
+
+Warum kann man List<? extends Number> myList keinen Integer lesen? 
+Weil List<? extends Number> auf new ArrayList<Double>() zeigen könnte.
+
+	*
+
+Kann man aus List<? extends Number> myList eine Number lesen?
+Ja
+
+Warum kann man aus List<? extends Number> myList eine Number lesen? 
+Weil List<? extends Number> Elemente vom Typ Number oder einer Unterklasse beinhalten kann.	
+
+super
+=====
+
+	Zuweisung
+	=========
+
+Nenne drei legale Zuweisungen für List<? super Integer> myList 
+
+List<? super Integer> myList = new ArrayList<Integer>();  // Integer is a "superclass" of Integer (in this context)
+List<? super Integer> myList = new ArrayList<Number>();   // Number is a superclass of Integer
+List<? super Integer> myList = new ArrayList<Object>();   // Object is a superclass of Integer
+
+	Hinzufügen
+	==========
+
+Kann man List<? super Integer> myList einen Integer hinzufügen?
+Ja
+
+Warum kann man List<? super Integer> einen Integer hinzufügen? 
+Weil List<? super Integer> auf eine Liste von Integern oder eine Liste von Instanzen einer Oberklasse von Integer zeigt.
+
+*
+
+Kann man List<? super Integer> myList eine Instanz einer Unterklasse von Integer hinzufügen?
+Ja
+
+Warum kann man List<? super Integer>  eine Instanz einer Unterklasse von Integer hinzufügen? 
+Weil List<? super Integer> auf eine Liste von Integern oder eine Liste von Instanzen einer Oberklasse von Integer zeigt.
+
+*
+
+Kann man List<? super Integer> myList einen Double, Number oder Object hinzufügen?
+Nein
+
+Warum kann man List<? super Integer> keinen Double, Number oder Object hinzufügen? 
+Weil List<? super Integer> auf eine Liste von Integern zeigen kann.
+
+	Lesen
+	=====
+
+Kann man aus List<? super Integer> myList einen Integer lesen?
+Nein
+
+Warum kann man aus List<? super Integer> keinen Integer lesen? 
+Weil List<? super Integer> auf eine Liste Number zeigen kann.
+
+*
+
+Kann man aus List<? super Integer> myList einen Number lesen?
+Nein
+
+Warum kann man aus List<? super Integer> keinen Number lesen? 
+Weil List<? super Integer> auf eine Liste Object zeigen kann.
+
+*
+
+Kann man aus List<? super Integer> myList eine Instanz von Object lesen?
+Ja
+
+Warum kann man aus List<? super Integer> eine Instanz von Object lesen? 
+Weil List<? super Integer> auf eine Liste von Object oder auf Instanzen von Unterklassen von Objekt zeigen kann, die Oberklassen von Integer sind.
+
+*
+
+_________________________________________________________________________________________________________
+
+

@@ -3,17 +3,3 @@ ________________________________________________________________________________
 	Unittests, die dann auch Objects.Require NonNull berücksichtigen
 ______________________________________________________________________________________________________
 
-Mal Beispiel mit super machen:
-Comparator<? super T> real
-
-***
-
-super / extends auseinanderklamüsern ( In Übung reinbringen ) 
-Objects.requireNonNull(keyExtractor); nicht vergessen -> mit Unittest sicherstellen?
-
- public static <T, U> Comparator<T> comparing(
-            Function<? super T, ? extends U> keyExtractor,
-            Comparator<? super U> keyComparator)
-    {
-        Objects.requireNonNull(keyExtractor);
-
