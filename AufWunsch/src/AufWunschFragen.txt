@@ -1,0 +1,7 @@
+
+Was ist der Zweck von Optional?
+Es zeigt an, dass ein Wert null sein kann. Wenn man ein Optional sieht, weiss man dass man null berücksichtigen muss.
+
+
+
+
