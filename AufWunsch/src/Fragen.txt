@@ -1,0 +1,34 @@
+
+*
+
+https://stackoverflow.com/questions/26327957/should-java-8-getters-return-optional-type/26328555#26328555
+
+Wann sollte man Optional verwenden?
+Wenn bei einer Methode der Rückgabewert "kein Ergebnis" ist, aber null als Rückgabewert wahrscheinlich zu Fehlern führt.   
+
+Was sollte der Benutzer "hören", wenn jemand ein Optional verwendet?
+Achtung, der Wert kann leer sein.
+
+Wie sollte Optional nicht verwendet werden?
+Als generelles "Vielleicht ist der Wert vorhanden"
+
+Wann sollte man Optional z.B. nie verwenden?
+Wenn eine Methode ein Array oder eine Liste von Werten zurückgibt. 
+
+Was sollte man statt Optional verwenden, wenn eine Methode ein Array oder eine Liste von Werten zurückgibt?
+Eine leere liste oder ein leeres Array.
+
+Wann sollte man Optional.get nur verwenden?
+Wenn man BEWEISEN kann, dass es nicht null ist.
+
+Wie hätte man Optional.get besser genannt?
+getOrElseThrowNoSuchElementException
+
+Was gibt es in Java 10 statt Optional.get?
+Optional.orElseThrow()
+
+Was sollte man statt Optional.get verwenden?
+Optional.orElse oder ifPresent
+
+*
+
