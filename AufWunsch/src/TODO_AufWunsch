@@ -1,14 +1,8 @@
-
-_______________________________________________________________________________
-
+______________________________________________________________________________
 
 Quellen:
 
-https://examples.javacodegeeks.com/core-java/util/optional/java-8-optional-example/
-
 http://www.oracle.com/technetwork/articles/java/java8-optional-2175753.html
-
-https://www.mkyong.com/java8/java-8-optional-in-depth/
 
 http://www.baeldung.com/java-optional
 
@@ -16,5 +10,11 @@ https://www.callicoder.com/java-8-optional-tutorial/
 
 http://www.angelikalanger.com/Articles/EffectiveJava/80.Java8.Optional-Result/80.Java8.Optional-Result.html
 
+done:
+https://stackoverflow.com/questions/26327957/should-java-8-getters-return-optional-type/26328555#26328555
+
+schlecht:
+https://examples.javacodegeeks.com/core-java/util/optional/java-8-optional-example/
+https://www.mkyong.com/java8/java-8-optional-in-depth/
 _______________________________________________________________________________
 
