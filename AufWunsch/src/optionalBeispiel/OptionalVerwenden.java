@@ -1,4 +1,4 @@
-package optionalBeispiele;
+package optionalBeispiel;
 
 import java.util.Optional;
 import java.util.function.Consumer;
