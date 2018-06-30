@@ -2,6 +2,12 @@
 Was ist der Zweck von Optional?
 Es zeigt an, dass ein Wert null sein kann. Wenn man ein Optional sieht, weiss man dass man null berücksichtigen muss.
 
+Was ist zu myOptional.get() zu sagen?
+Man sollte es besser gar nicht verwenden. 
 
-
+Was sollte man machen, wenn man myOptional.get verwendet?
+Es absichern mit:
+if(soundcard.isPresent()){
+  System.out.println(soundcard.get());
+}
 
