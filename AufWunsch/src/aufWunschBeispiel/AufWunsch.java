@@ -12,12 +12,10 @@ public final class AufWunsch<T> {
     /**
      * Common instance for {@code empty()}.
      */
-	private static final AufWunsch<?> LEER = new AufWunsch<>();
 
     /**
      * If non-null, the value; if null, indicates no value is present
      */
-	private final T wert;
 
     /**
      * Constructs an empty instance.
@@ -25,9 +23,6 @@ public final class AufWunsch<T> {
      * @implNote Generally only one empty instance, {@link Optional#EMPTY},
      * should exist per VM.
      */
-	private AufWunsch() {
-		this.wert = null;
-	} 
 
     /**
      * Returns an empty {@code Optional} instance.  No value is present for this
@@ -41,11 +36,6 @@ public final class AufWunsch<T> {
      * @param <T> Type of the non-existent value
      * @return an empty {@code Optional}
      */
-	AufWunsch<T> leereInstanz() {
-		@SuppressWarnings("unchecked")
-		AufWunsch<T> t = (AufWunsch<T>) LEER;
-		return t;
-	}
 
     /**
      * Constructs an instance with the value present.
@@ -53,9 +43,6 @@ public final class AufWunsch<T> {
      * @param value the non-null value to be present
      * @throws NullPointerException if value is null
      */
-	private AufWunsch(T wert) {
-		this.wert = Objects.requireNonNull( wert );
-	}
 
     /**
      * Returns an {@code Optional} with the specified present non-null value.
@@ -65,9 +52,6 @@ public final class AufWunsch<T> {
      * @return an {@code Optional} with the value present
      * @throws NullPointerException if value is null
      */
-	public AufWunsch<T> erzeugeAus(T wert) {
-		return new AufWunsch<>(wert);
-	}
 
     /**
      * Returns an {@code Optional} describing the specified value, if non-null,
@@ -78,9 +62,6 @@ public final class AufWunsch<T> {
      * @return an {@code Optional} with a present value if the specified value
      * is non-null, otherwise an empty {@code Optional}
      */
-	public AufWunsch<T> erzeugeAusNullErlaubt(T wert) {
-		return wert == null ? leereInstanz() : erzeugeAus(wert);
-	}
 
     /**
      * If a value is present in this {@code Optional}, returns the value,
@@ -91,19 +72,12 @@ public final class AufWunsch<T> {
      *
      * @see Optional#isPresent()
      */
-	public T getWert() {
-		if ( wert == null ) { throw new NoSuchElementException(); }
-		else return this.wert;
-	}
 
     /**
      * Return {@code true} if there is a value present, otherwise {@code false}.
      *
      * @return {@code true} if there is a value present, otherwise {@code false}
      */
-	public boolean istWertVorhanden() {
-		return wert != null;
-	}
 
     /**
      * If a value is present, invoke the specified consumer with the value,
@@ -113,11 +87,6 @@ public final class AufWunsch<T> {
      * @throws NullPointerException if value is present and {@code consumer} is
      * null
      */
-	public void macheWennVorhanden(Consumer<T> verbraucher) {
-		if ( wert != null ) {
-			verbraucher.accept(wert);			
-		}		
-	}
 
     /**
      * If a value is present, and the value matches the given predicate,
@@ -130,14 +99,6 @@ public final class AufWunsch<T> {
      * otherwise an empty {@code Optional}
      * @throws NullPointerException if the predicate is null
      */
-	AufWunsch<T> filter( Predicate<T> bedingung) {
-		Objects.requireNonNull(bedingung);
-		if ( istWertVorhanden() ) { 
-			return bedingung.test(wert) ? this : leereInstanz();
-		} else {
-			return this;
-		}
-	}
 
     /**
      * If a value is present, apply the provided mapping function to it,

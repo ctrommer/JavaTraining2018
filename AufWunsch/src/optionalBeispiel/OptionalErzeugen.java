@@ -10,19 +10,15 @@ public class OptionalErzeugen {
 		optionalVonNull();
 	}
 
+	/**
+	 * Leeres Optional erzeugen und ausgeben.
+	 */
 	private static void leeresOptional() {
-		Optional<String> vielleichtText = Optional.empty();
-		vielleichtText.ifPresent(System.out::println);
 	}
 
 	private static void optionalVonString() {
-		Optional<String> vielleichtText = Optional.of("Hallo");		
-		vielleichtText.ifPresent(System.out::println);
 	}
 
 	private static void optionalVonNull() {
-		// Optional<String> vielleichtText = Optional.of(null);	// -> Exception
-		Optional<String> vielleichtText = Optional.ofNullable(null);
-		vielleichtText.ifPresent(System.out::println);
 	}
 }

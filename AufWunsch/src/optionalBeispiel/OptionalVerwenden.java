@@ -15,13 +15,18 @@ public class OptionalVerwenden {
 		optionalVonStringFallsVorhandenAusgebenMitMethodReferenz();
 		flatMapGegenMap();
 	}
-		
+
+	/**
+	 * Optional erzeugen
+	 * Optional oder Defaultwert ermitteln
+	 * Optional ausgeben
+	 */
 	private static void optionalOderDefaultWert() {
 		Optional<String> vielleichtText = Optional.of("Hallo");
 		String inhaltVonOptional = vielleichtText.orElse("Default String");
 		System.out.println(inhaltVonOptional);
 	}
-	
+
 	private static void optionalOderExceptionMitAnonymerKlasse() {
 		Optional<String> vielleichtText = Optional.of("Hallo");
 		String inhaltVonOptional = vielleichtText.orElseThrow(new Supplier<IllegalStateException>() {
@@ -61,11 +66,16 @@ public class OptionalVerwenden {
 		vielleichtText.ifPresent(System.out::println);
 	}
 
+	/**
+	 * Erzeuge Person mit name und vielleichtGewicht. 
+	 * Zeige damit den Unterschied zwischen flatMap und Map.
+	 */
 	private static void flatMapGegenMap() {
 		String name = "Arnold";
 		Optional<Integer> vielleichtGewicht = Optional.of(100); 
 		Person arnold = new Person(name, vielleichtGewicht);
 		Optional<Person> vielleichtArnold = Optional.of(arnold);
+		
 		Optional<Integer> vielleichtGewichtVonArnold = vielleichtArnold.flatMap(Person::getVielleichtGewicht);
 		System.out.println(vielleichtGewichtVonArnold.orElse(0));
 		
