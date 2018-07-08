@@ -13,7 +13,9 @@ public class OptionalVerwenden {
 		optionalOderExceptionMitMethodReferenz();
 		optionalVonStringFallsVorhandenAusgebenMitAnonymerKlasse();
 		optionalVonStringFallsVorhandenAusgebenMitMethodReferenz();
-		flatMapGegenMap();
+		optionalVonStringZuWert();
+		optionalZuWertZuOptional();
+		optionalZuOptional();
 	}
 		
 	private static void optionalOderDefaultWert() {
@@ -60,18 +62,31 @@ public class OptionalVerwenden {
 		Optional<String> vielleichtText = Optional.of("Hallo");		
 		vielleichtText.ifPresent(System.out::println);
 	}
+	
+	/**
+	 * Achtung: Sollte man nur im äussersten Notfall verwenden.
+	 */
+	private static void optionalVonStringZuWert() {
+		Optional<String> vielleichtText = Optional.of("Hallo");
+		if ( vielleichtText.isPresent() ) {
+			System.out.println(vielleichtText.get());
+		}
+	}
 
-	private static void flatMapGegenMap() {
-		String name = "Arnold";
-		Optional<Integer> vielleichtGewicht = Optional.of(100); 
-		Person arnold = new Person(name, vielleichtGewicht);
+	private static void optionalZuWertZuOptional() {		
+		Person arnold = new Person("Arnold");
 		Optional<Person> vielleichtArnold = Optional.of(arnold);
-		Optional<Integer> vielleichtGewichtVonArnold = vielleichtArnold.flatMap(Person::getVielleichtGewicht);
-		System.out.println(vielleichtGewichtVonArnold.orElse(0));
 		
 		Optional<String> vielleichtNameAusPerson = vielleichtArnold.map(Person::getName);
 		System.out.println(vielleichtNameAusPerson.orElse("unbekannt"));
 	}	
 	
+	private static void optionalZuOptional() {
+		Person arnold = new Person("Arnold");		
+		Optional<Person> vielleichtArnold = Optional.of(arnold);
+		
+		Optional<Integer> vielleichtGewichtVonArnold = vielleichtArnold.flatMap(Person::getVielleichtGewicht);
+		System.out.println(vielleichtGewichtVonArnold.orElse(0));
+	}		
 	
 }
