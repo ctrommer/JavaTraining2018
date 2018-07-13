@@ -3,18 +3,17 @@ package optionalBeispiel;
 import java.util.Optional;
 
 public class Person {
-
-	String name;
-	Optional<Integer> vielleichtGewicht;
 	
-	public Person(String name, Optional<Integer> vielleichtGewicht) {
+	private String name;
+	
+	public Person(String name) {
 		this.name = name;
-		this.vielleichtGewicht = vielleichtGewicht;
 	}
 	public String getName() {
 		return name;
 	}
 	public Optional<Integer> getVielleichtGewicht() {
+		Optional<Integer> vielleichtGewicht = Optional.of(100);
 		return vielleichtGewicht;
 	}
 }

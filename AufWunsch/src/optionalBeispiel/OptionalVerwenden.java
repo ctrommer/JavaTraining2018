@@ -13,7 +13,10 @@ public class OptionalVerwenden {
 		optionalOderExceptionMitMethodReferenz();
 		optionalVonStringFallsVorhandenAusgebenMitAnonymerKlasse();
 		optionalVonStringFallsVorhandenAusgebenMitMethodReferenz();
-		flatMapGegenMap();
+		optionalVonStringFallsVorhandenUndMitAStartetAusgebenMitMethodReferenz();
+		optionalVonStringZuWert();
+		optionalZuWertZuOptional();
+		optionalZuOptional();
 	}
 
 	/**
@@ -45,13 +48,18 @@ public class OptionalVerwenden {
 
 	}
 
-	/**
-	 * Erzeuge Person mit name und vielleichtGewicht. 
-	 * Zeige damit den Unterschied zwischen flatMap und Map.
-	 */
-	private static void flatMapGegenMap() {
+	private static void optionalVonStringFallsVorhandenUndMitAStartetAusgebenMitMethodReferenz() {		
+	}
 
+	/**
+	 * Achtung: Sollte man nur im äussersten Notfall verwenden.
+	 */
+	private static void optionalVonStringZuWert() {
+	}
+
+	private static void optionalZuWertZuOptional() {		
+	}		
+	
+	private static void optionalZuOptional() {
 	}	
-	
-	
 }
