@@ -4,7 +4,7 @@ import java.util.Optional;
 
 public class Person {
 
-	String name;
+	private String name;
 	
 	public Person(String name) {
 		this.name = name;

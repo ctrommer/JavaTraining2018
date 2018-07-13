@@ -13,6 +13,7 @@ public class OptionalVerwenden {
 		optionalOderExceptionMitMethodReferenz();
 		optionalVonStringFallsVorhandenAusgebenMitAnonymerKlasse();
 		optionalVonStringFallsVorhandenAusgebenMitMethodReferenz();
+		optionalVonStringFallsVorhandenUndMitAStartetAusgebenMitMethodReferenz();
 		optionalVonStringZuWert();
 		optionalZuWertZuOptional();
 		optionalZuOptional();
@@ -62,7 +63,13 @@ public class OptionalVerwenden {
 		Optional<String> vielleichtText = Optional.of("Hallo");		
 		vielleichtText.ifPresent(System.out::println);
 	}
-	
+
+	private static void optionalVonStringFallsVorhandenUndMitAStartetAusgebenMitMethodReferenz() {
+		Person arnold = new Person("Arnold");
+		Optional<Person> vielleichtArnold = Optional.of(arnold);
+		vielleichtArnold.filter(p->p.getName().startsWith("A")).ifPresent(p->System.out.println(p.getName()));		
+	}
+
 	/**
 	 * Achtung: Sollte man nur im äussersten Notfall verwenden.
 	 */
@@ -87,6 +94,5 @@ public class OptionalVerwenden {
 		
 		Optional<Integer> vielleichtGewichtVonArnold = vielleichtArnold.flatMap(Person::getVielleichtGewicht);
 		System.out.println(vielleichtGewichtVonArnold.orElse(0));
-	}		
-	
+	}	
 }
