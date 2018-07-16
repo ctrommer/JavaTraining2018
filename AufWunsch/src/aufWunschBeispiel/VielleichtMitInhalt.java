@@ -8,16 +8,16 @@ import java.util.function.Function;
 import java.util.function.Predicate;
 import java.util.function.Supplier;
 
-public final class AufWunsch<T> {
+public final class VielleichtMitInhalt<T> {
     /**
      * Common instance for {@code empty()}.
      */
-	private static final AufWunsch<?> LEER = new AufWunsch<>();
+	private static final VielleichtMitInhalt<?> INHALTNULL = new VielleichtMitInhalt<>();
 
     /**
      * If non-null, the value; if null, indicates no value is present
      */
-	private final T wert;
+	private final T inhalt;
 
     /**
      * Constructs an empty instance.
@@ -25,8 +25,8 @@ public final class AufWunsch<T> {
      * @implNote Generally only one empty instance, {@link Optional#EMPTY},
      * should exist per VM.
      */
-	private AufWunsch() {
-		this.wert = null;
+	private VielleichtMitInhalt() {
+		this.inhalt = null;
 	} 
 
     /**
@@ -41,10 +41,10 @@ public final class AufWunsch<T> {
      * @param <T> Type of the non-existent value
      * @return an empty {@code Optional}
      */
-	AufWunsch<T> leereInstanz() {
+	public static <T> VielleichtMitInhalt<T> leereInstanz() {
 		@SuppressWarnings("unchecked")
-		AufWunsch<T> t = (AufWunsch<T>) LEER;
-		return t;
+		VielleichtMitInhalt<T> mitInhaltNull = (VielleichtMitInhalt<T>) INHALTNULL;
+		return mitInhaltNull;
 	}
 
     /**
@@ -53,8 +53,8 @@ public final class AufWunsch<T> {
      * @param value the non-null value to be present
      * @throws NullPointerException if value is null
      */
-	private AufWunsch(T wert) {
-		this.wert = Objects.requireNonNull( wert );
+	private VielleichtMitInhalt(T inhalt) {
+		this.inhalt = Objects.requireNonNull( inhalt );
 	}
 
     /**
@@ -65,8 +65,8 @@ public final class AufWunsch<T> {
      * @return an {@code Optional} with the value present
      * @throws NullPointerException if value is null
      */
-	public AufWunsch<T> erzeugeAus(T wert) {
-		return new AufWunsch<>(wert);
+	public static <T> VielleichtMitInhalt<T> erzeugeAus(T inhalt) {
+		return new VielleichtMitInhalt<>(inhalt);
 	}
 
     /**
@@ -78,8 +78,8 @@ public final class AufWunsch<T> {
      * @return an {@code Optional} with a present value if the specified value
      * is non-null, otherwise an empty {@code Optional}
      */
-	public AufWunsch<T> erzeugeAusNullErlaubt(T wert) {
-		return wert == null ? leereInstanz() : erzeugeAus(wert);
+	public static <T> VielleichtMitInhalt<T> erzeugeAusNullErlaubt(T inhalt) {
+		return inhalt == null ? leereInstanz() : erzeugeAus(inhalt);
 	}
 
     /**
@@ -91,9 +91,9 @@ public final class AufWunsch<T> {
      *
      * @see Optional#isPresent()
      */
-	public T getWert() {
-		if ( wert == null ) { throw new NoSuchElementException(); }
-		else return this.wert;
+	public T getInhalt() {
+		if ( inhalt == null ) { throw new NoSuchElementException(); }
+		return inhalt;
 	}
 
     /**
@@ -101,8 +101,8 @@ public final class AufWunsch<T> {
      *
      * @return {@code true} if there is a value present, otherwise {@code false}
      */
-	public boolean istWertVorhanden() {
-		return wert != null;
+	public boolean istInhaltVorhanden() {
+		return inhalt != null;
 	}
 
     /**
@@ -113,9 +113,9 @@ public final class AufWunsch<T> {
      * @throws NullPointerException if value is present and {@code consumer} is
      * null
      */
-	public void macheWennVorhanden(Consumer<T> verbraucher) {
-		if ( wert != null ) {
-			verbraucher.accept(wert);			
+	public void wennInhaltDannMache(Consumer<? super T> verbraucher) {
+		if ( inhalt != null ) {
+			verbraucher.accept(inhalt);			
 		}		
 	}
 
@@ -130,10 +130,10 @@ public final class AufWunsch<T> {
      * otherwise an empty {@code Optional}
      * @throws NullPointerException if the predicate is null
      */
-	AufWunsch<T> filter( Predicate<T> bedingung) {
+	VielleichtMitInhalt<T> filtere( Predicate<? super T> bedingung) {
 		Objects.requireNonNull(bedingung);
-		if ( istWertVorhanden() ) { 
-			return bedingung.test(wert) ? this : leereInstanz();
+		if ( istInhaltVorhanden() ) { 
+			return bedingung.test(inhalt) ? this : leereInstanz();
 		} else {
 			return this;
 		}
@@ -168,6 +168,14 @@ public final class AufWunsch<T> {
      * otherwise an empty {@code Optional}
      * @throws NullPointerException if the mapping function is null
      */
+	public <U> VielleichtMitInhalt<U> transformiere( Function<? super T, ? extends U> transformierer ) {
+		Objects.requireNonNull(transformierer);
+		if ( !istInhaltVorhanden() ) {
+			return leereInstanz();
+		} else {
+			return  erzeugeAusNullErlaubt(transformierer.apply(inhalt));
+		}
+	}
 
     /**
      * If a value is present, apply the provided {@code Optional}-bearing
@@ -186,6 +194,14 @@ public final class AufWunsch<T> {
      * @throws NullPointerException if the mapping function is null or returns
      * a null result
      */
+	public <U> VielleichtMitInhalt<U> transformiereFlach( Function<? super T,VielleichtMitInhalt<U>> transformierer ) {
+		Objects.requireNonNull(transformierer);
+		if ( !istInhaltVorhanden() ) {
+			return leereInstanz();
+		} else {
+			return Objects.requireNonNull(transformierer.apply(inhalt));
+		}
+	}
 
     /**
      * Return the value if present, otherwise return {@code other}.
@@ -194,6 +210,9 @@ public final class AufWunsch<T> {
      * be null
      * @return the value, if present, otherwise {@code other}
      */
+	public T holeWennVorhandenSonst( T defaultInhalt ) {
+		return istInhaltVorhanden() ? inhalt : defaultInhalt;		
+	}
 
     /**
      * Return the value if present, otherwise invoke {@code other} and return
@@ -205,6 +224,9 @@ public final class AufWunsch<T> {
      * @throws NullPointerException if value is not present and {@code other} is
      * null
      */
+	public T holeWennVorhandenSonstRufeAuf( Supplier<? extends T> zurVerfuegungSteller ) {
+		return istInhaltVorhanden() ? inhalt : zurVerfuegungSteller.get();		
+	}
 
     /**
      * Return the contained value, if present, otherwise throw an exception
@@ -222,6 +244,15 @@ public final class AufWunsch<T> {
      * @throws NullPointerException if no value is present and
      * {@code exceptionSupplier} is null
      */
+	public <X extends Throwable> T holeWennVorhandenSonstWerfeException( Supplier<X> ausnameZurVerfuegungSteller ) throws X {
+		if ( istInhaltVorhanden() ) {
+			return inhalt;
+		} else {
+			throw ausnameZurVerfuegungSteller.get();
+		}
+	}
+
+	
 
     /**
      * Indicates whether some other object is "equal to" this Optional. The
@@ -236,6 +267,20 @@ public final class AufWunsch<T> {
      * @return {code true} if the other object is "equal to" this object
      * otherwise {@code false}
      */
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+
+		if (!(obj instanceof VielleichtMitInhalt)) {
+			return false;
+		}
+		
+		VielleichtMitInhalt<?> rechts = (VielleichtMitInhalt<?>) obj;
+		
+		return Objects.equals(inhalt,rechts.inhalt);		
+	}
+	
 
     /**
      * Returns the hash code value of the present value, if any, or 0 (zero) if
@@ -243,6 +288,12 @@ public final class AufWunsch<T> {
      *
      * @return hash code value of the present value or 0 if no value is present
      */
+	@Override
+	public int hashCode() {
+		return Objects.hashCode(inhalt);
+	}
+
+
 
     /**
      * Returns a non-empty string representation of this Optional suitable for
@@ -255,5 +306,10 @@ public final class AufWunsch<T> {
      *
      * @return the string representation of this instance
      */
+	@Override
+	public String toString() {
+		return istInhaltVorhanden() ? "VielleichtMitInhalt [inhalt=" + inhalt + "]" : "VielleichtMitInhalt:leer"; 
+	}
+	
 
 }
