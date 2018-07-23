@@ -1,0 +1,21 @@
+
+Was ist der Zweck von Optional?
+Es zeigt an, dass ein Wert null sein kann. Wenn man ein Optional sieht, weiss man dass man null berücksichtigen muss.
+
+Wann sollte man Optional verwenden?
+Wenn eine Methode einen Wert zurückgibt, um zu zeigen, dass es keinen Wert gibt.
+
+Wann sollte Optional nicht verwendet werden?
+- für felder ( member )
+- als Parameter für einen Optionalen Wert
+- in Collection Klassen
+
+Was ist zu myOptional.get() zu sagen?
+Man sollte es besser gar nicht verwenden. 
+
+Was sollte man machen, wenn man myOptional.get verwendet?
+Es absichern mit:
+if(soundcard.isPresent()){
+  System.out.println(soundcard.get());
+}
+
