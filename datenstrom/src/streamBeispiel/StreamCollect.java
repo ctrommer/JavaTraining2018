@@ -30,10 +30,8 @@ public class StreamCollect {
 	 * und Elemente ausgeben
 	 */
 	private static void streamZuListe() {		
-		List<String> namenListe = Stream.of("Karl", "Arnold", "Franz")
-			.collect(Collectors.toList());
 		
-		namenListe.forEach(System.out::println);
+//		namenListe.forEach(System.out::println);
 	}
 	
 	/**
@@ -42,10 +40,6 @@ public class StreamCollect {
 	 * und String ausgeben
 	 */
 	private static void streamZuString() {		
-		String alleNamen = Stream.of("Karl", "Arnold", "Franz")
-			.collect(Collectors.joining(", "));
-		
-		System.out.println( alleNamen );
 	}	
 
 	/**
@@ -54,10 +48,6 @@ public class StreamCollect {
 	 * und map ausgeben
 	 */
 	private static void streamZuMap() {		
-		Map<String, Integer> namenUndLaenge = Stream.of("Karl", "Arnold", "Franz")
-			.collect(Collectors.toMap(Function.identity(), String::length));
-		
-		System.out.println( namenUndLaenge );
 	}		
 	
 	/**
@@ -67,10 +57,6 @@ public class StreamCollect {
 	 * und map ausgeben
 	 */
 	private static void streamZuMapMitDoppeleintraegen() {		
-		Map<String, Integer> namenUndLaenge = Stream.of("Karl", "Arnold", "Franz", "Franz")
-			.collect(Collectors.toMap(Function.identity(), String::length,(name1, name2) -> name1));
-		
-		System.out.println( namenUndLaenge );
 	}			
 	
 	
