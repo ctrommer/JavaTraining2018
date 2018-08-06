@@ -3,10 +3,7 @@ package aufWunschBeispiel;
 import java.util.NoSuchElementException;
 import java.util.Objects;
 import java.util.Optional;
-import java.util.function.Consumer;
 import java.util.function.Function;
-import java.util.function.Predicate;
-import java.util.function.Supplier;
 
 public final class VielleichtMitInhalt<T> {
     /**
@@ -147,6 +144,7 @@ public final class VielleichtMitInhalt<T> {
      * @throws NullPointerException if the mapping function is null or returns
      * a null result
      */
+
 
     /**
      * Return the value if present, otherwise return {@code other}.
