@@ -3,10 +3,7 @@ package aufWunschBeispiel;
 import java.util.NoSuchElementException;
 import java.util.Objects;
 import java.util.Optional;
-import java.util.function.Consumer;
 import java.util.function.Function;
-import java.util.function.Predicate;
-import java.util.function.Supplier;
 
 public final class VielleichtMitInhalt<T> {
     /**
@@ -113,10 +110,10 @@ public final class VielleichtMitInhalt<T> {
      * @throws NullPointerException if value is present and {@code consumer} is
      * null
      */
-	public void wennInhaltDannMache(Consumer<? super T> verbraucher) {
+	public void wennInhaltDannMache(Benutzer<? super T> benutzer) {
 		if ( inhalt != null ) {
-			verbraucher.accept(inhalt);			
-		}		
+			benutzer.machWasMit(inhalt);			
+		}
 	}
 
     /**
@@ -130,10 +127,10 @@ public final class VielleichtMitInhalt<T> {
      * otherwise an empty {@code Optional}
      * @throws NullPointerException if the predicate is null
      */
-	VielleichtMitInhalt<T> filtere( Predicate<? super T> bedingung) {
+	VielleichtMitInhalt<T> filtere( Bedingung<? super T> bedingung) {
 		Objects.requireNonNull(bedingung);
 		if ( istInhaltVorhanden() ) { 
-			return bedingung.test(inhalt) ? this : leereInstanz();
+			return bedingung.istErfuelltFuer(inhalt) ? this : leereInstanz();
 		} else {
 			return this;
 		}
@@ -168,12 +165,12 @@ public final class VielleichtMitInhalt<T> {
      * otherwise an empty {@code Optional}
      * @throws NullPointerException if the mapping function is null
      */
-	public <U> VielleichtMitInhalt<U> transformiere( Function<? super T, ? extends U> transformierer ) {
+	public <U> VielleichtMitInhalt<U> transformiere( Transformierer<? super T, ? extends U> transformierer ) {
 		Objects.requireNonNull(transformierer);
 		if ( !istInhaltVorhanden() ) {
 			return leereInstanz();
 		} else {
-			return  erzeugeAusNullErlaubt(transformierer.apply(inhalt));
+			return  erzeugeAusNullErlaubt(transformierer.erzeugeUndVerwende(inhalt));
 		}
 	}
 
@@ -194,12 +191,12 @@ public final class VielleichtMitInhalt<T> {
      * @throws NullPointerException if the mapping function is null or returns
      * a null result
      */
-	public <U> VielleichtMitInhalt<U> transformiereFlach( Function<? super T,VielleichtMitInhalt<U>> transformierer ) {
+	public <U> VielleichtMitInhalt<U> transformiereFlach( Transformierer<? super T,VielleichtMitInhalt<U>> transformierer ) {
 		Objects.requireNonNull(transformierer);
 		if ( !istInhaltVorhanden() ) {
 			return leereInstanz();
 		} else {
-			return Objects.requireNonNull(transformierer.apply(inhalt));
+			return Objects.requireNonNull(transformierer.erzeugeUndVerwende(inhalt));
 		}
 	}
 
@@ -224,8 +221,8 @@ public final class VielleichtMitInhalt<T> {
      * @throws NullPointerException if value is not present and {@code other} is
      * null
      */
-	public T holeWennVorhandenSonstRufeAuf( Supplier<? extends T> zurVerfuegungSteller ) {
-		return istInhaltVorhanden() ? inhalt : zurVerfuegungSteller.get();		
+	public T holeWennVorhandenSonstRufeAuf( Erzeuger<? extends T> erzeuger ) {
+		return istInhaltVorhanden() ? inhalt : erzeuger.erzeuge();
 	}
 
     /**
@@ -244,11 +241,11 @@ public final class VielleichtMitInhalt<T> {
      * @throws NullPointerException if no value is present and
      * {@code exceptionSupplier} is null
      */
-	public <X extends Throwable> T holeWennVorhandenSonstWerfeException( Supplier<X> ausnameZurVerfuegungSteller ) throws X {
+	public <X extends Throwable> T holeWennVorhandenSonstWerfeException( Erzeuger<X> ausnameErzeuger ) throws X {
 		if ( istInhaltVorhanden() ) {
 			return inhalt;
 		} else {
-			throw ausnameZurVerfuegungSteller.get();
+			throw ausnameErzeuger.erzeuge();
 		}
 	}
 
