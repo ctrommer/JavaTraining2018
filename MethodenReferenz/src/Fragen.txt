@@ -1,41 +1,10 @@
 
-Quelle:
-docs.oracle.com/javase/tutorial/java/javaOO/methodreferences.html
-
-
-
-Types of Method References
-Type							Syntax						Method Reference	Lambda expression
----------------------------------------------------------------------------------------------------------------
-Reference to a static method	Class::staticMethod			String::valueOf	 	s -> String.valueOf(s)
-
-Reference to an instance method
-of a particular object			instance::instanceMethod	s::toString	 		() -> “string”.toString()
-
-Reference to an instance method
-of an arbitrary object of a 
-particular type					Class:instanceMethod		String::toString	s -> s.toString()
-
-Reference to a constructor		Class::new					String::new	 		() -> new String()
-
-
 Welche 4 Arten von Method Referenzen gibt es?
 - Referenz auf Konstruktor
 - Referenz auf statische Methode
 - Referenz auf Instanzmethode
 - Referenz auf Instanzmethode eines bestimmten Objekts
 
-Types of Method References
-Type										Syntax						Method Reference	Lambda expression
-Reference to a static method				Class::staticMethod			String::valueOf	 	s -> String.valueOf(s)
-Reference to an instance method
-of a particular object						instance::instanceMethod	s:toString	 		() -> “string”.toString()
-Reference to an instance method
-of an arbitrary object of a particular type	Class:instanceMethod		String::toString	s -> s.toString()
-Reference to a constructor					Class::new					String::new			() -> new String()
-
-
-Reference to a Static Method
 
 Was ist die Syntax von "Referenz auf statische Methode"?
 ContainingClass::staticMethodName
@@ -48,6 +17,7 @@ ContainingType::methodName
 
 Was ist die Syntax von "Referenz auf eine Konstruktor"?
 ClassName::new
+
 
 Warum kann man
 	Function<Double, String> kelvinAlsZahlZuCelsiusAlsString = gradInKelvin -> String.valueOf(gradInKelvin - 273.15d);
@@ -68,4 +38,20 @@ In welchen 3 Fällen verwendet man für das Lambda eine statische Methode?
 - Wenn die Methode an mehreren Stellen verwendet wird. 
 - Wenn es die statische Methode schon gibt.
 
+Quelle:
+docs.oracle.com/javase/tutorial/java/javaOO/methodreferences.html
+
+Types of Method References
+Type							Syntax						Method Reference	Lambda expression
+---------------------------------------------------------------------------------------------------------------
+Reference to a static method	Class::staticMethod			String::valueOf	 	s -> String.valueOf(s)
+
+Reference to an instance method
+of a particular object			instance::instanceMethod	s::toString	 		() -> “string”.toString()
+
+Reference to an instance method
+of an arbitrary object of a 
+particular type					Class:instanceMethod		String::toString	s -> s.toString()
+
+Reference to a constructor		Class::new					String::new	 		() -> new String()
 
