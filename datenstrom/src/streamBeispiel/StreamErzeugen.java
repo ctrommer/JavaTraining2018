@@ -78,11 +78,8 @@ public class StreamErzeugen {
 	 * alle ausgeben
 	 */
 	private static void dateiZuStream(){
-		try {
-			Stream<String> namen = Files.lines(Paths.get("namen.txt"));
-			namen
-				.forEach(System.out::println);
-			namen.close();
+		try (Stream<String> namen = Files.lines(Paths.get("namen.txt"))) {
+			namen.forEach(System.out::println);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
