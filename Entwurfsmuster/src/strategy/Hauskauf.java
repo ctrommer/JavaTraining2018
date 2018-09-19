@@ -11,8 +11,7 @@ public class Hauskauf {
 	 * @param bewertungsstrategie
 	 * wie das Haus bewertet werden soll.
 	 */
-	public static void sollIchHausKaufen( Haus haus, Predicate<Haus> bewertungsstrategie ) {
-		System.out.println( bewertungsstrategie.test(haus) ? "Haus ist günstig" : "Haus ist teuer" );
+	public static void sollIchHausKaufen(  ) {
 	}
 
 	/**
@@ -23,12 +22,6 @@ public class Hauskauf {
 	 */
 	public static void main(String[] args) {
 		Haus einfamilienHaus = new Haus(250_000, 300_000, 20_000);
-		
-		Predicate<Haus> bewertenNachBuchwertStrategie = ( haus ) -> haus.getBuchwert() > haus.getMarktpreis();
-		sollIchHausKaufen(einfamilienHaus, bewertenNachBuchwertStrategie);
-		
-		Predicate<Haus> bewertenNachMieteinnahmenStrategie = ( haus ) -> haus.getJahresMieteinnahmen() * 10 > haus.getMarktpreis();
-		sollIchHausKaufen(einfamilienHaus, bewertenNachMieteinnahmenStrategie);
 	}
 
 }
