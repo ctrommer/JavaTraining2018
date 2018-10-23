@@ -1,5 +1,22 @@
 
 
+neue Fragen:
+
+*
+
+Was passiert, wenn man für Arrays.asList("Uwe", "Karl"); ein add aufruft.?
+Es wird eine UnsupportedOperationException geworfen.
+
+*
+
+Warum wird beim Aufruf von .add für Arrays.asList("Uwe", "Karl"); eine UnsupportedOperationException geworfen?  
+Es wird nur das interface List<String> zurückgeliefert, was keine Methode add unterstützt.
+
+*
+
+
+____________________________________________________________________
+
 Die Fragen aus dem Master aufnehmen?
 
 Fragen aufnehmen:
