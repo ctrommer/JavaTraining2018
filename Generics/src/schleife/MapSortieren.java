@@ -13,14 +13,16 @@ public class MapSortieren {
 	 * Erzeuge eine unsortierte Map, sortiere sie nach ihrem key und gebe sie aus.
 	 */
 	private static void sortiereMapNachKey() {
-		Map<String, String> map = new HashMap<>();
-		map.put("key2", "value2");
-		map.put("key1", "value1");
-		map.put("key3", "value3");
+		Map<String, String> hashMap = new HashMap<>();
+		hashMap.put("key5", "value5");
+		hashMap.put("key4", "value4");
+		hashMap.put("key2", "value2");
+		hashMap.put("key1", "value1");
+		hashMap.put("key3", "value3");
 		
-		map.forEach((k,v)->System.out.println("key: " + k + " value: " + v  ));
+		hashMap.forEach((k,v)->System.out.println("key: " + k + " value: " + v  ));
 
-		Map<String, String> treeMap = new TreeMap<>(map);
+		Map<String, String> treeMap = new TreeMap<>(hashMap);
 		
 		treeMap.forEach((k,v)->System.out.println("key: " + k + " value: " + v ));		
 	}
