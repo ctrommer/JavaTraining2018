@@ -16,6 +16,9 @@ public class ClassObject {
 		System.out.println(clazz1.getSimpleName());
 	}
 	
+	/**
+	 * Klasse erzeugen aus Klassename als String
+	 */
 	private static void klasseErzeugen() {
 		try {
 			Class<?> clazz2 = Class.forName("syntax.Motorrad");

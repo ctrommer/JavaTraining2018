@@ -2,16 +2,14 @@ package callBack;
 
 import java.util.function.Consumer;
 
-/**
- * Besserer Name wäre: CallAfter
- *
- */
-public class CallBack {
+public class TextZuAusrufezeichen {
 
-
+	/**
+	 * Erzeugt einen callBack, der x Ausrufezeichen ausgibt und verwendet diesen für einen 
+	 * {@link StringHelfer}.   
+	 * @param args
+	 */
 	public static void main(String[] args) {
-		
-		StringHelfer stringHelfer = new StringHelfer();
 		
 		Consumer<Double> callBack = zahl -> 	// besserer Name für callBack: call After
 		{ 
@@ -20,6 +18,7 @@ public class CallBack {
 			}
 		};
 			
+		StringHelfer stringHelfer = new StringHelfer();
 		stringHelfer.textLaengeZumQuadratUndDamitAufrufen("Hallo", callBack );
 		
 	}

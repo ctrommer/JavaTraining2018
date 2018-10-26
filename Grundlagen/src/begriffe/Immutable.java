@@ -1,5 +1,10 @@
 package begriffe;
 
+/**
+ * Erzeugt eine Klasse die nach dem Erzeugen nicht mehr verändert werden kann. 
+ * Sie hat ein Feld das mutable ist und eins, dass immutable ist.
+ *
+ */
 public final class Immutable {					// Declare the class as final so it can’t be extended.
 
 	private final String string;				// Make all fields private so that direct access is not allowed.
