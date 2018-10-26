@@ -5,9 +5,6 @@ import org.junit.Test;
 
 public class TestPieper {
 	
-	@Rule
-	public MeinePieperRule meinePieperRule = new MeinePieperRule();
-	
 	/**
 	 * Testet die eigene Exception, die piept.
 	 */

@@ -13,8 +13,7 @@ public class TestTimeout {
 	/**
 	 * Regel, die nach einer Sekunde zum Timeout führt.
 	 */
-	@Rule
-	public Timeout timeoutRule = new Timeout(SEKUNDEN_BIS_TIMEOUT, TimeUnit.SECONDS);
+
 	
 	/**
 	 * Provoziert Timeout.
