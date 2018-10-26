@@ -11,12 +11,8 @@ public class LocalDateTimeBeispiel {
 	}
 
 	private static void gebeAktuelleZeitAus() {
-		LocalDateTime localDateTime = LocalDateTime.now();		
-		System.out.println(localDateTime);
 	}
 	
 	private static void gebeAktuellesDatumInDreiMonatenAus() {
-		LocalDate localDate = LocalDate.now().plusMonths(3);
-		System.out.println(localDate);
 	}
 }
