@@ -1,0 +1,4 @@
+
+Man muss JUnit 4 dem Buildpath hinzufügen. 
+-> Wird einem als Quickfix vorgeschlagen, wenn er die Imports im Code hat aber nicht findet.
+-> Quickfix verwenden und gut ist.
