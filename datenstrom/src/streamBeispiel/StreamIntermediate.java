@@ -1,6 +1,5 @@
 package streamBeispiel;
 
-import java.util.IntSummaryStatistics;
 import java.util.function.Consumer;
 import java.util.function.Predicate;
 import java.util.stream.IntStream;
