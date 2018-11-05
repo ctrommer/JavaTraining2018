@@ -130,7 +130,7 @@ public class SpielerSortierenMitVergleicher {
 	/** 
 	 * Etwas vergleichen, was auf natürliche Art verglichen werden kann.
 	 * 
-	 * Über Vergleicherunterstützer, Enum als Singelton
+	 * Über Vergleicherunterstützer, Enum als Singelton.
 	 * 
 	 * Hinweise: enum VergleicherWieComparable implements Vergleicher<Comparable<Object>> {
 	 */
