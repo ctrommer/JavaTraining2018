@@ -12,6 +12,9 @@ public class ArrayAusgeben {
 	private static void arrayMitForSchleifeAusgeben() {		
 	}	
 	
+	/**
+	 * Erzeuge primitives Array von int und gebe es mit for in loop aus.
+	 */
 	private static void arrayMitForInAusgeben() {		
 	}
 	
