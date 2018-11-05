@@ -116,7 +116,7 @@ public class SpielerSortierenMitVergleicher {
 	}
 
 	/**
-	 * Nur zum testen, ob der Nullvergleicher auch Rueckwaerts berücksichtigt.
+	 * Nur zum testen, ob der Nullvergleicher auch rueckwaerts berücksichtigt.
 	 */
 	public static void vergleicheSpielerNachAlterNullBeruecksichtigendRueckwaerts() {
 	}
