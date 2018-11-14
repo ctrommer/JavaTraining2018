@@ -22,9 +22,8 @@ public class TestRuleChain {
 
 	@Test
 	public void testeRuleChain() {
-
-		Bruch bruch = new Bruch(1, 0);
-		System.out.println(bruch);
+		int[] zahlen = {1,2,3};		
+		System.out.println(zahlen[3]);
 	}
 
 }

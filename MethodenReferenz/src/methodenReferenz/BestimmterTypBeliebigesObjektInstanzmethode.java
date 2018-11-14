@@ -15,21 +15,21 @@ public class BestimmterTypBeliebigesObjektInstanzmethode {
 	}
 
 	/**
-	 * Verwandlt Kleinbuchstaben in Groﬂbuchstaben mit Function ohne Lambda.
+	 * Verwandelt Kleinbuchstaben in Groﬂbuchstaben mit Function ohne Lambda.
 	 */
 	private static void mitAbstrakterMethode() {
 
 	}	
 	
 	/**
-	 * Verwandlt Kleinbuchstaben in Groﬂbuchstaben mit Function mit Lambda.
+	 * Verwandelt Kleinbuchstaben in Groﬂbuchstaben mit Function mit Lambda.
 	 */	
 	private static void mitLambda() {
 
 	}	
 
 	/**
-	 * Verwandlt Kleinbuchstaben in Groﬂbuchstaben mit Function mit Method Referenz.
+	 * Verwandelt Kleinbuchstaben in Groﬂbuchstaben mit Function mit Method Referenz.
 	 * 
 	 * Nur zum Demonstrieren der Syntax, es ginge nat¸rlich einfacher ohne Method Referenz. 
 	 */

@@ -97,6 +97,7 @@ public final class VielleichtMitInhalt<T> {
      * @throws NullPointerException if the predicate is null
      */
 
+
     /**
      * If a value is present, apply the provided mapping function to it,
      * and if the result is non-null, return an {@code Optional} describing the

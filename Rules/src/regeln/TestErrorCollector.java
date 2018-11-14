@@ -5,4 +5,5 @@ import org.junit.Test;
 import org.junit.rules.ErrorCollector;
 
 public class TestErrorCollector {
+
 }

@@ -12,8 +12,7 @@ public class TestExpectedException {
 	 */
 	@Test
 	public void testeBruch() {
-		
-		Bruch bruch = new Bruch(1, 0);
-		System.out.println(bruch);
+		int[] zahlen = {1,2,3};		
+		System.out.println(zahlen[3]);
 	}
 }

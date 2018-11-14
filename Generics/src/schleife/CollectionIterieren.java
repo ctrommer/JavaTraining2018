@@ -25,15 +25,18 @@ public class CollectionIterieren {
 		collectionMitForEachAusgeben();
 	}
 
-	private static void collectionMitWhileAusgeben( ) {		
+	private static void collectionMitIteratorAusgeben() {		
 	}
 	
-	private static void collectionMitIteratorAusgeben() {
-	}
-
 	private static void collectionMitForInAusgeben() {
+	}
+	
+	private static void collectionMitWhileAusgeben( ) {		
 	}
 
 	private static void collectionMitForEachAusgeben() {		
-	}	
+
+	}
+
+
 }
