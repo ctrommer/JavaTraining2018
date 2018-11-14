@@ -10,13 +10,11 @@ public class TestRuleChain {
 	/**
 	 * erste Rule
 	 */
-	@Rule
 	public MeinePieperRule meinePieperRule = new MeinePieperRule();
 
 	/**
 	 * zweite Rule
 	 */	
-	@Rule
 	public ExpectedException expectedException = ExpectedException.none();
 
 	/**
@@ -27,10 +25,10 @@ public class TestRuleChain {
 
 	@Test
 	public void testeRuleChain() {
-		expectedException.expect(IllegalArgumentException.class);
-		expectedException.expectMessage("Zaehler darf nicht null sein.");
-		Bruch bruch = new Bruch(1, 0);
-		System.out.println(bruch);
+		expectedException.expect(ArrayIndexOutOfBoundsException.class);
+		expectedException.expectMessage("3");
+		int[] zahlen = {1,2,3};		
+		System.out.println(zahlen[3]);
 	}
 
 }

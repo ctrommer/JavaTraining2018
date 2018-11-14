@@ -13,15 +13,15 @@ public class TestErrorCollector {
 	public void testeErrorCollector() {
 
 		try {
-			Bruch bruch1 = new Bruch(1, 0);
-			System.out.println(bruch1);
+			int[] zahlen1 = {1,2,3};		
+			System.out.println(zahlen1[3]);
 		} catch (Exception e) {
 			errorCollector.addError(e);
 		}
 
 		try {
-			Bruch bruch2 = new Bruch(1, 0);
-			System.out.println(bruch2);
+			int[] zahlen2 = {1,2,3};		
+			System.out.println(zahlen2[3]);
 		} catch (Exception e) {
 			errorCollector.addError(e);
 		}		

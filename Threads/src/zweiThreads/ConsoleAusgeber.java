@@ -11,7 +11,7 @@ public class ConsoleAusgeber implements Runnable{
 		this.warteZeit = warteZeit;
 	}
 
-	// In Schleife Text ausgeben und danauch auf andere Threads warten.
+	// In Schleife Text ausgeben und danach auf andere Threads warten.
 	// 10 mal wiederholen.
 	@Override
 	public void run() {

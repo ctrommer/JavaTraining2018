@@ -127,7 +127,7 @@ public final class VielleichtMitInhalt<T> {
      * otherwise an empty {@code Optional}
      * @throws NullPointerException if the predicate is null
      */
-	VielleichtMitInhalt<T> filtere( Bedingung<? super T> bedingung) {
+	public VielleichtMitInhalt<T> filtere( Bedingung<? super T> bedingung) {
 		Objects.requireNonNull(bedingung);
 		if ( istInhaltVorhanden() ) { 
 			return bedingung.istErfuelltFuer(inhalt) ? this : leereInstanz();

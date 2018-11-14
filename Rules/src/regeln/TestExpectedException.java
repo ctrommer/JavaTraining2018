@@ -14,9 +14,9 @@ public class TestExpectedException {
 	 */
 	@Test
 	public void testeBruch() {
-		expectedException.expect(IllegalArgumentException.class);
-		expectedException.expectMessage("Nenner darf nicht null sein.");
-		Bruch bruch = new Bruch(1, 0);
-		System.out.println(bruch);
+		expectedException.expect(ArrayIndexOutOfBoundsException.class);
+		expectedException.expectMessage("3");
+		int[] zahlen = {1,2,3};		
+		System.out.println(zahlen[3]);
 	}
 }

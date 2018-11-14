@@ -25,13 +25,6 @@ public class CollectionIterieren {
 		collectionMitForEachAusgeben();
 	}
 
-	private static void collectionMitWhileAusgeben( ) {
-		Iterator<String> iterator = namenCollection.iterator();
-		while (iterator.hasNext()) {
-			System.out.println(iterator.next());			
-		}
-	}
-	
 	private static void collectionMitIteratorAusgeben() {
 		for (Iterator<String> iterator = namenCollection.iterator(); iterator.hasNext();) {
 			System.out.println(iterator.next());			
@@ -42,6 +35,13 @@ public class CollectionIterieren {
 		for (String string : namenCollection) {
 			System.out.println(string);
 		}				
+	}
+
+	private static void collectionMitWhileAusgeben( ) {
+		Iterator<String> iterator = namenCollection.iterator();
+		while (iterator.hasNext()) {
+			System.out.println(iterator.next());			
+		}
 	}
 
 	private static void collectionMitForEachAusgeben() {
