@@ -16,6 +16,16 @@ public class OptionalVerwenden {
 		optionalVonStringFallsVorhandenUndMitAStartetAusgebenMitMethodReferenz();
 		optionalVonStringZuWert();
 		optionalZuWertZuOptional();
+		
+		Person person = null;
+		nullPointerVerhindern(person);
+		
+		person = new Person(null);
+		nullPointerVerhindern(person);
+		
+		person = new Person("Jimmy");
+		nullPointerVerhindern(person);
+		
 		optionalZuOptional();
 	}
 
@@ -58,8 +68,16 @@ public class OptionalVerwenden {
 	}
 
 	private static void optionalZuWertZuOptional() {		
-	}		
+	}	
+
+	/**
+	 * Namen einer Person ausgeben.
+	 * 
+	 * Die Person kann null sein und der Name kann null sein.
+	 */
+	private static void nullPointerVerhindern( Person person ) {
+	}
 	
 	private static void optionalZuOptional() {
-	}	
+	}
 }
