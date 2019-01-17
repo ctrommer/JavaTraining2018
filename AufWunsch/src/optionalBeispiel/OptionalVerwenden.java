@@ -16,6 +16,16 @@ public class OptionalVerwenden {
 		optionalVonStringFallsVorhandenUndMitAStartetAusgebenMitMethodReferenz();
 		optionalVonStringZuWert();
 		optionalZuWertZuOptional();
+		
+		Person person = null;
+		nullPointerVerhindern(person);
+		
+		person = new Person(null);
+		nullPointerVerhindern(person);
+		
+		person = new Person("Jimmy");
+		nullPointerVerhindern(person);
+		
 		optionalZuOptional();
 	}
 		
@@ -87,12 +97,24 @@ public class OptionalVerwenden {
 		Optional<String> vielleichtNameAusPerson = vielleichtArnold.map(Person::getName);
 		System.out.println(vielleichtNameAusPerson.orElse("unbekannt"));
 	}	
+
+	/**
+	 * Namen einer Person ausgeben.
+	 * 
+	 * Die Person kann null sein und der Name kann null sein.
+	 */
+	private static void nullPointerVerhindern( Person person ) {
+		Optional
+			.ofNullable(person)
+			.map(Person::getName)
+			.ifPresent(System.out::println);
+	}
 	
 	private static void optionalZuOptional() {
-		Person arnold = new Person("Arnold");		
+		Person arnold = new Person("Arnold");
 		Optional<Person> vielleichtArnold = Optional.of(arnold);
-		
+
 		Optional<Integer> vielleichtGewichtVonArnold = vielleichtArnold.flatMap(Person::getVielleichtGewicht);
 		System.out.println(vielleichtGewichtVonArnold.orElse(0));
-	}	
+	}
 }
