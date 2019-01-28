@@ -11,7 +11,7 @@ import java.util.Set;
  */
 public class Fitnessstudio {
 	public enum Trainingsmoeglichkeit { FREIHANTEL, GERÄTE, KURSE, AUSDAUER };
-	final Set<Trainingsmoeglichkeit> trainingsarten;
+	final Set<Trainingsmoeglichkeit> trainingsmoeglichkeiten;
 	
 	public static class Builder {
 		EnumSet<Trainingsmoeglichkeit> trainingsmoeglichkeiten = EnumSet.noneOf(Trainingsmoeglichkeit.class);
@@ -27,12 +27,12 @@ public class Fitnessstudio {
 	}
 
 	public Fitnessstudio(Builder builder) {
-		this.trainingsarten = builder.trainingsmoeglichkeiten.clone();
+		this.trainingsmoeglichkeiten = builder.trainingsmoeglichkeiten.clone();
 	}
 
 	@Override
 	public String toString() {
-		return "Fitnessstudio [trainingsarten=" + trainingsarten + "]";
+		return "Fitnessstudio [trainingsarten=" + trainingsmoeglichkeiten + "]";
 	}
 
 	public static void main(String[] args) {
