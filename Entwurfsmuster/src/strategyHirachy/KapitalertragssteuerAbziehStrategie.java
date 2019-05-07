@@ -1,10 +1,6 @@
 package strategyHirachy;
 
-public class KapitalertragssteuerAbziehStrategie implements SteuernAbziehStrategie{
+public class KapitalertragssteuerAbziehStrategie {
 
-	@Override
-	public Long steuernAbziehen(Long geldBetrag) {
-		return Math.round( geldBetrag * 0.75);
-	}
 	
 }

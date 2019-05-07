@@ -15,9 +15,6 @@ package strategyHirachy;
  * Daher gibt es verschiedene Strategieen der Besteuerung. Man kann damit zur Laufzeit ändern, wie Einkünfte besteuert werden. 
  *
  */
-@FunctionalInterface
 public interface SteuernAbziehStrategie {
-
-	Long steuernAbziehen(Long geldBetrag);
 
 }

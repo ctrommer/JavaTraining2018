@@ -6,11 +6,8 @@ package strategyHirachy;
  * 
  *
  */
-public class EinkommensteuerAbziehStrategie implements SteuernAbziehStrategie{
+public class EinkommensteuerAbziehStrategie {
 
-	@Override
-	public Long steuernAbziehen(Long geldBetrag) {
-		return Math.round(geldBetrag*0.6);
-	}
+
 
 }
