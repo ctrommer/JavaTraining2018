@@ -11,33 +11,6 @@ import java.util.ArrayList;
  *
  */
 public class ThermometerObservable {
-	@FunctionalInterface
-	public interface Observer {
-		void beobachte( int temperatur );
-	}
 
-	private final ArrayList<Observer> beobachterListe = new ArrayList<>();
-	
-	private void benachrichtigeBeobachter( int neueTemperatur ) {
-		beobachterListe.forEach( beobachter -> beobachter.beobachte( neueTemperatur ) );		
-	}
-	
-	public void fuegeBeobachterHinzu( Observer beobachter ) {
-		beobachterListe.add(beobachter);	
-	}
-
-	public void temperaturErmitteln() {
-		for ( int temperatur = 17; temperatur <= 21; temperatur++ ) {
-			System.out.println("Es ist " + temperatur + " Grad.");
-			benachrichtigeBeobachter(temperatur);			
-		}
-	}
-	
-	public static void main( String[] args ) {
-		ThermometerObservable thermometerObservable = new ThermometerObservable();
-		thermometerObservable.fuegeBeobachterHinzu(temperatur -> System.out.println(temperatur < 18 ?  "Heizung geht an." : "Heizung bleibt aus."));
-		thermometerObservable.fuegeBeobachterHinzu(temperatur -> System.out.println(temperatur > 20 ?  "Klimaanlage geht an." : "Klimaanlage bleibt aus."));
-		thermometerObservable.temperaturErmitteln();
-	}
 
 }
