@@ -18,17 +18,15 @@ package fabrikMethodeAbstrakteFabrik;
  */
 public abstract class ArmeeAbstrakteFabrik {
 
-	public abstract Soldat erzeugeSoldat();
-	public abstract Schiff erzeugeSchiff();
 	
 	public static void main(String[] args) {
 		
-		GriechischeArmeeFabrikMethode griechischeArmeeFabrikMethode = new GriechischeArmeeFabrikMethode();
-		Schiff griechischesSchiff = griechischeArmeeFabrikMethode.erzeugeSchiff();
-		Soldat griechischerSoldat = griechischeArmeeFabrikMethode.erzeugeSoldat();
-		
-		System.out.println(griechischesSchiff);
-		System.out.println(griechischerSoldat);
+//		GriechischeArmeeFabrikMethode griechischeArmeeFabrikMethode = new GriechischeArmeeFabrikMethode();
+//		Schiff griechischesSchiff = griechischeArmeeFabrikMethode.erzeugeSchiff();
+//		Soldat griechischerSoldat = griechischeArmeeFabrikMethode.erzeugeSoldat();
+//		
+//		System.out.println(griechischesSchiff);
+//		System.out.println(griechischerSoldat);
 		
 	}
 
