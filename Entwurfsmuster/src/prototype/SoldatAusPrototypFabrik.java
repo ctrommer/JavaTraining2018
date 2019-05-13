@@ -12,24 +12,10 @@ package prototype;
  */
 public class SoldatAusPrototypFabrik {
 	
-	private Soldat soldatPrototyp;
-
-	public SoldatAusPrototypFabrik( Soldat prototyp ) {
-		super();
-		this.soldatPrototyp = prototyp;
-	}
-	
-	public Soldat erzeugeSoldatWiePrototyp() {
-		return new Soldat(soldatPrototyp);
-	}
 
 	public static void main(String[] args) {
-		Soldat prototyp = new Soldat(42);
 		
-		SoldatAusPrototypFabrik soldatAusPrototypFabrik = new SoldatAusPrototypFabrik(prototyp);
-		
-		Soldat soldatWiePrototyp = soldatAusPrototypFabrik.erzeugeSoldatWiePrototyp();
-		System.out.println(soldatWiePrototyp);
+
 	}
 
 }
