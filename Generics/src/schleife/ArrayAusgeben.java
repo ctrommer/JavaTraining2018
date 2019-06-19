@@ -3,7 +3,8 @@ package schleife;
 public class ArrayAusgeben {
 	public static void main( String[] args ) {
 		arrayMitForSchleifeAusgeben();
-		arrayMitForInAusgeben();		
+		arrayMitForInAusgeben();
+		booleanForInSchleife();
 	}
 
 	/**
@@ -24,7 +25,11 @@ public class ArrayAusgeben {
 			System.out.println(element);
 		}			
 	}
-	
-	
+
+	private static void booleanForInSchleife() {
+		for ( boolean element : new boolean[] { true, false } ) {
+			System.out.println(element == true ? "true" : "false");
+		}		
+	}
 	
 }
