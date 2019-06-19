@@ -3,7 +3,8 @@ package schleife;
 public class ArrayAusgeben {
 	public static void main( String[] args ) {
 		arrayMitForSchleifeAusgeben();
-		arrayMitForInAusgeben();		
+		arrayMitForInAusgeben();
+		booleanForInSchleife();
 	}
 
 	/**
@@ -17,5 +18,10 @@ public class ArrayAusgeben {
 	 */
 	private static void arrayMitForInAusgeben() {		
 	}
-	
+
+	/**
+	 * Iteriere mit einer for in loop über ein Array von boolschen Werten.
+	 */
+	private static void booleanForInSchleife() {
+	}
 }
