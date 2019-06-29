@@ -1,26 +1,16 @@
 
 
-neue Fragen:
-
-*
-
-Was passiert, wenn man für Arrays.asList("Uwe", "Karl"); ein add aufruft.?
-Es wird eine UnsupportedOperationException geworfen.
-
-*
-
-Warum wird beim Aufruf von .add für Arrays.asList("Uwe", "Karl"); eine UnsupportedOperationException geworfen?  
-Es wird nur das interface List<String> zurückgeliefert, was keine Methode add unterstützt.
-
-*
-
-
+ * Überall Package Training mit komprimierten Übungen
 ____________________________________________________________________
 
-Die Fragen aus dem Master aufnehmen?
+ * Neuen Ordner JUnit
+ 	- Ordner Mockito da rein
+ 	- Ordner TestenMitJUnit da rein ... insbesondere den JUnit5 Teil, JUnit4 eventuell nur als readOnly
+ 	- Ordner Rules da rein ( hierbei JUnit4 / JUnit5 berücksichtigen )
+____________________________________________________________________
 
-Fragen aufnehmen:
-- Java 8
-- Git
-- TKSE
-- SQL
+ * Java 9 Java 10 etc.
+____________________________________________________________________
+ 
+ * Entwurfsmuster
+
