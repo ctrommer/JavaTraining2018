@@ -1,3 +1,0 @@
- 
- Verändert eine stream instance ihre Quelle?
- Nein.
