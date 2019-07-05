@@ -77,7 +77,7 @@ public class OptionalVerwenden {
 	private static void optionalVonStringFallsVorhandenUndMitAStartetAusgebenMitMethodReferenz() {
 		Person arnold = new Person("Arnold");
 		Optional<Person> vielleichtArnold = Optional.of(arnold);
-		vielleichtArnold.filter(p->p.getName().startsWith("A")).ifPresent(p->System.out.println(p.getName()));		
+		vielleichtArnold.filter(p->p.getName().startsWith("A")).ifPresent(System.out::println);		
 	}
 
 	/**
