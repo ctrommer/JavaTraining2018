@@ -18,7 +18,7 @@ import optionalBeispiel.Person;
 public class OptionalTrainer {
 
 	private void setzeVielleichtGewichtLeer( Person person ) {
-		person.setVielleichtGewicht(Optional.empty());		
+
 	}
 	
 	@Test
@@ -41,7 +41,7 @@ public class OptionalTrainer {
 	 */
 	private String textOderKeinTextNullErlaubt( String text ) {
 		String defaultWert = "kein Text";
-		return Optional.ofNullable(text).orElse(defaultWert);
+		return null;
 	}
 
 	@Test
@@ -64,7 +64,7 @@ public class OptionalTrainer {
 	 * 
 	 */
 	private String textOderKeinTextNullVerboten( String text ) {
-		return Optional.of(text).orElse("");
+		return null;
 	}
 
 	@Test
@@ -77,20 +77,15 @@ public class OptionalTrainer {
 	}	
 
 	private String inhaltOderIllegalStateExceptionMitAnonymerKlasse( Optional<String> vielleichtText ) {
-		return vielleichtText.orElseThrow(new Supplier<IllegalStateException>() {
-			@Override
-			public IllegalStateException get() {
-				return new IllegalStateException();
-			}
-		});
+		return null;
 	}
 
 	private String inhaltOderIllegalStateExceptionMitLambda( Optional<String> vielleichtText ) {
-		return vielleichtText.orElseThrow(() -> new IllegalStateException());
+		return null;
 	}	
 
 	private String inhaltOderIllegalStateExceptionMitMethodReferenz( Optional<String> vielleichtText ) {
-		return vielleichtText.orElseThrow(IllegalStateException::new);
+		return null;
 	}
 
 	@Test
@@ -116,11 +111,6 @@ public class OptionalTrainer {
 	 * person, darf auch null sein.
 	 */
 	private void wennNameLeerSetzeNameNN( Person person ) {
-		Optional
-			.ofNullable(person)
-			.map(Person::getName)
-			.filter(name->name.isEmpty())
-			.ifPresent(name->person.setName("NN"));
 	}
 
 	@Test
@@ -153,9 +143,6 @@ public class OptionalTrainer {
 	 * Inhalt wenn vorhanden, sonst den String "leer".
 	 */
 	private String demonstriereVeraltetenZugriff( Optional<String> vielleichtText ) {
-		if ( vielleichtText.isPresent() ) {
-			return vielleichtText.get();
-		}
 		return "leer";
 	}
 
@@ -176,9 +163,7 @@ public class OptionalTrainer {
 	 */
 	private Integer vielleichtGewichtOder100( Person person ) {
 		
-		return Optional.ofNullable(person)
-				.flatMap(Person::getVielleichtGewicht)
-				.orElse(100);
+		return null;
 	}
 
 	@Test
