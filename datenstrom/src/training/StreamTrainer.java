@@ -33,11 +33,6 @@ public class StreamTrainer {
 	 */
 	private List<Double> zumQuadratUndDurchschnitt( IntStream intStream, int zuUeberspringen ) {
 		List<Double> zahlenListe = new ArrayList<>();
-		intStream
-			.skip(zuUeberspringen)
-			.map( x -> x*x )
-			.average()
-			.ifPresent(zahl->zahlenListe.add( zahl ) );
 		return zahlenListe;
 	}
 
@@ -52,8 +47,7 @@ public class StreamTrainer {
 	 * Anzahl Elemente
 	 */
 	private long anzahlElemente( String ... strings ) {		
-		return Stream.of(strings)
-			.count();
+		return 1;
 	}
 
 	@Test
@@ -73,9 +67,6 @@ public class StreamTrainer {
 	 */
 	private List<String> nurDieMitAStarten( String[] texte ) {
 		List<String> namenListe = new ArrayList<>();
-		Stream.of(texte)
-			.filter(s->s.startsWith("A"))
-			.forEach(name->namenListe.add(name));
 		return namenListe;
 	}
 
@@ -95,11 +86,7 @@ public class StreamTrainer {
 	 * ersten String wenn vorhanden, sonst null
 	 */
 	private String sortierenUndErstenZurueckgeben( List<String> strings ) {
-		 return strings
-			.stream()
-			.sorted()
-			.findFirst()
-			.orElse(null);
+		 return null;
 	}
 
 	@Test
@@ -119,12 +106,7 @@ public class StreamTrainer {
 	 * Liste der Namen
 	 */
 	private List<String> dateiLesenMitStream( String dateiname ){
-		try (Stream<String> namen = Files.lines(Paths.get(dateiname))) {
-			return namen.collect(Collectors.toList());
-		} catch (IOException e) {
-			e.printStackTrace();
-			return null;
-		}
+		return null;
 	}
 
 	@Test
@@ -146,9 +128,7 @@ public class StreamTrainer {
 	 * 
 	 */
 	private int summeVonZahlenAusgeben(int erste, int letzte ) {
-		return IntStream
-				.rangeClosed(erste, letzte)
-				.sum();
+		return 1;
 	}
 
 	@Test
@@ -167,8 +147,7 @@ public class StreamTrainer {
 	 * alle Zahlen miteinander multipliziert
 	 */
 	private int zahlenMultiplizieren( int erste, int letzte) {
-		return IntStream.rangeClosed(erste, letzte)
-			.reduce(1, (a,b)->a*b);
+		return 1;
 	}
 	
 	@Test
@@ -185,9 +164,7 @@ public class StreamTrainer {
 	 * Texte in Grossbuchstaben umgewandelt
 	 */
 	private List<String> ueberStreamZuGrossbuchstaben( String ... texte ) {
-		return Stream.of(texte)
-			.map(String::toUpperCase)
-			.collect(Collectors.toList());
+		return null;
 	}
 
 	@Test
@@ -203,8 +180,7 @@ public class StreamTrainer {
 	 * String, der die Werte der Liste durch Komma getrennt enthält
 	 */
 	private String zuEinemDurchKommaGetrenntenString( String ... texte ) {		
-		return Stream.of(texte)
-			.collect(Collectors.joining(", "));
+		return null;
 	}
 
 	@Test
@@ -222,8 +198,7 @@ public class StreamTrainer {
 	 * 
 	 */
 	private Map<String, Integer> streamZuMap( String ... texte ) {		
-		return Stream.of(texte)
-			.collect(Collectors.toMap(Function.identity(), String::length, (text1, text2) -> text1));
+		return null;
 	}
 
 	@Test
