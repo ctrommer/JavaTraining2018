@@ -43,9 +43,7 @@ public class SchleifeTrainer {
 	 */
 	private int summeArrayElementeMitForSchleife( int[] intArray ) {
 		int summe = 0;
-		for (int index = 0; index < intArray.length; index++ ) {
-			summe+= intArray[index];
-		}
+
 		return summe;
 	}
 
@@ -64,9 +62,7 @@ public class SchleifeTrainer {
 	 */
 	private int summeArrayElementeMitForInLoop( int[] intArray ) {
 		int summe = 0;
-		for (int element : intArray) {
-			summe+= element;
-		}
+
 		return summe;
 	}
 
@@ -77,9 +73,7 @@ public class SchleifeTrainer {
 
 	private List<Boolean> primitivesBoolschesArrayMitForInZuListe() {
 		List<Boolean> ergebnis = new ArrayList<>();
-		for ( boolean element : new boolean[] { true, false } ) {
-			ergebnis.add(element);
-		}
+
 		return ergebnis;
 	}
 	
@@ -92,9 +86,6 @@ public class SchleifeTrainer {
 	private String collectionMitIteratorZuString( Collection<String> namenCollection ) {
 		String aneinandergehaengt = new String();
 
-		for (Iterator<String> iterator = namenCollection.iterator(); iterator.hasNext();) {
-			aneinandergehaengt += iterator.next();			
-		}
 		return aneinandergehaengt;
 	}
 
@@ -106,9 +97,6 @@ public class SchleifeTrainer {
 	private String collectionMitForInZuString( Collection<String> namenCollection ) {
 		String aneinandergehaengt = new String();
 
-		for (String element: namenCollection) {
-			aneinandergehaengt += element;			
-		}
 		return aneinandergehaengt;
 	}
 	
@@ -120,10 +108,6 @@ public class SchleifeTrainer {
 	private String collectionMitWhileZuString( Collection<String> namenCollection ) {
 		String aneinandergehaengt = new String();
 
-		Iterator<String> iterator = namenCollection.iterator();
-		while (iterator.hasNext()) {
-			aneinandergehaengt+= iterator.next();			
-		}
 		return aneinandergehaengt;
 	}
 
@@ -135,8 +119,6 @@ public class SchleifeTrainer {
 	private List<String> collectionMitForEachZuListe( Collection<String> namenCollection ) {
 		List<String> ergebnisListe = new ArrayList<>();
 
-		namenCollection.forEach(text->ergebnisListe.add(text));
-
 		return ergebnisListe;
 	}
 
@@ -146,12 +128,7 @@ public class SchleifeTrainer {
 	}
 
 	private void elementAusListeLoeschenMitIterator( Collection<String> liste, String zuLoeschenderEintrag ) {
-		for (Iterator<String> iterator = liste.iterator(); iterator.hasNext();) {
-			String name = iterator.next();
-			if ( Objects.equals(name, zuLoeschenderEintrag) ) {
-				iterator.remove();
-			}
-		}
+
 	}
 
 	@Test
@@ -169,7 +146,6 @@ public class SchleifeTrainer {
 	}
 
 	private void elementAusListeLoeschenMitPredicate( Collection<String> liste, String zuLoeschenderEintrag ) {
-		namenListe.removeIf(name->Objects.equals(name, "Uta"));
 	}
 
 	@Test
@@ -189,11 +165,6 @@ public class SchleifeTrainer {
 	private String mapMitWhileZuString( Map<String, String> map  ) {
 		String aneinandergehaengt = new String();
 
-		Iterator<Map.Entry<String, String>> iterator = map.entrySet().iterator();
-		while( iterator.hasNext() ) {
-			Map.Entry<String, String> entry = iterator.next();
-			aneinandergehaengt+= entry.getKey() + entry.getValue();
-		}
 		return aneinandergehaengt;
 	}
 
@@ -205,11 +176,6 @@ public class SchleifeTrainer {
 	private String mapMitIteratorZuString( Map<String, String> map  ) {
 		String aneinandergehaengt = new String();
 
-		Set<Map.Entry<String, String>> entrySet = nameWohnortMap.entrySet();		
-		for( Iterator<Map.Entry<String, String>> iterator = entrySet.iterator(); iterator.hasNext(); ) {
-			Map.Entry<String, String> entry = iterator.next();
-			aneinandergehaengt+= entry.getKey() + entry.getValue();
-		}
 		return aneinandergehaengt;
 	}
 
@@ -221,10 +187,6 @@ public class SchleifeTrainer {
 	private String mapMitForInZuString( Map<String, String> map  ) {
 		String aneinandergehaengt = new String();
 
-		Set<Map.Entry<String, String>> entrySet = nameWohnortMap.entrySet();
-		for (Map.Entry<String, String> entry : entrySet) {
-			aneinandergehaengt +=entry.getKey()  + entry.getValue();
-		}
 		return aneinandergehaengt;
 	}
 
@@ -235,8 +197,6 @@ public class SchleifeTrainer {
 
 	private Map<String, String> mapMitForEachZuMapKeyValueVertauscht( Map<String, String> map ) {
 		Map<String, String> keyValueVertauscht = new LinkedHashMap<String, String>();
-
-		nameWohnortMap.forEach((key,value)-> keyValueVertauscht.put(value, key));
 		
 		return keyValueVertauscht;
 	}
@@ -253,8 +213,8 @@ public class SchleifeTrainer {
 	}		
 
 	private static Map<String, String> sortiereMapNachKey( Map<String, String> map ) {
-		Map<String, String> treeMap = new TreeMap<>(map);
-		return treeMap;		
+		Map<String, String> sorted = null;
+		return sorted;		
 	}
 	
 	@Test
