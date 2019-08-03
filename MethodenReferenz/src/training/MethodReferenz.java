@@ -24,9 +24,8 @@ public class MethodReferenz {
 	 * Nur zum Demonstrieren der Syntax, es ginge natürlich einfacher ohne Method Referenz. 
 	 */
 	private String kleinZuGrossMitMethodReferenz( String text ) {
-		Function<String, String> zuGrossbuchstaben = String::toUpperCase;
-		
-		return zuGrossbuchstaben.apply(text);
+
+		return null;
 	}	
 
 	@Test
@@ -41,19 +40,18 @@ public class MethodReferenz {
 	 * Mitarbeiter, deren Namen in Grossbuchstaben verwandelt werden sollen.
 	 */
 	private void mitarbeiternameZuGrossbuchstabenMitMethodReferenz( List<Mitarbeiter> mitarbeiter ) {
-		mitarbeiter.forEach(Mitarbeiter::nameZuGrossbuchstaben);
+		
 	}
 	
 	@Test
 	public void testeMitarbeiternameZuGrossbuchstabenMitMethodReferenz() {		
 		List<Mitarbeiter> mitarbeiterListe = Arrays.asList(new Mitarbeiter("Albert"), new Mitarbeiter("Bert" ) );
 		mitarbeiternameZuGrossbuchstabenMitMethodReferenz(mitarbeiterListe);
-		assertEquals(Arrays.asList(new Mitarbeiter("ALBERT"), new Mitarbeiter("BERT" ) ), mitarbeiterListe);		
+		assertEquals(Arrays.asList(new Mitarbeiter("ALBERT"), new Mitarbeiter("BERT" ) ), mitarbeiterListe);
 	}
 
 	private void fansHinzufuegenMitConsumerUndLambda( Schauspieler schauspieler, List<Mitarbeiter> neueFans ) {
-		Consumer<Mitarbeiter> schauspielerFuegtFanHinzu  = mitarbeiter -> schauspieler.fanHinzufuegen(mitarbeiter);
-		neueFans.forEach(schauspielerFuegtFanHinzu);		
+
 	}
 
 	@Test
@@ -67,8 +65,7 @@ public class MethodReferenz {
 	}
 
 	private void fansHinzufuegenMitConsumerUndMethodReferenz( Schauspieler schauspieler, List<Mitarbeiter> neueFans ) {
-		Consumer<Mitarbeiter> schauspielerFuegtFanHinzu  = schauspieler::fanHinzufuegen;
-		neueFans.forEach(schauspielerFuegtFanHinzu);
+
 	}
 	
 	@Test
@@ -90,9 +87,9 @@ public class MethodReferenz {
 	 * Mitarbeiter mit dem als Parameter übergebenen Namen.
 	 */
 	private Mitarbeiter nameZuMitarbeiterMitLambdaUndFunction( String mitarbeiterName ) {
-		Function<String, Mitarbeiter> stringZuPerson = name -> new Mitarbeiter(name); 
+
 		
-		return stringZuPerson.apply(mitarbeiterName);				
+		return null;				
 	}
 
 	@Test
@@ -109,10 +106,8 @@ public class MethodReferenz {
 	 * Mitarbeiter mit dem als Parameter übergebenen Namen.
 	 */
 	private Mitarbeiter nameZuMitarbeiterMitMethodReferenzUndFunction( String mitarbeiterName ) {
-		// Erst sinnvoll, wenn es als Parameter übergeben wird.
-		Function<String, Mitarbeiter> stringZuPerson = Mitarbeiter::new;		// s -> new Mitarbeiter(s);
-		
-		return stringZuPerson.apply(mitarbeiterName);
+
+		return null;
 	}
 	
 	@Test
@@ -132,9 +127,7 @@ public class MethodReferenz {
 	private Map<String, Mitarbeiter> nameZuMitarbeiterMapMitReferenzAufKonstruktor( String mitarbeiterName ) {
 		Map<String, Mitarbeiter> mitarbeiterMap = new HashMap<>();
 		
-		Function<String, Mitarbeiter> stringZuMitarbeiter = Mitarbeiter::new;	// s -> new Mitarbeiter(s);
 
-		mitarbeiterMap.computeIfAbsent(mitarbeiterName, stringZuMitarbeiter);
 		
 		return mitarbeiterMap;
 	}
@@ -152,9 +145,9 @@ public class MethodReferenz {
 	 * Wandelt double in String mit Function und Method Referenz auf statische Methode von String.
 	 */
 	private String doubleZuStringMitFunctionUndMethodReferenz( Double zahl ) {
-		Function<Double, String> doubleToString = String::valueOf; 		// n -> String.valueOf(n)
+
 		
-		return doubleToString.apply(zahl);
+		return null;
 	}
 
 	@Test
@@ -169,8 +162,7 @@ public class MethodReferenz {
 	 * Mitarbeiter, die zu den besten Mitarbeitern hinzugefügt werden sollen.
 	 */
 	private static void mitarbeiterZuBestenMitarbeiternHinzufuegenMitReferenzAufStatischeMethode( List<Mitarbeiter> mitarbeiters ) {		
-		Consumer<Mitarbeiter> zuGrossBuchstaben = Mitarbeiter::fuegeBestenMitarbeiterHinzu;
-		mitarbeiters.forEach(zuGrossBuchstaben);
+
 	}
 
 	@Test
