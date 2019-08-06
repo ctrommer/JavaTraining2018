@@ -12,31 +12,24 @@ import org.mockito.MockitoAnnotations;
 
 public class TestUebersetzerMitAnnotation {
 
-	@Mock
-	private Uebersetzer mockUebersetzer;
 	
 	private List<String> listeUebersetzungen;
 	
-	@Before
 	public void setUp() {
-		MockitoAnnotations.initMocks(this);	
-		
-	    Mockito.doReturn("World").when(mockUebersetzer).uebersetze("Welt");
 	    
 	    listeUebersetzungen = new ArrayList<String>();
 	    listeUebersetzungen.add("World");
 	    listeUebersetzungen.add("Earth");
-	    Mockito.doReturn(listeUebersetzungen).when(mockUebersetzer).uebersetzeMitMehrerenErgebnissen("Welt");
+
 	}	
 
 	@Test
 	public void testeUebersetzer() {
 
-		// erzeugt die Uebersetzerschnittstelle mit dem Mock
 		UebersetzerSchnittstelle uebersetzerSchnittstelle = new UebersetzerSchnittstelle();
 
 		// testet die Uebersetzerschnittstelle mit dem Mock
-		String uebersetzung = uebersetzerSchnittstelle.uebersetze( mockUebersetzer, "Welt" );
+		String uebersetzung = null;
 
 		// prueft, ob das Ergebnis korrekt ist
 		Assert.assertTrue(uebersetzung.equals("World"));
@@ -49,7 +42,7 @@ public class TestUebersetzerMitAnnotation {
 		UebersetzerSchnittstelle uebersetzerSchnittstelle = new UebersetzerSchnittstelle();
 
 		// testet die Uebersetzerschnittstelle mit dem Mock
-		List<String> uebersetzungen = uebersetzerSchnittstelle.uebersetzeMitMehrerenErgebnissen(mockUebersetzer, "Welt");
+		List<String> uebersetzungen = null;
 
 		// prueft, ob das Ergebnis korrekt ist
 		Assert.assertTrue(uebersetzungen.equals(listeUebersetzungen));
