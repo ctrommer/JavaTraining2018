@@ -7,6 +7,7 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collection;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
@@ -208,6 +209,23 @@ public class StreamTrainer {
 		erwartet.put( "Hallo", 5);
 		erwartet.put("Welt", 4);
 		assertEquals(erwartet, streamZuMap);
+	}
+	
+	private Stream<String> listeVonListeZuEinemStream( List<List<String>> listeVonListe ) {
+		return null;
+	}
+
+	@Test
+	public void testeListeVonListeZuEinemStream() {
+		List<String> ersteListe = Arrays.asList("eins","zwei","drei");
+		List<String> zweiteListe = Arrays.asList("vier","fuenf","sechs");
+
+		List<List<String>> listeVonListe = Arrays.asList(ersteListe,zweiteListe);
+
+		Stream<String> erwartetesErgebnis = Stream.concat( ersteListe.stream(), zweiteListe.stream());
+		Stream<String> wirklichesErgebnis = listeVonListeZuEinemStream(listeVonListe);
+
+		assertEquals(erwartetesErgebnis.collect(Collectors.toList()), wirklichesErgebnis.collect(Collectors.toList()));
 	}
 }
 
