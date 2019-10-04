@@ -15,9 +15,9 @@ public class AeussereKlasseMitInnererKlasse {
 	}
 	
 	/**
-	 * Nested Klasse, die zeigt, auf welche Elemente der äusseren Klasse sie zugreifen darf.
+	 * Statische innere Klasse, die zeigt, auf welche Elemente der äusseren Klasse sie zugreifen darf.
 	 */
-	public static class NestedKlasse {
+	public static class StatischeInnereKlasse {
 		public int summeDerErreichbarenZahlen() {
 			return (aeussereStaticZahl); 
 		}
@@ -45,9 +45,9 @@ public class AeussereKlasseMitInnererKlasse {
 		
 		System.out.println(innereKlasse.summeDerErreichbarenZahlen());
 				
-		// nested Klasse
-		AeussereKlasseMitInnererKlasse.NestedKlasse nested = new AeussereKlasseMitInnererKlasse.NestedKlasse();		
-		System.out.println(nested.summeDerErreichbarenZahlen());
+		// statische innere Klasse
+		AeussereKlasseMitInnererKlasse.StatischeInnereKlasse statischeInnereKlasse = new AeussereKlasseMitInnererKlasse.StatischeInnereKlasse();		
+		System.out.println(statischeInnereKlasse.summeDerErreichbarenZahlen());
 		
 		aeussereKlasse.methodeMitLokalerInnereKlasse();
 	}	
