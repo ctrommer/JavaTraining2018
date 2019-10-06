@@ -22,9 +22,6 @@ public class LocalDateTimeBeispiel {
 	 * Erzeuege Dauer von einer Minute.
 	 * Gebe die Dauer in Sekunen aus.
 	 */
-	private static void gebeDauerVonEinerMinuteInSekundenAus() {
-		Duration duration = Duration.ofMinutes(1);
-		System.out.println(duration.getSeconds());
-		
+	private static void gebeDauerVonEinerMinuteInSekundenAus() {		
 	}
 }
