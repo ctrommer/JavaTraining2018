@@ -10,7 +10,7 @@ import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 import org.junit.runners.Parameterized.Parameters;
 
-import main.MeineMathematik;
+import main.MeineMatheUtil;
 
 @RunWith(Parameterized.class)
 public class VieleParameterEinTestMitKonstruktor {
@@ -38,8 +38,7 @@ public class VieleParameterEinTestMitKonstruktor {
     // es darf nur eine Test-Methode geben
     @Test
     public void testMultiplyException() {
-        MeineMathematik mathematik = new MeineMathematik();
-        assertEquals("Erwartet wird, dass die Multiplikation von zwei Zahlen das richtige Ergebnis lierfert.", faktor1 * faktor2, mathematik.multipiziere( faktor1, faktor2 ));
+        assertEquals("Erwartet wird, dass die Multiplikation von zwei Zahlen das richtige Ergebnis lierfert.", faktor1 * faktor2, MeineMatheUtil.multipiziere( faktor1, faktor2 ));
     }
 
 }

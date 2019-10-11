@@ -5,7 +5,7 @@ import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 import org.junit.runners.Parameterized.Parameters;
 
-import main.MeineMathematik;
+import main.MeineMatheUtil;
 
 import java.util.Arrays;
 import java.util.Collection;
@@ -34,8 +34,7 @@ public class VieleParameterEinTest {
     // es darf nur eine Test-Methode geben  
     @Test
     public void testMultiplizieren() {
-        MeineMathematik mathematik = new MeineMathematik();
-        assertEquals("Result", ergebnis, mathematik.multipiziere(faktor1, faktor2));
+        assertEquals("Result", ergebnis, MeineMatheUtil.multipiziere(faktor1, faktor2));
     }
 
 }
