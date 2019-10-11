@@ -8,14 +8,8 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertNotSame;
 import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertSame;
-import static org.junit.jupiter.api.Assertions.assertTimeout;
-import static org.junit.jupiter.api.Assertions.assertTimeoutPreemptively;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.junit.jupiter.api.Assertions.fail;
-
-import java.time.Duration;
-import java.util.Arrays;
-import java.util.stream.Stream;
 
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.AfterEach;
@@ -24,11 +18,7 @@ import org.junit.jupiter.api.Assumptions;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Disabled;
-import org.junit.jupiter.api.DynamicTest;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.TestFactory;
-
-import main.MeineMathematik;
 
 public class MyJUnit5Tests {
 	
@@ -76,22 +66,6 @@ public class MyJUnit5Tests {
     	int x = 5;
     	int y = 6;
     	assertAll("Erwartet wird, dass x = 5 und y = 6 ist. ", () -> assertEquals(x, 5), () -> assertEquals(y, 6));
-    }
-
-    @TestFactory    
-    public Stream<DynamicTest> testeMitMehrerenDaten() {
-        MeineMathematik meineMathematik = new MeineMathematik();   
-        
-        
-        int[][] data = new int[][] { { 1, 2, 2 }, { 5, 3, 15 }, { 121, 4, 484 } };
-        return Arrays.stream(data).map(entry -> {
-            int m1 = entry[0];
-            int m2 = entry[1];
-            int expected = entry[2];
-            return DynamicTest.dynamicTest(m1 + " * " + m2 + " = " + expected, () -> {
-            	assertEquals(expected, meineMathematik.multipiziere(m1, m2));
-            });
-        });
     }
 
     @Test
