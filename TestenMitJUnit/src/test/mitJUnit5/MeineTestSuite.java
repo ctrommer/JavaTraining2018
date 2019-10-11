@@ -9,8 +9,11 @@ import org.junit.runner.RunWith;
  * z.B.: MyJUnit5Tests oder MyJUnit5Test
  * 
  */
-@RunWith( JUnitPlatform.class )
-@SelectPackages("test.mitJUnit5")
+
+/**
+ * Annotationen einfügen, damit die Tests im Package test.mitJUnit5 ausgeführt werden 
+ *
+ */
 public class MeineTestSuite {
 	
 }

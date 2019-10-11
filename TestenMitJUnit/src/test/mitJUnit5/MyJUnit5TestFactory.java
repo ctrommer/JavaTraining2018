@@ -23,12 +23,7 @@ public class MyJUnit5TestFactory {
 	 * @return
 	 * ... die Collection-Variante ;-)
 	 */
-	@TestFactory
-    Collection<DynamicTest> dynamicTestMitCollection() {
-        return Arrays.asList(
-            DynamicTest.dynamicTest("MeineMatheUtil.quadriere", () -> assertEquals(4, MeineMatheUtil.quadriere( 2 ))),
-            DynamicTest.dynamicTest("MeineMatheUtil.quadriere", () -> assertEquals(9, MeineMatheUtil.quadriere( 3 )))
-        );
+    void dynamicTestMitCollection() {
     }
 
 	/**
@@ -36,19 +31,12 @@ public class MyJUnit5TestFactory {
 	 * @return
 	 * ... die Stream-Variante ;-)
 	 */
-	@TestFactory
-	Stream<DynamicTest> gleicherTestUnterschiedlicheDaten() {
+	void gleicherTestUnterschiedlicheDaten() {
 		// erst mal mit Liste
-		List<DynamicTest> dynamicTests = new ArrayList<>();
-		
-		for(int index = 0; index <= 3; index++) {
-			final int zahl = index;
-			DynamicTest dynamicTest = DynamicTest.dynamicTest("MeineMatheUtil.quadriere " + zahl, () -> { assertEquals( zahl * zahl, MeineMatheUtil.quadriere(zahl));});
-			dynamicTests.add(dynamicTest);
-		}
+	
 		
 		// aber stream zurueckgeben
-		return dynamicTests.stream();
+		
 	}
 
 	/**
@@ -59,9 +47,9 @@ public class MyJUnit5TestFactory {
 	 * von der zweiten Zeile das erste Element
 	 */
 	public int elementAusZweidimensionalemArray() {
-		int[][] zweidimensionalesIntArray = new int[][] { { 1, 2 }, { 3, 4 } };
 		
-		return  zweidimensionalesIntArray[1][0];
+		
+		return  42;
 	}
 
 	@Test
@@ -81,14 +69,6 @@ public class MyJUnit5TestFactory {
 
 		List<Integer> intList = new ArrayList<>();
 
-		Stream<int[]> intArrayStream = Arrays.stream(zweidimensionalesIntArray);
-
-		Consumer<? super int[]> action = intArray -> {
-			for ( int index = 0; index < intArray.length; index++ )
-				intList.add(intArray[index]);
-			};
-
-		intArrayStream.forEach(action);	
 
 		return intList;
 	}
@@ -109,16 +89,7 @@ public class MyJUnit5TestFactory {
      * die Stream-Variante
      */
     @TestFactory    
-    public Stream<DynamicTest> testeMitMehrerenDaten() {
+    public void testeMitMehrerenDaten() {
+    }
 
-        int[][] testdaten = new int[][] { { 2, 4 }, { 5, 25 }, { 7, 49 } };
-        Stream<int[]> intArrayStream = Arrays.stream(testdaten);
-        
-        Function<? super int[], ? extends DynamicTest> intArrayToDynamicTest = intArray -> {
-        	return DynamicTest.dynamicTest("MeineMatheUtil.quadriere " + intArray[0], () -> assertEquals( intArray[1], MeineMatheUtil.quadriere( intArray[0] ) ) );
-        };
-        
-		return intArrayStream.map(intArrayToDynamicTest);
-    }	
-    
 }

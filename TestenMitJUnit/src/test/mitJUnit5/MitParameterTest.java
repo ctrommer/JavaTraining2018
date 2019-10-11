@@ -16,33 +16,50 @@ import main.Wochentag;
 
 public class MitParameterTest {
 
-    @ParameterizedTest
-    @ValueSource(ints = { 1, 2, 3 })
+    /**
+     * Führe den Test aus mit den Zahlen 1, 2 und 3
+     * @param zahl
+     * die zu parameteriesierende Zahl
+     */
     void testeZahlen(int zahl) {
     	assertNotNull(zahl);
     }
 
-    @ParameterizedTest
-    @EnumSource(value = Wochentag.class, names = {"MONTAG", "DIENSTAG"})
+    /**
+     * Führe den Test aus mit Montag und Dienstag
+     * @param wochentag
+     */
     void testeEnum( Wochentag wochentag ) {
     	assertNotNull(wochentag);
     }
 
-    @ParameterizedTest
-    @MethodSource("erzeugeWortMitWortLaenge")
+    /**
+     * Führe den Test aus mit den Werten, die von der Methode erzeugeWortMitWortLaenge zurückgegeben werden.
+     * @param text
+     * text für den Test
+     * @param laenge
+     * länge für den Test
+     */
     void testeMitMethodeAlsDatenQuelle(String text, int laenge) {     	
     	assertTrue(text.length() == laenge);    	
     }
-     
+
+    /**
+     * Methode, die Testwerte produziert
+     * @return
+     * Werte, die für die Testmethode verwendet werden
+     */
     @SuppressWarnings("unused")
-	private static Stream<Arguments> erzeugeWortMitWortLaenge() {
-    	return Stream.of(
-    		Arguments.of("Hello", 5),
-    		Arguments.of("Welt", 4));
+	private static void erzeugeWortMitWortLaenge() {
     }
-    
-    @ParameterizedTest
-    @CsvSource({ "Hallo, 5", "Welt, 4", "'wenn Kommma, dann so', 20" })
+
+    /**
+     * Durch Komma getrennte Werte zum Testen verwenden
+     * @param text
+     * text für Test
+     * @param laenge
+     * Länge für Test
+     */
     void testeMitCSVAlsDatenQuelle(String text, int laenge) { 
     	assertTrue(text.length() == laenge ); // Juhu: String::length funktioniert!!!
     }
