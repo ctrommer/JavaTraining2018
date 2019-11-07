@@ -1,0 +1,59 @@
+
+__________________________________________________________________________________________________________________
+
+	mit MySQL Installer sowohl mySQL Server als auch mySQL Workbench installieren
+__________________________________________________________________________________________________________________
+
+	- MySQL Installer runtergeladen nach dieser Anleitung:
+		https://mid.as/kb/00145/install-configure-mysql-on-windows
+		Achtung: noch die alte Passwort variante wählen, sonst wird es problematisch 
+		
+		Problem: 
+			ich hatte die neue Passwort Variante genommen ( SSL Verschlüsselung )
+		Lösung:
+			Ich musst das von Hand umstellen ( aber Vorsicht: nicht Passwort aus versehen auf 'newrootpassword' umstellen )
+			https://stackoverflow.com/questions/49194719/authentication-plugin-caching-sha2-password-cannot-be-loaded
+		
+			Dann noch in hibernate.cfg.xml:
+			<property name="connection.url">jdbc:mysql://localhost:3306/Kundenverwaltung?autoReconnect=true&amp;useSSL=false</property> ( aus: https://stackoverflow.com/questions/34189756/warning-about-ssl-connection-when-connecting-to-mysql-database )
+		
+
+	
+		
+__________________________________________________________________________________________________________________
+
+	Anleitung zu MySQL Workbench
+__________________________________________________________________________________________________________________
+
+	https://www.guru99.com/introduction-to-mysql-workbench.html
+	Achtung: Unter dem Reiter SSL habe ich sichheitshalber SSL = no ausgewählt.
+	
+	Um dann die Kundenverwaltung anzulegen in der MySQL Workbench:
+	- create a new schema in the connected Server ( das gelbe DB-Symbol mit dem +  ) ( Schema = Datenbank )
+	
+	
+
+
+
+__________________________________________________________________________________________________________________
+
+	Java Programm Tutorial: Java Code Geeks Yatin https://examples.javacodegeeks.com/enterprise-java/hibernate/hibernate-maven-example/
+__________________________________________________________________________________________________________________
+
+
+Problem
+	Maven ist bei mir nicht installiert.
+	Daher findet er die hibernate.cfg.xml nicht
+	https://stackoverflow.com/questions/4934330/org-hibernate-hibernateexception-hibernate-cfg-xml-not-found
+Lösung
+	Maven installieren und Umgebungsvaribeln richtig setzen:
+	http://websystique.com/maven/maven-installation-and-setup-windows-unix/
+
+*
+
+Problem
+	Meine MySQL Version passt nicht zur in der pom angegebenen Version von Mysql Connector.
+Lösung
+	passende Verison von Mysql Connector in pom eintragen
+	https://stackoverflow.com/questions/46131295/classcastexception-java-math-biginteger-cannot-be-cast-to-java-lang-long-on-con
+	
