@@ -6,50 +6,39 @@ import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.cfg.Configuration;
 import org.hibernate.service.ServiceRegistry;
 
+/**
+ * Stellt Verbindung zur Datenbank Kundenverwaltung dar.
+ *
+ */
 public class Datenbankverbindung {
 
-	static Kunde kunde;
-    static Session session;
+    /**
+     * Nur eine pro Anwendung
+     */
     static SessionFactory sessionFactory;
+    
+    
+    /**
+     * Eine pro Arbeitseinheit, nicht eine für jede Datenbankoperation
+     */
+    static Session session;
  
-    private static SessionFactory erzeugeSessionFactory() {
-        Configuration configuration = new Configuration();
-        configuration.configure("hibernate.cfg.xml");
-
-        ServiceRegistry serviceRegistry = new StandardServiceRegistryBuilder().applySettings(configuration.getProperties()).build(); 
- 
-        sessionFactory = configuration.buildSessionFactory(serviceRegistry);
+    static SessionFactory holeSessionFactory() {
+    	if ( sessionFactory == null ) { 
+	        Configuration configuration = new Configuration();
+	        configuration.configure("hibernate.cfg.xml");
+	
+	        ServiceRegistry serviceRegistry = new StandardServiceRegistryBuilder().applySettings(configuration.getProperties()).build(); 
+	 
+	        sessionFactory = configuration.buildSessionFactory(serviceRegistry);
+    	}
         return sessionFactory;
     }
- 
-    public static void main(String[] args) {
-        System.out.println(" - Hibernate Kundenverwaltung - \n");
-        try {
-            session = erzeugeSessionFactory().openSession();
-            session.beginTransaction();
- 
-            for(int idKunde = 106; idKunde <= 106; idKunde++) {
-                kunde = new Kunde();
-                kunde.setIdKunde(idKunde);
-                kunde.setName("Kunde " + idKunde);
-                kunde.setGeburtsjahr(1999);
- 
-                session.save(kunde);
-            }
-            System.out.println("\n - Kunden erfolgreich gespeichert - \n");
- 
-            session.getTransaction().commit();
-            
-        } catch(Exception sqlException) {
-        	sqlException.printStackTrace();
-            if(null != session.getTransaction()) {
-                System.out.println("\n - roll back der Transaktion - ");
-                session.getTransaction().rollback();
-            }
-        } finally {
-            if(session != null) {
-                session.close();
-            }
-        }
-    }
+
+	public static void schliesseSessionFactory() {
+        if ( sessionFactory != null ) {
+        	sessionFactory.close();
+        }		
+	}
+
 }
