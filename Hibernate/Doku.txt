@@ -1,4 +1,9 @@
 
+user: 		root
+password: 	admin
+
+user:		admin
+password: 	admin
 __________________________________________________________________________________________________________________
 
 	mit MySQL Installer sowohl mySQL Server als auch mySQL Workbench installieren
@@ -37,7 +42,7 @@ ________________________________________________________________________________
 
 __________________________________________________________________________________________________________________
 
-	Java Programm Tutorial: Java Code Geeks Yatin https://examples.javacodegeeks.com/enterprise-java/hibernate/hibernate-maven-example/
+	Java Programm Tutorial: https://www.baeldung.com/jpa-one-to-one
 __________________________________________________________________________________________________________________
 
 
