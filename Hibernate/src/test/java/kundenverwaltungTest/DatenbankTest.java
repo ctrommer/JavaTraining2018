@@ -1,4 +1,4 @@
-package kundenverwaltung;
+package kundenverwaltungTest;
 
 import static org.junit.Assert.assertTrue;
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -10,6 +10,11 @@ import org.hibernate.SessionFactory;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
+
+import kundenverwaltung.Datenbankverbindung;
+import kundenverwaltung.Ehepartner;
+import kundenverwaltung.Kunde;
+import kundenverwaltung.Name;
 
 public class DatenbankTest {
 
@@ -33,7 +38,7 @@ public class DatenbankTest {
 
 	@Test
 	public void testeKundeSpeichern() {
-		final int idKundeStart = 124;
+		final int idKundeStart = 130;
         try {
             session.beginTransaction(); 
             
