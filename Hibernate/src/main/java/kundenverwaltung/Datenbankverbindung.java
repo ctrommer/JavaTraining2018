@@ -23,7 +23,7 @@ public class Datenbankverbindung {
      */
     static Session session;
  
-    static SessionFactory holeSessionFactory() {
+    public static SessionFactory holeSessionFactory() {
     	if ( sessionFactory == null ) { 
 	        Configuration configuration = new Configuration();
 	        configuration.configure("hibernate.cfg.xml");
