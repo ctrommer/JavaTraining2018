@@ -38,7 +38,7 @@ public class DatenbankTest {
 
 	@Test
 	public void testeKundeSpeichern() {
-		final int idKundeStart = 130;
+		final int idKundeStart = 132;
         try {
             session.beginTransaction(); 
             
