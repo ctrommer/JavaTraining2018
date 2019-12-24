@@ -20,17 +20,22 @@ public class SchipSchiffMapperTest {
 		
 		assertEquals(ship.getName(), schiff.getName());
 		assertEquals(ship.getColour(), schiff.getFarbe());
-		assertEquals(ship.getWeightInLBS(), schiff.getGewichtInKg()*2.205, 1);		
+		assertEquals(ship.getWeightInLBS(), schiff.getGewichtInKg()*2.205, 1);
+		
+		assertEquals(ship.getStartConversion(),schiff.getStartKonvertierung());
+		assertEquals(ship.getEndConversion(), schiff.getEndeKonvertierung());
 	}
 
 	@Test
 	public void testeSchiffZuShip() {
 		Schiff schiff = new Schiff("Titanic", "schwarz", 10_000);
 		
-		Ship ship = shipSchiffMapper.schiffZuship(schiff);
+		Ship ship = shipSchiffMapper.schiffZuShip(schiff);
 		
 		assertEquals( schiff.getName(), ship.getName() );
 		assertEquals( schiff.getFarbe(), ship.getColour() );
 		assertEquals( schiff.getGewichtInKg(), ship.getWeightInLBS()/2.205, 1 );		
+		assertEquals(schiff.getStartKonvertierung(), ship.getStartConversion());
+		assertEquals(schiff.getEndeKonvertierung(), ship.getEndConversion());
 	}
 }

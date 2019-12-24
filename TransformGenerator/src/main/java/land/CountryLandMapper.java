@@ -1,5 +1,8 @@
 package land;
 
+import java.util.Collection;
+import java.util.List;
+
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.Mappings;
@@ -28,9 +31,12 @@ public interface CountryLandMapper {
     })
     Hauptstadt capitalZuHauptstadt( Capital capital );					// ( 1 )
     
+    public abstract List<Hauptstadt> capitalZuHauptstadt( Collection<Capital> capitals ); 
+    
     @Mappings({
     	@Mapping( target = "elevation", source = "hauptstadt.hoehe")
     })    
     Capital hauptstadtZuCapital( Hauptstadt hauptstadt );
+    public abstract List<Capital> hauptstadtZuCapital( Collection<Hauptstadt> hauptstaedte );
 
 }
