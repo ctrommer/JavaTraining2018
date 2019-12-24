@@ -1,11 +1,15 @@
 package land;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Land {
 	
 	private String name;
 	private int einwohnerzahl;
 	private Hauptstadt hauptstadt;
 	private String letzterFussballWMTietel;
+	private List<Hauptstadt> listHauptstadt = new ArrayList<Hauptstadt>();
 
 	public Land(String name, int einwohnerzahl, Hauptstadt hauptstadt, String letzterFussballWMTietel) {
 		super();
@@ -47,6 +51,14 @@ public class Land {
 
 	public void setLetzterFussballWMTietel(String letzterFussballWMTietel) {
 		this.letzterFussballWMTietel = letzterFussballWMTietel;
+	}
+
+	public List<Hauptstadt> getListHauptstadt() {
+		return listHauptstadt;
+	}
+
+	public void setListHauptstadt(List<Hauptstadt> listHauptstadt) {
+		this.listHauptstadt = listHauptstadt;
 	}
 	
 }

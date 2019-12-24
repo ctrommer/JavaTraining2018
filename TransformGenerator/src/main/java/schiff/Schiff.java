@@ -1,10 +1,15 @@
 package schiff;
 
+import java.time.LocalDateTime;
+
 public class Schiff {
 	
 	private String name;
 	private String farbe;
 	private double gewichtInKg;
+	private LocalDateTime startKonvertierung;
+	private LocalDateTime endeKonvertierung;	
+	
 	public Schiff(String name, String farbe, double gewichtInKg) {
 		super();
 		this.name = name;
@@ -33,6 +38,22 @@ public class Schiff {
 	}
 	public void setGewichtInKg(double gewichtInKg) {
 		this.gewichtInKg = gewichtInKg;
+	}
+
+	public LocalDateTime getStartKonvertierung() {
+		return startKonvertierung;
+	}
+
+	public void setStartKonvertierung(LocalDateTime startKonvertierung) {
+		this.startKonvertierung = startKonvertierung;
+	}
+
+	public LocalDateTime getEndeKonvertierung() {
+		return endeKonvertierung;
+	}
+
+	public void setEndeKonvertierung(LocalDateTime endeKonvertierung) {
+		this.endeKonvertierung = endeKonvertierung;
 	}
 		
 }
