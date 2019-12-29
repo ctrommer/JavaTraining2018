@@ -1,14 +1,14 @@
 package land;
 
-public class Hauptstadt {
+public class Stadt {
 	private int hoehe;
 
-	public Hauptstadt(int hoehe) {
+	public Stadt(int hoehe) {
 		super();
 		this.hoehe = hoehe;
 	}
 
-	public Hauptstadt() {
+	public Stadt() {
 		super();
 	}
 

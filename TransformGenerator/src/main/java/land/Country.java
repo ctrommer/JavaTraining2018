@@ -1,21 +1,26 @@
 package land;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 public class Country {
 	private String name;
-	private int population;
-	private Capital capital;
+	private Integer population;
+	private City capital;
 	private Date lastSoccerWorldChampionshipTitle;
+	private List<City> cities = new ArrayList<City>();
 
-	public Country(String name, int population, Capital capital, Date lastSoccerWorldChampionshipTitle) {
+	public Country(String name, Integer population, City capital, Date lastSoccerWorldChampionshipTitle,
+			List<City> cities) {
 		super();
 		this.name = name;
 		this.population = population;
 		this.capital = capital;
 		this.lastSoccerWorldChampionshipTitle = lastSoccerWorldChampionshipTitle;
+		this.cities = cities;
 	}
-
+	
 	public Country() {
 		super();
 	}
@@ -26,18 +31,18 @@ public class Country {
 	public void setName(String name) {
 		this.name = name;
 	}
-	public int getPopulation() {
+	public Integer getPopulation() {
 		return population;
 	}
-	public void setPopulation(int population) {
+	public void setPopulation(Integer population) {
 		this.population = population;
 	}
 
-	public Capital getCapital() {
+	public City getCapital() {
 		return capital;
 	}
 
-	public void setCapital(Capital capital) {
+	public void setCapital(City capital) {
 		this.capital = capital;
 	}
 
@@ -47,6 +52,14 @@ public class Country {
 
 	public void setLastSoccerWorldChampionshipTitle(Date lastSoccerWorldChampionshipTitle) {
 		this.lastSoccerWorldChampionshipTitle = lastSoccerWorldChampionshipTitle;
+	}
+
+	public List<City> getCities() {
+		return cities;
+	}
+
+	public void setCities(List<City> cities) {
+		this.cities = cities;
 	}
 	
 }

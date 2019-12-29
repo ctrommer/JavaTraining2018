@@ -24,6 +24,14 @@ public abstract class ShipSchiffMapper {
 		ship.setStartConversion(jetzt);
 	}
 	
+	/**
+	 * Wenn man eine Extrawurst braten möchte, kann man die Mapping Methode auch selber schreiben.
+	 * Hier wird zum Beispiel das britische Pfund in kg umgerechnet.
+	 * @param ship
+	 * ship soll zu Schiff konvertiert werden.
+	 * @return
+	 * Schiff entstanden aus konvertierem ship.
+	 */
 	public Schiff shipZuSchiff( Ship ship ) {
 		return new Schiff(ship.getName(), ship.getColour(), ship.getWeightInLBS()/2.205);
 	}
