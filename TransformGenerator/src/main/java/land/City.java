@@ -1,14 +1,14 @@
 package land;
 
-public class Capital {
+public class City {
 	int elevation;
 
-	public Capital(int elevation) {
+	public City(int elevation) {
 		super();
 		this.elevation = elevation;
 	}
 
-	public Capital() {
+	public City() {
 		super();
 	}
 

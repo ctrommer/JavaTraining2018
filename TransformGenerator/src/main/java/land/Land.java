@@ -6,17 +6,19 @@ import java.util.List;
 public class Land {
 	
 	private String name;
-	private int einwohnerzahl;
-	private Hauptstadt hauptstadt;
+	private Integer einwohnerzahl;
+	private Stadt hauptstadt;
 	private String letzterFussballWMTietel;
-	private List<Hauptstadt> listHauptstadt = new ArrayList<Hauptstadt>();
+	private List<Stadt> staedte = new ArrayList<Stadt>();
 
-	public Land(String name, int einwohnerzahl, Hauptstadt hauptstadt, String letzterFussballWMTietel) {
+	
+	public Land(String name, Integer einwohnerzahl, Stadt hauptstadt, String letzterFussballWMTietel, List<Stadt> staedte) {
 		super();
 		this.name = name;
 		this.einwohnerzahl = einwohnerzahl;
 		this.hauptstadt = hauptstadt;
 		this.letzterFussballWMTietel = letzterFussballWMTietel;
+		this.staedte = staedte;
 	}
 
 	public Land() {
@@ -30,18 +32,18 @@ public class Land {
 	public void setName(String name) {
 		this.name = name;
 	}
-	public int getEinwohnerzahl() {
+	public Integer getEinwohnerzahl() {
 		return einwohnerzahl;
 	}
-	public void setEinwohnerzahl(int einwohnerzahl) {
+	public void setEinwohnerzahl(Integer einwohnerzahl) {
 		this.einwohnerzahl = einwohnerzahl;
 	}
 
-	public Hauptstadt getHauptstadt() {
+	public Stadt getHauptstadt() {
 		return hauptstadt;
 	}
 
-	public void setHauptstadt(Hauptstadt hauptstadt) {
+	public void setHauptstadt(Stadt hauptstadt) {
 		this.hauptstadt = hauptstadt;
 	}
 
@@ -53,12 +55,12 @@ public class Land {
 		this.letzterFussballWMTietel = letzterFussballWMTietel;
 	}
 
-	public List<Hauptstadt> getListHauptstadt() {
-		return listHauptstadt;
+	public List<Stadt> getStaedte() {
+		return staedte;
 	}
 
-	public void setListHauptstadt(List<Hauptstadt> listHauptstadt) {
-		this.listHauptstadt = listHauptstadt;
+	public void setStaedte(List<Stadt> staedte) {
+		this.staedte = staedte;
 	}
 	
 }
