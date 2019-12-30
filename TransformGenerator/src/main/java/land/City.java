@@ -12,8 +12,6 @@ public class City {
 		super();
 	}
 
-
-
 	public int getElevation() {
 		return elevation;
 	}
