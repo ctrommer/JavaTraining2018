@@ -33,13 +33,19 @@ public abstract class ShipSchiffMapper {
 	 * Schiff entstanden aus konvertierem ship.
 	 */
 	public Schiff shipZuSchiff( Ship ship ) {
+		if ( ship == null ) {
+			return null;
+		}
 		return new Schiff(ship.getName(), ship.getColour(), ship.getWeightInLBS()/2.205);
 	}
-	
+
 	public Ship schiffZuShip( Schiff schiff ) {
+		if ( schiff == null ) {
+			return null;
+		}
 		return new Ship(schiff.getName(), schiff.getFarbe(), schiff.getGewichtInKg()*2.205);
 	}
-	
+
 	@AfterMapping
 	protected void endeKonvertierungZuShipSetzen( Schiff schiff, @MappingTarget Ship ship ) {
 		LocalDateTime jetzt = LocalDateTime.now();

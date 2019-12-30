@@ -27,16 +27,16 @@ public interface CountryLandMapper {
 	Country landZuCountry( Land land );
 
     @Mappings({
-    	@Mapping( target = "hoehe", source = "capital.elevation")
+    	@Mapping( target = "hoehe", source = "city.elevation")
     })
-    Stadt capitalZuHauptstadt( City capital );					// ( 1 )
+    Stadt cityZuStadt( City city );																		// ( 1 )
     
-    public abstract List<Stadt> citiesZuStadte( Collection<City> capitals ); 
+    public abstract List<Stadt> citiesZuStadte( Collection<City> cities ); 
     
     @Mappings({
-    	@Mapping( target = "elevation", source = "hauptstadt.hoehe")
+    	@Mapping( target = "elevation", source = "stadt.hoehe")
     })    
-    City hauptstadtZuCapital( Stadt hauptstadt );
+    City stadtZuCity( Stadt stadt );
     public abstract List<City> stadteZuCities( Collection<Stadt> staedte );
 
 }
