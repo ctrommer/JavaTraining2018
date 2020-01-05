@@ -1,14 +1,14 @@
 
 
 Schiff und Land sind von mir, 
-der Rest von hier übernommen:
+der Rest von hier uebernommen:
 https://www.baeldung.com/mapstruct#Type
 
 *
 
 Es wird JUnit4 gebraucht
 
-- habe ich als Libary hinzugefügt, hat anfangs funktioniert, dann brauchte ich aber noch das hier:
+- habe ich als Libary hinzugefuegt, hat anfangs funktioniert, dann brauchte ich aber noch das hier:
 
 https://stackoverflow.com/questions/5845990/maven-3-and-junit-4-compilation-problem-package-org-junit-does-not-exist
 
@@ -18,3 +18,9 @@ https://stackoverflow.com/questions/5845990/maven-3-and-junit-4-compilation-prob
   <version>4.11</version>
   <scope>test</scope>
 </dependency>
+
+*
+
+zyklische AbhÃ¤ngigkeit verhindern:
+Habe die .pom Datei ausgetauscht.
+Neue .pom Datei von hier: https://github.com/mapstruct/mapstruct-examples/blob/master/mapstruct-mapping-with-cycles/pom.xml
