@@ -1,11 +1,6 @@
 package regeln;
 
-import java.io.File;
-import java.io.IOException;
-
-import org.junit.Rule;
 import org.junit.Test;
-import org.junit.rules.TemporaryFolder;
 
 public class TestTemporaryFolder {
 	
@@ -18,6 +13,24 @@ public class TestTemporaryFolder {
 	 */
 	@Test
 	public void testeTemporaryFolder() {
+	}
+
+	/**
+	 * Lese die Datei quellDatei.xml ein als Stream von Strings.
+	 * 
+	 * Erzeuge eine temporäre Datei im gleichen Pfad, aber ohne TemporaryFolder
+	 *
+	 * Schreibe das, was aus der Datei quellDatei.xml ausgelesen wurde in die temporäre Datei 
+	 * 
+	 */
+	@Test
+	public void testeAlternativeZuTemporaryFolder() {
+			// Datei einlesen
+
+			// Datei im gleichen Pfad erzeugen
+			// damit Datei am Ende wieder geloescht wird
+
+		    // in neue Datei schreiben
 	}
 
 }
