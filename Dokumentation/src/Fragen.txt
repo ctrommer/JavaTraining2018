@@ -1,0 +1,30 @@
+
+
+Wie prüft man, dass Parameter nicht null sind?
+	Objects.requireNonNull(keyExtractor);
+
+*
+
+Was passiert, wenn man für Arrays.asList("Uwe", "Karl"); ein add aufruft.?
+	Es wird eine UnsupportedOperationException geworfen.
+
+*
+
+Warum wird beim Aufruf von .add für Arrays.asList("Uwe", "Karl"); eine UnsupportedOperationException geworfen?  
+	Es wird nur das interface List<String> zurückgeliefert, was keine Methode add unterstützt.
+
+*
+____________________________________________________________________
+
+Wann macht es Sinn ein Lambad ( oder eine Method Referenz ) zu verwenden, statt die statische Methode direkt zu verwenden?
+	Vorteil: Man kann sie als Parameter für Methoden verwenden, die Funktional Interfaces als Parameter nehmen.
+
+*
+
+Wann verwendet man für das Lambda eine statische Methode?
+	Wenn die Methode zu lang für das Lambda ist.
+	Wenn die Methode an mehreren Stellen verwendet wird. 
+	Wenn es die statische Methode schon gibt.	 
+
+Was ist der Nutzen der Konstruktor Referenz?
+	Nutzen Konstruktorreferenz: man kann sie einer Methode als Parameter mitgeben. 

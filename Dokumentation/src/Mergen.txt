@@ -1,0 +1,6 @@
+
+Ich muss weiter mit Cherry-Pick arbeiten
+
+Master und Branch werden nie durch Merge zusammengeführt!!! 
+
+Sie sind ja absichtlich unterschiedlich.

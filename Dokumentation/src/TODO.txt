@@ -1,0 +1,19 @@
+
+
+ * Überall Package Training mit komprimierten Übungen
+____________________________________________________________________
+ 
+ * Generics | Fragen
+____________________________________________________________________
+
+ * Neuen Ordner JUnit
+ 	- Ordner Mockito da rein
+ 	- Ordner TestenMitJUnit da rein ... insbesondere den JUnit5 Teil, JUnit4 eventuell nur als readOnly
+ 	- Ordner Rules da rein ( hierbei JUnit4 / JUnit5 berücksichtigen )
+____________________________________________________________________
+
+ * Java 9 Java 10 etc.
+____________________________________________________________________
+ 
+ * Entwurfsmuster
+
