@@ -1,0 +1,37 @@
+
+-------------------------
+ Grundlage
+-------------------------
+
+https://www.javainuse.com/spring/springbatchHello
+
+-------------------------
+ Curtsbeschreibung
+-------------------------
+
+	C:\Users\Curt\git\JavaTraining2018\SpringBatch\src\main\resources\mitarbeiter-data.csv 
+wird gelesen, transfomiert und das Ergebnis in 
+	C:\xml\outputs\mitarbeiter.xml
+geschrieben
+
+-------------------------
+ Problem
+-------------------------
+
+Wenn man maven | update project macht, wechselt er wieder auf die 1.5er Java Version. Nicht rausgefunden, warum.
+
+-------------------------
+ TODO
+-------------------------
+
+Test hierzu schreiben
+
+Person mit Name und Gewicht in kg bzw. Pfund
+
+mehrere Steps:
+Step 1:
+Zuerst von csv Datei in xml
+
+Step 2:
+Dann das xml nehmen und von kg in Pfund umrechnen
+
