@@ -1,4 +1,9 @@
 
+*
+Um die mapstruct-Sourcen zu generieren:
+Bauen mit mvn clean install
+
+*
 
 Schiff und Land sind von mir, 
 der Rest von hier uebernommen:
