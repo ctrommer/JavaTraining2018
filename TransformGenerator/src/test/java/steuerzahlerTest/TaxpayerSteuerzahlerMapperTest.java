@@ -20,8 +20,7 @@ public class TaxpayerSteuerzahlerMapperTest {
 		Steuerzahler steuerzahler = taxpayerSteuerzahlerMapper.taxpayerZuSteuerzahler(taxpayer);
 		
 		assertEquals(taxpayer.getInvestmentAmount(), steuerzahler.getInvestition().getInvestitionBetrag());
-		assertEquals(taxpayer.getInvestmentCurrency(), steuerzahler.getInvestition().getInvestitionWaehrung());
-		
+		assertEquals(taxpayer.getInvestmentCurrency(), steuerzahler.getInvestition().getInvestitionWaehrung());		
 	}
 	
 	@Test
@@ -42,6 +41,15 @@ public class TaxpayerSteuerzahlerMapperTest {
 		assertEquals(null, steuerzahler.getInvestition().getInvestitionWaehrung());		
 	}		
 
+	@Test
+	public void testeSteuerzahlerZuTaxpayer() {
+		Steuerzahler steuerzahler = new Steuerzahler(new Investition(42L, "Dollar"));		
+		Taxpayer taxpayer = taxpayerSteuerzahlerMapper.steuerzahlerZuTaxpayer(steuerzahler);
+		
+		assertEquals(taxpayer.getInvestmentAmount(), steuerzahler.getInvestition().getInvestitionBetrag());
+		assertEquals(taxpayer.getInvestmentCurrency(), steuerzahler.getInvestition().getInvestitionWaehrung());
+	}
+	
 	@Test
 	public void testeSteuerzahlerZuTaxpayerBetragNull() {
 		Steuerzahler steuerzahler = new Steuerzahler(new Investition(null, "Dollar"));		

@@ -31,14 +31,6 @@ public abstract class TaxpayerSteuerzahlerMapper {
     })
     public abstract Taxpayer steuerzahlerZuTaxpayer( Steuerzahler steuerzahler );
 
-    public Long map(Long quelle) {
-    	return quelle;
-    }
-
-    public String map(Investition quelle, @MappingTarget String ziel ) {
-    	return quelle.getInvestitionWaehrung();
-    }
-
     protected Investition taxpayerZuInvestition( final Taxpayer taxpayer ) {
     	return new Investition(taxpayer.getInvestmentAmount(), taxpayer.getInvestmentCurrency());
     }
