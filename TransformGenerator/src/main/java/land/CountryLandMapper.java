@@ -31,12 +31,13 @@ public interface CountryLandMapper {
     })
     Stadt cityZuStadt( City city );																		// ( 1 )
     
-    public abstract List<Stadt> citiesZuStadte( Collection<City> cities ); 
+    List<Stadt> citiesZuStadte( Collection<City> cities ); 
     
     @Mappings({
     	@Mapping( target = "elevation", source = "stadt.hoehe")
     })    
     City stadtZuCity( Stadt stadt );
-    public abstract List<City> stadteZuCities( Collection<Stadt> staedte );
+    
+    List<City> stadteZuCities( Collection<Stadt> staedte );
 
 }
