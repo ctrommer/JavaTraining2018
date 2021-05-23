@@ -11,7 +11,7 @@ package land;
 // Die Unittests ausführen.
 
 public interface CountryLandMapper {
-	Land countryZuLand(Country spain);
-	Country landZuCountry(Land spanien);	
+	Land countryZuLand(Country country);
+	Country landZuCountry(Land country);
 }
 
