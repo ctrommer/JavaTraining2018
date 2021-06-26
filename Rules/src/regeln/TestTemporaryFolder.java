@@ -20,9 +20,9 @@ public class TestTemporaryFolder {
 	 */
 	@Rule
 	public TemporaryFolder temporaryFolder = new TemporaryFolder(new File("src\\regeln"));
-	
+
 	/**
-	 * Erzeuge Datei in temmporärem Ordner und gebe den Pfad aus.
+	 * Erzeuge Datei in temporärem Ordner, schreibe Text in die Datei und gebe den Pfad der Datei aus.
 	 */
 	@Test
 	public void testeTemporaryFolder() {
