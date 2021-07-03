@@ -8,6 +8,8 @@
 		<spring.batch.version>2.2.0.RELEASE</spring.batch.version>
 		<mysql.driver.version>5.1.47</mysql.driver.version>
 		<junit.version>4.11</junit.version>
+		<maven.compiler.source>1.7</maven.compiler.source>
+   		<maven.compiler.target>1.7</maven.compiler.target>
 	</properties>
 
 	<dependencies>
