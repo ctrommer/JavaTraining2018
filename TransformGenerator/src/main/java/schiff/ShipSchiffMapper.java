@@ -10,6 +10,8 @@ import org.mapstruct.MappingTarget;
 @Mapper
 public abstract class ShipSchiffMapper {
 	
+	private static final double KG_ZU_lBS_FAKTOR = 2.205;
+
 	@BeforeMapping
 	protected void startKonvertierungZuShipSetzen( Schiff schiff, @MappingTarget Ship ship ) {
 		LocalDateTime jetzt = LocalDateTime.now();
@@ -36,14 +38,14 @@ public abstract class ShipSchiffMapper {
 		if ( ship == null ) {
 			return null;
 		}
-		return new Schiff(ship.getName(), ship.getColour(), ship.getWeightInLBS()/2.205);
+		return new Schiff(ship.getName(), ship.getColour(), ship.getWeightInLBS()/KG_ZU_lBS_FAKTOR);
 	}
 
 	public Ship schiffZuShip( Schiff schiff ) {
 		if ( schiff == null ) {
 			return null;
 		}
-		return new Ship(schiff.getName(), schiff.getFarbe(), schiff.getGewichtInKg()*2.205);
+		return new Ship(schiff.getName(), schiff.getFarbe(), schiff.getGewichtInKg()*KG_ZU_lBS_FAKTOR);
 	}
 
 	@AfterMapping

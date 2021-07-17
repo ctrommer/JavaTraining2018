@@ -1,6 +1,7 @@
 package schiffTest;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNull;
 
 import org.junit.Test;
 import org.mapstruct.factory.Mappers;
@@ -37,5 +38,23 @@ public class SchipSchiffMapperTest {
 		assertEquals( schiff.getGewichtInKg(), ship.getWeightInLBS()/2.205, 1 );		
 		assertEquals(schiff.getStartKonvertierung(), ship.getStartConversion());
 		assertEquals(schiff.getEndeKonvertierung(), ship.getEndConversion());
+	}
+	
+	@Test
+	public void testeShipZuSchiffNull() {
+		Ship ship = null;
+		
+		Schiff schiff = shipSchiffMapper.shipZuSchiff(ship);
+		
+		assertNull(schiff);
+	}
+	
+	@Test
+	public void testeSchiffZuShipNull() {
+		Schiff schiff = null;
+		
+		Ship ship = shipSchiffMapper.schiffZuShip(schiff);
+		
+		assertNull( ship );
 	}
 }
