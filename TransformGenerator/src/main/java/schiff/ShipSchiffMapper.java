@@ -4,6 +4,8 @@ package schiff;
 
 public abstract class ShipSchiffMapper {
 
+	private static final double KG_ZU_lBS_FAKTOR = 2.205;
+	
 	public Schiff shipZuSchiff(Ship ship) {
 		return null;
 	}
