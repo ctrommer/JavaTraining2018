@@ -38,7 +38,6 @@
 			<version>${mysql.driver.version}</version>
 		</dependency>
 		
-
 		<dependency>
 			<groupId>org.springframework.batch</groupId>
 			<artifactId>spring-batch-core</artifactId>
@@ -49,6 +48,18 @@
 			<artifactId>spring-batch-infrastructure</artifactId>
 			<version>${spring.batch.version}</version>
 		</dependency>
+		
+		<dependency>
+		  <groupId>jakarta.xml.bind</groupId>
+		  <artifactId>jakarta.xml.bind-api</artifactId>
+		  <version>3.0.0</version>
+		</dependency>
+		<dependency>
+		  <groupId>com.sun.xml.bind</groupId>
+		  <artifactId>jaxb-impl</artifactId>
+		  <version>3.0.0</version>
+		  <scope>runtime</scope>
+		</dependency>		
 
 	</dependencies>  
   
