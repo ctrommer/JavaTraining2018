@@ -8,10 +8,15 @@ import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
+import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Map.Entry;
+import java.util.Set;
+import java.util.TreeMap;
 import java.util.function.Function;
+import java.util.stream.Collector;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
@@ -254,6 +259,93 @@ public class StreamTrainer {
 
 		assertEquals(erwartetesErgebnis.collect(Collectors.toList()), wirklichesErgebnis.collect(Collectors.toList()));
 	}
+
+	/**
+	 * Die durch Leerzeichen getrennten Wörter werden aus der Datei gelesen
+	 * und in eine Map gespeichert. Die Map hat im Key die Wörter der Datei, 
+	 * im Value wie oft das Wort in der Datei vorkommt. Die Map wird
+	 * alphabetisch sortiert zurückgegeben.
+	 * @param dateiname Name der einzulesenden Datei
+	 * @return Map mit Namen aus Datei als Key und Häufigkeit als Value
+	 */
+	private Map<String, Integer> ausDateiInMap( String dateiname ) {
+		
+		Map<String,Integer> wortUndHaeufigkeit = new TreeMap<>();
+		
+		try (Stream<String> zeilen = Files.lines(Paths.get(dateiname))) {
+			
+			zeilen.forEach(zeile-> {
+				String[] woerter = zeile.split(" ");
+				for ( String wort : woerter ) {					
+					Integer haeufigkeit = wortUndHaeufigkeit.get(wort);					
+					wortUndHaeufigkeit.put(wort, haeufigkeit == null ? 1 : haeufigkeit + 1 );					
+				}
+			});
+			
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		
+		return wortUndHaeufigkeit;		
+	}
 	
+	@Test
+	public void testeAusDateiInMap() {
+		Map<String,Integer> erwartetesErgebnis = new TreeMap<>();
+		erwartetesErgebnis.put("auchDreimal", 3);
+		erwartetesErgebnis.put("dreimal", 3);
+		erwartetesErgebnis.put("einmal", 1);
+		erwartetesErgebnis.put("viermal", 4);
+		erwartetesErgebnis.put("zweimal", 2);
+		
+		Map<String, Integer> stringsNachHaeufigkeit = ausDateiInMap("mehrzeiligerText.txt");
+		assertEquals(erwartetesErgebnis, stringsNachHaeufigkeit);		
+	}
+	
+	/**
+	 * Für die als Parameter übergebene Map sollen Key ( Text ) und Value 
+	 * ( wie oft der Text vorkommt ) vertauscht werden.
+	 * Zum Key mit der Häufigkeit des Vorkommens ist dann im Value eine Liste
+	 * der Strings, die diese Häufigkeit haben. 
+	 * Die Map soll nach dem Key sortiert sein.
+	 * @param Map, deren Key und Value vertauscht werden sollen 	
+	 * @return Map, die als Key die Häufigkeit des Strings und als Value 
+	 * eine Liste der Strings mit dieser Häufigkeit enthält
+	 */
+	private Map<Integer, List<String>> keyUndValueVertauschen( Map<String, Integer> textUndHaeufigkeit ) {
+		
+		Function<? super Entry<String, Integer>, ? extends Integer> wonachGruppiertWird = Map.Entry::getValue;
+
+		Collector<Entry<String, Integer>, ?, List<String>> wieReduziertWird = Collectors.mapping(Map.Entry::getKey, Collectors.toList());
+
+		Set<Entry<String, Integer>> entrySetTextUndHaeufigkeit = textUndHaeufigkeit.entrySet();
+
+		Map<Integer, List<String>> vertauscht = entrySetTextUndHaeufigkeit
+													.stream()
+													.collect(Collectors.groupingBy(wonachGruppiertWird, wieReduziertWird));		
+
+		return new TreeMap<>(vertauscht);		
+	}
+
+	@Test
+	public void testStringsNachHaeufigkeit() {
+		
+		Map<String, Integer> textUndHaeufigkeit = new HashMap<>();
+		
+		textUndHaeufigkeit.put("einmal", 1);
+		textUndHaeufigkeit.put("dreimal", 3);
+		textUndHaeufigkeit.put("auchDreimal", 3);
+		textUndHaeufigkeit.put("zweimal", 2);
+		
+		Map<Integer, List<String>> vertauscht = keyUndValueVertauschen(textUndHaeufigkeit);
+		
+		Map<Integer, List<String>> haeufigkeitUndText = new TreeMap<>();
+		haeufigkeitUndText.put(1, Arrays.asList("einmal"));
+		haeufigkeitUndText.put(2, Arrays.asList("zweimal"));
+		haeufigkeitUndText.put(3, Arrays.asList("auchDreimal", "dreimal"));
+		
+		assertEquals( haeufigkeitUndText, vertauscht );		
+	}
+
 }
 
