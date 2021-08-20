@@ -1,5 +1,16 @@
 
 -------------------------
+ 2021_08_20 
+-------------------------
+
+Läuft auf dem neuen Lenovo Laptop nicht mehr. Liegt wohl an Umstellung auf 1.16.
+TODO: 
+Zum Laufen bringen. Oder neues Projekt aufsetzen?
+Das hier scheint das aktuelle Problem zu sein:
+https://stackoverflow.com/questions/51708002/nested-exception-is-org-springframework-beans-factory-beancreationexception-err
+
+
+-------------------------
  Grundlage
 -------------------------
 

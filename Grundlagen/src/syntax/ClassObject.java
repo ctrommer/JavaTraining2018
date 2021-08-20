@@ -1,5 +1,7 @@
 package syntax;
 
+import java.lang.reflect.InvocationTargetException;
+
 public class ClassObject {
 
 	public static void main(String[] args) {
@@ -23,11 +25,11 @@ public class ClassObject {
 		try {
 			Class<?> clazz2 = Class.forName("syntax.Motorrad");
 			
-			Motorrad motorrad = (Motorrad) clazz2.newInstance();
+			Motorrad motorrad = (Motorrad) clazz2.getDeclaredConstructor().newInstance();
 			
 			System.out.println(motorrad);
 			
-		} catch (ClassNotFoundException | InstantiationException | IllegalAccessException e) {
+		} catch (ClassNotFoundException | InstantiationException | IllegalAccessException | IllegalArgumentException | InvocationTargetException | NoSuchMethodException | SecurityException e) {
 			e.printStackTrace();
 		}
 	}

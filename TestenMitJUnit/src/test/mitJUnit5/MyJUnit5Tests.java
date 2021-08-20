@@ -87,16 +87,16 @@ public class MyJUnit5Tests {
     	assertNull(null,"Erwartet, dass das Objekt null ist.");
 
     	// Checks that the object is not null.
-    	assertNotNull(new Integer(42), "Erwartet, dass das Objekt nicht null ist.");
+    	assertNotNull(Integer.valueOf(42), "Erwartet, dass das Objekt nicht null ist.");
 
     	// Checks that both variables refer to the same object.
-    	Integer x = new Integer(42);
+    	Integer x = Integer.valueOf(42);
 		Integer y = x;
 		assertSame(x, y, "Erwartet, dass beide sich auf das gleiche Objekt beziehen." );
 
     	// Checks that both variables refer to different objects.
-    	Integer z = new Integer( 43 );
-		assertNotSame(z, new Integer(42), "Erwartet, dass beide sich auf das gleiche Objekt beziehen. ");
+    	Integer z = Integer.valueOf(42);
+		assertNotSame(z, Integer.valueOf(42), "Erwartet, dass beide sich auf das gleiche Objekt beziehen. ");
     }
 
     @Test

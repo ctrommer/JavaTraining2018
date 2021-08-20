@@ -34,8 +34,7 @@ public class MitParameterTest {
     	assertTrue(text.length() == laenge);    	
     }
      
-    @SuppressWarnings("unused")
-	private static Stream<Arguments> erzeugeWortMitWortLaenge() {
+    private static Stream<Arguments> erzeugeWortMitWortLaenge() {
     	return Stream.of(
     		Arguments.of("Hello", 5),
     		Arguments.of("Welt", 4));

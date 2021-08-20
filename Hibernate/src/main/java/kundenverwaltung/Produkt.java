@@ -2,8 +2,6 @@ package kundenverwaltung;
 
 import java.util.List;
 
-import javax.persistence.ManyToMany;
-
 public class Produkt {
 	int idProdukt;
 	String bezeichnung;

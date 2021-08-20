@@ -1,7 +1,5 @@
 package vergleicherBeispiel;
 
-import vergleicherBeispiel.Zeichenkette;
-
 public class Spieler {
 	
     private final String name;
