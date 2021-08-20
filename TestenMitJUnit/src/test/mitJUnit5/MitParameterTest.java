@@ -49,7 +49,6 @@ public class MitParameterTest {
      * @return
      * Werte, die für die Testmethode verwendet werden
      */
-    @SuppressWarnings("unused")
 	private static void erzeugeWortMitWortLaenge() {
     }
 

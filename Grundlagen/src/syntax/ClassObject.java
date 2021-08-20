@@ -1,5 +1,7 @@
 package syntax;
 
+import java.lang.reflect.InvocationTargetException;
+
 public class ClassObject {
 
 	public static void main(String[] args) {

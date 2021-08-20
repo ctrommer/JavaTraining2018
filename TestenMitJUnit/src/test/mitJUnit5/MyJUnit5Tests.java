@@ -84,11 +84,11 @@ public class MyJUnit5Tests {
     	// Checks that the object is not null.
 
     	// Checks that both variables refer to the same object.
-    	Integer x = new Integer(42);
+    	Integer x = Integer.valueOf(42);
 		Integer y = x;
 
     	// Checks that both variables refer to different objects.
-    	Integer z = new Integer( 43 );
+    	Integer z = Integer.valueOf(42);
     }
 
     @Test

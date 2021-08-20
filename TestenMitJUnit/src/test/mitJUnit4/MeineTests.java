@@ -86,16 +86,16 @@ public class MeineTests {
     	assertNull("Erwartet, dass das Objekt null ist.", null);
 
     	// Checks that the object is not null.
-    	assertNotNull("Erwartet, dass das Objekt nicht null ist.", new Integer(42));
+    	assertNotNull("Erwartet, dass das Objekt nicht null ist.", Integer.valueOf(42));
 
     	// Checks that both variables refer to the same object.
-    	Integer x = new Integer(42);
+    	Integer x = Integer.valueOf(42);
 		Integer y = x;
 		assertSame("Erwartet, dass beide sich auf das gleiche Objekt beziehen. ", x, y );
 
     	// Checks that both variables refer to different objects.
-    	Integer z = new Integer( 43 );
-		assertNotSame("Erwartet, dass beide sich auf unterschiedliche Objekte beziehen. ", new Integer(42), z );
+    	Integer z = Integer.valueOf(43);
+		assertNotSame("Erwartet, dass beide sich auf unterschiedliche Objekte beziehen. ", Integer.valueOf(42), z);
     }
     
     @Test
