@@ -1,0 +1,30 @@
+
+1. Projekt
+Neues Projekt "ModulWirdGebraucht" ... von diesem Projekt wird etwas benutzt.
+File | New | Java Project ( configure Default ... name von output folder setzen )
+-> in module.info.java kann beschrieben werden, was von anderen Projekten verwendet werden kann und
+	was von anderen Projekten verwendet wird.
+	
+Rechte Maus | new Class | ( dabei neues Package z.B. modul.wirdGebraucht ) angeben
+-> Hier wird die zu verwendenende Klasse erzeugt
+
+*
+
+2. Projekt
+Neues Projekt "ModulGebrauchtAnderes"... dieses Projekt verwendet etwas von anderem Modul
+analog zu vorigem Projekt anlegen.
+
+Rechte Maus | new Class | ( dabei neues Package z.B. modul.GebrauchtAnderes ) angeben
+-> Hier wird die zu verwendenende Klasse erzeugt
+
+*
+
+3. Abhängigkeit von Projekten
+Jetzt kommt der Witz:
+Rechte Maus | Build Path | Configure Build Path | Projects | Module ( ! ) Path | Add | zu benutzendes Projekt auswählen | Apply and close
+( Nicht Class-Path, das möchte man ja grade nicht !!! )
+
+Erst jetzt ( ! ) kann man in der module.info des abhängigen Projekts eintragen, was man aus dem anderen Projekt braucht.
+
+
+
