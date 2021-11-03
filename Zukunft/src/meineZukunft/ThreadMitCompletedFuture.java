@@ -8,7 +8,6 @@ import java.util.concurrent.Future;
 
 /**
  * Analog zu {@link ExecutorLiefertFuture}
- *
  */
 public class ThreadMitCompletedFuture {
 	
@@ -16,9 +15,10 @@ public class ThreadMitCompletedFuture {
 
 	public Future<Integer> gebeZahlenAusInEigenemThread( Integer anzahlZahlen ) {
 		
-		// so ginge es auch:
+		// so wäre es in eigenem Task:
 		// CompletableFuture<String> beinhaltetZukuenftigesErgebnis = CompletableFuture.supplyAsync(()->"Hallo");
 		
+		// gibt direkt einen Wert zurück, ohne einen Thread zu starten, somit abweichend vom Methodennamen
 		return CompletableFuture.completedFuture(42);
 	}
 	

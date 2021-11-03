@@ -12,6 +12,9 @@ public class ForkJoin extends RecursiveTask<Integer> {
 		this.zahl = zahl;
 	}
 
+	/**
+	 * Gibt die Zahlen von 1 bis 3 Rekursiv aus.
+	 */
 	@Override
 	protected Integer compute() {
 		
@@ -20,11 +23,14 @@ public class ForkJoin extends RecursiveTask<Integer> {
 			return zahl;
 		}
 		
-		System.out.println(zahl);
+		System.out.println("aus Thread mit Zahl: " + zahl);
 
+		// erzeuge neuen Task
 		ForkJoin forkJoinRekursiv = new ForkJoin(zahl+1);
+		// starte neuen Task
 		forkJoinRekursiv.fork();
 		
+		// gebe Ergebnis von Task zurück, sobald "Berechnung" beendet.
 		return forkJoinRekursiv.join();
    }
 
