@@ -2,9 +2,6 @@ package meineZukunft;
 
 import java.util.concurrent.RecursiveTask;
 
-/**
- *
- */
 public class ForkJoinCompute extends RecursiveTask<Integer>{
 	
 	private static final long serialVersionUID = 1L;
@@ -24,12 +21,16 @@ public class ForkJoinCompute extends RecursiveTask<Integer>{
 			return zahl;
 		}
 		
-		 ForkJoinCompute f1 = new ForkJoinCompute(zahl * zahl);
-		 f1.fork();
+		// erzeuge ersten neuen Task mit zahl * zahl
+		ForkJoinCompute task1 = new ForkJoinCompute(zahl * zahl);
+		// starte neuen Task
+		task1.fork();
+
+		// erzeuge zweiten neuen Task mit zahl * 10
+		ForkJoinCompute task2 = new ForkJoinCompute(zahl * 10 );
 		 
-		 ForkJoinCompute f2 = new ForkJoinCompute(zahl * 10 );
-		 
-		 return f2.compute() + f1.join();
+		// gebe Ergebnis von ersten Task plus zweiten Task zurück, sobald "Berechnungen" beendet.
+		return task2.compute() + task1.join();
 	     
 	}
 	   
