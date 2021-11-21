@@ -21,7 +21,7 @@ public class FutureTraining {
 	 * @return Future, dass die quadrierte Zahl enthält
 	 */
 	private Future<Integer> ohneThreadQuadrieren( int zahl ) {
-		return CompletableFuture.completedFuture( zahl * zahl );
+		return null;
 	}
 	
 	@Test
@@ -39,9 +39,7 @@ public class FutureTraining {
 	 * @return Future, dass die quadrierte Zahl enthält
 	 */	
 	private Future<Integer> inEigenemThreadQuadrieren( int zahl ) {
-		Supplier<Integer> inThreadAuszufuehren = () -> zahl * zahl;
-		CompletableFuture<Integer> beinhaltetZukuenftigesErgebnis = CompletableFuture.supplyAsync(inThreadAuszufuehren);
-		return beinhaltetZukuenftigesErgebnis;
+		return null;
 	}
 	
 	@Test
@@ -60,15 +58,8 @@ public class FutureTraining {
 	 * @return Future, dass das Ergebnis enthält
 	 */	
 	private Future<Integer> inEigenemThreadQuadrierenDannMit2Multiplizieren( int zahl ) {
-		Supplier<Integer> inThreadAuszufuehren = () -> zahl * zahl;
 		
-		CompletableFuture<Integer> beinhaltetZukuenftigesErgebnis 
-			= CompletableFuture.supplyAsync(inThreadAuszufuehren);
-		
-		CompletableFuture<Integer> beinhaltetZukuenftigesErgebnisKombiniert 
-			= beinhaltetZukuenftigesErgebnis.thenApply( ergebnis -> ergebnis * 2 );
-		
-		return beinhaltetZukuenftigesErgebnisKombiniert;
+		return null;
 	}
 	
 	@Test
@@ -79,21 +70,15 @@ public class FutureTraining {
 			e.printStackTrace();
 		}
 	}
-	
+
 	/**
 	 * Quadriert die Zahl in eigenem Thread. 
 	 * Das Ergebnis wird in eigenem Thrad mit 2 multipliziert.
 	 * @param zahl als Eingabe
 	 * @return Future, dass das Ergebnis enthält
-	 */		
+	 */
 	private Future<Integer> inEigenemThreadQuadrierenDannMit2InThreadMultiplizieren( int zahl ) {
-		CompletableFuture<Integer> beinhaltetZukuenftigesErgebnis 
-			= CompletableFuture.supplyAsync( () -> zahl * zahl );
-
-		CompletableFuture<Integer> beinhaltetZukuenftigesErgebnisVerkettet 
-			= beinhaltetZukuenftigesErgebnis.thenApplyAsync( ergebnis -> ergebnis * 2 );
-		
-		return beinhaltetZukuenftigesErgebnisVerkettet; 
+		return null; 
 	}
 
 	@Test
@@ -113,12 +98,8 @@ public class FutureTraining {
 	 * @return Future, dass das Ergebnis enthält
 	 */
 	private Future<Integer> inEigenemThreadQuadrierenDannMitMit2InThreadMultiplizieren( int zahl ) {
-		CompletableFuture<Integer> beinhaltetZukuenftigesErgebnis = CompletableFuture.supplyAsync( () -> zahl * zahl );
 		
-		CompletableFuture<Integer> beinhaltetZukuenftigesErgebnisVerkettet 
-			= beinhaltetZukuenftigesErgebnis.thenCompose( ergebnis -> CompletableFuture.supplyAsync( () ->  ergebnis * 2 ) );
-		
-		return beinhaltetZukuenftigesErgebnisVerkettet;
+		return null;
 	}
 	
 	@Test
@@ -139,15 +120,7 @@ public class FutureTraining {
 	 */
 	private Future<Integer> ersterThreadQuadriertZweiterThreadMultipliziertMit2Kombiniert( int zahl ) {
 		
-		CompletableFuture<Integer> beinhaltetErstesZukuenftigesTeilergebnis = CompletableFuture.supplyAsync( () -> zahl * zahl );
-		CompletableFuture<Integer> beinhaltetZweitesZukuenftigesTeilergebnis = CompletableFuture.supplyAsync( () -> zahl * 2 );
-		
-
-		CompletableFuture<Integer> beinhaltetZukuenftigesErgebnisKombiniert 
-		= beinhaltetErstesZukuenftigesTeilergebnis.thenCombine( beinhaltetZweitesZukuenftigesTeilergebnis,
-				( ergebnisAusErstemThread, ergebnisAusZweitemThread ) -> ergebnisAusErstemThread + ergebnisAusZweitemThread );
-		
-		return beinhaltetZukuenftigesErgebnisKombiniert;
+		return null;
 	}
 
 	@Test
@@ -170,20 +143,8 @@ public class FutureTraining {
 	 * @return Future, dass das Ergebnis enthält
 	 */
 	private Stream<Integer> dreiTheadsParallelDannGejoint( int zahl ) {
-		
-		CompletableFuture<Integer> beinhaltetZukuenftigesErgebnis1 = CompletableFuture.supplyAsync( () -> zahl * zahl );
-		CompletableFuture<Integer> beinhaltetZukuenftigesErgebnis2 = CompletableFuture.supplyAsync( () -> zahl * 2 );
-		CompletableFuture<Integer> beinhaltetZukuenftigesErgebnis3 = CompletableFuture.supplyAsync( () -> zahl * 10 );
-
-		Stream<Integer> zukuenftigeErgebnisse 
-			= Stream
-				.of(beinhaltetZukuenftigesErgebnis1, beinhaltetZukuenftigesErgebnis2, beinhaltetZukuenftigesErgebnis3)
-				.map(CompletableFuture::join);
-		
-		// CompletableFuture<Void> erstFertigWennAlleThreadsFertig = 
-				CompletableFuture.allOf(beinhaltetZukuenftigesErgebnis1, beinhaltetZukuenftigesErgebnis2, beinhaltetZukuenftigesErgebnis3);
 				
-		return zukuenftigeErgebnisse;
+		return null;
 	}
 	
 	@Test
@@ -201,20 +162,8 @@ public class FutureTraining {
 	 * Wenn keine Exception: Zahl quadriert als String.
 	 * Wenn Exception: "Zahl zu gross."
 	 */	
-	private Future<String> inEigenemThreadQuadrierenAusnameBehandeln( int zahl ) {
-		Supplier<String> inThreadAuszufuehren = () -> { 
-			if ( zahl > 46340 ) { 
-				throw new IllegalArgumentException("Zahl zu gross.");
-			}
-			return String.valueOf( zahl * zahl );
-		};
-		
-		CompletableFuture<String> beinhaltetZukuenftigesErgebnis 
-			= CompletableFuture
-				.supplyAsync(inThreadAuszufuehren)
-				.handle(( rueckgabe, ausnahme ) -> rueckgabe == null ? ausnahme.getCause().getMessage() : rueckgabe);
-		
-		return beinhaltetZukuenftigesErgebnis;
+	private Future<String> inEigenemThreadQuadrierenAusnameBehandeln( int zahl ) {		
+		return null;
 	}
 
 	@Test
@@ -249,22 +198,13 @@ public class FutureTraining {
 	public Integer erledigeAufgabeUndParallelDazuUnteraufgabeInThread( int zahl ) {
 		
 		// zeitintensive Aufgabe in eigenem Thread starten
-		Supplier<Integer> inThreadAuszufuehren = () -> zahl * zahl;
-		CompletableFuture<Integer> beinhaltetZukuenftigesErgebnis = CompletableFuture.supplyAsync(inThreadAuszufuehren);
 		
 		// solange der Thread noch kein Ergebnis geliefert hat, kann man was anderes machen
-		while ( !beinhaltetZukuenftigesErgebnis.isDone()) {
 			System.out.println("Aus main: Ich mach solange was anderes, bis Thread Ergebnis liefert.");
-		}
+
 		
 		// Ergebnis von Thread abrufen
-		try {
-			// gibt erst Wert zurück, wenn Thread beendet
-			Integer ergebnisVonThread = beinhaltetZukuenftigesErgebnis.get();
-			return ergebnisVonThread;			
-		} catch (InterruptedException | ExecutionException e) {
-			e.printStackTrace();
-		}
+
 		return null;
 	}	
 
