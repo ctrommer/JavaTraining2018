@@ -16,18 +16,6 @@ public class ThreadMitCompletableFutureVerknuepfung {
 		}
 	}
 
-	public static void supplierInThreadDannFunction() {
-		CompletableFuture<String> completableFuture 
-			= CompletableFuture.supplyAsync(()-> "Hallo aus supplyAssync")
-				.thenCompose(s-> CompletableFuture.supplyAsync(()-> s + " Welt von thenCompose"));
-		
-		try {
-			System.out.println(completableFuture.get());
-		} catch (InterruptedException | ExecutionException e) {
-			e.printStackTrace();
-		}
-	}	
-
 	/**
 	 * Es gibt zu den Methoden meist eine "Async" Variante. Die wird im eigenen Thread ausgeführt.
 	 */
@@ -114,7 +102,6 @@ public class ThreadMitCompletableFutureVerknuepfung {
 	
 	public static void main ( String[] args ) {		
 		supplierInThread();
-		supplierInThreadDannFunction();
 		supplierInThreadDannApplyAsync();
 		supplierInThreadZweiKombinieren();
 		supplierInThreadMehrereParallel();
