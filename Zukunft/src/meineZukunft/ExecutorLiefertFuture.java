@@ -51,6 +51,7 @@ public class ExecutorLiefertFuture {
 		
 		// Ergebnis von Thread abrufen
 		try {
+			// gibt erst Wert zurück, wenn Thread beendet
 			Integer ergebnisVonThread = zukuenftigesErgebnisVonThread.get();
 			System.out.println(ergebnisVonThread);			
 			dienstDerThreadAusfuehrt.shutdown();
@@ -61,8 +62,8 @@ public class ExecutorLiefertFuture {
 	
 	public static void main( String[] args ) {
 		// Im Debug Modus ausführen, damit langsam genug.
-		ExecutorLiefertFuture zweiAufgabenParalell = new ExecutorLiefertFuture();
-		zweiAufgabenParalell.erledigeAufgabeUndParallelDazuUnteraufgabeInThread();
+		ExecutorLiefertFuture zweiAufgabenParallel = new ExecutorLiefertFuture();
+		zweiAufgabenParallel.erledigeAufgabeUndParallelDazuUnteraufgabeInThread();
 	}
 
 }
