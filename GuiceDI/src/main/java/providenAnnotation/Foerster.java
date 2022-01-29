@@ -1,0 +1,4 @@
+package providenAnnotation;
+
+interface Foerster {
+}
