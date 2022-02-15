@@ -13,10 +13,10 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
+import java.util.Optional;
 import java.util.Set;
 import java.util.TreeMap;
 import java.util.function.Function;
-import java.util.stream.Collector;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
@@ -209,7 +209,7 @@ public class StreamTrainer {
 
 	@Test
 	public void testeStreamZuMap( ) {
-		Map<String, Integer> streamZuMap = streamZuMap("Hallo", "Welt");
+		Map<String, Integer> streamZuMap = streamZuMap("Hallo", "Welt", "Welt");
 		Map<String, Integer> erwartet = new LinkedHashMap<>();
 		erwartet.put( "Hallo", 5);
 		erwartet.put("Welt", 4);
@@ -242,10 +242,10 @@ public class StreamTrainer {
 	 * @return Map mit Namen aus Datei als Key und Häufigkeit als Value
 	 */
 	private Map<String, Integer> ausDateiInMap( String dateiname ) {
-		
+
 		Map<String,Integer> wortUndHaeufigkeit = new TreeMap<>();
 		
-		return wortUndHaeufigkeit;		
+		return wortUndHaeufigkeit;
 	}
 	
 	@Test
@@ -260,7 +260,122 @@ public class StreamTrainer {
 		Map<String, Integer> stringsNachHaeufigkeit = ausDateiInMap("mehrzeiligerText.txt");
 		assertEquals(erwartetesErgebnis, stringsNachHaeufigkeit);		
 	}
+
+	/**
+	 * Aus der Liste von Woertern wird eine Map erzeugt. Key dieser Map
+	 * ist die Wortlaenge. Value ist eine Liste der Woerter mit dieser
+	 * Wortlaenge.
+	 * z.B.:
+	 * List.of("sie", "die", "was", "vier", "Baum", "Auto", "fuenf")
+	 * ->
+	 * key 	value
+	 * 3	=[sie, die, was], 
+	 * 4	=[vier, Baum, Auto], 
+	 * 5	=[fuenf]
+	 *  
+	 * @param woerterUnterschiedlicherLaenge
+	 * @return map mit wortlaenge als key und Liste der Woerter mit dieser 
+	 * Wortlaenge als value.
+	 */
+	private Map<Integer,List<String>> woerterNachLaengeGruppieren(List<String> woerterUnterschiedlicherLaenge) {		
+		return null;		
+	}
+
+	@Test
+	public void testeWoerterNachLaengeGruppieren() {
+		
+		List<String> woerterUnterschiedlicherLaenge = List.of("sie", "die", "was", "vier", "Baum", "Auto", "fuenf");
+		
+		Map<Integer, List<String>> woerterNachLaengeGruppiert = woerterNachLaengeGruppieren(woerterUnterschiedlicherLaenge);
+		
+		Map<Integer, List<String>> haeufigkeitUndText = new TreeMap<>();
+		haeufigkeitUndText.put(3, Arrays.asList("sie", "die", "was"));
+		haeufigkeitUndText.put(4, Arrays.asList("vier", "Baum", "Auto"));
+		haeufigkeitUndText.put(5, Arrays.asList("fuenf"));
+		
+		assertEquals( haeufigkeitUndText, woerterNachLaengeGruppiert );		
+		
+	}
+
+	/**
+	 * Aus der Liste von Woertern wird eine Map erzeugt. Key dieser Map 
+	 * sind die unterschiedlichen Woerter. Im Value steht, wie oft das 
+	 * Wort vorkommt. 
+	 *  
+	 * @param woerterUnterschiedlicherLaenge
+	 * @return Map mit Wort als key und Haeufigkeit des Wortes als value. 
+	 */
+	private Map<String, Long> woerterNachHaeufigkeitGruppieren(List<String> woerter) {
+        return null;
+	}
 	
+	@Test
+	public void testeWoerterNachHaeufigkeitGruppieren() {
+		
+		List<String> woerter = List.of(
+				"auchDreimal", "auchDreimal", "auchDreimal",
+				"dreimal", "dreimal", "dreimal", 
+				"einmal", 				 
+				"zweimal", "zweimal");
+
+		Map<String, Long> woerterNachHaeufigkeitGruppiert = new TreeMap<>(woerterNachHaeufigkeitGruppieren(woerter)); 
+
+		Map<String, Long> haeufigkeitUndText = new TreeMap<>();
+		haeufigkeitUndText.put("einmal", 1L);
+		haeufigkeitUndText.put("dreimal", 3L);
+		haeufigkeitUndText.put("auchDreimal", 3L);
+		haeufigkeitUndText.put("zweimal", 2L);
+		
+		assertEquals( haeufigkeitUndText, woerterNachHaeufigkeitGruppiert );
+	}
+
+	class Person {
+		String name;
+		Integer alter;
+
+		public Person(String name, Integer alter) {
+			this.name = name;
+			this.alter = alter;
+		}
+		public Integer getAlter() {
+			return alter;
+		}
+		public String getName() {
+			return name;
+		}		
+	}
+
+	/**
+	 * Liste von Personen wird zu Map gruppiert nach Alter der Personen. Key ist das Alter, der Value eine Liste der Namen mit diesem Alter. 
+	 * @param personen
+	 * 	Liste der nach Alter zu gruppierenden Personen
+	 * @return
+	 * 	Map mit Alter als Key und der Liste der Namen als Value
+	 */
+	private Map<Integer, List<String>> personenNachAlterGruppieren(List<Person> personen) {
+        return null;
+	}
+
+	@Test
+	public void testePersonenNachAlterGruppieren() {
+		
+		List<Person> personenUnterschiedlicherLaenge 
+			= List.of(
+						new Person("Kevin", 12), 
+						new Person("Karl", 42), new Person ("Walter", 42), new Person ("Walter", 42), 
+						new Person ("Arnold", 43), new Person ("Arnold", 44) );
+
+		Map<Integer, List<String>> personenNachAlterGruppiert = personenNachAlterGruppieren(personenUnterschiedlicherLaenge);
+
+		Map<Integer, List<String>> alterUndNamenliste = new TreeMap<>();
+		alterUndNamenliste.put(12, Arrays.asList("Kevin"));
+		alterUndNamenliste.put(42, Arrays.asList("Karl", "Walter", "Walter"));
+		alterUndNamenliste.put(43, Arrays.asList("Arnold"));
+		alterUndNamenliste.put(44, Arrays.asList("Arnold"));
+
+		assertEquals( alterUndNamenliste, personenNachAlterGruppiert );
+	}
+
 	/**
 	 * Für die als Parameter übergebene Map sollen Key ( Text ) und Value 
 	 * ( wie oft der Text vorkommt ) vertauscht werden.
@@ -273,7 +388,7 @@ public class StreamTrainer {
 	 */
 	private Map<Integer, List<String>> keyUndValueVertauschen( Map<String, Integer> textUndHaeufigkeit ) {
 
-		return null;		
+		return null;
 	}
 
 	@Test
