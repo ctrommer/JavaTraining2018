@@ -6,7 +6,7 @@ import java.util.Set;
 
 /**
  * Es kann diese Traininsmöglichkeiten geben:
- * FREIHANTEL, GERÄTE, KURSE, AUSDAUER
+ * FREIHANTEL, GERAETE, KURSE, AUSDAUER
  *
  */
 public class Fitnessstudio {
