@@ -6,11 +6,11 @@ import java.util.Set;
 
 /**
  * Es kann diese Traininsmöglichkeiten geben:
- * FREIHANTEL, GERÄTE, KURSE, AUSDAUER
+ * FREIHANTEL, GERAETE, KURSE, AUSDAUER
  *
  */
 public class Fitnessstudio {
-	public enum Trainingsmoeglichkeit { FREIHANTEL, GERÄTE, KURSE, AUSDAUER };
+	public enum Trainingsmoeglichkeit { FREIHANTEL, GERAETE, KURSE, AUSDAUER };
 	final Set<Trainingsmoeglichkeit> trainingsmoeglichkeiten;
 	
 	public static class Builder {
@@ -36,7 +36,7 @@ public class Fitnessstudio {
 	}
 
 	public static void main(String[] args) {
-		Fitnessstudio fitnessstudio = new Fitnessstudio.Builder().fuegeTrainingsartHinzu(Trainingsmoeglichkeit.GERÄTE).fuegeTrainingsartHinzu(Trainingsmoeglichkeit.KURSE).build();
+		Fitnessstudio fitnessstudio = new Fitnessstudio.Builder().fuegeTrainingsartHinzu(Trainingsmoeglichkeit.GERAETE).fuegeTrainingsartHinzu(Trainingsmoeglichkeit.KURSE).build();
 		System.out.println(fitnessstudio);
 	}
 
