@@ -10,6 +10,7 @@ import org.junit.rules.ExpectedException;
 public class TestExpectedException {
 
 	// Deprecated Variante:
+	@SuppressWarnings("deprecation")
 	@Rule
 	public ExpectedException expectedException = ExpectedException.none();
 

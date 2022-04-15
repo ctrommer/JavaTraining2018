@@ -2,6 +2,10 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.java.training</groupId>
   <artifactId>vortaeuschen</artifactId>
+  <properties>
+		<maven.compiler.source>18</maven.compiler.source>
+   		<maven.compiler.target>18</maven.compiler.target>
+  </properties>  
   <version>0.0.1-SNAPSHOT</version>
   	<dependencies>		
 		<dependency>

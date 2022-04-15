@@ -15,6 +15,7 @@ public class TestRuleChain {
 	/**
 	 * zweite Rule
 	 */	
+	@SuppressWarnings("deprecation")
 	public ExpectedException expectedException = ExpectedException.none();
 
 	/**
