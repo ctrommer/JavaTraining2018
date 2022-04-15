@@ -4,12 +4,12 @@
   <artifactId>spring-batch</artifactId>
   <version>0.0.1-SNAPSHOT</version>
 <properties>
-		<spring.version>4.1.4.RELEASE</spring.version>
-		<spring.batch.version>2.2.0.RELEASE</spring.batch.version>
-		<mysql.driver.version>5.1.47</mysql.driver.version>
+		<spring.version>5.3.18</spring.version>
+		<spring.batch.version>4.2.4.RELEASE</spring.batch.version>
+		<mysql.driver.version>8.0.16</mysql.driver.version>
 		<junit.version>4.11</junit.version>
-		<maven.compiler.source>1.7</maven.compiler.source>
-   		<maven.compiler.target>1.7</maven.compiler.target>
+		<maven.compiler.source>18</maven.compiler.source>
+   		<maven.compiler.target>18</maven.compiler.target>
 	</properties>
 
 	<dependencies>
