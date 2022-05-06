@@ -76,7 +76,7 @@ public class ImmutableTrainerTester {
 	public void testeSetString() {
 		Assertions.assertThrows(
 				NoSuchMethodException.class, 
-				()-> { ImmutableTrainer.class.getMethod("setString"); },
+				()-> { ImmutableTrainer.class.getMethod("setString", String.class); },
 				"Do not provide setter methods for variables ... oder andere Methoden, die den Wert der Variable veraendern");
 	}
 	
@@ -85,7 +85,7 @@ public class ImmutableTrainerTester {
 	public void testeSetStringBuilder() {
 		Assertions.assertThrows(
 				NoSuchMethodException.class, 
-				()-> { ImmutableTrainer.class.getMethod("setStringBuilder"); },
+				()-> { ImmutableTrainer.class.getMethod("setStringBuilder", StringBuilder.class); },
 				"Do not provide setter methods for variables ... oder andere Methoden, die den Wert der Variable veraendern");
 	}
 }
