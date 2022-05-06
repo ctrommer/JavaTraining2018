@@ -42,7 +42,7 @@ public class ImmutableTrainerTester {
 		ImmutableTrainer immutableTrainer = new ImmutableTrainer(string, stringBuilder);
 
 		string = "gaenderter String";
-		stringBuilder = new StringBuilder("geaenderter StringBuilder");
+		stringBuilder.setCharAt(0, 'X');
 		
 		Assertions.assertNotEquals(immutableTrainer.getString(), string);
 		Assertions.assertNotEquals(immutableTrainer.getStringBuilder(), stringBuilder);		

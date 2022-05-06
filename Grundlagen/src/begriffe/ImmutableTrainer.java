@@ -4,7 +4,7 @@ package begriffe;
  * Erzeugt eine Klasse die nach dem Erzeugen nicht mehr ver�ndert werden kann. 
  * Sie hat ein Feld das mutable ist und eins, dass immutable ist.
  */
-public final class ImmutableTrainer {					// Declare the class as final so it can�t be extended.
+public final class ImmutableTrainer {					// Declare the class as final so it can not be extended.
 
 	private final String string;				// Make all fields private so that direct access is not allowed.
 	private final StringBuilder stringBuilder;	// Make all fields final so that it's value can be assigned only once.
