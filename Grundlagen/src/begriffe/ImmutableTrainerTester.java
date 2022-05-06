@@ -65,7 +65,7 @@ public class ImmutableTrainerTester {
 		StringBuilder stringBuilderAusImmutable = immutableTrainer.getStringBuilder();
 
 		stringAusImmutable = "veraenderter String";
-		stringBuilderAusImmutable = new StringBuilder("veraenderter StringBuilder");
+		stringBuilderAusImmutable.setCharAt(0, 'X');
 		
 		Assertions.assertEquals(immutableTrainer.getString(), stringVorher);
 		Assertions.assertEquals(immutableTrainer.getStringBuilder().toString(), "vorher StringBuilder");
