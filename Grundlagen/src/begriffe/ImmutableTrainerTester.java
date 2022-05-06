@@ -3,6 +3,7 @@ package begriffe;
 import static org.junit.Assert.assertTrue;
 
 import java.lang.reflect.Field;
+import java.lang.reflect.Method;
 import java.lang.reflect.Modifier;
 
 import org.junit.jupiter.api.Assertions;
@@ -42,7 +43,7 @@ public class ImmutableTrainerTester {
 		ImmutableTrainer immutableTrainer = new ImmutableTrainer(string, stringBuilder);
 
 		string = "gaenderter String";
-		stringBuilder = new StringBuilder("geaenderter StringBuilder");
+		stringBuilder.setCharAt(0, 'X');
 		
 		Assertions.assertNotEquals(immutableTrainer.getString(), string);
 		Assertions.assertNotEquals(immutableTrainer.getStringBuilder(), stringBuilder);		
@@ -65,7 +66,7 @@ public class ImmutableTrainerTester {
 		StringBuilder stringBuilderAusImmutable = immutableTrainer.getStringBuilder();
 
 		stringAusImmutable = "veraenderter String";
-		stringBuilderAusImmutable = new StringBuilder("veraenderter StringBuilder");
+		stringBuilderAusImmutable.setCharAt(0, 'X');
 		
 		Assertions.assertEquals(immutableTrainer.getString(), stringVorher);
 		Assertions.assertEquals(immutableTrainer.getStringBuilder().toString(), "vorher StringBuilder");
@@ -76,16 +77,17 @@ public class ImmutableTrainerTester {
 	public void testeSetString() {
 		Assertions.assertThrows(
 				NoSuchMethodException.class, 
-				()-> { ImmutableTrainer.class.getMethod("setString"); },
+				()-> { ImmutableTrainer.class.getMethod("setString", String.class); },
 				"Do not provide setter methods for variables ... oder andere Methoden, die den Wert der Variable veraendern");
 	}
 	
 	@Test
 	@DisplayName("Methode setStringBuilder darf nicht existieren")
 	public void testeSetStringBuilder() {
+		
 		Assertions.assertThrows(
 				NoSuchMethodException.class, 
-				()-> { ImmutableTrainer.class.getMethod("setStringBuilder"); },
+				()-> { ImmutableTrainer.class.getMethod("setStringBuilder", StringBuilder.class); },
 				"Do not provide setter methods for variables ... oder andere Methoden, die den Wert der Variable veraendern");
 	}
 }
