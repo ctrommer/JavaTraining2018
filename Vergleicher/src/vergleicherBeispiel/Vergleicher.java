@@ -7,7 +7,7 @@ import java.util.Objects;
  * 
  * Hierbei werden deutsche Namen verwendet, die helfen sollen, zu verstehen, was der Comparator macht. <br><br>
  *
- * Dieses Interface ist nur zu Übungszwecken und um den Comparator zu verstehen, man sollte natürlich immer den {@code Comparator} verwenden. <br>
+ * Dieses Interface ist nur zu ï¿½bungszwecken und um den Comparator zu verstehen, man sollte natï¿½rlich immer den {@code Comparator} verwenden. <br>
  *
  * @param <T>
  * Die Klasse, die verglichen werden soll
@@ -18,13 +18,13 @@ public interface Vergleicher<T> {
 	int vergleiche( T t1, T t2 );
 
 	/**
-	 * Es soll ein {@code Vergleicher} erzeugt werden. Nach welchem Kriterium vergleicht er?  Es wird eine {@code Funktion} übergeben, die aus einer Klasse
+	 * Es soll ein {@code Vergleicher} erzeugt werden. Nach welchem Kriterium vergleicht er?  Es wird eine {@code Funktion} ï¿½bergeben, die aus einer Klasse
 	 * den Parameter extrahiert, der das Vergleichskriterium darstellt. Damit das funktioniert, muss das Vergleichskriterium {@code Comparable} implementieren.  
 	 * 
 	 * @param vergleichsKriteriumExtrahierer
 	 * {@code Funktion}, die aus einer Klasse das Kriterium extrahiert, nach dem der erzeugte {@code Vergleicher} vergleicht.
 	 * @return
-	 * {@code Vergleicher}, der nach dem durch die übergebene Funktion extrahiertem Schlüssel vergleicht.
+	 * {@code Vergleicher}, der nach dem durch die ï¿½bergebene Funktion extrahiertem Schlï¿½ssel vergleicht.
 	 */
 	static <T, U extends Comparable<U>> Vergleicher<T> erzeugeVergleicher(Funktion<T, U> vergleichsKriteriumExtrahierer) {
 		
@@ -34,14 +34,14 @@ public interface Vergleicher<T> {
 	}
 
 	/**
-	 * Es soll ein {@code Vergleicher} erzeugt werden. Nach welchem Kriterium vergleicht er?  Es wird eine {@code Funktion} übergeben, die aus einer Klasse
-	 * den Parameter extrahiert, der das Vergleichskriterium darstellt. Mit diesem Vergleichskriterium vergleicht der als Parameter übergebene {@code Vergleicher}.  
+	 * Es soll ein {@code Vergleicher} erzeugt werden. Nach welchem Kriterium vergleicht er?  Es wird eine {@code Funktion} ï¿½bergeben, die aus einer Klasse
+	 * den Parameter extrahiert, der das Vergleichskriterium darstellt. Mit diesem Vergleichskriterium vergleicht der als Parameter ï¿½bergebene {@code Vergleicher}.  
 	 * 
 	 * @param vergleichskriteriumExtrahierer
 	 * {@code Funktion}, die aus einer Klasse das Kriterium extrahiert, nach dem der erzeugte {@codeVergleicher} vergleicht.
 	 * @param schluesselVergleicher
 	 * @return
-	 * {@codeVergleicher}, der mit dem übergebenen {@code Vergleicher} nach dem durch die übergebene {@codeFunktion} extrahiertem Schlüssel vergleicht.
+	 * {@codeVergleicher}, der mit dem ï¿½bergebenen {@code Vergleicher} nach dem durch die ï¿½bergebene {@codeFunktion} extrahiertem Schlï¿½ssel vergleicht.
 	 */ 
 	static<T,U> Vergleicher<T> erzeugeVergleicher(Funktion<T,U> vergleichskriteriumExtrahierer, Vergleicher<U> schluesselVergleicher ) {
 		Objects.requireNonNull(vergleichskriteriumExtrahierer);
@@ -53,13 +53,13 @@ public interface Vergleicher<T> {
 	}
 
 	/**
-	 * Fügt dem Vergleicher ein weiters Vergleichskriterium hinzu. Zuerst wird nach dem ursprünglichen Vergleichskriterium verglichen, dann nach dem, welches hier
-	 * hinzugefügt wird.
+	 * Fï¿½gt dem Vergleicher ein weiters Vergleichskriterium hinzu. Zuerst wird nach dem ursprï¿½nglichen Vergleichskriterium verglichen, dann nach dem, welches hier
+	 * hinzugefï¿½gt wird.
 	 * 
 	 * @param vergleichsKriteriumExtrahierer
 	 * {@code Funktion}, die aus einer Klasse das Kriterium extrahiert, nach dem der erzeugte {@code Vergleicher} vergleicht.
 	 * @return
-	 * {@code Vergleicher}, der um das hinzugefügte Vergleichskriterium erweitert ist.
+	 * {@code Vergleicher}, der um das hinzugefï¿½gte Vergleichskriterium erweitert ist.
 	 */
 	default <U extends Comparable<U>> Vergleicher<T> erzeugeMitNaechstemVergleichsKriterium(Funktion<T,U> vergleichsKriteriumExtrahierer ) {		
 		Vergleicher<T> zusaetlicherVergleicher = erzeugeVergleicher(vergleichsKriteriumExtrahierer);		
@@ -67,13 +67,13 @@ public interface Vergleicher<T> {
 	}
 
 	/**
-	 * Fügt dem Vergleicher ein weiters Vergleichskriterium hinzu. Zuerst wird nach dem ursprünglichen Vergleichskriterium verglichen, dann nach dem, welches hier
-	 * hinzugefügt wird. 
+	 * Fï¿½gt dem Vergleicher ein weiters Vergleichskriterium hinzu. Zuerst wird nach dem ursprï¿½nglichen Vergleichskriterium verglichen, dann nach dem, welches hier
+	 * hinzugefï¿½gt wird. 
 	 * 
 	 * @param nachsterVergleicher
 	 * {@code Vergleicher} nach dem verglichen wird, wenn der eigentliche Vergleich keinen Unterschied feststellt.
 	 * @return
-	 * {@code Vergleicher}, der um das hinzugefügte Vergleichskriterium erweitert ist.
+	 * {@code Vergleicher}, der um das hinzugefï¿½gte Vergleichskriterium erweitert ist.
 	 */
 	default Vergleicher<T> fuegeNaechstenVergleicherHinzu( Vergleicher<T > nachsterVergleicher ) {
 		
@@ -90,8 +90,8 @@ public interface Vergleicher<T> {
 	 * <pre>
 	 * Erzeugt einen Vergleicher, der die Vergleichung umkehrt.
 	 * 
-	 * Beachte: eine Anonyme innere Klasse würde hier nicht funktionieren. Die Methode "vergleiche" der anonymen 
-	 * Klasse würde die Methode "vergleiche" der umschliessenden Klasse verdecken.
+	 * Beachte: eine Anonyme innere Klasse wï¿½rde hier nicht funktionieren. Die Methode "vergleiche" der anonymen 
+	 * Klasse wï¿½rde die Methode "vergleiche" der umschliessenden Klasse verdecken.
 	 * 
 	 * https://stackoverflow.com/questions/22637900/java8-lambdas-vs-anonymous-classes
 	 * Another difference between AICs and lambda expressions is that AICs introduce a new scope. 
@@ -114,14 +114,14 @@ public interface Vergleicher<T> {
 	}
 	
 	/**
-	 * Erzeugt einen Vergleicher der null berücksichtigt. null ist dabei kleiner als andere Werte.
+	 * Erzeugt einen Vergleicher der null berï¿½cksichtigt. null ist dabei kleiner als andere Werte.
 	 * @param vergleicher
 	 * Wenn beide Werte ungleich null sind wird hiermit verglichen.
 	 * @return
-	 * neuer Vergleicher, der zusätzlich null berücksichtig.
+	 * neuer Vergleicher, der zusï¿½tzlich null berï¿½cksichtig.
 	 */
 	static <T> Vergleicher<T> erzeugeNullZuerstVergleicher(Vergleicher<T> vergleicher) {
-		return new VergleicherUnterstuetzer.NullBeruecksichtigenderVergleicher<>( true, vergleicher);
+		return new VergleicherUnterstuetzer.NullBeruecksichtigenderVergleicher<>( true, vergleicher );
 	}
 
 	@SuppressWarnings("unchecked")
