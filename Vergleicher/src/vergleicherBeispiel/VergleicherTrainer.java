@@ -6,7 +6,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-public class SpielerSortierenMitVergleicher {
+public class VergleicherTrainer {
 
 	private static final Spieler KARL_11 = new Spieler("Karl", 11, "Kalle");
 	private static final Spieler ALBERT_22 = new Spieler("Albert", 22, "Albi");
