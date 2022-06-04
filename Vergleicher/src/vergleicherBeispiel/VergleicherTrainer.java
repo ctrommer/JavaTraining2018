@@ -156,8 +156,8 @@ public class VergleicherTrainer {
 
 	/**
 	 * Hierzu 2 Methoden schreiben:
-	 * - Methode, die einem Vergleicher einen weiteren Vergleicher hinzuf�gt. 
-	 * - Methode die die zwei Vergleicher zusammenf�gt 
+	 * - Methode, die mit der übergebenen Funktion einen Vergleicher erzeugt und damit die zweite Methode aufruft, die 
+	 * - die zwei Vergleicher zusammenfuegt 
 	 */
 	private int vergleicheSpielerNachAlterUndDannNachName( Spieler links, Spieler rechts ) {
 		return 0;
