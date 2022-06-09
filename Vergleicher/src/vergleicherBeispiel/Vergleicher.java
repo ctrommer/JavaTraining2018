@@ -61,8 +61,9 @@ public interface Vergleicher<T> {
 	 * @return
 	 * {@code Vergleicher}, der um das hinzugef�gte Vergleichskriterium erweitert ist.
 	 */
-	default <U extends Comparable<U>> Vergleicher<T> erzeugeMitNaechstemVergleichsKriterium(Funktion<T,U> vergleichsKriteriumExtrahierer ) {		
-		Vergleicher<T> zusaetlicherVergleicher = erzeugeVergleicher(vergleichsKriteriumExtrahierer);		
+	default <U extends Comparable<U>> Vergleicher<T> erzeugeMitNaechstemVergleichsKriterium(Funktion<T,U> vergleichskriteriumExtrahierer) {
+		Objects.requireNonNull(vergleichskriteriumExtrahierer);
+		Vergleicher<T> zusaetlicherVergleicher = erzeugeVergleicher(vergleichskriteriumExtrahierer);		
 		return fuegeNaechstenVergleicherHinzu(zusaetlicherVergleicher);
 	}
 
