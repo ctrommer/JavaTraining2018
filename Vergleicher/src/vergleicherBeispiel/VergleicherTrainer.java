@@ -2,7 +2,6 @@ package vergleicherBeispiel;
 
 import static org.junit.Assert.assertTrue;
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -292,7 +291,7 @@ public class VergleicherTrainer {
 	}
 
 	@Test
-	@DisplayName("vergleiche nach natuerlicher Ordnung")
+	@DisplayName("sortiere nach natuerlicher Ordnung")
 	public void test15() {		
 		Fussballer groesser = new Fussballer(42);
 		Fussballer kleiner = new Fussballer(40);
@@ -300,22 +299,5 @@ public class VergleicherTrainer {
 		assertTrue( sortiereNachNatuerlicherOrdnung(kleiner, groesser) < 0 );
 		assertTrue( sortiereNachNatuerlicherOrdnung(kleiner, kleiner) == 0 );
 	}
-
-	@Test
-	@DisplayName("pruefe ob Parameter validiert wurden, also nicht null sind")
-	public void test16() {		
-		Vergleicher<Spieler> vergleicher = ( links, rechts ) -> links.getAlter().compareTo(rechts.getAlter());
-		Funktion<Spieler, Integer> spielerZuAlter = Spieler::getAlter;
-
-		assertThrows(NullPointerException.class, () -> Vergleicher.erzeugeVergleicher(null));
-		
-		assertThrows(NullPointerException.class, () -> Vergleicher.erzeugeVergleicher(null, vergleicher));
-		assertThrows(NullPointerException.class, () -> Vergleicher.erzeugeVergleicher(spielerZuAlter, null));
-		
-		assertThrows(NullPointerException.class, () -> vergleicher.erzeugeMitNaechstemVergleichsKriterium(null));
-		
-		assertThrows(NullPointerException.class, () -> vergleicher.fuegeNaechstenVergleicherHinzu(null));
-		
-	}
-
+	
 }
