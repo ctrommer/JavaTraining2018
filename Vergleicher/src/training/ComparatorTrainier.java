@@ -29,6 +29,10 @@ public class ComparatorTrainier {
 		zuSortierendePersonenMitNull = Arrays.asList( null, new Person ("Kevin", 50 ), new Person ( "Waltraut", 80 ), null, new Person ( "Andreas", 30 ), new Person("KEVIN", 40 ), new Person ( "Waltraut", 70 ) );
 	}
 
+
+	/**
+	 * Mit anonymer innerer Klasse.
+	 */
 	private static void sortierePersonNachNameOhneLambda() {				
 		zuSortierendePersonen.sort(null);		
 	}
@@ -49,7 +53,9 @@ public class ComparatorTrainier {
 	}	
 	
 	/**
-	 * Hier wird {@link Function} verwendet. Macht es erst mal komplizierter. Ist ein Zwischenschritt, um {@link java.util.Comparator#comparing()} zu erklären.
+	 * Hier wird {@link Function} verwendet. Macht es erst mal komplizierter. Ist ein Zwischenschritt, um {@link java.util.Comparator#comparing()} zu erklï¿½ren.
+	 * 
+	 * Function als anonyme innere Klasse.
 	 */
 	private static void sortierePersonNachNameMitLambdaUndFunction() {
 	}
@@ -72,6 +78,9 @@ public class ComparatorTrainier {
 		assertEquals(nachNameSortiertePersonen, zuSortierendePersonen);
 	}			
 	
+	/**
+	 * Function als Lamda.
+	 */
 	private static void sortierePersonNachNameMitStatischerMethodeVonComperatorMitLambda() {		
 	}
 	
@@ -81,6 +90,9 @@ public class ComparatorTrainier {
 		assertEquals(nachNameSortiertePersonen, zuSortierendePersonen);
 	}
 
+	/**
+	 * Function als Method Referenz.
+	 */
 	private static void sortierePersonNachNameMitStatischerMethodeVonComperatorMitMethodReferenz() {
 	}
 	
@@ -90,6 +102,9 @@ public class ComparatorTrainier {
 		assertEquals(nachNameSortiertePersonen, zuSortierendePersonen);
 	}	
 
+	/**
+	 * Mit Methode von Comparator, die zwei Parameter nimmt!
+	 */
 	private static void sortierePersonNachNameRueckwaerts() {
 	}
 
@@ -101,6 +116,9 @@ public class ComparatorTrainier {
 		assertEquals(nachNameRueckwaertsSortiertePersonen, zuSortierendePersonen);
 	}
 
+	/**
+	 * Einzeiler.
+	 */
 	private static void sortierePersonNachNameRueckwaertsDirekt() {
 	}
 
