@@ -7,15 +7,13 @@ package abstrakteFabrik;
  */
 
 public class KampfsportSchule {
-	private Fabrik fabrik;
 
 	public KampfsportSchule(Fabrik fabrik) {
-		this.fabrik = fabrik;
 	}
 
 	public String workshopDurchfuehren() {
-		Trainer trainer = fabrik.erzeugeTrainer();
-		Trainingsgeraet trainingsgeraet = fabrik.erzeugeTrainingsgeraet();
+		Trainer trainer = null;
+		Trainingsgeraet trainingsgeraet = null;
 		
 		return trainer.unterrichte( trainingsgeraet ); 
 	}

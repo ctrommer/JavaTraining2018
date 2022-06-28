@@ -16,12 +16,9 @@ package fabrikMethode;
  *
  */
 public class Tanzschule {
-	protected Tanzlehrer erzeugeTanzlehrer() {
-		return new Tanzlehrer();
-	}
 
 	public String workshopDurchfuehren() {
-		Tanzlehrer tanzlehrer = erzeugeTanzlehrer();
+		Tanzlehrer tanzlehrer = null;
 		return tanzlehrer.unterrichte();		
 	}
 
