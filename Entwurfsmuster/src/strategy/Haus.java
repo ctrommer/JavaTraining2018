@@ -44,8 +44,6 @@ public class Haus {
 		Haus einfamilienHaus = new Haus(250_000, 300_000, 20_000);
 		
 		// Haus wird mit der Mieteinnahmenstrategie geprüft Jahresmieteinnahmen * 10 > Marktpreis
-		Predicate<Haus> bewertenNachMieteinnahmenStrategie 
-			= haus -> haus.getJahresMieteinnahmen() * 10 > haus.getMarktpreis();
 		Haus mehrfamilienHaus = new Haus(250_000, 300_000, 20_000);
 
 		// !!! ab hier nichts ändern, auch nicht Methtodensignatur von istHauspreisGuenstig.
