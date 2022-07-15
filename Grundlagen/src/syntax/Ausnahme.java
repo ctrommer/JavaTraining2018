@@ -1,28 +1,63 @@
 package syntax;
 
+
 import javax.management.BadStringOperationException;
 
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
+
 public class Ausnahme {
-
-	public static void main(String[] args) {
-		
-		// Zeigt handeled Exception, mit Teil, der immer aufgerufen wird. 
-
-
-		// zeigt unhandeled Exception
-
-	}
+	
+	private boolean methodeWurdeAufgerufen;
 
 	/**
 	 * @throws BadStringOperationException
 	 */
-	private static void handeledExceptionDemo() {
+	private void handeledExceptionDemo()  {
+		
+	}
+
+	@Test
+	@DisplayName("Exception BadStringOperationException soll geworfen werden.")
+	public void test01() {
+		Assertions.assertThrowsExactly( BadStringOperationException.class, () -> handeledExceptionDemo() );
 	}
 
 	/**
+	 * Zeigt handeled Exception, mit Teil, der immer aufgerufen wird.
+	 * Setzt 
+	 * methodeWurdeAufgerufen = true;
+	 */
+	public void ruftHandeledExceptionAuf() {
+
+	}
+	
+	@Test
+	@DisplayName("Die handeled exception soll richtig aufgerufen werden und die exception soll gefangen werden.")
+	public void test02() {
+		ruftHandeledExceptionAuf();
+		Assertions.assertTrue(methodeWurdeAufgerufen);				
+	}
+
+	@Test
+	@DisplayName("Teil, der bei Exception immer ausgefuehrt wird, soll aufgerufen werden.")
+	public void test03() {
+		ruftHandeledExceptionAuf();
+		Assertions.assertTrue(methodeWurdeAufgerufen);				
+	}	
+	
+	/**
 	 * Wirft eine unbehandelte Ausnahme.
 	 */
-	private static void unhandeledException() {
+	private void unhandeledException() {
+
+	}
+	
+	@Test
+	@DisplayName("Unbehandelte Ausnahme soll geworfen werden.") 
+	public void test04() {
+		Assertions.assertThrows(RuntimeException.class, ()->unhandeledException());
 	}
 
 }
