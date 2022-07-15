@@ -14,7 +14,7 @@ public class Ausnahme {
 	/**
 	 * @throws BadStringOperationException
 	 */
-	private static void handeledExceptionDemo() throws BadStringOperationException {
+	private void handeledExceptionDemo() throws BadStringOperationException {
 		throw new BadStringOperationException("Falsche String Operation!");
 	}
 
@@ -55,7 +55,7 @@ public class Ausnahme {
 	/**
 	 * Wirft eine unbehandelte Ausnahme.
 	 */
-	private static void unhandeledException() {
+	private void unhandeledException() {
 		throw new NullPointerException();
 	}
 	
