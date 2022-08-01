@@ -21,7 +21,7 @@ public class SchipSchiffMapperTest {
 		
 		assertEquals(ship.getName(), schiff.getName());
 		assertEquals(ship.getColour(), schiff.getFarbe());
-		assertEquals(ship.getWeightInLBS(), schiff.getGewichtInKg()*2.205, 1);
+		assertEquals(ship.getWeightInLBS(), schiff.getGewichtInKg()/2.205, 1);
 		
 		assertEquals(ship.getStartConversion(),schiff.getStartKonvertierung());
 		assertEquals(ship.getEndConversion(), schiff.getEndeKonvertierung());
@@ -35,7 +35,7 @@ public class SchipSchiffMapperTest {
 		
 		assertEquals( schiff.getName(), ship.getName() );
 		assertEquals( schiff.getFarbe(), ship.getColour() );
-		assertEquals( schiff.getGewichtInKg(), ship.getWeightInLBS()/2.205, 1 );		
+		assertEquals( schiff.getGewichtInKg(), ship.getWeightInLBS()*2.205, 1 );		
 		assertEquals(schiff.getStartKonvertierung(), ship.getStartConversion());
 		assertEquals(schiff.getEndeKonvertierung(), ship.getEndConversion());
 	}

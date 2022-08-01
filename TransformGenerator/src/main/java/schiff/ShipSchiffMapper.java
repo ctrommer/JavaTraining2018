@@ -10,7 +10,10 @@ import org.mapstruct.MappingTarget;
 @Mapper
 public abstract class ShipSchiffMapper {
 	
-	private static final double KG_ZU_lBS_FAKTOR = 2.205;
+	/**
+	 * 1 kg = 2.205 LBS
+	 */
+	private static final double LBS_ZU_KG_FAKTOR = 2.205;
 
 	@BeforeMapping
 	protected void startKonvertierungZuShipSetzen( Schiff schiff, @MappingTarget Ship ship ) {
@@ -27,7 +30,7 @@ public abstract class ShipSchiffMapper {
 	}
 	
 	/**
-	 * Wenn man eine Extrawurst braten möchte, kann man die Mapping Methode auch selber schreiben.
+	 * Wenn man eine Extrawurst braten mï¿½chte, kann man die Mapping Methode auch selber schreiben.
 	 * Hier wird zum Beispiel das britische Pfund in kg umgerechnet.
 	 * @param ship
 	 * ship soll zu Schiff konvertiert werden.
@@ -38,14 +41,14 @@ public abstract class ShipSchiffMapper {
 		if ( ship == null ) {
 			return null;
 		}
-		return new Schiff(ship.getName(), ship.getColour(), ship.getWeightInLBS()/KG_ZU_lBS_FAKTOR);
+		return new Schiff(ship.getName(), ship.getColour(), ship.getWeightInLBS()*LBS_ZU_KG_FAKTOR);
 	}
 
 	public Ship schiffZuShip( Schiff schiff ) {
 		if ( schiff == null ) {
 			return null;
 		}
-		return new Ship(schiff.getName(), schiff.getFarbe(), schiff.getGewichtInKg()*KG_ZU_lBS_FAKTOR);
+		return new Ship(schiff.getName(), schiff.getFarbe(), schiff.getGewichtInKg()/LBS_ZU_KG_FAKTOR);
 	}
 
 	@AfterMapping
