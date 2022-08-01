@@ -1,6 +1,6 @@
 package schiff;
 
-// Methoden einfügen, die den Start der Konvertierung und das Ende der Konvertierung als LocalDateTime für Quelle und Ziel setzen.
+// Methoden einfï¿½gen, die den Start der Konvertierung und das Ende der Konvertierung als LocalDateTime fï¿½r Quelle und Ziel setzen.
 
 public abstract class ShipSchiffMapper {
 
