@@ -43,6 +43,15 @@ public class TaxpayerSteuerzahlerMapperTest {
 	}		
 
 	@Test
+	public void testeSteuerzahlerZuTaxpayer() {
+		Steuerzahler steuerzahler = new Steuerzahler(new Investition(42L, "Dollar"));		
+		Taxpayer taxpayer = taxpayerSteuerzahlerMapper.steuerzahlerZuTaxpayer(steuerzahler);
+		
+		assertEquals(taxpayer.getInvestmentAmount(), steuerzahler.getInvestition().getInvestitionBetrag());
+		assertEquals(taxpayer.getInvestmentCurrency(), steuerzahler.getInvestition().getInvestitionWaehrung());
+	}
+
+	@Test
 	public void testeSteuerzahlerZuTaxpayerBetragNull() {
 		Steuerzahler steuerzahler = new Steuerzahler(new Investition(null, "Dollar"));		
 		Taxpayer taxpayer = taxpayerSteuerzahlerMapper.steuerzahlerZuTaxpayer(steuerzahler);
