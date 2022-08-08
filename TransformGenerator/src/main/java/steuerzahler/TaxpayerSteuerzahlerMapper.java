@@ -23,9 +23,5 @@ public abstract class TaxpayerSteuerzahlerMapper {
 	public abstract Steuerzahler taxpayerZuSteuerzahler( Taxpayer taxpayer );
 
     public abstract Taxpayer steuerzahlerZuTaxpayer( Steuerzahler steuerzahler );
-
-    public Long map(Long quelle) {
-    	return null;
-    }
     
 }
