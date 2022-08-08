@@ -36,7 +36,7 @@ public abstract class TaxpayerSteuerzahlerMapper {
     }
 
     @AfterMapping
-    protected void steuerzahlerZuTaxpayerNullBehandeln( @MappingTarget final Steuerzahler steuerzahler ) {
+    protected void taxpayerZuInvestitionNullBehandeln( @MappingTarget final Steuerzahler steuerzahler ) {
     	if ( steuerzahler != null ) {
     		Investition investition = steuerzahler.getInvestition();
 	    	if ( investition != null ) {
@@ -53,7 +53,7 @@ public abstract class TaxpayerSteuerzahlerMapper {
     }
     
     @AfterMapping
-    protected void taxpayerZuInvestitionNullBehandeln( @MappingTarget final Taxpayer taxpayer ) {
+    protected void steuerzahlerZuTaxpayerNullBehandeln( @MappingTarget final Taxpayer taxpayer ) {
     	if ( taxpayer != null ) {
     		if ( taxpayer.getInvestmentCurrency() == null ) {
     			taxpayer.setInvestmentAmount(null);
