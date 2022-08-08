@@ -1,5 +1,7 @@
 package steuerzahler;
 
+import java.util.Optional;
+
 import org.mapstruct.AfterMapping;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
@@ -36,32 +38,24 @@ public abstract class TaxpayerSteuerzahlerMapper {
     }
 
     @AfterMapping
-    protected void taxpayerZuInvestitionNullBehandeln( @MappingTarget final Steuerzahler steuerzahler ) {
-    	if ( steuerzahler != null ) {
-    		Investition investition = steuerzahler.getInvestition();
-	    	if ( investition != null ) {
-	    		if ( investition.getInvestitionWaehrung() == null ) {
-	    			investition.setInvestitionBetrag(null);
-	    		}
-	    	}
-	    	if ( investition != null ) {
-	    		if ( investition.getInvestitionBetrag() == null ) {
-	    			investition.setInvestitionWaehrung(null);
-	    		}
-	    	}
-    	}
+    protected void taxpayerZuSteuerzahlerNullBeruecksichtigen( @MappingTarget Steuerzahler steuerzahler ) {
+    	
+    	Optional.of(steuerzahler)
+    		.map( zahler -> zahler.getInvestition() )
+    		.ifPresent( inv -> {
+    			if ( inv.getInvestitionBetrag() == null ) { inv.setInvestitionWaehrung(null); }
+    			if ( inv.getInvestitionWaehrung() == null ) { inv.setInvestitionBetrag(null); }
+    		});
     }
-    
+
     @AfterMapping
-    protected void steuerzahlerZuTaxpayerNullBehandeln( @MappingTarget final Taxpayer taxpayer ) {
-    	if ( taxpayer != null ) {
-    		if ( taxpayer.getInvestmentCurrency() == null ) {
-    			taxpayer.setInvestmentAmount(null);
-    		}
-    		if ( taxpayer.getInvestmentAmount() == null ) {
-    			taxpayer.setInvestmentCurrency(null);
-    		}
-    	}
-	}
+    protected void steuerzahlerZuTaxpayerNullBeruecksichtigen( @MappingTarget Taxpayer taxpayer ) {
+    	
+    	Optional.of(taxpayer)
+    		.ifPresent(payer-> {
+    			if ( payer.getInvestmentAmount() == null ) { payer.setInvestmentCurrency(null); }
+    			if ( payer.getInvestmentCurrency() == null ) { payer.setInvestmentAmount(null); }
+    		});
+    }
     
 }
