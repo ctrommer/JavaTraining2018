@@ -37,17 +37,10 @@ public class Ausnahme {
 			methodeWurdeAufgerufen = true;
 		}
 	}
-	
-	@Test
-	@DisplayName("Die handeled exception soll richtig aufgerufen werden und die exception soll gefangen werden.")
-	public void test02() {
-		ruftHandeledExceptionAuf();
-		Assertions.assertTrue(methodeWurdeAufgerufen);				
-	}
 
 	@Test
 	@DisplayName("Teil, der bei Exception immer ausgefuehrt wird, soll aufgerufen werden.")
-	public void test03() {
+	public void test02() {
 		ruftHandeledExceptionAuf();
 		Assertions.assertTrue(methodeWurdeAufgerufen);				
 	}	
@@ -61,7 +54,7 @@ public class Ausnahme {
 	
 	@Test
 	@DisplayName("Unbehandelte Ausnahme soll geworfen werden.") 
-	public void test04() {
+	public void test03() {
 		Assertions.assertThrows(RuntimeException.class, ()->unhandeledException());
 	}
 
