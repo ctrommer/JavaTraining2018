@@ -37,7 +37,7 @@ public class VarArgs {
 	}
 
 	@SafeVarargs
-	static <T> int gebeAnzahlElementZurueck( T ... beliebige ) {
+	static <T> int gebeAnzahlElementeZurueck( T ... beliebige ) {
 
 		// Ist diese Methode varargs safe? Warum?
 		
@@ -53,7 +53,7 @@ public class VarArgs {
 	}
 	
 	static <T> int demonstriereVarargsSafe( T erster, T zweiter ) {
-		return gebeAnzahlElementZurueck(erster, zweiter);
+		return gebeAnzahlElementeZurueck(erster, zweiter);
 	}
 
 	@Test
