@@ -19,14 +19,15 @@ public class VarArgs {
 	 * @return Anzahl der uebergebenen Strings
 	 * 
 	 */
-	@SafeVarargs
-	static int gebeAnzahlStringsZurueck( String ... strings ) {	
+	static int gebeAnzahlStringsZurueck( String durchVarArgsErsetzen1, String durchVarArgsErsetzen2, String durchVarArgsErsetzen3) {
+		
+		// Verwende Varargs.
+		
+		// Ist die Methode Varargs Safe? Warum?
 
 		// Was macht der Compiler aus String ... strings, wenn "Hallo" und "Welt" uebergeben wird? 
-		
-		// String[] strings = new String[] { "Hallo", "Welt" };
 
-		return strings.length;
+		return 0;
 	}
 
 	@Test
@@ -36,9 +37,10 @@ public class VarArgs {
 		assertEquals(3, anzahlStrings);
 	}
 
-	@SafeVarargs
-	static <T> int gebeAnzahlElementZurueck( T ... beliebige ) {
+	static <T> int gebeAnzahlElementeZurueck( T durchVarArgsErsetzen1, T durchVarArgsErsetzen2 ) {
 
+		// Verwende Varargs.
+		
 		// Ist diese Methode varargs safe? Warum?
 		
 		// Wenn die übergebenen Parameter selber parameterisiert sind, 
@@ -49,10 +51,11 @@ public class VarArgs {
 		// Ist aber hier egal, da der Typ der Elemente
 		// des Arrays hier ruhig Object sein kann.
 		
-		return beliebige.length;		
+		return 0;		
 	}
+	
 	static <T> int demonstriereVarargsSafe( T erster, T zweiter ) {
-		return gebeAnzahlElementZurueck(erster, zweiter);
+		return gebeAnzahlElementeZurueck(erster, zweiter);
 	}
 
 	@Test
@@ -62,7 +65,11 @@ public class VarArgs {
 		assertEquals(2, anzahlElemente);
 	}
 
-	static <U> U[] gebeAlsArrayZurueckTypUnbekannt( U ... beliebige ) {
+	static <U> U[] gebeAlsArrayZurueckTypUnbekannt( U durchVarArgsErsetzen1, U durchVarArgsErsetzen2 ) {
+
+		// Verwende Varargs.
+
+		// Ist diese Methode varargs safe? Warum?
 
 		// Was macht der Compiler aus T ... beliebige, wenn T zwar parameterisiert, aber bekannt ist
 		// also z.B. beim Aufruf gebeAlsArrayZurueckTypBekannt( "erster", "zweiter" ) ?
@@ -90,7 +97,7 @@ public class VarArgs {
 		// Zur Laufzeit kennt Java aber den richtigen Typ. Wenn man dann Object z.B. 
 		// in String umwandeln möchte, knallt es.
 
-		return beliebige;
+		return null;
 	}
 
 	static <V> V[] demonstriereNichtVarargsSafe( V erster, V zweiter ) {
