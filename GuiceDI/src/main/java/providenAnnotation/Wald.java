@@ -8,8 +8,8 @@ class Wald {
 	private Foerster foerster;
 
 	@Inject
-	public Wald( Foerster spellChecker) {
-		this.foerster = spellChecker;
+	public Wald( Foerster foerster) {
+		this.foerster = foerster;
 	}
 	
 	public void gebeInfoAus(){
