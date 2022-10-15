@@ -12,13 +12,13 @@ class Wald {
 		this.foerster = foerster;
 	}
 	
-	public void gebeInfoAus(){
-		System.out.println(foerster);
+	@Override
+	public String toString() {
+		return "Wald [foerster=" + foerster + "]";
 	}
-	
-	public static void main(String[] args) {
+
+	public static Wald erzeugeWaldMitGuice() {
 		Injector waldZusammenbastler = Guice.createInjector(new WaldModule());
-	    Wald wald = waldZusammenbastler.getInstance(Wald.class);
-	    wald.gebeInfoAus();
-	} 
+	    return waldZusammenbastler.getInstance(Wald.class);
+	}
 }

@@ -35,10 +35,9 @@ public class Haus {
 		return "Haus [tuer=" + tuer + ", fenster=" + fenster + ", wand=" + wand + ", dach=" + dach + "]";
 	}
 
-	public static void main( String[] args ) {
+	public static Haus erzeugeHausMitGuice() {
 		Injector hausZusammenbastler = Guice.createInjector(new HausZusammenbastlerModul());
-		Haus haus = hausZusammenbastler.getInstance(Haus.class);		
-		System.out.println(haus.toString());
+		return hausZusammenbastler.getInstance(Haus.class);
 	}
 
 }

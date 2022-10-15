@@ -31,14 +31,10 @@ public class Abteilung {
 		return "Abteilung [weihnachtsfeier=" + weihnachtsfeier + ", abteilungsleiter=" + abteilungsleiter + ", adresse="
 				+ adresse + ", name=" + name + ", spitzname=" + spitzname + "]";
 	}
-	
-	public static void main(String[] args) {
-		
-		Injector abteilungZusammenbastler = Guice.createInjector(new AbteilungZusammenbastlerModule());
-		   
-		Abteilung abteilung = abteilungZusammenbastler.getInstance(Abteilung.class);
-		   
-		System.out.println(abteilung.toString());
-	}	
-   
+
+	public static Abteilung erzeugeAbteilungMitGuice() {		
+		Injector abteilungZusammenbastler = Guice.createInjector(new AbteilungZusammenbastlerModule());		   
+		return abteilungZusammenbastler.getInstance(Abteilung.class);
+	}
+
 }

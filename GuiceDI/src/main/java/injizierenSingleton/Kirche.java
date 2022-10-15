@@ -21,12 +21,9 @@ public class Kirche {
 				+ singletonAufKonfigurationsEbene + ", singletonAufMethodenEbene=" + singletonAufMethodenEbene + "]";
 	}
 
-	public static void main(String[] args) {
-		Injector kircheZusammenbastler = Guice.createInjector(new KircheZusammenbastlerModul());
-		
-		Kirche kirche = kircheZusammenbastler.getInstance(Kirche.class);
-		
-		System.out.println(kirche);
+	public static Kirche erzeugeKircheMitGuice() {
+		Injector kircheZusammenbastler = Guice.createInjector(new KircheZusammenbastlerModul());		
+		return kircheZusammenbastler.getInstance(Kirche.class);
 	}
 
 }
