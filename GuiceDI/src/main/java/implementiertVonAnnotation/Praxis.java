@@ -16,10 +16,10 @@ public class Praxis {
 	public String toString() {
 		return "Praxis [sprechstundenhilfe=" + sprechstundenhilfe + "]";
 	}
-
-	public static void main(String[] args) {		
+	
+	public static Praxis erzeugePraxisMitGuice() {
 		Injector praxisZusammenbastler = Guice.createInjector(new PraxisZusammenbastlerModule());
-		Praxis praxis = praxisZusammenbastler.getInstance(Praxis.class);
-		System.out.println(praxis);
-	}	
+		return praxisZusammenbastler.getInstance(Praxis.class);		
+	}
+
 }

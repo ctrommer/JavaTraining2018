@@ -1,0 +1,151 @@
+
+___________________________________________________________
+
+Sch**sse: Ist das hier besser als mein Spickzettel?
+https://www.tutorialspoint.com/guice/guice_provider.htm
+___________________________________________________________
+
+Allgemein
+
+	Wovon erbt die Klasse, die die Klassen zusammenbastelt?
+	AbstractModule
+	
+	Wie heisst die Methode, in der die Klassen zusammengebastelt werden?
+	configure
+	
+	Wie heisst die Annotation zum Injizieren?
+	@Inject
+		 	
+	Was wird mit @Inject annotiert?
+	Die Membervariable, der Konstruktor oder eine setter Methode.
+	
+	Wie wird der Injector erzeugt?
+	Guice.createInjector(new XxxZusammenbastlerModule());
+
+	Wie erzeugt man mit dem Injector eine Instanz der Klasse Z?
+	xxxZusammenbastler.getInstance(Z.class);
+	
+	Ist eine Bindung in configure() notwendig, wenn es eindeutig ist, was nur injiziert werden kann?
+	Nein
+
+___________________________________________________________	
+
+wohinInjizieren
+
+	Wie setzt man in Guice einen Defaultwert?
+	Indem man die Membervariable direkt mit new erzeugt
+	
+	Was annotiert man wie für einen Defaultwert?
+	Eine Methode zum setzen des Wertes mit @Inject( optional = true )
+
+___________________________________________________________
+
+injizierenMitBindung
+
+	Wo wird die Bindung hergestellt?
+	In der configure() Methode des Zusammenbastlers
+	
+	Mit welcher Annotation verknüpft man eine Membervariable direkt mit genau einer Bindung?
+	@Inject	@Named("InjizierteKlasse")
+
+	Mit welcher Annotation verknüpft man eine Membervariable im Konstruktor mit genau einer Bindung?
+	public XXXKlasse( @Named("meinWert") String membervariable) {	
+
+	Wann können Konstruktoren für just in time Bindung verwendet werden?
+	Wenn sie nicht private sind und keine Argumente haben. Sie
+	müssen dann also nicht im module gebunden werden. 
+
+	Wie verknüpft man einen bestimmten Konstruktor? 	
+	bind(XXX.class).toConstructor(XXX.class.getConstructor(DerTyp.TYPE));
+	
+	Wie setzt man einen Wert des verknüpften Konstruktors?
+	bind(MyClass.class).toInstance(yyy);
+	
+	Wie verknüpft man eine Membervariable in der configure() Methode?
+	bind(MyInterface.class).to(MyClass.class);
+	
+	Wie verknüpft man eine mit @Named annotierte Membervariable in der configure() Methode?
+	bind(MyInterface.class).annotatedWith(Names.named("MyName")).to(MyClass.class);
+	
+	Wie verknüpft man eine mit @Named annotierte Membervariable in der configure() Methode mit einem Wert ( 1. Möglichkeit )?
+	bindConstant().annotatedWith(Names.named("Myname")).to("My Text");
+	
+	Wie verknüpft man eine mit @Named annotierte Membervariable in der configure() Methode mit einem Wert ( 2. Möglichkeit )?
+	bind(MyClass.class).annotatedWith(Names.named("MyName")).toInstance("My Text");
+
+___________________________________________________________
+
+implementiertVonAnnotation
+
+	Was ist bei implizierter Bindung nicht nötig?
+	In der XxxZusammenbastler Klasse muss keine Bindung hergestellt werden.
+
+	Was wird verwendet, wenn es implizierte Bindung und Bindung in der Zusammenbastler Klasse gibt?
+	Die Bindung in der Zusammenbastler Klasse.  
+
+	Wie ist die Annotation für just-in-time-binding?
+	@ImplementedBy(MeineKlasse.class)
+	
+	Was wird mit @ImplementedBy annotiert?
+	Das interface, das verwendet wird.
+
+___________________________________________________________
+	
+providenAnnotation
+
+	Wo wird eine providenende Methode implementiert?
+	In der Klasse, die von AbstractModule erbt.
+
+	Womit wird eine Methode annotiert, die eine Instanz zur Verfügung stellt?
+	@Provides
+	
+	Was ersetzt die mit @Provides annotierte Methode?
+	Die Bindung in configure()
+	
+___________________________________________________________
+
+providenKlasse
+
+	Wovon erbt eine Klasse, die Instanzen von X zur Verfügung stellt?
+	implements Provider<X>
+	
+	Wie bindet man die Klasse, die Instanzen von X zur Verfügung stellt?
+	in configure mit bind(X.class).toProvider(XZurVerfuegungSteller.class);
+
+___________________________________________________________
+
+injizierenSingleton
+
+	Es gibt 3 Arten das Singleton zu injizieren. Sie machen ( fast ) das gleiche, unterscheiden sich nur in der Syntax,
+	wie sie ihr Ziel erreichen.
+	Kleiner Unterschied:
+	https://stackoverflow.com/questions/14781471/guice-differences-between-singleton-class-and-singleton
+	
+	Wie injiziert man ein Singleton auf Klassenebene?
+	Indem man die Klasse mit @Singleton annotiert
+	und in configure die übliche Bindung vornimmt.
+	
+	Wie injiziert man ein Singleton auf Konfigurationsebene?
+	Indem man in configure die übliche Bindung um .in(Singleton.class) erweitert
+	
+	Wie injiziert man ein Singleton auf Methodenebene?
+	Mit einer Methode im Binding Modul, die das Singleton zur Verfügung stellt 
+	und mit @Provides @Singleton annotiert ist
+	
+	siehe
+	https://www.tutorialspoint.com/guice/guice_scopes.htm
+
+	
+
+
+___________________________________________________________
+
+Quellen:
+https://www.tutorialspoint.com/guice/index.htm
+
+https://www.adesso.de/de/news/blog/dependency-injection-mit-google-guice.jsp
+https://www.baeldung.com/guice
+
+
+
+

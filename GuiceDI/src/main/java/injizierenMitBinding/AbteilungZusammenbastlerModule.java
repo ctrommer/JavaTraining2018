@@ -8,7 +8,7 @@ public class AbteilungZusammenbastlerModule extends AbstractModule {
 	@Override
 	protected void configure() {
 		try {
-			// funktioniert nur für boolean, nicht für Boolean!
+			// funktioniert nur fuer boolean im Konstruktor, nicht fuer Boolean ( sic )
 			bind(Boolean.class).toInstance(true);
 			bind(Weihnachtsfeier.class).toConstructor(Weihnachtsfeier.class.getConstructor(Boolean.TYPE));
 		} catch (NoSuchMethodException | SecurityException e) {

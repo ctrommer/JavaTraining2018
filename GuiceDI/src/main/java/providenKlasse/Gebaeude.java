@@ -11,14 +11,14 @@ class Gebaeude {
 	public Gebaeude( Hausmeister hausmeister) {
 	   this.hausmeister = hausmeister;
 	}
-
-	public void gebeInfoAus(){
-		System.out.println(hausmeister);
-	} 
 	
-	public static void main(String[] args) {
+	@Override
+	public String toString() {
+		return "Gebaeude [hausmeister=" + hausmeister + "]";
+	}
+	
+	public static Gebaeude erzeugeGebaeudeMitGuice() {
 		Injector gebaeudeZusammenBastler = Guice.createInjector(new GebaeudeZusammenbastlerModule());
-		Gebaeude gebaeude = gebaeudeZusammenBastler.getInstance(Gebaeude.class);
-		gebaeude.gebeInfoAus();
+		return gebaeudeZusammenBastler.getInstance(Gebaeude.class);
 	}
 }
