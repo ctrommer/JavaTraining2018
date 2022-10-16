@@ -3,6 +3,7 @@ package wohinInjizieren;
 import com.google.inject.Guice;
 import com.google.inject.Inject;
 import com.google.inject.Injector;
+import com.google.inject.name.Named;
 
 public class Haus {
 	
@@ -13,7 +14,9 @@ public class Haus {
 	
 	private Wand wand;
 	
-	private Dach dach = new Dach("Default Wert von optionalem Dach");
+	private String name = "Defaultwert fuer Name des Hauses: Skyfall";
+	
+	private Integer nummer = 42;
 
 	@Inject
 	public Haus(Fenster fenster) {
@@ -24,15 +27,21 @@ public class Haus {
 	public void setWand(Wand wand) {
 		this.wand = wand;
 	}
-
+	
 	@Inject( optional = true )
-	public void setDach(Dach dach) {
-		this.dach = dach;
+	public void setName( @Named("Hausname") String name ) {
+		this.name = name;		
 	}
 
+	@Inject( optional = true )
+	public void setNummer( @Named("Hausnummer") Integer nummer) {
+		this.nummer = nummer;
+	}
+	
 	@Override
 	public String toString() {
-		return "Haus [tuer=" + tuer + ", fenster=" + fenster + ", wand=" + wand + ", dach=" + dach + "]";
+		return "Haus [tuer=" + tuer + ", fenster=" + fenster + ", wand=" + wand + ", name=" + name + ", nummer="
+				+ nummer + "]";
 	}
 
 	public static Haus erzeugeHausMitGuice() {
