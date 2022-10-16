@@ -33,10 +33,16 @@ ___________________________________________________________
 wohinInjizieren
 
 	Wie setzt man in Guice einen Defaultwert?
-	Indem man die Membervariable direkt mit new erzeugt
+	Indem man die Membervariable direkt mit einem Wert initialisiert
 	
 	Was annotiert man wie für einen Defaultwert?
 	Eine Methode zum setzen des Wertes mit @Inject( optional = true )
+	
+	Wie setzt man in einer setter-Methode einen Namen fuer eine Membervariable, den man fuer die Bindung verwenden kann?
+	public void setWert( @Named("In bind zu verwendender Text") String zuSetzenderWert )
+	
+	Wie verknüpft man eine in einer setter-Methode mit @Named annotierte Membervariable in der configure() Methode mit einem Wert?
+	bind(MyClass.class).annotatedWith(Names.named("MyName")).toInstance("My Text");
 
 ___________________________________________________________
 
