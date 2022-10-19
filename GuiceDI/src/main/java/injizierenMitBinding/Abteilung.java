@@ -13,16 +13,22 @@ public class Abteilung {
 	@Inject
 	private Abteilungsleiter abteilungsleiter;
 	
-    @Inject @Named("AdresseImpl")
+    /**
+     * Injiziere und geb dem Kind einen Namen
+     */
     private Adresse adresse;
     
-	@Inject	@Named("Abteilungsname")
+    /**
+     * Injiziere und geb dem Kind einen Namen: 1. Stelle
+     */
 	private String name;
 	
+    /**
+     * Injiziere und geb dem Kind einen Namen: 2. Stelle
+     */
 	private final String spitzname;
 	
-    @Inject
-    public Abteilung( @Named("SpitzName") String spitzname) {
+    public Abteilung( String spitzname) {
         this.spitzname = spitzname;
     }
 
