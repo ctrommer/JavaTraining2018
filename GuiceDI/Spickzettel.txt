@@ -48,20 +48,17 @@ ___________________________________________________________
 
 injizierenMitBindung
 
-	Wo wird die Bindung hergestellt?
-	In der configure() Methode des Zusammenbastlers
-	
-	Mit welcher Annotation verknüpft man eine Membervariable direkt mit genau einer Bindung?
+	Mit welcher Annotation verknüpft man eine Membervariable, um sie bei der Bindung eindeutig zu identifizieren?
 	@Inject	@Named("InjizierteKlasse")
 
-	Mit welcher Annotation verknüpft man eine Membervariable im Konstruktor mit genau einer Bindung?
+	Mit welcher Annotation verknüpft man eine Membervariable im Konstruktor, um sie bei der Bindung eindeutig zu identifizieren?
 	public XXXKlasse( @Named("meinWert") String membervariable) {	
 
 	Wann können Konstruktoren für just in time Bindung verwendet werden?
 	Wenn sie nicht private sind und keine Argumente haben. Sie
 	müssen dann also nicht im module gebunden werden. 
 
-	Wie verknüpft man einen bestimmten Konstruktor? 	
+	Wie gibt man bei der Bindung an, dass ein bestimmter Konstruktor verwendet wird? 	
 	bind(XXX.class).toConstructor(XXX.class.getConstructor(DerTyp.TYPE));
 	
 	Wie setzt man einen Wert des verknüpften Konstruktors?
