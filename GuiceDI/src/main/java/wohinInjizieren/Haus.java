@@ -7,34 +7,48 @@ import com.google.inject.name.Named;
 
 public class Haus {
 	
-	@Inject
+	/**
+	 * Injiziere: 1. Stelle
+	 */
 	private Tuer tuer;
 
+	/**
+	 * Injiziere: 2. Stelle
+	 */
 	private final Fenster fenster;
 	
+	/**
+	 * Injiziere: 3. Stelle
+	 */
 	private Wand wand;
 	
-	private String name = "Defaultwert fuer Name des Hauses: Skyfall";
+	/**
+	 * Injiziere mit Defaultwert
+	 * "Defaultwert fuer Name des Hauses: Skyfall"
+	 * Ueberschreibe dann mit 
+	 * "Injizierter Wert fuer Name des Hauses"
+	 */
+	private String name;
 	
-	private Integer nummer = 42;
+	/**
+	 * Injiziere mit Defaultwert 42,
+	 * der nicht ueberschreiben wird.
+	 */
+	private Integer nummer;
 
-	@Inject
 	public Haus(Fenster fenster) {
 		this.fenster = fenster;
 	}
 
-	@Inject
 	public void setWand(Wand wand) {
 		this.wand = wand;
 	}
 	
-	@Inject( optional = true )
-	public void setName( @Named("Hausname") String name ) {
+	public void setName( String name ) {
 		this.name = name;		
 	}
 
-	@Inject( optional = true )
-	public void setNummer( @Named("Hausnummer") Integer nummer) {
+	public void setNummer( Integer nummer) {
 		this.nummer = nummer;
 	}
 	
@@ -45,8 +59,7 @@ public class Haus {
 	}
 
 	public static Haus erzeugeHausMitGuice() {
-		Injector hausZusammenbastler = Guice.createInjector(new HausZusammenbastlerModul());
-		return hausZusammenbastler.getInstance(Haus.class);
+		return null;
 	}
 
 }
