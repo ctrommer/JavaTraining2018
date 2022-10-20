@@ -7,9 +7,9 @@ class WaldModule extends AbstractModule {
 
 	 @Override
 	 protected void configure() {} 
-	
-	 @Provides
-	 public Foerster zurVerfuegungStellenFoerster(){		 
-		 return new FoersterImpl("Karl", 42 );
-	 }
+
+	 // Stelle keine Verbindung in configure her, 
+	 // sondern verwende eine Methode, die den 
+	 // Foerster zur Verfuegung stellt.
+
 }

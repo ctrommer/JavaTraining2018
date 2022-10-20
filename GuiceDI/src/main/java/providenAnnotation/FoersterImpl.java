@@ -7,7 +7,6 @@ class FoersterImpl implements Foerster {
 	private String name;
 	private Integer alter;
 	
-	@Inject
 	public FoersterImpl(String name, Integer alter) {
 		this.name = name;
 		this.alter = alter;

@@ -96,11 +96,17 @@ ___________________________________________________________
 	
 providenAnnotation
 
+	Womit wird ein Konstruktor annotiert, der mit Providen zur Verfügung gestellt wird?
+	@Inject
+
 	Wo wird eine providenende Methode implementiert?
 	In der Klasse, die von AbstractModule erbt.
 
 	Womit wird eine Methode annotiert, die eine Instanz zur Verfügung stellt?
 	@Provides
+	
+	Was gibt die providende Methode zurueck?
+	Die durch einen Konstruktor erzeugte Klasse.	
 	
 	Was ersetzt die mit @Provides annotierte Methode?
 	Die Bindung in configure()
