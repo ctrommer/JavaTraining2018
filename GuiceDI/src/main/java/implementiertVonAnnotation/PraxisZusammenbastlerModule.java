@@ -16,6 +16,7 @@ public class PraxisZusammenbastlerModule extends AbstractModule {
 	 */
 	@Override
 	protected void configure() {
+		// hier nichts hinzufuegen, sondern ueber just in time bindung verknuepfen
 		super.configure();
 	}
 }

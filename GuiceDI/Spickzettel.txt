@@ -80,17 +80,17 @@ ___________________________________________________________
 
 implementiertVonAnnotation
 
-	Was ist bei implizierter Bindung nicht nötig?
-	In der XxxZusammenbastler Klasse muss keine Bindung hergestellt werden.
-
-	Was wird verwendet, wenn es implizierte Bindung und Bindung in der Zusammenbastler Klasse gibt?
-	Die Bindung in der Zusammenbastler Klasse.  
-
 	Wie ist die Annotation für just-in-time-binding?
 	@ImplementedBy(MeineKlasse.class)
 	
 	Was wird mit @ImplementedBy annotiert?
 	Das interface, das verwendet wird.
+
+	Was ist bei implizierter Bindung nicht nötig?
+	In der XxxZusammenbastler Klasse muss keine Bindung hergestellt werden.
+
+	Was wird verwendet, wenn es implizierte Bindung und Bindung in der Zusammenbastler Klasse gibt?
+	Die Bindung in der Zusammenbastler Klasse.  
 
 ___________________________________________________________
 	
