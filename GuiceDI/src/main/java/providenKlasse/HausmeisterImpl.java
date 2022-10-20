@@ -1,7 +1,5 @@
 package providenKlasse;
 
-import com.google.inject.Inject;
-
 class HausmeisterImpl implements Hausmeister {
 	private String name;
 	private Integer geburtsjahr;
