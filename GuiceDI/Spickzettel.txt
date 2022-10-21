@@ -125,7 +125,7 @@ injizierenSingleton
 	https://stackoverflow.com/questions/14781471/guice-differences-between-singleton-class-and-singleton
 	
 	Wie injiziert man ein Singleton auf Klassenebene?
-	Indem man die Klasse mit @Singleton annotiert
+	Indem man die zu injizierende Klasse mit @Singleton annotiert
 	und in configure die übliche Bindung vornimmt.
 	
 	Wie injiziert man ein Singleton auf Konfigurationsebene?
