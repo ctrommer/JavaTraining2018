@@ -6,12 +6,15 @@ import com.google.inject.Injector;
 
 public class Kirche {
 	
+	// Injiziere als Singleton: 1. Syntax
 	@Inject
 	private SingletonAufKlassenebene singletonAufKlassenebene;
-	
+
+	// Injiziere als Singleton: 2. Syntax
 	@Inject
 	private SingletonAufKonfigurationsEbene singletonAufKonfigurationsEbene;
-	
+
+	// Injiziere als Singleton: 3. Syntax
 	@Inject
 	private SingletonAufMethodenEbene singletonAufMethodenEbene;
 	
