@@ -1,11 +1,16 @@
 package regeln;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
+
 import java.io.File;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.Iterator;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -14,57 +19,80 @@ import org.junit.Test;
 import org.junit.rules.TemporaryFolder;
 
 public class TestTemporaryFolder {
-	
+
 	/**
-	 * Erzeugt temporären Ordner für Test.
+	 * Erzeugt temporaeren Ordner fuer Test in dem gleichen Verzeichnis, in dem
+	 * quellDatei.xml liegt.
 	 */
 	@Rule
 	public TemporaryFolder temporaryFolder = new TemporaryFolder(new File("src\\regeln"));
 
-	/**
-	 * Erzeuge Datei in temporärem Ordner, schreibe Text in die Datei und gebe den Pfad der Datei aus.
-	 */
-	@Test
-	public void testeTemporaryFolder() {
-		try {
-			File zielDatei = temporaryFolder.newFile("tempZielDatei.txt");
-			String textInDatei = "Dieser Text wird in die temporaere Datei geschrieben";
-			Files.write(Paths.get(zielDatei.getAbsolutePath()), textInDatei.getBytes(StandardCharsets.UTF_8) );
-			System.out.println(zielDatei.getPath());
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
+	public File testeTemporaryFolder() throws IOException{
+
+		String textInDatei = "Dieser Text wird in die temporaere Datei geschrieben";
+		
+		// Erzeuge Datei in temporaerem Ordner
+		File zielDatei = temporaryFolder.newFile("tempZielDatei.txt");
+		
+		// Schreibe Text in die Datei
+		Files.write(zielDatei.toPath(), textInDatei.getBytes(StandardCharsets.UTF_8) );
+		
+		return zielDatei;			
+
 	}
 
-	/**
-	 * Lese die Datei quellDatei.xml ein als Stream von Strings.
-	 * 
-	 * Erzeuge eine temporäre Datei im gleichen Pfad, aber ohne TemporaryFolder
-	 *
-	 * Schreibe das, was aus der Datei quellDatei.xml ausgelesen wurde in die temporäre Datei 
-	 * 
-	 */
 	@Test
-	public void testeAlternativeZuTemporaryFolder() {
-		try {
-			// Datei einlesen
-			Path verzeichnisUndDateinameQuelldatei = Paths.get("src\\regeln\\quellDatei.xml");
-			Stream<String> zeilen = Files.lines(verzeichnisUndDateinameQuelldatei);
+	public void testeTesteTemporaryFolder() throws IOException{
+		File zielDatei = testeTemporaryFolder();
+		assertTrue(zielDatei.getPath().startsWith("src\\regeln"));
+		try (Stream<String> lines = Files.lines(Paths.get(zielDatei.getPath()))) {
+			assertTrue(  lines.findFirst().orElse("falscher Text").equals("Dieser Text wird in die temporaere Datei geschrieben") );
+		} catch (IOException e) {
+			e.printStackTrace();
+			throw e;
+		};
+	}
 
-			// Datei im gleichen Pfad erzeugen
-			File erzeugteDatei = new File("src\\regeln\\temp.xml");
-			// damit Datei am Ende wieder geloescht wird
-			erzeugteDatei.deleteOnExit();
+	
+	public File testeAlternativeZuTemporaryFolder() throws IOException {
 
-		    // in neue Datei schreiben
-			String verzeichnisUndDateinameZielDatei = erzeugteDatei.getAbsolutePath();
-			Files.write(Paths.get(verzeichnisUndDateinameZielDatei), zeilen.collect(Collectors.toList()), StandardCharsets.UTF_8);
+		// Lese die Datei quellDatei.xml ein als Stream von Strings.
+		Path verzeichnisUndDateinameQuelldatei = Paths.get("src\\regeln\\quellDatei.xml");
+		Stream<String> zeilen = Files.lines(verzeichnisUndDateinameQuelldatei);
 
-			zeilen.close();
+		// Erzeuge eine temporaere Datei im gleichen Pfad, aber ohne TemporaryFolder
+		File erzeugteDatei = new File("src\\regeln\\temp.xml");
+		// damit Datei am Ende wieder geloescht wird
+		erzeugteDatei.deleteOnExit();
+
+		// Schreibe das, was aus der Datei quellDatei.xml ausgelesen wurde in die
+		// temporaere Datei
+		Files.write(erzeugteDatei.toPath(), zeilen.collect(Collectors.toList()),
+				StandardCharsets.UTF_8);
+
+		zeilen.close();
+		
+		return erzeugteDatei;
+	}
+
+	@Test
+	public void testeTesteAlternativeZuTemporaryFolder( ) throws IOException {
+		File erzeugteDatei = testeAlternativeZuTemporaryFolder();
+		assertTrue(erzeugteDatei.getPath().startsWith("src\\regeln"));
+		try ( Stream<String> zuTesten = Files.lines(Paths.get(erzeugteDatei.getPath())) ) {
+			Stream<String> erwartet = Stream.of("erste Zeile", "zweite Zeile", "dritte Zeile" );
+			Iterator<String> iterZuTesten = zuTesten.iterator();
+			Iterator<String> iteratorErwartet = erwartet.iterator();
+			while ( iterZuTesten.hasNext() && iteratorErwartet.hasNext() ) {
+				assertEquals(iterZuTesten.next(), iteratorErwartet.next() );
+			}
+			assertFalse(iterZuTesten.hasNext());
+			assertFalse(iteratorErwartet.hasNext());
 
 		} catch (IOException e) {
 			e.printStackTrace();
+			throw e;
 		}
 	}
-
+	
 }
