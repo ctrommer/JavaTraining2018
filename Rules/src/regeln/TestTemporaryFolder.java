@@ -24,14 +24,14 @@ public class TestTemporaryFolder {
 	 * Erzeugt temporaeren Ordner fuer Test in dem gleichen Verzeichnis, in dem
 	 * quellDatei.xml liegt.
 	 */
-	@Rule
-	public TemporaryFolder temporaryFolder = new TemporaryFolder(new File("src\\regeln"));
+	
 
 	public File testeTemporaryFolder() throws IOException{
 
 		String textInDatei = "Dieser Text wird in die temporaere Datei geschrieben";
 		
 		// Erzeuge Datei in temporaerem Ordner
+		
 		
 		// Schreibe Text in die Datei
 		
