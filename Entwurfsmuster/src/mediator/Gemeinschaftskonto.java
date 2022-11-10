@@ -11,7 +11,7 @@ import java.util.List;
  */
 public class Gemeinschaftskonto {
 	List<Kontoinhaber> kontoinhabers = new ArrayList<Kontoinhaber>();
-	
+
 	public void fuegeKontoinhaberHinzu( Kontoinhaber kontoinhaber ) {
 		kontoinhabers.add(kontoinhaber);
 	}
@@ -19,14 +19,5 @@ public class Gemeinschaftskonto {
 	public void bewegeGeld(BigDecimal geld) {
 		kontoinhabers.forEach(element->element.benachrichtigeUeberGeldbewegung( geld ));		
 	}
-	
-	public static void main( String[] args ) {
-		Gemeinschaftskonto gemeinschaftskonto = new Gemeinschaftskonto();
-		
-		Kontoinhaber karl = new Kontoinhaber( gemeinschaftskonto, "Karl" );		
-		Kontoinhaber egon = new Kontoinhaber( gemeinschaftskonto, "Egon" );
-		
-		karl.bewegeGeld(new BigDecimal(100));
-		egon.bewegeGeld(new BigDecimal(-50));		
-	}
+
 }

@@ -1,24 +1,40 @@
 package mediator;
 
 import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Kontoinhaber {
 	
-	private Gemeinschaftskonto gemeinschaftskonto;
 	private String name;
-
-	public Kontoinhaber( Gemeinschaftskonto gemeinschaftskonto, String name ) {
-		this.gemeinschaftskonto = gemeinschaftskonto;
-		this.name = name;
-		gemeinschaftskonto.fuegeKontoinhaberHinzu(this);
-	}
+	private Gemeinschaftskonto gemeinschaftskonto;
+	private List<String> kontoauszug = new ArrayList<>();
 	
+	public Kontoinhaber(String name) {
+		this.name = name;
+	}
+
+	public Kontoinhaber( String name, Gemeinschaftskonto gemeinschaftskonto ) {
+		this.name = name;
+		this.gemeinschaftskonto = gemeinschaftskonto;
+
+		if ( gemeinschaftskonto != null ) {
+			gemeinschaftskonto.fuegeKontoinhaberHinzu(this);
+		}
+	}
+
 	public void bewegeGeld( BigDecimal geld ) {
-		gemeinschaftskonto.bewegeGeld( geld );
+		if ( gemeinschaftskonto != null ) {
+			gemeinschaftskonto.bewegeGeld(geld);
+		}
 	}
 
 	public void benachrichtigeUeberGeldbewegung(BigDecimal geld) {
-		System.out.println( name + " hat diese Nachricht erhalten: " + geld + " Euro wurden bewegt." );
+		kontoauszug.add( name + " hat diese Nachricht erhalten: " + geld + " Euro wurden bewegt." );
+	}
+
+	public List<String> getKontoauszug() {
+		return kontoauszug;
 	}
 
 }
