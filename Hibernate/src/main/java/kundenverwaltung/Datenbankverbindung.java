@@ -19,7 +19,7 @@ public class Datenbankverbindung {
     
     
     /**
-     * Eine pro Arbeitseinheit, nicht eine für jede Datenbankoperation
+     * Eine pro Arbeitseinheit, nicht eine fï¿½r jede Datenbankoperation
      */
     static Session session;
  
@@ -27,10 +27,8 @@ public class Datenbankverbindung {
     	if ( sessionFactory == null ) { 
 	        Configuration configuration = new Configuration();
 	        configuration.configure("hibernate.cfg.xml");
-	
-	        ServiceRegistry serviceRegistry = new StandardServiceRegistryBuilder().applySettings(configuration.getProperties()).build(); 
 	 
-	        sessionFactory = configuration.buildSessionFactory(serviceRegistry);
+	        sessionFactory = configuration.buildSessionFactory();
     	}
         return sessionFactory;
     }
