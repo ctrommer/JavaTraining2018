@@ -4,10 +4,9 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Collection;
 import java.util.List;
-import java.util.function.Consumer;
-import java.util.function.Function;
+import java.util.function.IntFunction;
+import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
 import org.junit.jupiter.api.DynamicTest;
@@ -19,7 +18,7 @@ import main.MeineMatheUtil;
 public class MyJUnit5TestFactory {
 
 	/**
-	 * Teste MeineMatheUtil.quadriere mit einer Testfactory für die Zahlen 2 und 3
+	 * Teste MeineMatheUtil.quadriere mit einer Testfactory fï¿½r die Zahlen 2 und 3
 	 * @return
 	 * ... die Collection-Variante ;-)
 	 */
@@ -27,16 +26,25 @@ public class MyJUnit5TestFactory {
     }
 
 	/**
-	 * Teste MeineMatheUtil.quadriere mit einer Testfactory für die Zahlen 2 und 3 und einer for-Schleife
+	 * Teste MeineMatheUtil.quadriere mit einer Testfactory fï¿½r die Zahlen von 2 bis 10 und einer for-Schleife
+	 * @return
+	 * ... die Stream-Variante ;-)
+	 */
+	void gleicherTestUnterschiedlicheDatenMitForSchleife() {
+
+		// erst mal mit Liste
+		
+		// aber stream zurueckgeben
+	}
+	
+	/**
+	 * Teste MeineMatheUtil.quadriere mit einer Testfactory fï¿½r die Zahlen von 2 bis 10 ohne for-Schleife
 	 * @return
 	 * ... die Stream-Variante ;-)
 	 */
 	void gleicherTestUnterschiedlicheDaten() {
-		// erst mal mit Liste
-	
 		
-		// aber stream zurueckgeben
-		
+		// Direkt mit Stream, ohne Liste
 	}
 
 	/**
@@ -59,11 +67,11 @@ public class MyJUnit5TestFactory {
 
 	/**
 	 * erzeuge aus dem zweidimensionalen Array einen Stream von int-Array
-	 * fülle die Elemente des Streams mit einem Consumer in eine Liste
+	 * fï¿½lle die Elemente des Streams mit einem Consumer in eine Liste
 	 * 
 	 * @param zweidimensionalesIntArray
 	 * @return
-	 * Liste, die alle Integer Werte des zweidimensionalen Arrays enthält
+	 * Liste, die alle Integer Werte des zweidimensionalen Arrays enthï¿½lt
 	 */
 	public List<Integer> zweidimensionalesArrayZuStream(int[][] zweidimensionalesIntArray) {
 
