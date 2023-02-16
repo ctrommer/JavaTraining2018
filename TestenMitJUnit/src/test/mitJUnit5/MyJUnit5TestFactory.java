@@ -8,6 +8,8 @@ import java.util.Collection;
 import java.util.List;
 import java.util.function.Consumer;
 import java.util.function.Function;
+import java.util.function.IntFunction;
+import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
 import org.junit.jupiter.api.DynamicTest;
@@ -19,7 +21,7 @@ import main.MeineMatheUtil;
 public class MyJUnit5TestFactory {
 
 	/**
-	 * Teste MeineMatheUtil.quadriere mit einer Testfactory für die Zahlen 2 und 3
+	 * Teste MeineMatheUtil.quadriere mit einer Testfactory fï¿½r die Zahlen 2 und 3
 	 * @return
 	 * ... die Collection-Variante ;-)
 	 */
@@ -32,16 +34,16 @@ public class MyJUnit5TestFactory {
     }
 
 	/**
-	 * Teste MeineMatheUtil.quadriere mit einer Testfactory für die Zahlen 2 und 3 und einer for-Schleife
+	 * Teste MeineMatheUtil.quadriere mit einer Testfactory fï¿½r die Zahlen von 2 bis 10 und einer for-Schleife
 	 * @return
 	 * ... die Stream-Variante ;-)
 	 */
 	@TestFactory
-	Stream<DynamicTest> gleicherTestUnterschiedlicheDaten() {
+	Stream<DynamicTest> gleicherTestUnterschiedlicheDatenMitForSchleife() {
 		// erst mal mit Liste
 		List<DynamicTest> dynamicTests = new ArrayList<>();
 		
-		for(int index = 0; index <= 3; index++) {
+		for(int index = 2; index <= 10; index++) {
 			final int zahl = index;
 			DynamicTest dynamicTest = DynamicTest.dynamicTest("MeineMatheUtil.quadriere " + zahl, () -> { assertEquals( zahl * zahl, MeineMatheUtil.quadriere(zahl));});
 			dynamicTests.add(dynamicTest);
@@ -49,6 +51,19 @@ public class MyJUnit5TestFactory {
 		
 		// aber stream zurueckgeben
 		return dynamicTests.stream();
+	}
+	
+	/**
+	 * Teste MeineMatheUtil.quadriere mit einer Testfactory fï¿½r die Zahlen von 2 bis 10 ohne for-Schleife
+	 * @return
+	 * ... die Stream-Variante ;-)
+	 */
+	@TestFactory
+	Stream<DynamicTest> gleicherTestUnterschiedlicheDaten() {
+		
+		// Direkt mit Stream, ohne Liste
+		IntFunction<DynamicTest> zahlZuTest  = zuTestendeZahl -> DynamicTest.dynamicTest( "quadrieren von " + zuTestendeZahl, ()-> assertEquals(zuTestendeZahl*zuTestendeZahl, MeineMatheUtil.quadriere(zuTestendeZahl)));
+		return IntStream.rangeClosed(2, 10).mapToObj(zahlZuTest);
 	}
 
 	/**
@@ -71,11 +86,11 @@ public class MyJUnit5TestFactory {
 
 	/**
 	 * erzeuge aus dem zweidimensionalen Array einen Stream von int-Array
-	 * fülle die Elemente des Streams mit einem Consumer in eine Liste
+	 * fï¿½lle die Elemente des Streams mit einem Consumer in eine Liste
 	 * 
 	 * @param zweidimensionalesIntArray
 	 * @return
-	 * Liste, die alle Integer Werte des zweidimensionalen Arrays enthält
+	 * Liste, die alle Integer Werte des zweidimensionalen Arrays enthï¿½lt
 	 */
 	public List<Integer> zweidimensionalesArrayZuStream(int[][] zweidimensionalesIntArray) {
 
