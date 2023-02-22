@@ -8,12 +8,26 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.List;
 
+import org.junit.jupiter.api.AfterAll;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestFactory;
 
 public class MyJUnit5TestFactory {
-
+	
+	private static int ausgefuehrteTests = 0;
+	
+	@AfterEach
+	public void testWurdeAusgefuehrt() {
+		ausgefuehrteTests++;
+	}
+	
+	@AfterAll
+	public static void wurdenAlleTestsAusgefuehrt() {
+		assertEquals(7,ausgefuehrteTests);
+	}
+	
 	/**
 	 * Teste MeineMatheUtil.quadriere mit einer Testfactory f�r die Zahlen 2 und 3
 	 * @return
@@ -86,7 +100,7 @@ public class MyJUnit5TestFactory {
 	}	
 
     /**
-     * Erzeuge zweidimensionales int-Array mit Testdaten
+     * Erzeuge zweidimensionales int-Array mit Testdaten { 2, 4 }, { 5, 25 }, { 7, 49 }
      * Wandle zweidimensionales Array in Stream von int-Array
      * Wandle stream von int-Array in Stream von DynamicTest.
      * 
