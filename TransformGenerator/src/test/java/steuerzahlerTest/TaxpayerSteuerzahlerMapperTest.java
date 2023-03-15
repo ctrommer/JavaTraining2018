@@ -29,8 +29,8 @@ public class TaxpayerSteuerzahlerMapperTest {
 		assertEquals(taxpayer.getStartConversion(),steuerzahler.getStartKonvertierung());
 		
 		LocalDateTime testEnde = LocalDateTime.now();
-		assertTrue(testAnfang.isBefore(taxpayer.getStartConversion()));
-		assertTrue(taxpayer.getStartConversion().isBefore(testEnde));
+		assertTrue(!testAnfang.isAfter(taxpayer.getStartConversion()));
+		assertTrue(!taxpayer.getStartConversion().isAfter(testEnde));
 	}
 	
 	@Test
