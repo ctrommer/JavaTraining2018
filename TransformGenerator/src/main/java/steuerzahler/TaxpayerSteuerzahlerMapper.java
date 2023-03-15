@@ -1,8 +1,10 @@
 package steuerzahler;
 
+import java.time.LocalDateTime;
 import java.util.Optional;
 
 import org.mapstruct.AfterMapping;
+import org.mapstruct.BeforeMapping;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.MappingTarget;
@@ -17,10 +19,27 @@ import org.mapstruct.Mappings;
  * 
  * Wenn Betrag oder Waehrung null ist, soll der jewails andere Wert auch null sein. 
  * Dies wird in AfterMapping realisiert. 
+ * 
+ * Setze Start der Konvertierung.
  *
  */
 @Mapper
 public abstract class TaxpayerSteuerzahlerMapper {
+	
+	@BeforeMapping
+	protected void startKonvertierungZuTaxpayerSetzen( Steuerzahler steuerzahler, @MappingTarget Taxpayer taxpayer ) {
+		LocalDateTime jetzt = LocalDateTime.now();
+		steuerzahler.setStartKonvertierung(jetzt);
+		taxpayer.setStartConversion(jetzt);
+	}
+	
+	@BeforeMapping 
+	protected void startKonvertierungZuSteuerzahlerSetzen( Taxpayer taxpayer, @MappingTarget Steuerzahler steuerzahler ) {
+		LocalDateTime jetzt = LocalDateTime.now();
+		steuerzahler.setStartKonvertierung(jetzt);
+		taxpayer.setStartConversion(jetzt);
+	}
+	
 
     @Mappings({
         @Mapping( target = "investition", source = "taxpayer"),
