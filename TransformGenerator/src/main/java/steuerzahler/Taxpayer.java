@@ -1,8 +1,12 @@
 package steuerzahler;
 
+import java.time.LocalDateTime;
+
 public class Taxpayer {
 	private Long investmentAmount;
 	private String investmentCurrency;
+	
+	private LocalDateTime startConversion;
 	
 	public Taxpayer() {
 	}
@@ -28,5 +32,12 @@ public class Taxpayer {
 		this.investmentCurrency = investmentCurrency;
 	}
 
+	public LocalDateTime getStartConversion() {
+		return startConversion;
+	}
+
+	public void setStartConversion(LocalDateTime startConversion) {
+		this.startConversion = startConversion;
+	}
 
 }

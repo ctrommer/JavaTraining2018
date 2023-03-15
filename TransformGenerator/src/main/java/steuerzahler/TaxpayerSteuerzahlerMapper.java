@@ -1,10 +1,6 @@
 package steuerzahler;
 
-import org.mapstruct.AfterMapping;
 import org.mapstruct.Mapper;
-import org.mapstruct.Mapping;
-import org.mapstruct.MappingTarget;
-import org.mapstruct.Mappings;
 
 /**
  * Besonderheit in diesem Beispiel:
@@ -15,6 +11,8 @@ import org.mapstruct.Mappings;
  * 
  * Wenn Betrag oder Waehrung null ist, soll der jewails andere Wert auch null sein. 
  * Dies wird in AfterMapping realisiert. 
+ * 
+ * Setze Start der Konvertierung.
  *
  */
 @Mapper
