@@ -210,11 +210,7 @@ public class FutureTraining {
 
 	@Test
 	public void testErledigeAufgabeUndParallelDazuUnteraufgabeInThread() {
-		try {
-			assertEquals("81", inEigenemThreadQuadrierenAusnameBehandeln(9).get());		
-		} catch (InterruptedException | ExecutionException e) {
-			e.printStackTrace();
-		}
+		assertEquals(81, erledigeAufgabeUndParallelDazuUnteraufgabeInThread(9));		
 	}
 
 }
