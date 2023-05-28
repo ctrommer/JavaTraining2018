@@ -5,7 +5,7 @@ import java.util.Objects;
 import java.util.Optional;
 import java.util.function.Function;
 
-public final class VielleichtMitInhalt<T> {
+public class VielleichtMitInhalt<T> {
     /**
      * Common instance for {@code empty()}.
      */
@@ -33,6 +33,7 @@ public final class VielleichtMitInhalt<T> {
      * @param <T> Type of the non-existent value
      * @return an empty {@code Optional}
      */
+	// leereInstanz
 
     /**
      * Constructs an instance with the value present.
@@ -49,6 +50,7 @@ public final class VielleichtMitInhalt<T> {
      * @return an {@code Optional} with the value present
      * @throws NullPointerException if value is null
      */
+	// erzeugeAus
 
     /**
      * Returns an {@code Optional} describing the specified value, if non-null,
@@ -59,6 +61,7 @@ public final class VielleichtMitInhalt<T> {
      * @return an {@code Optional} with a present value if the specified value
      * is non-null, otherwise an empty {@code Optional}
      */
+	// erzeugeAusNullErlaubt
 
     /**
      * If a value is present in this {@code Optional}, returns the value,
@@ -69,12 +72,14 @@ public final class VielleichtMitInhalt<T> {
      *
      * @see Optional#isPresent()
      */
+	// getInhalt
 
     /**
      * Return {@code true} if there is a value present, otherwise {@code false}.
      *
      * @return {@code true} if there is a value present, otherwise {@code false}
      */
+	// istInhaltVorhanden
 
     /**
      * If a value is present, invoke the specified consumer with the value,
@@ -84,6 +89,7 @@ public final class VielleichtMitInhalt<T> {
      * @throws NullPointerException if value is present and {@code consumer} is
      * null
      */
+	// wennInhaltDannMache
 
     /**
      * If a value is present, and the value matches the given predicate,
@@ -96,6 +102,7 @@ public final class VielleichtMitInhalt<T> {
      * otherwise an empty {@code Optional}
      * @throws NullPointerException if the predicate is null
      */
+	// filtere
 
 
     /**
@@ -127,6 +134,7 @@ public final class VielleichtMitInhalt<T> {
      * otherwise an empty {@code Optional}
      * @throws NullPointerException if the mapping function is null
      */
+	// transformiere
 
     /**
      * If a value is present, apply the provided {@code Optional}-bearing
@@ -145,6 +153,7 @@ public final class VielleichtMitInhalt<T> {
      * @throws NullPointerException if the mapping function is null or returns
      * a null result
      */
+	// transformiereFlach
 
 
     /**
@@ -154,6 +163,7 @@ public final class VielleichtMitInhalt<T> {
      * be null
      * @return the value, if present, otherwise {@code other}
      */
+	// holeWennVorhandenSonst
 
     /**
      * Return the value if present, otherwise invoke {@code other} and return
@@ -165,6 +175,7 @@ public final class VielleichtMitInhalt<T> {
      * @throws NullPointerException if value is not present and {@code other} is
      * null
      */
+	// holeWennVorhandenSonstRufeAuf
 
     /**
      * Return the contained value, if present, otherwise throw an exception
@@ -182,6 +193,7 @@ public final class VielleichtMitInhalt<T> {
      * @throws NullPointerException if no value is present and
      * {@code exceptionSupplier} is null
      */
+	// holeWennVorhandenSonstWerfeException
 
 	
 
