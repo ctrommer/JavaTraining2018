@@ -32,14 +32,14 @@ public abstract class ShipSchiffMapper {
 		if ( ship == null ) {
 			return null;
 		}
-		return new Schiff(ship.getName(), ship.getColour(), ship.getWeightInLBS()*LBS_ZU_KG_FAKTOR);
+		return new Schiff(ship.getName(), ship.getColour(), ship.getWeightInLBS() / LBS_ZU_KG_FAKTOR);
 	}
 
 	public Ship schiffZuShip( Schiff schiff ) {
 		if ( schiff == null ) {
 			return null;
 		}
-		return new Ship(schiff.getName(), schiff.getFarbe(), schiff.getGewichtInKg()/LBS_ZU_KG_FAKTOR);
+		return new Ship(schiff.getName(), schiff.getFarbe(), schiff.getGewichtInKg() * LBS_ZU_KG_FAKTOR);
 	}
 	
 }
