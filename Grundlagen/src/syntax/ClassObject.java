@@ -43,6 +43,7 @@ public class ClassObject {
 		} catch (InstantiationException | IllegalAccessException | IllegalArgumentException | InvocationTargetException
 				| NoSuchMethodException | SecurityException | ClassNotFoundException e) {
 			e.printStackTrace();
+			assertFalse("Klasse Motorrad wurde nicht erzeugt.", true);
 		}		
 	}
 
