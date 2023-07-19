@@ -1,6 +1,12 @@
 
 
- * Überall Package Training mit komprimierten Übungen
+ * ï¿½berall Package Training mit komprimierten ï¿½bungen
+____________________________________________________________________
+
+ * Auswendig lernen wieder aktivieren? -> Also mit Headset
+____________________________________________________________________
+
+* siehe Uebungen.txt
 ____________________________________________________________________
  
  * Generics | Fragen
@@ -9,11 +15,20 @@ ____________________________________________________________________
  * Neuen Ordner JUnit
  	- Ordner Mockito da rein
  	- Ordner TestenMitJUnit da rein ... insbesondere den JUnit5 Teil, JUnit4 eventuell nur als readOnly
- 	- Ordner Rules da rein ( hierbei JUnit4 / JUnit5 berücksichtigen )
+ 	- Ordner Rules da rein ( hierbei JUnit4 / JUnit5 berï¿½cksichtigen )
 ____________________________________________________________________
 
  * Java 9 Java 10 etc.
 ____________________________________________________________________
  
- * Entwurfsmuster
-
+	IntelliJ
+ 	Guice
+ 	Spring
+ 	Dockers
+ 	Soap
+ 	Rest
+ 	Json
+ 	Mockito
+ 	JMockit
+____________________________________________________________________
+ 
