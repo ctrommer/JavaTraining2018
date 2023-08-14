@@ -1,25 +1,24 @@
 package builder;
 
 /**
- * Naehrwertangaben mit den Pflichtparametern:
+ * Naehrwertangaben mit dem Pflichtparameter:
  * 
- * eiweis
- * kohlehydrate
- * fett
+ * Kalorien
  * 
- * und den optionalen Parametern:
+ * und den optionalen Parametern 
  * 
+ * Eiweis
+ * Kohlehydrate
+ * Fett
  * vegan
- * glutenfrei
  * 
  */
 public class Naehrwertangaben {
+	private final int kalorien;
 	private final int eiweis;
 	private final int kohlehydrate;
-	private final int fett;
-	
+	private final int fett;	
 	private final boolean vegan;
-	private final boolean glutenfrei;
 	
 	/**
 	 * Builder mit den gleichen Pflichtparametern und optionalen Parametern wie 
@@ -27,26 +26,34 @@ public class Naehrwertangaben {
 	 *
 	 */
 	public static class Builder {
-		private final int eiweis;
-		private final int kohlehydrate;
-		private final int fett;
+		private final int kalorien;
+		private int eiweis;
+		private int kohlehydrate;
+		private int fett;
 		
-		private boolean vegan = false;
-		private boolean glutenfrei = false;
+		private boolean vegan;
 		
-		public Builder( int eiweis, int kohlehydrate, int fett ) {
-			this.eiweis = eiweis;
-			this.kohlehydrate = kohlehydrate;
-			this.fett = fett;
+		public Builder( int kalorien ) {
+			this.kalorien = kalorien;
 		}
 		
-		public Builder vegan( boolean vegan ) {
-			this.vegan = vegan;
+		public Builder eiweis( int eiweis ) {
+			this.eiweis = eiweis;
 			return this;
 		}
 		
-		public Builder glutenfrei( boolean glutenfrei ) {
-			this.glutenfrei = glutenfrei;
+		public Builder kohlehydrate( int kohlehydrate ) {
+			this.kohlehydrate = kohlehydrate;
+			return this;
+		}
+		
+		public Builder fett( int fett ) {
+			this.fett = fett;
+			return this;
+		}
+
+		public Builder vegan( boolean vegan ) {
+			this.vegan = vegan;
 			return this;
 		}
 		
@@ -64,45 +71,20 @@ public class Naehrwertangaben {
 	/**
 	 * Konstruktor.
 	 * @param builder
-	 * Der Builder beinhaltet die Pflichtparameter. Er kann auch zusätzliche optionale Parameter haben.
+	 * Der Builder beinhaltet die Pflichtparameter. Er kann auch zusï¿½tzliche optionale Parameter haben.
 	 */
 	private Naehrwertangaben( Builder builder ) {
+		this.kalorien = builder.kalorien;
 		this.eiweis = builder.eiweis;
 		this.kohlehydrate = builder.kohlehydrate;
 		this.fett = builder.fett;
 		this.vegan = builder.vegan;
-		this.glutenfrei = builder.glutenfrei;
 	}
 
 	@Override
 	public String toString() {
-		return "Naehrwertangaben [eiweis=" + eiweis + ", kohlehydrate=" + kohlehydrate + ", fett=" + fett + ", vegan="
-				+ vegan + ", glutenfrei=" + glutenfrei + "]";
+		return "Naehrwertangaben [kalorien=" + kalorien + ", eiweis=" + eiweis + ", kohlehydrate=" + kohlehydrate
+				+ ", fett=" + fett + ", vegan=" + vegan + "]";
 	}
-
-	public static void main(String[] args) {
-
-		// Erzeuge Quark-Builder nur mit den Pflichtparametern. Erzeuge Quark mit dem Quark-Builder.
-		Naehrwertangaben.Builder quarkBuilder = new Naehrwertangaben.Builder(11, 5, 3);
-		Naehrwertangaben quark = quarkBuilder.build();
-		System.out.println(quark);
-		
-		// Erzeuge Ei-Builder und setze dann die Optionalen Parameter. Erzeuge ein Ei mit dem Quark-Builder. 
-		Naehrwertangaben.Builder eiBuilder = new Naehrwertangaben.Builder(11, 5, 3);
-		eiBuilder.vegan(true);
-		eiBuilder.glutenfrei(true);
-		Naehrwertangaben ei = eiBuilder.build();
-		System.out.println(ei);
-		
-		// Erzeuge Apfel-Builder mit den Pflicht-Parametern und optionalen Parametern.
-		// Erzeuge einen Apfel mit dem Apfel-Builder
-		Naehrwertangaben.Builder apfelBuilder = new Naehrwertangaben.Builder(11, 5, 3).vegan(true).glutenfrei(true);
-		Naehrwertangaben apfel = apfelBuilder.build();
-		System.out.println(apfel);		
-
-		// Erzeuge Pudding in einem Rutsch.
-		Naehrwertangaben pudding = new Naehrwertangaben.Builder(11, 5, 3).vegan(true).glutenfrei(true).build();
-		System.out.println(pudding);
-	}
-
+	
 }
