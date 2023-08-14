@@ -1,22 +1,31 @@
 package builder;
 
 /**
- * Naehrwertangaben mit den Pflichtparametern:
+ * Naehrwertangaben mit dem Pflichtparameter:
  * 
- * eiweis
- * kohlehydrate
- * fett
+ * Kalorien
  * 
- * und den optionalen Parametern:
+ * und den optionalen Parametern 
  * 
+ * Eiweis
+ * Kohlehydrate
+ * Fett
  * vegan
- * glutenfrei
  * 
  */
 public class Naehrwertangaben {
+	int kalorien;
+	int eiweis;
+	int kohlehydrate;
+	int fett;	
+	boolean vegan;
+	
 
-	public static void main(String[] args) {
 
+	@Override
+	public String toString() {
+		return "Naehrwertangaben [kalorien=" + kalorien + ", eiweis=" + eiweis + ", kohlehydrate=" + kohlehydrate
+				+ ", fett=" + fett + ", vegan=" + vegan + "]";
 	}
 
 }
