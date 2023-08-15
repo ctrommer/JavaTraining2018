@@ -5,7 +5,7 @@ import java.util.Objects;
 import java.util.Set;
 
 /**
- * Es kann diese Traininsmöglichkeiten geben:
+ * Als Traininsmoeglichkeit:
  * FREIHANTEL, GERAETE, KURSE, AUSDAUER
  *
  */

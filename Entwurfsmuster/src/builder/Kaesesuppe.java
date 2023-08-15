@@ -43,9 +43,4 @@ public class Kaesesuppe extends Suppe{
 		return "Kaesesuppe [kaese=" + kaese + ", toString()=" + super.toString() + "]";
 	}
 
-	public static void main(String[] args) {
-		Kaesesuppe kaesesuppe = new Kaesesuppe.Builder(50).fleisch(5).kaese(45).build();
-		System.out.println(kaesesuppe);
-	}
-
 }

@@ -1,7 +1,7 @@
 package builder;
 
 /**
- * Zusaetzlicher boolscher Parameter:
+ * Zusaetzlicher optionaler boolscher Parameter:
  * sosseDrin
  *
  */
@@ -36,11 +36,6 @@ public class Calzone extends Pizza {
 	@Override
 	public String toString() {
 		return "Calzone [sosseDrin=" + sosseDrin + ", belaege=" + belaege + "]";
-	}
-
-	public static void main ( String[] args ) {
-		Calzone calzone = new Calzone.Builder().fuegeBelagHinzu(Belag.SCHINKEN).sosseDrin().build();
-		System.out.println(calzone);
 	}
 
 }
