@@ -1,14 +1,10 @@
 package builder;
 
 /**
- * Zusaetzlicher boolscher Parameter:
+ * Zusaetzlicher optionaler boolscher Parameter:
  * sosseDrin
  *
  */
 public class Calzone {
-
-	public static void main ( String[] args ) {
-		
-	}
 
 }

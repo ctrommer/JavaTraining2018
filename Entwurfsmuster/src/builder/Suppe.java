@@ -2,13 +2,16 @@ package builder;
 
 /**
  * 
- * Abstrakte Basisklasse für Suppen.
+ * Abstrakte Basisklasse fuer Suppen.
  * Mit dem Pflichtfeld:
  * wasser
- * und den optionalen Feldern:
+ * und dem optionalen Feld:
  * gemuese
- * fleisch
  * 
  */
 public abstract class Suppe {
+
+	private int wasser;	
+	private int gemuese;
+	
 }

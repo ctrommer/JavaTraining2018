@@ -7,7 +7,5 @@ package builder;
  */
 public class Kaesesuppe {
 
-	public static void main(String[] args) {
-	}
 
 }
