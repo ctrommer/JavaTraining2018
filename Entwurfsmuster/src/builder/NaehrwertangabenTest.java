@@ -17,7 +17,7 @@ public class NaehrwertangabenTest {
 	 * Pudding erzeugen mit
 	 * kalorien = 100
 	 * eiweis = 10
-	 * kohlehydrate = 00
+	 * kohlehydrate = 20
 	 * fett = 30
 	 * vegan = true
 	 * </pre>
