@@ -11,10 +11,10 @@ import java.util.Set;
  */
 public class Fitnessstudio {
 	public enum Trainingsmoeglichkeit { FREIHANTEL, GERAETE, KURSE, AUSDAUER };
-	final Set<Trainingsmoeglichkeit> trainingsmoeglichkeiten;
+	private final Set<Trainingsmoeglichkeit> trainingsmoeglichkeiten;
 	
 	public static class Builder {
-		EnumSet<Trainingsmoeglichkeit> trainingsmoeglichkeiten = EnumSet.noneOf(Trainingsmoeglichkeit.class);
+		private final EnumSet<Trainingsmoeglichkeit> trainingsmoeglichkeiten = EnumSet.noneOf(Trainingsmoeglichkeit.class);
 		
 		public Builder fuegeTrainingsartHinzu( Trainingsmoeglichkeit trainingsart ) {
 			trainingsmoeglichkeiten.add(Objects.requireNonNull(trainingsart));

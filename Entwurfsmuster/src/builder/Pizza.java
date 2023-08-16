@@ -10,20 +10,28 @@ import java.util.Set;
  */
 public abstract class Pizza {
 	public enum Belag { SCHINKEN, PILZE, ZWIEBELN, PFEFFER, WUERSTCHEN }
-	final Set<Belag> belaege;
+	private final Set<Belag> belaege;
 
 	abstract static class Builder<T extends Builder<T>> {
-		EnumSet<Belag> belaege = EnumSet.noneOf(Belag.class);
+		private final EnumSet<Belag> belaege = EnumSet.noneOf(Belag.class);
 		public T fuegeBelagHinzu( Belag belag ) {
 			belaege.add( Objects.requireNonNull(belag) );
 			return self();
 		}
 		abstract Pizza build();
 
-		// Unterklassen müssen diese Klasse überschreiben und this zurückgeben.
+		// Unterklassen mï¿½ssen diese Klasse ï¿½berschreiben und this zurï¿½ckgeben.
 		protected abstract T self();
 	}
+	
 	Pizza( Builder<?> builder ) {
 		belaege = builder.belaege.clone();
 	}
+	
+	@Override
+	public String toString() {
+		return "Pizza [belaege=" + belaege + "]";
+	}
+	
+	
 }

@@ -35,7 +35,7 @@ public class Calzone extends Pizza {
 
 	@Override
 	public String toString() {
-		return "Calzone [sosseDrin=" + sosseDrin + ", belaege=" + belaege + "]";
+		return "Calzone [sosseDrin=" + sosseDrin + ", toString()=" + super.toString() + "]";
 	}
-
+	
 }
