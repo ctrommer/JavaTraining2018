@@ -32,12 +32,7 @@ public class Fitnessstudio {
 
 	@Override
 	public String toString() {
-		return "Fitnessstudio [trainingsarten=" + trainingsmoeglichkeiten + "]";
-	}
-
-	public static void main(String[] args) {
-		Fitnessstudio fitnessstudio = new Fitnessstudio.Builder().fuegeTrainingsartHinzu(Trainingsmoeglichkeit.GERAETE).fuegeTrainingsartHinzu(Trainingsmoeglichkeit.KURSE).build();
-		System.out.println(fitnessstudio);
+		return "Fitnessstudio [trainingsmoeglichkeiten=" + trainingsmoeglichkeiten + "]";
 	}
 
 }
