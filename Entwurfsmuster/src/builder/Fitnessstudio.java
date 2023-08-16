@@ -11,7 +11,4 @@ import java.util.Set;
  */
 public class Fitnessstudio {
 
-	public static void main(String[] args) {
-	}
-
 }

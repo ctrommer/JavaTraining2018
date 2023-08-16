@@ -23,7 +23,7 @@ public class FitnessstudioTest {
 	@DisplayName("Kann man das Fitnesstudio erzeugen?")
 	public void test02() {
 		Fitnessstudio fitnessstudio = erzeugeFitnessstudioFuerTest();
-		assertEquals("Fitnessstudio [trainingsarten=[FREIHANTEL, KURSE]]", fitnessstudio.toString());
+		assertEquals("Fitnessstudio [trainingsmoeglichkeiten=[FREIHANTEL, KURSE]]", fitnessstudio.toString());
 	}
 
 }
