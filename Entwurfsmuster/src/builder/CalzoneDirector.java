@@ -24,7 +24,7 @@ package builder;
 public class CalzoneDirector {
 
 	public Calzone erzeugeCalzoneMitSosse() {
-		return new Calzone.Builder().sosseDrin().build();
+		return null;
 	}
 
 }
