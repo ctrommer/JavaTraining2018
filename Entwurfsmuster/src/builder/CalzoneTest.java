@@ -34,7 +34,8 @@ public class CalzoneTest {
 	@DisplayName("Kann man die Calzon erzeugen?")
 	public void test01() {
 		Calzone calzone = erzeugeCalzoneFuerTest();
-		assertEquals("Calzone [sosseDrin=true, toString()=Pizza [belaege=[PILZE, ZWIEBELN]]]", calzone.toString() );
+		assertEquals("Calzone [sosseDrin=true, toString()=Pizza [belaege=[PILZE, ZWIEBELN]]]", 
+						calzone.toString() );
 	}
 	
 	@Test
@@ -64,6 +65,15 @@ public class CalzoneTest {
 				assertTrue( Modifier.isFinal(modifiers), field.getName() + " muss final sein." );
 				assertTrue( Modifier.isPrivate(modifiers), field.getName() + " muss private sein.");				
 			});	
+	}
+	
+	@Test
+	@DisplayName("Erzeugt der Director eine Calzone mit Sosse?")
+	public void test04() {
+		CalzoneDirector calzoneDirector = new CalzoneDirector();
+		Calzone calzoneMitSosse = calzoneDirector.erzeugeCalzoneMitSosse();
+		assertEquals("Calzone [sosseDrin=true, toString()=Pizza [belaege=[]]]", 
+						calzoneMitSosse.toString() );		
 	}
 
 }
