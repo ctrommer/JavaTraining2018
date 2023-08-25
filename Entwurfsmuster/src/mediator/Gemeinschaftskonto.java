@@ -10,9 +10,9 @@ import java.util.List;
  *
  */
 public class Gemeinschaftskonto {
-	List<Kontoinhaber> kontoinhabers = new ArrayList<Kontoinhaber>();
+	List<GemeinschaftsKontoinhaber> kontoinhabers = new ArrayList<GemeinschaftsKontoinhaber>();
 
-	public void fuegeKontoinhaberHinzu( Kontoinhaber kontoinhaber ) {
+	public void fuegeKontoinhaberHinzu( GemeinschaftsKontoinhaber kontoinhaber ) {
 		kontoinhabers.add(kontoinhaber);
 	}
 
