@@ -29,22 +29,5 @@ public class Thermometer {
 			System.out.println("Es ist " + temperatur + " Grad.");
 		}
 	}
-	
-	/** 
-	 *  
-	 * Die Heizung ist an, wenn es kaelter als 18 Grad wird 
-	 * -> Ausgabe:
-	 * "Heizung geht an." : "Heizung bleibt aus."
-	 * 
-	 * Die Klimaanlage laeuft, wenn es waermer als 20 Grad wird.
-	 * -> Ausgabe:
-	 * "Klimaanlage geht an." : "Klimaanlage bleibt aus." 
-	 */
-	public void simuliereClientFuerTest() {
-		Thermometer thermometer = new Thermometer();
-
-		
-		thermometer.temperaturAenderungSimulieren();
-	}
 
 }
