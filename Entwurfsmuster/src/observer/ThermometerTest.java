@@ -9,6 +9,30 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 public class ThermometerTest {
+	
+	/**   
+	 * Die Heizung ist an, wenn es kaelter als 18 Grad wird 
+	 * -> Ausgabe:
+	 * "Heizung geht an." : "Heizung bleibt aus."
+	 * 
+	 * Die Klimaanlage laeuft, wenn es waermer als 20 Grad wird.
+	 * -> Ausgabe:
+	 * "Klimaanlage geht an." : "Klimaanlage bleibt aus." 
+	 */
+	public void simuliereClientFuerTest() {
+		Thermometer thermometer = new Thermometer();
+
+		thermometer
+			.fuegeBeobachterHinzu( temperatur -> System.out.println( temperatur < 18 ? 
+													"Heizung geht an." 
+													: "Heizung bleibt aus.") );		
+		thermometer
+			.fuegeBeobachterHinzu( temperatur -> System.out.println( temperatur > 20 ? 
+													"Klimaanlage geht an." 
+													: "Klimaanlage bleibt aus.") );
+		
+		thermometer.temperaturAenderungSimulieren();
+	}	
 
 	@DisplayName("Schalten sich Heizung und Klimaanlage bei Temperaturaenderungen an und aus?")
 	@Test
@@ -16,8 +40,7 @@ public class ThermometerTest {
 		ByteArrayOutputStream umgeleitetesSystemOut = new ByteArrayOutputStream();
 		
 		System.setOut(new PrintStream(umgeleitetesSystemOut));
-		Thermometer thermometer = new Thermometer();
-		thermometer.simuliereClientFuerTest();
+		simuliereClientFuerTest();
 		
 		assertEquals("Es ist 17 Grad.\r\n"
 				+ "Heizung geht an.\r\n"

@@ -44,30 +44,5 @@ public class Thermometer {
 			benachrichtigeBeobachter( temperatur );
 		}
 	}
-	
-	/** 
-	 *  
-	 * Die Heizung ist an, wenn es kaelter als 18 Grad wird 
-	 * -> Ausgabe:
-	 * "Heizung geht an." : "Heizung bleibt aus."
-	 * 
-	 * Die Klimaanlage laeuft, wenn es waermer als 20 Grad wird.
-	 * -> Ausgabe:
-	 * "Klimaanlage geht an." : "Klimaanlage bleibt aus." 
-	 */
-	public void simuliereClientFuerTest() {
-		Thermometer thermometer = new Thermometer();
-
-		thermometer
-			.fuegeBeobachterHinzu( temperatur -> System.out.println( temperatur < 18 ? 
-													"Heizung geht an." 
-													: "Heizung bleibt aus.") );		
-		thermometer
-			.fuegeBeobachterHinzu( temperatur -> System.out.println( temperatur > 20 ? 
-													"Klimaanlage geht an." 
-													: "Klimaanlage bleibt aus.") );
-		
-		thermometer.temperaturAenderungSimulieren();
-	}
 
 }
