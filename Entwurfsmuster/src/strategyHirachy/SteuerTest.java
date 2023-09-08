@@ -43,6 +43,10 @@ public class SteuerTest {
 	public Long aktieMitLambda( Long gewinnVorSteuern ) {
 		return null;
 	}
+	
+	public Immobilie erzeugeImmobilie( Long gewinnVorSteuern, SteuernAbziehStrategie steuernAbziehStrategie ) {
+		return new Immobilie(gewinnVorSteuern, steuernAbziehStrategie);
+	}
 
 	@Test
 	@DisplayName("Wird Einkommensteuer von Immobilie abgezogen?")
@@ -65,13 +69,13 @@ public class SteuerTest {
 	@Test
 	@DisplayName("Wird exception geworfen, wenn null als gewinnVorSteuern uebergeben wird?")
 	public void test04() {
-		assertThrows(NullPointerException.class, () -> new Immobilie( null, new KapitalertragssteuerAbziehStrategie() ) );
+		assertThrows(NullPointerException.class, () -> erzeugeImmobilie( null, new KapitalertragssteuerAbziehStrategie() ) );
 	}
 
 	@Test
 	@DisplayName("Wird exception geworfen, wenn null als SteuernAbziehStrategie uebergeben wird?")
 	public void test05() {
-		assertThrows(NullPointerException.class, () -> new Immobilie( 100L, null ) );
+		assertThrows(NullPointerException.class, () -> erzeugeImmobilie( 100L, null ) );
 	}
 
 }
