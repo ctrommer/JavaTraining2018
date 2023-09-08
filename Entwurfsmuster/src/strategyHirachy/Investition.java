@@ -1,41 +1,41 @@
 package strategyHirachy;
 
+import java.util.Objects;
+
 public abstract class Investition {
+	
+	/**
+	 * Der Gewinn vor Steuern.
+	 */
+	private Long gewinnVorSteuern = null;
 	
 	/**
 	 * Es kann vierschiedene Strategieen geben die Steuern abzuziehen.
 	 */
-	private SteuernAbziehStrategie steuernAbziehStrategie;
+	private SteuernAbziehStrategie steuernAbziehStrategie = null;
 
 	/**
-	 * Die Strategie, wie die Steuern abgezogen werden, kann im Konstruktor gesetzt werden.
-	 * @param steuernAbzieher
+	 * Konstruiert eine Investition mit Gewinn vor Steuern und Strategie,
+	 * wie die Steuern abgezogen werden.
+	 * 
+	 * @param gewinnVorSteuern 
+	 * der Gewinn, den die Firma erzielt hat
+	 * 
+	 * @param steuernAbziehStrategie
 	 * Strategie, die bestimmt, wie die Steuern abgezogen werden
 	 */
-	public Investition(SteuernAbziehStrategie steuernAbzieher) {
-		super();
-		this.steuernAbziehStrategie = steuernAbzieher;
+	public Investition( Long gewinnVorSteuern, SteuernAbziehStrategie steuernAbziehStrategie ) {
+		this.gewinnVorSteuern = Objects.requireNonNull( gewinnVorSteuern );
+		this.steuernAbziehStrategie = Objects.requireNonNull( steuernAbziehStrategie );
 	}
 
 	/**
-	 * Verwendet die Strategie um die Steuern abzuziehen.
-	 * @param geldBetragVorSteuern
-	 * Geldbetrag vor Steuern
+	 * Verwendet die Steuernabzieh-Strategie um die Steuern abzuziehen.
 	 * @return
-	 * Geldbetrag nach Steuern
+	 * Gewinn nach Steuern
 	 */
-	public Long zieheSteuernAb(Long geldBetragVorSteuern) {
-		return steuernAbziehStrategie.steuernAbziehen( geldBetragVorSteuern );
+	public Long gewinnNachSteuern() {
+		return steuernAbziehStrategie.zieheSteuernAb( gewinnVorSteuern );
 	}
-
-	/**
-	 * Auch zur Laufzeit kann die Strategie geändert werden, wie man Steuern abzieht.
-	 * @param steuernAbziehStrategie
-	 * Strategie, wie die Steuern abgezogen werden.
-	 */
-	public void setSteuernAbziehStrategie(SteuernAbziehStrategie steuernAbziehStrategie) {
-		this.steuernAbziehStrategie = steuernAbziehStrategie;
-	}
-
 	
 }

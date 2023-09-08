@@ -1,6 +1,8 @@
 
-Verwende das Entwurfsmuster Strategie, um von den verschiedenen Investitionen Steuern auf unterschiedliche Art abziehen zu können.
+Verwende das Entwurfsmuster Strategie, um von den verschiedenen Investitionen Steuern 
+auf unterschiedliche Art abziehen zu koennen.
 
-Hier soll es möglich sein, Einkommensteuer oder Kapitalertragssteuer abzuziehen.
+Hier soll es moeglich sein, Einkommensteuer oder Kapitalertragssteuer abzuziehen.
 
-Zeige am Beispiel Aktie, dass man auch ein lambda verwenden kann, um eine Steuer-Abzieh Strategie zu implementieren. 
+Zeige am Beispiel Aktie, dass man auch ein lambda verwenden kann, 
+um eine Steuer-Abzieh Strategie zu implementieren. 
