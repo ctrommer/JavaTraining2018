@@ -1,13 +1,14 @@
 package strategyHirachy;
 
 /**
- * Hier stark vereinfacht. Die Berechnung der Einkommensteuer ist viel komplexer. Insbesondere wenn sie progressiv ist.
- * Dann muss berücksichtigt werden, wieviel Einkommen sonst erziehlt wird.
+ * Stark vereinfacht:
+ * 40% abziehen
  * 
- *
  */
-public class EinkommensteuerAbziehStrategie {
-
-
+public class EinkommensteuerAbziehStrategie implements SteuernAbziehStrategie {
+	@Override
+	public Long zieheSteuernAb( Long geldBetrag ) {
+		return Math.round( geldBetrag * 0.6 );
+	}
 
 }
