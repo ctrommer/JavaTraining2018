@@ -45,7 +45,7 @@ public class SteuerTest {
 	}
 	
 	public Immobilie erzeugeImmobilie( Long gewinnVorSteuern, SteuernAbziehStrategie steuernAbziehStrategie ) {
-		return new Immobilie(gewinnVorSteuern, steuernAbziehStrategie);
+		return null;
 	}
 
 	@Test
