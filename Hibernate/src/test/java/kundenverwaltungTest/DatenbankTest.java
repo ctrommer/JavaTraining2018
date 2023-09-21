@@ -4,11 +4,13 @@ import static org.junit.Assert.assertTrue;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.io.Serializable;
+import java.util.Optional;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import kundenverwaltung.Datenbankverbindung;
@@ -19,7 +21,7 @@ import kundenverwaltung.Name;
 public class DatenbankTest {
 
 	/**
-	 * nur eine pro Anwendung
+	 * nur eine pro Anwendung, also nicht eine fuer jede Datenbankoperation
 	 */
 	private static Session session;
 
@@ -30,15 +32,24 @@ public class DatenbankTest {
 
 	@AfterAll
 	public static void datenbankVerbindungSchliessen() {
-        if(session != null) {
+        if( session != null ) {
             session.close();
         }
         Datenbankverbindung.schliesseSessionFactory();
 	}
 
 	@Test
-	public void testeKundeSpeichern() {
-		final int idKundeStart = 132;
+	@DisplayName("Kann ein bereits in der DB gespeicherter Kunde aus der DB gelesen werden?")
+	public void test01() {
+		Serializable idKunde = 100;
+		Kunde kundeAusDB =  ( Kunde ) session.get( Kunde.class, idKunde );
+		assertEquals( idKunde, kundeAusDB.getIdKunde() );
+	}
+	
+	@Test
+	@DisplayName("Wurde ein neuer Kunde in die DB geschrieben?")
+	public void test02() {
+		final int idKundeStart = 101;
         try {
             session.beginTransaction(); 
             
@@ -56,20 +67,15 @@ public class DatenbankTest {
             
         } catch(Exception sqlException) {
         	sqlException.printStackTrace();
-            if(null != session && null != session.getTransaction()) {
-                session.getTransaction().rollback();
-            }
+        	Optional
+        		.ofNullable( session )
+        		.map( Session::getTransaction )
+        		.ifPresent( transaction->transaction.rollback() );
+        	
         }
         // zum testen ob's geklappt hat
-		Kunde kundeAusDB =  (Kunde) session.get(Kunde.class, idKundeStart);
-		assertEquals(idKundeStart, kundeAusDB.getIdKunde());
-	}
-
-	@Test
-	public void testeKundeAusDBLesen() {
-		Serializable idKunde = 110;
-		Kunde kundeAusDB =  (Kunde) session.get(Kunde.class, idKunde);
-		assertEquals(idKunde, kundeAusDB.getIdKunde());
+		Kunde kundeAusDB = ( Kunde ) session.get( Kunde.class, idKundeStart );
+		assertEquals( idKundeStart, kundeAusDB.getIdKunde() );
 	}
 	
 }
