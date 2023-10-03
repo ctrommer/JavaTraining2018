@@ -3,8 +3,7 @@
   <groupId>com.java.training</groupId>
   <artifactId>vortaeuschen</artifactId>
   <properties>
-		<maven.compiler.source>18</maven.compiler.source>
-   		<maven.compiler.target>18</maven.compiler.target>
+		<java.version>18</java.version>
   </properties>  
   <version>0.0.1-SNAPSHOT</version>
   	<dependencies>		
@@ -13,5 +12,25 @@
 		  <artifactId>mockito-inline</artifactId>
 		  <version>4.4.0</version>
 		</dependency>
+		<dependency>
+		    <groupId>org.junit.vintage</groupId>
+        	<artifactId>junit-vintage-engine</artifactId>
+		    <version>5.10.0</version>
+		    <!-- <scope>test</scope>-->
+		</dependency>		
 	</dependencies>  
+    <build>
+        <finalName>${project.artifactId}</finalName>
+        	<plugins>				
+	            <plugin>
+	                <groupId>org.apache.maven.plugins</groupId>
+	                <artifactId>maven-compiler-plugin</artifactId>
+	                <version>3.11.0</version>
+	                <configuration>
+	                    <source>${java.version}</source>
+	                    <target>${java.version}</target>
+	                </configuration>
+	            </plugin>
+	        </plugins>
+    </build>
 </project>
