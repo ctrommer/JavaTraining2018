@@ -18,7 +18,7 @@ public class CalzoneTest {
 	 * Belag Pilze Zwiebeln
 	 * sosseDrin = true
 	 * </pre>
-	 * @return Calzone speziell fÃ¼r den Test
+	 * @return Calzone speziell für den Test
 	 */
 	public static Calzone erzeugeCalzoneFuerTest() {
 		return null;

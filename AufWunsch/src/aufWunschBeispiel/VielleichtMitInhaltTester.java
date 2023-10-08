@@ -58,7 +58,7 @@ public class VielleichtMitInhaltTester {
 	@Test
 	@DisplayName("Testet erzeugeAus, wenn null uebergeben wird und damit indirekt den Konstrukor mit einem Argument.")
 	public void test03() throws NoSuchMethodException, SecurityException {
-		// Ich will hier abprÃ¼fen, ob eine NullPointerException geworfen wird, wenn man erzeugeAus mit null aufruft.
+		// Ich will hier abprüfen, ob eine NullPointerException geworfen wird, wenn man erzeugeAus mit null aufruft.
 		// Diese NullPointerException wird zwar geworfen, dadurch wird dann aber auch eine InvocationTargetException
 		// gewofen. Diese hat dann als target die NullPointerException.
 		InvocationTargetException exceptionWegenReflektion 
@@ -134,7 +134,7 @@ public class VielleichtMitInhaltTester {
 	@DisplayName("Testet getInhalt, wenn der Inhalt null ist.")
 	public void test07() throws NoSuchMethodException, SecurityException, IllegalAccessException, InvocationTargetException {
 
-		// Ich will hier abprÃ¼fen, ob eine NoSuchElementException geworfen wird, wenn man getInhalt aufruft, wenn der Inhalt null ist.
+		// Ich will hier abprüfen, ob eine NoSuchElementException geworfen wird, wenn man getInhalt aufruft, wenn der Inhalt null ist.
 		// Diese NoSuchElementException wird zwar geworfen, dadurch wird dann aber auch eine InvocationTargetException
 		// gewofen. Diese hat dann als target die NoSuchElementException.
 		InvocationTargetException exceptionWegenReflektion 
@@ -216,7 +216,7 @@ public class VielleichtMitInhaltTester {
 		
 		@SuppressWarnings("rawtypes")	// Das interface Benutzer muss ja erst noch als Uebung geschrieben werden.
 		Benutzer benutzer = null;
-		// Ich will hier abprÃ¼fen, ob eine NullPointerException geworfen wird.
+		// Ich will hier abprüfen, ob eine NullPointerException geworfen wird.
 		// Diese NullPointerException wird zwar geworfen, dadurch wird dann aber auch eine InvocationTargetException
 		// gewofen. Diese hat dann als target die NullPointerException.
 		InvocationTargetException verdeckendeException 
@@ -242,7 +242,7 @@ public class VielleichtMitInhaltTester {
 		@SuppressWarnings("rawtypes")
 		Bedingung bedingung = null;
 		
-		// Ich will hier abprÃ¼fen, ob eine NullPointerException geworfen wird.
+		// Ich will hier abprüfen, ob eine NullPointerException geworfen wird.
 		// Diese NullPointerException wird zwar geworfen, dadurch wird dann aber auch eine InvocationTargetException
 		// gewofen. Diese hat dann als target die NullPointerException.
 		InvocationTargetException verdeckendeException 
@@ -260,7 +260,7 @@ public class VielleichtMitInhaltTester {
 	}	
 	
 	@Test
-	@DisplayName("Testet filtere, wenn Inhalt vorhanden und Bedingung nicht erfÃ¼llt.")
+	@DisplayName("Testet filtere, wenn Inhalt vorhanden und Bedingung nicht erfüllt.")
 	public void test13() throws IllegalAccessException, InvocationTargetException, NoSuchMethodException, SecurityException {
 		
 		@SuppressWarnings("rawtypes")	// Das interface Bedingung muss ja erst noch als Uebung geschrieben werden.
@@ -279,7 +279,7 @@ public class VielleichtMitInhaltTester {
 	}
 
 	@Test
-	@DisplayName("Testet filtere, wenn Inhalt vorhanden und Bedingung erfÃ¼llt.")
+	@DisplayName("Testet filtere, wenn Inhalt vorhanden und Bedingung erfüllt.")
 	public void test14() throws NoSuchMethodException, SecurityException, IllegalAccessException, InvocationTargetException {
 		
 		@SuppressWarnings("rawtypes")	// Das interface Bedingung muss ja erst noch als Uebung geschrieben werden.
@@ -301,7 +301,7 @@ public class VielleichtMitInhaltTester {
 	}
 
 	@Test
-	@DisplayName("Testet filtere, wenn kein Inhalt vorhanden und Bedingung nicht erfÃ¼llt.")
+	@DisplayName("Testet filtere, wenn kein Inhalt vorhanden und Bedingung nicht erfüllt.")
 	public void test15() throws NoSuchMethodException, IllegalAccessException, InvocationTargetException {
 		
 		@SuppressWarnings("rawtypes")	// Das interface Bedingung muss ja erst noch als Uebung geschrieben werden.
@@ -319,7 +319,7 @@ public class VielleichtMitInhaltTester {
 	}
 
 	@Test
-	@DisplayName("Testet filtere, wenn kein Inhalt vorhanden und Bedingung erfÃ¼llt.")
+	@DisplayName("Testet filtere, wenn kein Inhalt vorhanden und Bedingung erfüllt.")
 	public void test16() throws NoSuchMethodException, SecurityException, IllegalAccessException, InvocationTargetException {
 		
 		@SuppressWarnings("rawtypes")	// Das interface Bedingung muss ja erst noch als Uebung geschrieben werden.
@@ -343,7 +343,7 @@ public class VielleichtMitInhaltTester {
 		@SuppressWarnings("rawtypes")
 		Bedingung bedingung = null;
 		
-		// Ich will hier abprÃ¼fen, ob eine NullPointerException geworfen wird.
+		// Ich will hier abprüfen, ob eine NullPointerException geworfen wird.
 		// Diese NullPointerException wird zwar geworfen, dadurch wird dann aber auch eine InvocationTargetException
 		// gewofen. Diese hat dann als target die NullPointerException.
 		InvocationTargetException exceptionWegenReflektion 
@@ -431,7 +431,7 @@ public class VielleichtMitInhaltTester {
 		@SuppressWarnings("rawtypes")
 		Transformierer transformierer = null;
 
-		// Ich will hier abprÃ¼fen, ob eine NullPointerException geworfen wird.
+		// Ich will hier abprüfen, ob eine NullPointerException geworfen wird.
 		// Diese NullPointerException wird zwar geworfen, dadurch wird dann aber auch eine InvocationTargetException
 		// gewofen. Diese hat dann als target die NullPointerException.
 		InvocationTargetException verdeckendeException 
@@ -480,7 +480,7 @@ public class VielleichtMitInhaltTester {
 			}
 		}
 
-		// Ich will hier abprÃ¼fen, ob eine NullPointerException geworfen wird.
+		// Ich will hier abprüfen, ob eine NullPointerException geworfen wird.
 		// Diese NullPointerException wird zwar geworfen, dadurch wird dann aber auch eine InvocationTargetException
 		// gewofen. Diese hat dann als target die NullPointerException.
 		InvocationTargetException verdeckendeException 
@@ -527,7 +527,7 @@ public class VielleichtMitInhaltTester {
 		@SuppressWarnings("rawtypes")
 		Transformierer transformiererNull = null;
 
-		// Ich will hier abprÃ¼fen, ob eine NullPointerException geworfen wird.
+		// Ich will hier abprüfen, ob eine NullPointerException geworfen wird.
 		// Diese NullPointerException wird zwar geworfen, dadurch wird dann aber auch eine InvocationTargetException
 		// gewofen. Diese hat dann als target die NullPointerException.
 		InvocationTargetException verdeckendeException 
@@ -660,7 +660,7 @@ public class VielleichtMitInhaltTester {
 		@SuppressWarnings("rawtypes")
 		Erzeuger erzeuger = null;
 		
-		// Ich will hier abprÃ¼fen, ob eine NullPointerException geworfen wird.
+		// Ich will hier abprüfen, ob eine NullPointerException geworfen wird.
 		// Diese NullPointerException wird zwar geworfen, dadurch wird dann aber auch eine InvocationTargetException
 		// gewofen. Diese hat dann als target die NullPointerException.
 		InvocationTargetException verdeckendeException 
@@ -735,7 +735,7 @@ public class VielleichtMitInhaltTester {
 			}
 		}
 
-		// Ich will hier abprÃ¼fen, ob eine IllegalStateException geworfen wird.
+		// Ich will hier abprüfen, ob eine IllegalStateException geworfen wird.
 		// Diese IllegalStateException wird zwar geworfen, dadurch wird dann aber auch eine InvocationTargetException
 		// gewofen. Diese hat dann als target die IllegalStateException.
 		InvocationTargetException verdeckendeException 
@@ -759,7 +759,7 @@ public class VielleichtMitInhaltTester {
 		@SuppressWarnings("rawtypes")
 		Erzeuger erzeuger = null;
 
-		// Ich will hier abprÃ¼fen, ob eine IllegalStateException geworfen wird.
+		// Ich will hier abprüfen, ob eine IllegalStateException geworfen wird.
 		// Diese IllegalStateException wird zwar geworfen, dadurch wird dann aber auch eine InvocationTargetException
 		// gewofen. Diese hat dann als target die IllegalStateException.
 		InvocationTargetException verdeckendeException 
@@ -821,7 +821,7 @@ public class VielleichtMitInhaltTester {
 	}
 	
 	@Test
-	@DisplayName("Testet, dass hashCode den hashCode von Inhalt zurÃ¼ck gibt.")
+	@DisplayName("Testet, dass hashCode den hashCode von Inhalt zurück gibt.")
 	public void test41() throws NoSuchMethodException, SecurityException, IllegalAccessException, InvocationTargetException {
 		
 		Object inhaltUngleichNull = new Object();

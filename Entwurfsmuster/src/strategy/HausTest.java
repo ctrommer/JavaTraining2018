@@ -10,7 +10,7 @@ import org.junit.jupiter.api.Test;
 public class HausTest {
 
 	/**
-	 * Haus wird mit der Buchwertstrategie geprÃ¼ft Buchwert > Marktwert -> guenstig, sonst teuer
+	 * Haus wird mit der Buchwertstrategie geprüft Buchwert > Marktwert -> guenstig, sonst teuer
 	 * 
 	 * @param zuBewertendesHaus
 	 * @return "Haus ist guenstig" oder "Haus ist teuer"
@@ -20,7 +20,7 @@ public class HausTest {
 	}
 
 	/**
-	 * Haus wird mit der Mieteinnahmenstrategie geprÃ¼ft Jahresmieteinnahmen * 10 > Marktpreis -> guenstig, sonst teuer
+	 * Haus wird mit der Mieteinnahmenstrategie geprüft Jahresmieteinnahmen * 10 > Marktpreis -> guenstig, sonst teuer
 	 * 
 	 * @param zuBewertendesHaus
 	 * @return "Haus ist guenstig" "oder Haus ist teuer"

@@ -43,7 +43,7 @@ public class VarArgs {
 		
 		// Ist diese Methode varargs safe? Warum?
 		
-		// Wenn die Ã¼bergebenen Parameter selber parameterisiert sind, 
+		// Wenn die übergebenen Parameter selber parameterisiert sind, 
 		// kann Java daraus kein Array erzeugen.
 		// Das kann Java also nicht: new T[] { ... }.
 		// Statt dessen macht Java dann:
@@ -76,7 +76,7 @@ public class VarArgs {
 
 		// Dann macht Java daraus:
 		// new Object[] { ... } wobei Object die kleinste 
-		// gemeinsame Basisklasse der Parameter ist, kÃ¶nnte 
+		// gemeinsame Basisklasse der Parameter ist, könnte 
 		// also statt Object auch Fahrzeug sein, wenn das die kleinste
 		// gemeinsame Basisklasse ist.
 		// new Fahrzeug[] { die Fahrzeuge }
@@ -85,17 +85,17 @@ public class VarArgs {
 		// *
 		
 		// Was macht der Compiler aus T ... beliebige, wenn T KEIN konreter Typ ist, 
-		// also die Ã¼bergebenen Parameter selber paramterisiert sind?
+		// also die übergebenen Parameter selber paramterisiert sind?
 		// Wann wird das zum Problem?
 		
-		// Wenn die Ã¼bergebenen Parameter selber parameterisiert sind, 
+		// Wenn die übergebenen Parameter selber parameterisiert sind, 
 		// kann Java daraus kein Array erzeugen.
 		// Das kann Java also nicht: new T[] { ... }.
 		// Statt dessen macht Java dann:
 		// new Object[] { ... }
 		
 		// Zur Laufzeit kennt Java aber den richtigen Typ. Wenn man dann Object z.B. 
-		// in String umwandeln mÃ¶chte, knallt es.
+		// in String umwandeln möchte, knallt es.
 
 		return null;
 	}

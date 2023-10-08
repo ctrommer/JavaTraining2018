@@ -36,14 +36,14 @@ public class EnumTester {
 		Assertions.assertEquals( "Tuesday", textVonWochentag(dienstag) );		
 	}
 	
-	@DisplayName("Funktioniert PrÃ¼fung, ob Wochentag ein Montag ist?")
+	@DisplayName("Funktioniert Prüfung, ob Wochentag ein Montag ist?")
 	@Test
 	public void test03() {
 		Boolean istMontag = istMontag(erzeugeMontag());
 		Assertions.assertTrue(istMontag);		
 	}
 
-	@DisplayName("Funktioniert PrÃ¼fung, ob Wochentag ein Dienstag ist?")
+	@DisplayName("Funktioniert Prüfung, ob Wochentag ein Dienstag ist?")
 	@Test
 	public void test04() {
 		Boolean istMontag = istMontag(erzeugeDienstag());
