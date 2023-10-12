@@ -105,7 +105,7 @@ public class MyJUnit5TestFactory {
 
 	/**
 	 * Zweidimensionales array aus primitiven int soll
-	 * Ã¼ber Stream
+	 * über Stream
 	 * in Liste von Integer umgewandelt werden.
 	 * 
 	 * @param zweidimensionalesIntArray

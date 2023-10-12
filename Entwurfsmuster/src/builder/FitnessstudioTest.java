@@ -20,7 +20,7 @@ public class FitnessstudioTest {
 	 * Trainingsmoeglichkeit FREIHANTEL KURSE
 	 * 
 	 * </pre>
-	 * @return ein Fitnessstudio speziell fÃ¼r den Test
+	 * @return ein Fitnessstudio speziell für den Test
 	 */
 	public static Fitnessstudio erzeugeFitnessstudioFuerTest() {
 		Fitnessstudio fitnessstudio = new Fitnessstudio.Builder()

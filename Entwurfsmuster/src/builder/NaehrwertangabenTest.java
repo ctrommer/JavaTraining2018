@@ -23,7 +23,7 @@ public class NaehrwertangabenTest {
 	 * vegan = true
 	 * </pre>
 	 * 
-	 * @return Pudding fÃ¼r Test 
+	 * @return Pudding für Test 
 	 */
 	public static Naehrwertangaben erzeugePuddingFuerTest() {
 		Naehrwertangaben pudding = new Naehrwertangaben.Builder(100)

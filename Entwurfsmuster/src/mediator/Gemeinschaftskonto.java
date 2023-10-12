@@ -6,7 +6,7 @@ import java.util.List;
 
 /**
  * Implementiere das Gemeinschaftskonto als Mediator. Wenn ein Kontoinhaber Geld bewegt, sollen die anderen
- * Kontoinhaber darÃ¼ber informiert werden.
+ * Kontoinhaber darüber informiert werden.
  *
  */
 public class Gemeinschaftskonto {

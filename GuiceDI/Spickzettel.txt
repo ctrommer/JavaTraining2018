@@ -35,58 +35,58 @@ wohinInjizieren
 	Wie setzt man in Guice einen Defaultwert?
 	Indem man die Membervariable direkt mit einem Wert initialisiert
 	
-	Was annotiert man wie fÃ¼r einen Defaultwert?
+	Was annotiert man wie für einen Defaultwert?
 	Eine Methode zum setzen des Wertes mit @Inject( optional = true )
 	
 	Wie setzt man in einer setter-Methode einen Namen fuer eine Membervariable, den man fuer die Bindung verwenden kann?
 	public void setWert( @Named("In bind zu verwendender Text") String zuSetzenderWert )
 	
-	Wie verknÃ¼pft man eine in einer setter-Methode mit @Named annotierte Membervariable in der configure() Methode mit einem Wert?
+	Wie verknüpft man eine in einer setter-Methode mit @Named annotierte Membervariable in der configure() Methode mit einem Wert?
 	bind(MyClass.class).annotatedWith(Names.named("MyName")).toInstance("My Text");
 
 ___________________________________________________________
 
 injizierenMitBindung
 
-	Mit welcher Annotation verknÃ¼pft man eine Membervariable, um sie bei der Bindung eindeutig zu identifizieren?
+	Mit welcher Annotation verknüpft man eine Membervariable, um sie bei der Bindung eindeutig zu identifizieren?
 	@Inject	@Named("InjizierteKlasse")
 
-	Mit welcher Annotation verknÃ¼pft man eine Membervariable im Konstruktor, um sie bei der Bindung eindeutig zu identifizieren?
+	Mit welcher Annotation verknüpft man eine Membervariable im Konstruktor, um sie bei der Bindung eindeutig zu identifizieren?
 	public XXXKlasse( @Named("meinWert") String membervariable) {	
 
-	Wann kÃ¶nnen Konstruktoren fÃ¼r just in time Bindung verwendet werden?
+	Wann können Konstruktoren für just in time Bindung verwendet werden?
 	Wenn sie nicht private sind und keine Argumente haben. Sie
-	mÃ¼ssen dann also nicht im module gebunden werden. 
+	müssen dann also nicht im module gebunden werden. 
 
 	Wie gibt man bei der Bindung an, dass ein bestimmter Konstruktor verwendet wird? 	
 	bind(XXX.class).toConstructor(XXX.class.getConstructor(DerTyp.TYPE));
 	
-	Wie setzt man einen Wert des verknÃ¼pften Konstruktors?
+	Wie setzt man einen Wert des verknüpften Konstruktors?
 	bind(MyClass.class).toInstance(yyy);
 	
-	Wie verknÃ¼pft man eine Membervariable in der configure() Methode?
+	Wie verknüpft man eine Membervariable in der configure() Methode?
 	bind(MyInterface.class).to(MyClass.class);
 	
-	Wie verknÃ¼pft man eine mit @Named annotierte Membervariable in der configure() Methode?
+	Wie verknüpft man eine mit @Named annotierte Membervariable in der configure() Methode?
 	bind(MyInterface.class).annotatedWith(Names.named("MyName")).to(MyClass.class);
 	
-	Wie verknÃ¼pft man eine mit @Named annotierte Membervariable in der configure() Methode mit einem Wert ( 1. MÃ¶glichkeit )?
+	Wie verknüpft man eine mit @Named annotierte Membervariable in der configure() Methode mit einem Wert ( 1. Möglichkeit )?
 	bindConstant().annotatedWith(Names.named("Myname")).to("My Text");
 	
-	Wie verknÃ¼pft man eine mit @Named annotierte Membervariable in der configure() Methode mit einem Wert ( 2. MÃ¶glichkeit )?
+	Wie verknüpft man eine mit @Named annotierte Membervariable in der configure() Methode mit einem Wert ( 2. Möglichkeit )?
 	bind(MyClass.class).annotatedWith(Names.named("MyName")).toInstance("My Text");
 
 ___________________________________________________________
 
 implementiertVonAnnotation
 
-	Was ist bei implizierter Bindung nicht nÃ¶tig?
+	Was ist bei implizierter Bindung nicht nötig?
 	In der XxxZusammenbastler Klasse muss keine Bindung hergestellt werden.
 
 	Was wird verwendet, wenn es implizierte Bindung und Bindung in der Zusammenbastler Klasse gibt?
 	Die Bindung in der Zusammenbastler Klasse.  
 
-	Wie ist die Annotation fÃ¼r just-in-time-binding?
+	Wie ist die Annotation für just-in-time-binding?
 	@ImplementedBy(MeineKlasse.class)
 	
 	Was wird mit @ImplementedBy annotiert?
@@ -99,7 +99,7 @@ providenAnnotation
 	Wo wird eine providenende Methode implementiert?
 	In der Klasse, die von AbstractModule erbt.
 
-	Womit wird eine Methode annotiert, die eine Instanz zur VerfÃ¼gung stellt?
+	Womit wird eine Methode annotiert, die eine Instanz zur Verfügung stellt?
 	@Provides
 	
 	Was ersetzt die mit @Provides annotierte Methode?
@@ -109,10 +109,10 @@ ___________________________________________________________
 
 providenKlasse
 
-	Wovon erbt eine Klasse, die Instanzen von X zur VerfÃ¼gung stellt?
+	Wovon erbt eine Klasse, die Instanzen von X zur Verfügung stellt?
 	implements Provider<X>
 	
-	Wie bindet man die Klasse, die Instanzen von X zur VerfÃ¼gung stellt?
+	Wie bindet man die Klasse, die Instanzen von X zur Verfügung stellt?
 	in configure mit bind(X.class).toProvider(XZurVerfuegungSteller.class);
 
 ___________________________________________________________
@@ -126,13 +126,13 @@ injizierenSingleton
 	
 	Wie injiziert man ein Singleton auf Klassenebene?
 	Indem man die zu injizierende Klasse mit @Singleton annotiert
-	und in configure die Ã¼bliche Bindung vornimmt.
+	und in configure die übliche Bindung vornimmt.
 	
 	Wie injiziert man ein Singleton auf Konfigurationsebene?
-	Indem man in configure die Ã¼bliche Bindung um .in(Singleton.class) erweitert
+	Indem man in configure die übliche Bindung um .in(Singleton.class) erweitert
 	
 	Wie injiziert man ein Singleton auf Methodenebene?
-	Mit einer Methode im Binding Modul, die das Singleton zur VerfÃ¼gung stellt 
+	Mit einer Methode im Binding Modul, die das Singleton zur Verfügung stellt 
 	und mit @Provides @Singleton annotiert ist
 	
 	siehe

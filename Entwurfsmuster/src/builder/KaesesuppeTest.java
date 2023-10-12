@@ -14,7 +14,7 @@ public class KaesesuppeTest {
 	 * Gemuese 30
 	 * Kaese 20
 	 * </pre>
-	 * @return Kaesesuppe speziell fÃ¼r den Test
+	 * @return Kaesesuppe speziell für den Test
 	 */
 	public static Kaesesuppe erzeugeKaesesuppeFuerTest() {
 		Kaesesuppe kaesesuppe = new Kaesesuppe.Builder(100)

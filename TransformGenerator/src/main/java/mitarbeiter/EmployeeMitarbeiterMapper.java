@@ -7,7 +7,7 @@ import org.mapstruct.Mapper;
  * Quelle:
  * https://github.com/mapstruct/mapstruct-examples/tree/master/mapstruct-mapping-with-cycles
  * 
- * Loesung fuer zyklische Abh√§ngigkeiten.
+ * Loesung fuer zyklische Abh‰ngigkeiten.
  *
  */
 @Mapper

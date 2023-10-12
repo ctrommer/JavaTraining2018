@@ -1,7 +1,7 @@
 package abstrakteFabrik;
 
 /**
- * Eine KampfsportSchule verwendet in einem Workshop Trainer und Trainingsgeraet. Diese sollen Ã¼ber das
+ * Eine KampfsportSchule verwendet in einem Workshop Trainer und Trainingsgeraet. Diese sollen über das
  * Entwurfsmuster Fabrik erzeugt werden.
  *
  */

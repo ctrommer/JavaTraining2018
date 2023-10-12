@@ -20,8 +20,8 @@ public abstract class ShipSchiffMapper {
 	 * Hier wird zum Beispiel das britische Pfund in kg umgerechnet.
 	 * 
 	 * Achtung:
-	 * Hier wird dann natÃ¼rlich auch keine Methode in ShipSchiffMapperImpl generiert. Wenn man   
-	 * @BeforeMapping oder @AfterMapping verwendet, wird fÃ¼r die auch nichts generiert.   
+	 * Hier wird dann natürlich auch keine Methode in ShipSchiffMapperImpl generiert. Wenn man   
+	 * @BeforeMapping oder @AfterMapping verwendet, wird für die auch nichts generiert.   
 	 * 
 	 * @param ship
 	 * ship soll zu Schiff konvertiert werden.
