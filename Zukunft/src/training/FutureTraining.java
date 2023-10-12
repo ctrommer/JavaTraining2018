@@ -18,7 +18,7 @@ public class FutureTraining {
 	/**
 	 * Quadriert die Zahl ohne eigenen Thread.
 	 * @param zahl zu quadrieren
-	 * @return Future, dass die quadrierte Zahl enthï¿½lt
+	 * @return Future, dass die quadrierte Zahl enthält
 	 */
 	private Future<Integer> ohneThreadQuadrieren( int zahl ) {
 		return CompletableFuture.completedFuture( zahl * zahl );
@@ -36,7 +36,7 @@ public class FutureTraining {
 	/**
 	 * Quadriert die Zahl in eigenem Thread.
 	 * @param zahl zu quadrieren
-	 * @return Future, dass die quadrierte Zahl enthï¿½lt
+	 * @return Future, dass die quadrierte Zahl enthält
 	 */	
 	private Future<Integer> inEigenemThreadQuadrieren( int zahl ) {
 		Supplier<Integer> inThreadAuszufuehren = () -> zahl * zahl;
@@ -57,7 +57,7 @@ public class FutureTraining {
 	 * Quadriert die Zahl in eigenem Thread. 
 	 * Das Ergebnis wird mit 2 multipliziert, aber nicht in einem eigenen Thread.
 	 * @param zahl als Eingabe
-	 * @return Future, dass das Ergebnis enthï¿½lt
+	 * @return Future, dass das Ergebnis enthält
 	 */	
 	private Future<Integer> inEigenemThreadQuadrierenDannMit2Multiplizieren( int zahl ) {
 		Supplier<Integer> inThreadAuszufuehren = () -> zahl * zahl;
@@ -84,7 +84,7 @@ public class FutureTraining {
 	 * Quadriert die Zahl in eigenem Thread. 
 	 * Das Ergebnis wird in eigenem Thrad mit 2 multipliziert.
 	 * @param zahl als Eingabe
-	 * @return Future, dass das Ergebnis enthï¿½lt
+	 * @return Future, dass das Ergebnis enthält
 	 */		
 	private Future<Integer> inEigenemThreadQuadrierenDannMit2InThreadMultiplizieren( int zahl ) {
 		CompletableFuture<Integer> beinhaltetZukuenftigesErgebnis 
@@ -110,7 +110,7 @@ public class FutureTraining {
 	 * Setze das Ergebnis zusammen mit dem Ergebnis eines zweiten Threads, 
 	 * der das Ergebnis des ersten Threads verwendet, um es mit 2 zu multiplizieren.
 	 * @param zahl als Eingabe
-	 * @return Future, dass das Ergebnis enthï¿½lt
+	 * @return Future, dass das Ergebnis enthält
 	 */
 	private Future<Integer> inEigenemThreadQuadrierenDannMitMit2InThreadMultiplizieren( int zahl ) {
 		CompletableFuture<Integer> beinhaltetZukuenftigesErgebnis = CompletableFuture.supplyAsync( () -> zahl * zahl );
@@ -135,7 +135,7 @@ public class FutureTraining {
 	 * Multipliziere die Zahl in einem zweiten Thread mit zwei. 
 	 * Kombiniere beiden Futures zu drittem Future, indem der Inhalt der Futures addiert wird.
 	 * @param zahl als Eingabe
-	 * @return Future, dass das Ergebnis enthï¿½lt
+	 * @return Future, dass das Ergebnis enthält
 	 */
 	private Future<Integer> ersterThreadQuadriertZweiterThreadMultipliziertMit2Kombiniert( int zahl ) {
 		
@@ -167,7 +167,7 @@ public class FutureTraining {
 	 * Transformiere die Teilergebnisse in einen Stream von Integer.
 	 * 
 	 * @param zahl als Eingabe
-	 * @return Future, dass das Ergebnis enthï¿½lt
+	 * @return Future, dass das Ergebnis enthält
 	 */
 	private Stream<Integer> dreiTheadsParallelDannGejoint( int zahl ) {
 		
@@ -197,7 +197,7 @@ public class FutureTraining {
 	 * Quadriert die Zahl in eigenem Thread. Wenn zahl > 46340, dann wirf IllegalArgumentException.
 	 * 
 	 * @param zahl als Eingabe
-	 * @return Future, dass das Ergebnis enthï¿½lt. 
+	 * @return Future, dass das Ergebnis enthält. 
 	 * Wenn keine Exception: Zahl quadriert als String.
 	 * Wenn Exception: "Zahl zu gross."
 	 */	
@@ -259,7 +259,7 @@ public class FutureTraining {
 		
 		// Ergebnis von Thread abrufen
 		try {
-			// gibt erst Wert zurï¿½ck, wenn Thread beendet
+			// gibt erst Wert zurück, wenn Thread beendet
 			Integer ergebnisVonThread = beinhaltetZukuenftigesErgebnis.get();
 			return ergebnisVonThread;			
 		} catch (InterruptedException | ExecutionException e) {

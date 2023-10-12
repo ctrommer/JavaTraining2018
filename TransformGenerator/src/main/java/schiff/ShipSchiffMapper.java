@@ -16,7 +16,7 @@ public abstract class ShipSchiffMapper {
 	private static final double LBS_ZU_KG_FAKTOR = 2.205;
 	
 	/**
-	 * Wenn man eine Extrawurst braten mï¿½chte, kann man die Mapping Methode auch selber schreiben.
+	 * Wenn man eine Extrawurst braten möchte, kann man die Mapping Methode auch selber schreiben.
 	 * Hier wird zum Beispiel das britische Pfund in kg umgerechnet.
 	 * 
 	 * Achtung:

@@ -20,7 +20,7 @@ public abstract class Pizza {
 		}
 		abstract Pizza build();
 
-		// Unterklassen mï¿½ssen diese Klasse ï¿½berschreiben und this zurï¿½ckgeben.
+		// Unterklassen müssen diese Klasse überschreiben und this zurückgeben.
 		protected abstract T self();
 	}
 	

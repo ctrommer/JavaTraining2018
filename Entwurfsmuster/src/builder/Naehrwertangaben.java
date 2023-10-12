@@ -71,7 +71,7 @@ public class Naehrwertangaben {
 	/**
 	 * Konstruktor.
 	 * @param builder
-	 * Der Builder beinhaltet die Pflichtparameter. Er kann auch zusï¿½tzliche optionale Parameter haben.
+	 * Der Builder beinhaltet die Pflichtparameter. Er kann auch zusätzliche optionale Parameter haben.
 	 */
 	private Naehrwertangaben( Builder builder ) {
 		this.kalorien = builder.kalorien;

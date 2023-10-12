@@ -89,9 +89,9 @@ public class VergleicherTrainer {
 	}
 
 	/**
-	 * Schreibe Methode von MyVergleicher, die einen Vergleicher erzeugt, der Elemente rï¿½ckwï¿½rts vergleicht, die
+	 * Schreibe Methode von MyVergleicher, die einen Vergleicher erzeugt, der Elemente rückwärts vergleicht, die
 	 * Comparable implementieren.
-	 * Verwende die Methode, um Integer rï¿½ckwï¿½rts zu sortieren.
+	 * Verwende die Methode, um Integer rückwärts zu sortieren.
 	 */
 	private int vergleicheIntegerRueckwaerts(Integer links, Integer rechts) {
 		Vergleicher<Integer> rueckwaertsVergleicher = Vergleicher.erzeugeRueckwaertsVergleicher();
@@ -111,7 +111,7 @@ public class VergleicherTrainer {
 	 * 	  
 	 * Beachte dabei den Unterschied zwischen anonymer innerer Klasse und lambda.
 	 * 
-	 * Fï¿½r die ï¿½bung mit eigenem Vergleicher starke Vereinfachung akzeptabel.
+	 * Für die Übung mit eigenem Vergleicher starke Vereinfachung akzeptabel.
 	 * 
 	 */
 	private int vergleicheSpielerNachAlterRueckwaertsMitVergleichskriteriumextrahiererUndRueckwaertsvergleicher( Spieler links, Spieler rechts ) {
@@ -160,8 +160,8 @@ public class VergleicherTrainer {
 
 	/**
 	 * Hierzu 2 Methoden schreiben:
-	 * - Methode, die einem Vergleicher einen weiteren Vergleicher hinzufï¿½gt. 
-	 * - Methode die die zwei Vergleicher zusammenfï¿½gt 
+	 * - Methode, die einem Vergleicher einen weiteren Vergleicher hinzufügt. 
+	 * - Methode die die zwei Vergleicher zusammenfügt 
 	 */
 	private int vergleicheSpielerNachAlterUndDannNachName( Spieler links, Spieler rechts ) {
 		Vergleicher<Spieler> spielerVergleicher = Vergleicher.erzeugeVergleicher( Spieler::getAlter ).erzeugeMitNaechstemVergleichsKriterium(Spieler::getName);
@@ -255,7 +255,7 @@ public class VergleicherTrainer {
 	 */
 	private int vergleicheSpielerErsterVergleicherNullZweiterVergleicherNachName( Spieler links, Spieler rechts ) {
 
-		// Soll auch funktionieren, wenn null als Comparator ï¿½bergeben wird.
+		// Soll auch funktionieren, wenn null als Comparator übergeben wird.
 		Vergleicher<Spieler> nullZuerstVergleicherNull = Vergleicher.erzeugeNullZuerstVergleicher(null);
 		Vergleicher<Spieler> nullZuerstVergleicherMitZweitemVergleichskriterium = nullZuerstVergleicherNull.erzeugeMitNaechstemVergleichsKriterium(Spieler::getName);
 		return nullZuerstVergleicherMitZweitemVergleichskriterium.vergleiche( links, rechts );
@@ -283,7 +283,7 @@ public class VergleicherTrainer {
 	}
 
 	/**
-	 * Etwas vergleichen, was auf natï¿½rliche Art verglichen werden kann.
+	 * Etwas vergleichen, was auf natürliche Art verglichen werden kann.
 	 */
 	public int sortiereNachNatuerlicherOrdnung( Fussballer links, Fussballer rechts ) {
 		Vergleicher<Fussballer> fussballerNummernVergleicher = Vergleicher.erzeugeVergleicherWieComparable();
