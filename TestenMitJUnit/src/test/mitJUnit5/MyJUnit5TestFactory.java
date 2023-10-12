@@ -29,7 +29,7 @@ public class MyJUnit5TestFactory {
 	}
 	
 	/**
-	 * Teste MeineMatheUtil.quadriere mit einer Testfactory fï¿½r die Zahlen 2 und 3
+	 * Teste MeineMatheUtil.quadriere mit einer Testfactory für die Zahlen 2 und 3
 	 * @return
 	 * ... die Collection-Variante ;-)
 	 */
@@ -39,7 +39,7 @@ public class MyJUnit5TestFactory {
 	
 
 	/**
-	 * Teste MeineMatheUtil.quadriere mit einer Testfactory fï¿½r die Zahlen von 2 bis 10 und einer for-Schleife
+	 * Teste MeineMatheUtil.quadriere mit einer Testfactory für die Zahlen von 2 bis 10 und einer for-Schleife
 	 * @return
 	 * ... die Stream-Variante ;-)
 	 */
@@ -51,7 +51,7 @@ public class MyJUnit5TestFactory {
 	}
 	
 	/**
-	 * Teste MeineMatheUtil.quadriere mit einer Testfactory fï¿½r die Zahlen von 2 bis 10 ohne for-Schleife
+	 * Teste MeineMatheUtil.quadriere mit einer Testfactory für die Zahlen von 2 bis 10 ohne for-Schleife
 	 * @return
 	 * ... die Stream-Variante ;-)
 	 */

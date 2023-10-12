@@ -30,7 +30,7 @@ public class ForkJoin extends RecursiveTask<Integer> {
 		// starte neuen Task
 		forkJoinRekursiv.fork();
 		
-		// gebe Ergebnis von Task zurï¿½ck, sobald "Berechnung" beendet.
+		// gebe Ergebnis von Task zurück, sobald "Berechnung" beendet.
 		return forkJoinRekursiv.join();
    }
 

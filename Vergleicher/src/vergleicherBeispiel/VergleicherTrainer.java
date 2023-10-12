@@ -40,7 +40,7 @@ public class VergleicherTrainer {
 	}	
 	
 	/**
-	 * Ein bereits existierender Vergleicher soll in einen Rï¿½ckwï¿½rtsvergleicher verwandelt werden.
+	 * Ein bereits existierender Vergleicher soll in einen Rückwärtsvergleicher verwandelt werden.
 	 */
 	private int vergleicheSpielerNachAlterMitLambdaRueckwaerts(Spieler links, Spieler rechts ) {
 
@@ -82,9 +82,9 @@ public class VergleicherTrainer {
 	}
 
 	/**
-	 * Schreibe Methode von MyVergleicher, die einen Vergleicher erzeugt, der Elemente rï¿½ckwï¿½rts vergleicht, die
+	 * Schreibe Methode von MyVergleicher, die einen Vergleicher erzeugt, der Elemente rückwärts vergleicht, die
 	 * Comparable implementieren.
-	 * Verwende die Methode, um Integer rï¿½ckwï¿½rts zu sortieren.
+	 * Verwende die Methode, um Integer rückwärts zu sortieren.
 	 */
 	private int vergleicheIntegerRueckwaerts(Integer links, Integer rechts) {
 
@@ -104,7 +104,7 @@ public class VergleicherTrainer {
 	 * 	  
 	 * Beachte dabei den Unterschied zwischen anonymer innerer Klasse und lambda.
 	 * 
-	 * Fï¿½r die ï¿½bung mit eigenem Vergleicher starke Vereinfachung akzeptabel.
+	 * Für die übung mit eigenem Vergleicher starke Vereinfachung akzeptabel.
 	 * 
 	 */
 	private int vergleicheSpielerNachAlterRueckwaertsMitVergleichskriteriumextrahiererUndRueckwaertsvergleicher( Spieler links, Spieler rechts ) {
@@ -181,7 +181,7 @@ public class VergleicherTrainer {
 	/**
 	 * NullVergleicher zum Vergleichen erstellen.
 	 * Parameter ist ein Vergleicher, also nicht eine Method-Referenz.
-	 * ï¿½ber Vergleicherunterstï¿½tzer und nestend class.
+	 * Über Vergleicherunterstützer und nestend class.
 	 */
 	public int vergleicheSpielerNachAlterNullBeruecksichtigend( Spieler links, Spieler rechts ) {
 
@@ -247,7 +247,7 @@ public class VergleicherTrainer {
 	 */
 	private int vergleicheSpielerErsterVergleicherNullZweiterVergleicherNachName( Spieler links, Spieler rechts ) {
 
-		// Soll auch funktionieren, wenn null als Comparator ï¿½bergeben wird.
+		// Soll auch funktionieren, wenn null als Comparator übergeben wird.
 		return 0;
 	}
 
@@ -273,9 +273,9 @@ public class VergleicherTrainer {
 	}
 
 	/**
-	 * Etwas vergleichen, was auf natï¿½rliche Art verglichen werden kann.
+	 * Etwas vergleichen, was auf natürliche Art verglichen werden kann.
 	 * 
-	 * ï¿½ber Vergleicherunterstï¿½tzer, Enum als Singelton.
+	 * Über Vergleicherunterstuetzer, Enum als Singelton.
 	 * 
 	 * Hinweise: enum VergleicherWieComparable implements Vergleicher<Comparable<Object>> { 
 	 */

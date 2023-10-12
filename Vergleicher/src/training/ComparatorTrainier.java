@@ -53,7 +53,7 @@ public class ComparatorTrainier {
 	}	
 	
 	/**
-	 * Hier wird {@link Function} verwendet. Macht es erst mal komplizierter. Ist ein Zwischenschritt, um {@link java.util.Comparator#comparing()} zu erklï¿½ren.
+	 * Hier wird {@link Function} verwendet. Macht es erst mal komplizierter. Ist ein Zwischenschritt, um {@link java.util.Comparator#comparing()} zu erklären.
 	 * 
 	 * Function als anonyme innere Klasse.
 	 */

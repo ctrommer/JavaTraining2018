@@ -32,7 +32,7 @@ public class ForkJoinCompute extends RecursiveTask<Integer>{
 		// erzeuge zweiten neuen Task mit zahl * 10
 		ForkJoinCompute task2 = new ForkJoinCompute("thread mit 10 multiplizieren", zahl * 10 );
 		 
-		// gebe Ergebnis von ersten Task plus zweiten Task zurï¿½ck, sobald "Berechnungen" beendet.
+		// gebe Ergebnis von ersten Task plus zweiten Task zurück, sobald "Berechnungen" beendet.
 		return task2.compute() + task1.join();
 	     
 	}
