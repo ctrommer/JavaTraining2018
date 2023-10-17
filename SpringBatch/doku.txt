@@ -1,16 +1,5 @@
 
 -------------------------
- 2021_08_20 
--------------------------
-
-Läuft auf dem neuen Lenovo Laptop nicht mehr. Liegt wohl an Umstellung auf 1.16.
-TODO: 
-Zum Laufen bringen. Oder neues Projekt aufsetzen?
-Das hier scheint das aktuelle Problem zu sein:
-https://stackoverflow.com/questions/51708002/nested-exception-is-org-springframework-beans-factory-beancreationexception-err
-
-
--------------------------
  Grundlage
 -------------------------
 
@@ -20,16 +9,12 @@ https://www.javainuse.com/spring/springbatchHello
  Curtsbeschreibung
 -------------------------
 
-	C:\Users\Curt\git\JavaTraining2018\SpringBatch\src\main\resources\mitarbeiter-data.csv 
+	C:\Users\ctrom\git\JavaTraining2018_eclipse2023\JavaTraining2018\SpringBatch\src\main\resources\mitarbeiter-data.csv 
 wird gelesen, transfomiert und das Ergebnis in 
 	C:\xml\outputs\mitarbeiter.xml
 geschrieben
 
--------------------------
- Problem
--------------------------
 
-Wenn man maven | update project macht, wechselt er wieder auf die 1.5er Java Version. Nicht rausgefunden, warum.
 
 -------------------------
  TODO
@@ -45,4 +30,3 @@ Zuerst von csv Datei in xml
 
 Step 2:
 Dann das xml nehmen und von kg in Pfund umrechnen
-
