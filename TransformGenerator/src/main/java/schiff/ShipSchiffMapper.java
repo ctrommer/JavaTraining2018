@@ -13,7 +13,7 @@ public abstract class ShipSchiffMapper {
 	/**
 	 * 1 kg = 2.205 LBS
 	 */
-	private static final double LBS_ZU_KG_FAKTOR = 2.205;
+	private static final double KG_ZU_LBS_FAKTOR = 2.205;
 	
 	/**
 	 * Wenn man eine Extrawurst braten möchte, kann man die Mapping Methode auch selber schreiben.
@@ -32,14 +32,14 @@ public abstract class ShipSchiffMapper {
 		if ( ship == null ) {
 			return null;
 		}
-		return new Schiff(ship.getName(), ship.getColour(), ship.getWeightInLBS() / LBS_ZU_KG_FAKTOR);
+		return new Schiff(ship.getName(), ship.getColour(), ship.getWeightInLBS() / KG_ZU_LBS_FAKTOR);
 	}
 
 	public Ship schiffZuShip( Schiff schiff ) {
 		if ( schiff == null ) {
 			return null;
 		}
-		return new Ship(schiff.getName(), schiff.getFarbe(), schiff.getGewichtInKg() * LBS_ZU_KG_FAKTOR);
+		return new Ship(schiff.getName(), schiff.getFarbe(), schiff.getGewichtInKg() * KG_ZU_LBS_FAKTOR);
 	}
 	
 }
