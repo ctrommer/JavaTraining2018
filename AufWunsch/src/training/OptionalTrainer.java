@@ -1,6 +1,5 @@
 package training;
 
-import static org.junit.Assert.assertNotEquals;
 import static org.junit.Assert.assertTrue;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNull;
@@ -8,130 +7,238 @@ import static org.junit.jupiter.api.Assertions.assertSame;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import java.util.Optional;
-import java.util.function.Supplier;
 
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-
-import optionalBeispiel.Person;
 
 public class OptionalTrainer {
 
-	private void setzeVielleichtGewichtLeer( Person person ) {
-
+	/**
+	 * Erzeuge ein leeres Optional.
+	 * @return
+	 * Optional ohne Inhalt
+	 */
+	private Optional<Object> erzeugeLeeresOptional( ) {
+		 return null;
 	}
 	
 	@Test
-	public void testeSetzeVielleichtGewichtLeer() {
-		Person person = new Person("Arnold");
-		person.setVielleichtGewicht(Optional.of(100));
-		assertNotEquals(Optional.empty(), person.getVielleichtGewicht());
-		
-		setzeVielleichtGewichtLeer(person);
-		assertEquals(Optional.empty(), person.getVielleichtGewicht());		
+	@DisplayName( "erzeugeLeeresOptional soll ein leeres Optional erzeugen" )
+	public void test01() {
+		assertEquals( 
+				Optional.empty(), 
+				erzeugeLeeresOptional() );
 	}
 	
 	/**
-	 * Erzeuge aus dem übergebenen Wert ein Optional.
+	 * Erzeuge ein Optional aus dem übergebenen Wert. Gib den Inhalt des
+	 * Optional zurück, wenn der Inhalt ungleich null ist, sonst den defaultwert.   
 	 * @param text
-	 * Darf null sein.
+	 * darf null sein
+	 * @param defaultWert
+	 * wird verwendet, wenn der erste Parameter null ist 
 	 * @return
-	 * Inhalt des Optionals wenn ungleich null sonst "kein Text".
+	 * Inhalt des Optionals wenn ungleich null sonst der Defaultwert
 	 * 
 	 */
-	private String textOderKeinTextNullErlaubt( String text ) {
-		String defaultWert = "kein Text";
+	private String wennTextNullDannDefault( String text, String defaultWert ) {
 		return null;
 	}
 
 	@Test
-	public void testeTextOderKeinTextNullErlaubt() {
-		String hallo = "Hallo";
+	@DisplayName( "wennTextNullDannDefault soll Optional aus dem übergebenen Text erzeugen " )
+	public void test02() {
+		String erwartetesErgebnis = "Inhalt des Optionals";
 		
-		assertSame(hallo, textOderKeinTextNullErlaubt(hallo));
-		
-		assertSame("kein Text", textOderKeinTextNullErlaubt(null));
+		assertSame(
+				erwartetesErgebnis, 
+				wennTextNullDannDefault( erwartetesErgebnis, "nicht verwendeter default Wert" ) );		
 	}
+
+	@Test
+	@DisplayName( "wennTextNullDannDefault soll Default Wert verwenden, wenn der übergebene Text null ist" )
+	public void test03() {
+		String erwartetesErgebnis = "kein Text";
+		assertSame( 
+				erwartetesErgebnis, 
+				wennTextNullDannDefault( null, erwartetesErgebnis) );
+	}	
 
 	/**
 	 * Erzeuge aus dem übergebenen Wert ein Optional.
 	 * @param text
 	 * Darf nicht null sein.
 	 * @return
-	 * Inhalt des Optionals wenn ungleich null.
+	 * Optional wenn parameter ungleich null.
 	 * @throws
 	 * NullPointerException wenn text null.
 	 * 
 	 */
-	private String textOderKeinTextNullVerboten( String text ) {
+	private Optional<String> erzeugeOderWirfExceptionWennNull( String text ) {
 		return null;
 	}
 
 	@Test
-	public void testeTextOderKeinTextNullVerboten() {
-		String hallo = "Hallo";
-		
-		assertSame(hallo, textOderKeinTextNullVerboten(hallo));
-		
-		assertThrows(NullPointerException.class, ()-> textOderKeinTextNullVerboten(null));
-	}	
+	@DisplayName( "erzeugeOderWirfExceptionWennNull soll ein Optional erzeugen, wenn der übergebene Wert ungleich null ist" )
+	public void test04() {
+		String erwartetesErgebnis = "Hallo";
 
+		assertSame( 
+				erwartetesErgebnis, 
+				erzeugeOderWirfExceptionWennNull( erwartetesErgebnis ).orElse("falscher Wert") );
+	}
+
+	@Test
+	@DisplayName( "erzeugeOderWirfExceptionWennNull soll Nullpointer exception werfen, wenn der übergebene Wert null ist" )
+	public void test05() {
+		assertThrows(
+				NullPointerException.class, 
+				()-> erzeugeOderWirfExceptionWennNull( null ) );
+	}
+	
+	/**
+	 * Mit anonymer innerer Klasse.
+	 * 
+	 * Wenn inhalt vorhanden, gib diesen Inhalt zurueck.
+	 * Sonst wirf eine IllegalStateException.
+	 * 
+	 * @param vielleichtText
+	 * @return inhalt, wenn dieser ungleich null
+	 */
 	private String inhaltOderIllegalStateExceptionMitAnonymerKlasse( Optional<String> vielleichtText ) {
 		return null;
 	}
 
+	@Test
+	@DisplayName("inhaltOderIllegalStateExceptionMitAnonymerKlasse soll Inhalt zurueckgegeben, wenn er vorhanden ist")
+	public void test06() {
+		String erwarteterWert = "Inhalt von Optional";
+		Optional<String> optionalMitInhaltHallo = Optional.ofNullable( erwarteterWert );
+
+		assertSame(
+				erwarteterWert, 
+				inhaltOderIllegalStateExceptionMitAnonymerKlasse( optionalMitInhaltHallo ) );
+	}
+	
+	@Test
+	@DisplayName("inhaltOderIllegalStateExceptionMitAnonymerKlasse soll eine IllegalStateException werfen, wenn Inhalt null ist")
+	public void test07() {
+		Assertions.assertThrows(
+							IllegalStateException.class, 
+							() -> inhaltOderIllegalStateExceptionMitAnonymerKlasse( Optional.empty() ) );
+	}
+
+	/**
+	 * Mit Lambda.
+	 * 
+	 * Wenn inhalt vorhanden, gib diesen Inhalt zurueck.
+	 * Sonst wirf eine IllegalStateException.
+	 * 
+	 * @param vielleichtText
+	 * @return inhalt, wenn dieser ungleich null
+	 */
 	private String inhaltOderIllegalStateExceptionMitLambda( Optional<String> vielleichtText ) {
 		return null;
-	}	
+	}
+	
+	@Test
+	@DisplayName("inhaltOderIllegalStateExceptionMitLambda soll Inhalt zurueckgegeben, wenn er vorhanden ist")
+	public void test08() {
+		String erwarteterWert = "Inhalt von Optional";
+		assertSame(
+				erwarteterWert, 
+				inhaltOderIllegalStateExceptionMitLambda( Optional.ofNullable( erwarteterWert ) ) );
+	}
+	
+	@Test
+	@DisplayName("inhaltOderIllegalStateExceptionMitLambda soll IllegalStateException werfen, wenn Inhalt null ist")
+	public void test09() {
+		Assertions.assertThrows(
+							IllegalStateException.class, 
+							() -> inhaltOderIllegalStateExceptionMitLambda( Optional.empty() ) );
+	}
 
+	/**
+	 * Mit Method Referenz.
+	 * 
+	 * Wenn inhalt vorhanden, gib diesen Inhalt zurueck.
+	 * Sonst wirf eine IllegalStateException.
+	 * 
+	 * @param vielleichtText
+	 * @return inhalt, wenn dieser ungleich null
+	 */
 	private String inhaltOderIllegalStateExceptionMitMethodReferenz( Optional<String> vielleichtText ) {
 		return null;
 	}
 
 	@Test
-	public void testeOptionalOderException() {
-		String hallo = "Hallo";
-		Optional<String> optionalMitInhaltHallo = Optional.ofNullable(hallo);
-		Optional<String> leeresOptional = Optional.empty();
-
-		assertSame(hallo, inhaltOderIllegalStateExceptionMitAnonymerKlasse(optionalMitInhaltHallo));
-    	Assertions.assertThrows(IllegalStateException.class, () -> inhaltOderIllegalStateExceptionMitAnonymerKlasse(leeresOptional));
-
-		assertSame(hallo, inhaltOderIllegalStateExceptionMitLambda(optionalMitInhaltHallo));
-    	Assertions.assertThrows(IllegalStateException.class, () -> inhaltOderIllegalStateExceptionMitLambda(leeresOptional));
-
-		assertSame(hallo, inhaltOderIllegalStateExceptionMitMethodReferenz(optionalMitInhaltHallo));
-    	Assertions.assertThrows(IllegalStateException.class, () -> inhaltOderIllegalStateExceptionMitMethodReferenz(leeresOptional));
+	@DisplayName("inhaltOderIllegalStateExceptionMitMethodReferenz soll Inhalt zurueckgegeben, wenn er vorhanden ist")
+	public void test10() {
+		String erwarteterWert = "Inhalt von Optional";
+		assertSame(
+				erwarteterWert, 
+				inhaltOderIllegalStateExceptionMitMethodReferenz( Optional.ofNullable( erwarteterWert ) ) );
 	}
+	
+	@Test
+	@DisplayName("inhaltOderIllegalStateExceptionMitMethodReferenz soll IllegalStateException werfen, wenn Inhalt null ist")
+	public void test11() {
+		Assertions.assertThrows(
+							IllegalStateException.class, 
+							() -> inhaltOderIllegalStateExceptionMitMethodReferenz( Optional.empty() ) );
+	}	
 
 	/**
-	 * Wenn Person oder Name von Person null ist wird nichts gemacht, 
-	 * sonst wird bei leerem Namen der Name auf NN gesetzt.
+	 * Wenn Person ungleich null ist,  
+	 * Beruf von Person ungleich null ist 
+	 * und Beruf einen Inhalt ungleich Whitespaces hat,
+	 * wird dem Beruf der Person ein ":in" angehaengt.
 	 * @param person
 	 * person, darf auch null sein.
 	 */
-	private void wennNameLeerSetzeNameNN( Person person ) {
+	private void berufGendern( Person person  ) {
+		person.setBeruf("Damit Unittest fehlschlaegt.");
 	}
 
 	@Test
-	public void testeWennNameLeerSetzeNameNN() {
+	@DisplayName("berufGendern soll Beruf nicht gendern, wenn Person null ist")
+	public void test12() {
 		Person person = null;
-		wennNameLeerSetzeNameNN(person);
-		assertNull(person);
-		
-		person = new Person(null);
-		wennNameLeerSetzeNameNN(person);
-		assertNull(person.getName());
+		berufGendern( person );
 
-		String john = "John";
-		person = new Person(john);
-		wennNameLeerSetzeNameNN(person);
-		assertTrue(person.getName().equals(john));
+		assertNull( person );	
+	}
+
+	@Test
+	@DisplayName("berufGendern soll Beruf nicht gegendern, wenn Beruf null ist")
+	public void test13() {
+		Person person = new Person(null);
+		berufGendern( person );
 		
-		person = new Person("");
-		wennNameLeerSetzeNameNN(person);
+		assertNull( person.getBeruf() );
+	}
+
+	@Test
+	@DisplayName("berufGendern soll Beruf nicht gegendern, wenn Beruf nur whitespaces enthaelt")
+	public void test14() {
+		Person person = new Person(" ");
+		berufGendern( person );
 		
-		assertTrue(person.getName().equals("NN"));
+		assertTrue( person
+						.getBeruf()
+						.equals(" ") );		
+	}
+
+	@Test
+	@DisplayName("berufGendern soll :in an Beruf anhaengen, wenn Beruf vorhanden ist")
+	public void test15() {
+		Person person = new Person( "Kanzler" );
+		berufGendern( person );
+		
+		assertTrue( person
+						.getBeruf()
+						.equals( "Kanzler:in" ) );		
 	}
 	
 	/**
@@ -139,19 +246,37 @@ public class OptionalTrainer {
 	 * 
 	 * @param vielleichtText
 	 * Inhalt kann auch leer sein.
+	 * @param wertWennOptionalLeer
+	 * Wert für den Fall, das Optional leer ist
 	 * @return
-	 * Inhalt wenn vorhanden, sonst den String "leer".
+	 * Inhalt wenn vorhanden, sonst wertWennOptionalLeer.
 	 */
-	private String demonstriereVeraltetenZugriff( Optional<String> vielleichtText ) {
-		return "leer";
+	private String demonstriereVeraltetenZugriff( Optional<String> vielleichtText, String wertWennOptionalLeer ) {
+		return "";
 	}
 
 	@Test
-	public void testeDemonstriereVeraltetenZugriff() {
-		assertSame( "leer",  demonstriereVeraltetenZugriff( Optional.empty() ) );
-
-		String hallo = "Hallo";
-		assertSame(hallo, demonstriereVeraltetenZugriff(Optional.ofNullable( hallo )));		
+	@DisplayName("demonstriereVeraltetenZugriff soll leer liefern, wenn das Optional leer ist")
+	public void test16() {
+		String defaultWert = "leer";
+		
+		assertSame( 
+				defaultWert,  
+				demonstriereVeraltetenZugriff( 
+										Optional.empty(), 
+										defaultWert ) );
+	}
+	
+	@Test
+	@DisplayName("demonstriereVeraltetenZugriff soll Inhalt von Optional liefern, wenn das Optional nicht leer ist")
+	public void test17() {
+		String erwartetesErgebnis = "inhalt von Optional";
+		
+		assertSame( 
+				erwartetesErgebnis, 
+				demonstriereVeraltetenZugriff(
+										Optional.ofNullable( erwartetesErgebnis ), 
+										"default Wert" ) );		
 	}
 
 	/**
@@ -162,21 +287,37 @@ public class OptionalTrainer {
 	 * Wenn das Gewicht der Person nicht leer ist, das Gewicht der Person, 100 sonst.
 	 */
 	private Integer vielleichtGewichtOder100( Person person ) {
-		
 		return null;
 	}
 
 	@Test
-	public void testeGewichtOderDefault() {
+	@DisplayName("vielleichtGewichtOder100 soll 100 liefern, wenn die Person null ist")
+	public void test18() {
+		assertSame( 
+				100, 
+				vielleichtGewichtOder100( null ) );
+	}
+	
+	@Test
+	@DisplayName("vielleichtGewichtOder100 soll 100 liefern, wenn das Gewicht der Person null ist")
+	public void test19() {
+		Person arnold = new Person( "Arnold" );		
+		
+		assertSame( 
+				100, 
+				vielleichtGewichtOder100( arnold ) );
 
-		assertSame( 100, vielleichtGewichtOder100( null ) );
-
-		Person arnold = new Person("Arnold");		
-		assertSame( 100, vielleichtGewichtOder100( arnold ) );
-
-		arnold.setVielleichtGewicht(Optional.ofNullable(120));
-		assertSame(120, vielleichtGewichtOder100(arnold));
-
+	}
+	
+	@Test
+	@DisplayName("vielleichtGewichtOder100 soll 120 liefern, wenn das Gewicht der Person 120 ist")
+	public void test20() {
+		Person arnold = new Person( "Arnold" );
+		arnold.setVielleichtGewicht( Optional.ofNullable( 120 ) );
+		
+		assertSame( 
+				120, 
+				vielleichtGewichtOder100( arnold ) );
 	}
 	
 }
