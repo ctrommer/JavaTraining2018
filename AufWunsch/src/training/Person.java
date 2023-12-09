@@ -1,23 +1,23 @@
-package optionalBeispiel;
+package training;
 
 import java.util.Optional;
 
 public class Person {
 
-	private String name;
+	private String beruf;
 	private Optional<Integer> vielleichtGewicht = Optional.empty();
 	
-	public Person(String name) {
-		this.name = name;
+	public Person(String beruf) {
+		super();
+		this.beruf = beruf;
 	}
-	
-	public String getName() {
-		return name;
+
+	public String getBeruf() {
+		return beruf;
 	}
-	
-	
-	public void setName(String name) {
-		this.name = name;
+
+	public void setBeruf(String beruf) {
+		this.beruf = beruf;
 	}
 
 	public Optional<Integer> getVielleichtGewicht() {
