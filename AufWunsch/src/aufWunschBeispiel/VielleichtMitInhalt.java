@@ -170,7 +170,7 @@ public final class VielleichtMitInhalt<T> {
 		if ( !istInhaltVorhanden() ) {
 			return leereInstanz();
 		} else {
-			return  erzeugeAusNullErlaubt(transformierer.erzeugeUndVerwende(inhalt));
+			return  erzeugeAusNullErlaubt(transformierer.transformiere(inhalt));
 		}
 	}
 
@@ -196,7 +196,7 @@ public final class VielleichtMitInhalt<T> {
 		if ( !istInhaltVorhanden() ) {
 			return leereInstanz();
 		} else {
-			return Objects.requireNonNull(transformierer.erzeugeUndVerwende(inhalt));
+			return Objects.requireNonNull(transformierer.transformiere(inhalt));
 		}
 	}
 
@@ -275,7 +275,7 @@ public final class VielleichtMitInhalt<T> {
 		
 		VielleichtMitInhalt<?> rechts = (VielleichtMitInhalt<?>) obj;
 		
-		return Objects.equals(inhalt,rechts.inhalt);		
+		return Objects.equals(inhalt, rechts.inhalt);		
 	}
 	
 
