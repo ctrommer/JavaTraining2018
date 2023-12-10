@@ -361,12 +361,12 @@ public class VielleichtMitInhaltTester {
 	}
 
 	@Test
-	@DisplayName("Testet transformiere, wenn Inhalt vorhanden und das Ergebnis von erzeugeUndVerwende ungleich null ist.")
+	@DisplayName("Testet transformiere, wenn Inhalt vorhanden und das Ergebnis von transformiere ungleich null ist.")
 	public void test18() throws NoSuchMethodException, SecurityException, IllegalAccessException, InvocationTargetException {
 		
 		@SuppressWarnings("rawtypes")	// Das interface Transformierer muss ja erst noch als Uebung geschrieben werden.
 		class TransformiererImpl implements Transformierer {
-			public Integer erzeugeUndVerwende(Object t) {
+			public Integer transformiere(Object t) {
 				return 42;
 			}
 		}
@@ -383,12 +383,12 @@ public class VielleichtMitInhaltTester {
 	}
 	
 	@Test
-	@DisplayName("Testet transformiere, wenn Inhalt vorhanden und das Ergebnis von erzeugeUndVerwende gleich null ist.")
+	@DisplayName("Testet transformiere, wenn Inhalt vorhanden und das Ergebnis von transformiere gleich null ist.")
 	public void test19() throws NoSuchMethodException, SecurityException, IllegalAccessException, InvocationTargetException {
 		
 		@SuppressWarnings("rawtypes")	// Das interface Transformierer muss ja erst noch als Uebung geschrieben werden.
 		class TransformiererImpl implements Transformierer {
-			public Integer erzeugeUndVerwende(Object t) {
+			public Integer transformiere(Object t) {
 				return null;
 			}
 		}
@@ -404,12 +404,12 @@ public class VielleichtMitInhaltTester {
 	}
 	
 	@Test
-	@DisplayName("Testet transformiere, wenn Inhalt null ist und das Ergebnis von erzeugeUndVerwende ungleich null ist.")
+	@DisplayName("Testet transformiere, wenn Inhalt null ist und das Ergebnis von transformiere ungleich null ist.")
 	public void test20() throws NoSuchMethodException, IllegalAccessException, InvocationTargetException {
 
 		@SuppressWarnings("rawtypes")	// Das interface Transformierer muss ja erst noch als Uebung geschrieben werden.
 		class TransformiererImpl implements Transformierer {
-			public Integer erzeugeUndVerwende(Object t) {
+			public Integer transformiere(Object t) {
 				return 42;
 			}
 		}
@@ -450,12 +450,12 @@ public class VielleichtMitInhaltTester {
 	}
 
 	@Test
-	@DisplayName("Testet transformiereFlach, wenn Inhalt vorhanden und das Ergebnis von erzeugeUndVerwende ungleich null ist.")
+	@DisplayName("Testet transformiereFlach, wenn Inhalt vorhanden und das Ergebnis von transformiere ungleich null ist.")
 	public void test22() throws NoSuchMethodException, SecurityException, IllegalAccessException, InvocationTargetException {
 
 		@SuppressWarnings("rawtypes")	// Das interface Transformierer muss ja erst noch als Uebung geschrieben werden.
 		class TransformiererImpl implements Transformierer {
-			public VielleichtMitInhalt<Object> erzeugeUndVerwende(Object t) {
+			public VielleichtMitInhalt<Object> transformiere(Object t) {
 				return erzeugeMitInhaltUngleichNull();
 			}
 		}
@@ -470,12 +470,12 @@ public class VielleichtMitInhaltTester {
 	}
 
 	@Test
-	@DisplayName("Testet transformiereFlach, wenn Inhalt vorhanden und das Ergebnis von erzeugeUndVerwende gleich null ist.")
+	@DisplayName("Testet transformiereFlach, wenn Inhalt vorhanden und das Ergebnis von transformiere gleich null ist.")
 	public void test23() throws NoSuchMethodException, SecurityException, IllegalAccessException, InvocationTargetException {
 
 		@SuppressWarnings("rawtypes")	// Das interface Transformierer muss ja erst noch als Uebung geschrieben werden.
 		class TransformiererImpl implements Transformierer {
-			public VielleichtMitInhalt<Object> erzeugeUndVerwende(Object t) {
+			public VielleichtMitInhalt<Object> transformiere(Object t) {
 				return null;
 			}
 		}
@@ -498,12 +498,12 @@ public class VielleichtMitInhaltTester {
 	}
 
 	@Test
-	@DisplayName("Testet transformiereFlach, wenn Inhalt null ist und das Ergebnis von erzeugeUndVerwende ungleich null ist.")
+	@DisplayName("Testet transformiereFlach, wenn Inhalt null ist und das Ergebnis von transformiere ungleich null ist.")
 	public void test24() throws NoSuchMethodException, SecurityException, IllegalAccessException, InvocationTargetException {
 
 		@SuppressWarnings("rawtypes")	// Das interface Transformierer muss ja erst noch als Uebung geschrieben werden.
 		class TransformiererImpl implements Transformierer {
-			public VielleichtMitInhalt<Object> erzeugeUndVerwende(Object t) {
+			public VielleichtMitInhalt<Object> transformiere(Object t) {
 				return erzeugeMitInhaltUngleichNull();
 			}
 		}

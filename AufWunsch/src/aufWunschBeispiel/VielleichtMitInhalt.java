@@ -155,7 +155,6 @@ public class VielleichtMitInhalt<T> {
      */
 	// transformiereFlach
 
-
     /**
      * Return the value if present, otherwise return {@code other}.
      *
@@ -195,8 +194,6 @@ public class VielleichtMitInhalt<T> {
      */
 	// holeWennVorhandenSonstWerfeException
 
-	
-
     /**
      * Indicates whether some other object is "equal to" this Optional. The
      * other object is considered equal if:
@@ -210,7 +207,6 @@ public class VielleichtMitInhalt<T> {
      * @return {code true} if the other object is "equal to" this object
      * otherwise {@code false}
      */
-	
 
     /**
      * Returns the hash code value of the present value, if any, or 0 (zero) if
@@ -218,8 +214,6 @@ public class VielleichtMitInhalt<T> {
      *
      * @return hash code value of the present value or 0 if no value is present
      */
-
-
 
     /**
      * Returns a non-empty string representation of this Optional suitable for
@@ -232,6 +226,5 @@ public class VielleichtMitInhalt<T> {
      *
      * @return the string representation of this instance
      */
-	
 
 }

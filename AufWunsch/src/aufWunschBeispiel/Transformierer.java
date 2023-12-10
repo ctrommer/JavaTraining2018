@@ -1,5 +1,5 @@
 package aufWunschBeispiel;
 
 interface Transformierer {
-	// erzeugeUndVerwende
+	// transformiere
 }
