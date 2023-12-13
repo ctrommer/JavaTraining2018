@@ -19,14 +19,13 @@ public class SchreienTrainer {
 	 * @param args
 	 */
 	public String verwandleInSchreien( String gesprochen ) {
-
 		return null;
 	}
 
 	@DisplayName("Hallo soll in HALLO! umgewandelt werden.")
 	@Test
 	public void test01() {
-		assertEquals( "HALLO!", verwandleInSchreien("Hallo") );		
+		assertEquals( "HALLO!", verwandleInSchreien( "Hallo" ) );		
 	}
 
 }

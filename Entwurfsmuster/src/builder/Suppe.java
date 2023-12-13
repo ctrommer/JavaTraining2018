@@ -1,13 +1,11 @@
 package builder;
 
 /**
- * 
  * Abstrakte Basisklasse fuer Suppen.
  * Mit dem Pflichtfeld:
  * wasser
  * und dem optionalen Feld:
  * gemuese
- * 
  */
 public abstract class Suppe {
 
@@ -18,5 +16,4 @@ public abstract class Suppe {
 	public String toString() {
 		return "Suppe [wasser=" + wasser + ", gemuese=" + gemuese + "]";
 	}
-
 }

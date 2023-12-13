@@ -1,7 +1,5 @@
 package strategy;
 
-import java.util.function.Predicate;
-
 public class Haus {
 	private Integer marktpreis;
 	private Integer buchwert;

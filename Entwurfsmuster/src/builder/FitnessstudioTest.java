@@ -21,6 +21,7 @@ public class FitnessstudioTest {
 	 * @return ein Fitnessstudio speziell für den Test
 	 */
 	public static Fitnessstudio erzeugeFitnessstudioFuerTest() {
+
 		return null;
 	}
 	
@@ -28,7 +29,9 @@ public class FitnessstudioTest {
 	@DisplayName("Kann man das Fitnesstudio erzeugen?")
 	public void test01() {
 		Fitnessstudio fitnessstudio = erzeugeFitnessstudioFuerTest();
-		assertEquals("Fitnessstudio [trainingsmoeglichkeiten=[FREIHANTEL, KURSE]]", fitnessstudio.toString());
+		assertEquals( 
+				"Fitnessstudio [trainingsmoeglichkeiten=[FREIHANTEL, KURSE]]", 
+				fitnessstudio.toString() );
 	}
 	
 	@Test
@@ -37,12 +40,15 @@ public class FitnessstudioTest {
 		Field[] fields = Fitnessstudio.class.getDeclaredFields();
 		
 		Stream
-			.of(fields)
+			.of( fields )
 			.forEach( field -> {
 				int modifiers = field.getModifiers();
-				assertTrue( Modifier.isFinal(modifiers), field.getName() + " muss final sein." );
-				assertTrue( Modifier.isPrivate(modifiers), field.getName() + " muss private sein.");				
+				assertTrue( 
+						Modifier.isFinal( modifiers ), 
+						field.getName() + " muss final sein." );
+				assertTrue( 
+						Modifier.isPrivate( modifiers ), 
+						field.getName() + " muss private sein.");				
 			});		
 	}
-
 }

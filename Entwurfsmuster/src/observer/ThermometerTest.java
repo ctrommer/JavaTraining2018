@@ -30,7 +30,7 @@ public class ThermometerTest {
 	public void test01() {
 		ByteArrayOutputStream umgeleitetesSystemOut = new ByteArrayOutputStream();
 		
-		System.setOut(new PrintStream(umgeleitetesSystemOut));
+		System.setOut( new PrintStream( umgeleitetesSystemOut ) );
 		simuliereClientFuerTest();
 		
 		assertEquals("Es ist 17 Grad.\r\n"
@@ -48,8 +48,8 @@ public class ThermometerTest {
 				+ "Es ist 21 Grad.\r\n"
 				+ "Heizung bleibt aus.\r\n"
 				+ "Klimaanlage geht an.\r\n", 
-				umgeleitetesSystemOut.toString());
-		System.setOut(System.out);
+				umgeleitetesSystemOut.toString() );
+		System.setOut( System.out );
 	}
 
 }

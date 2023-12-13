@@ -19,12 +19,11 @@ public class Naehrwertangaben {
 	int kohlehydrate;
 	int fett;	
 	boolean vegan;
-	
-
 
 	@Override
 	public String toString() {
-		return "Naehrwertangaben [kalorien=" + kalorien + ", eiweis=" + eiweis + ", kohlehydrate=" + kohlehydrate
+		return "Naehrwertangaben [kalorien=" + kalorien + ", eiweis=" 
+				+ eiweis + ", kohlehydrate=" + kohlehydrate
 				+ ", fett=" + fett + ", vegan=" + vegan + "]";
 	}
 

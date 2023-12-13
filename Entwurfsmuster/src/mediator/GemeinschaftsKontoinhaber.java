@@ -16,12 +16,11 @@ public class GemeinschaftsKontoinhaber {
 	public void bewegeGeld( BigDecimal geld ) {
 	}
 
-	public void benachrichtigeUeberGeldbewegung(BigDecimal geld) {
+	public void benachrichtigeUeberGeldbewegung( BigDecimal geld ) {
 		kontoauszug.add( name + " hat diese Nachricht erhalten: " + geld + " Euro wurden bewegt." );
 	}
 
 	public List<String> getKontoauszug() {
 		return kontoauszug;
 	}
-
 }

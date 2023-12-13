@@ -26,7 +26,6 @@ public class NaehrwertangabenTest {
 	 * @return Pudding für Test 
 	 */
 	public static Naehrwertangaben erzeugePuddingFuerTest() {
-
 		return null;
 	}
 	
@@ -48,9 +47,12 @@ public class NaehrwertangabenTest {
 			.of(fields)
 			.forEach( field -> {
 				int modifiers = field.getModifiers();
-				assertTrue( Modifier.isFinal(modifiers), field.getName() + " muss final sein." );
-				assertTrue( Modifier.isPrivate(modifiers), field.getName() + " muss private sein.");				
+				assertTrue( 
+						Modifier.isFinal( modifiers ), 
+						field.getName() + " muss final sein." );
+				assertTrue( 
+						Modifier.isPrivate( modifiers ), 
+						field.getName() + " muss private sein.");				
 			});
 	}
-
 }

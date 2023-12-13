@@ -24,7 +24,9 @@ public class KaesesuppeTest {
 	@DisplayName("Kann man die Kaesesuppe erzeugen?")
 	public void test01() {
 		Kaesesuppe kaesesuppe = erzeugeKaesesuppeFuerTest();
-		assertEquals("Kaesesuppe [kaese=20, toString()=Suppe [wasser=100, gemuese=30]]", kaesesuppe.toString());
+		assertEquals(
+				"Kaesesuppe [kaese=20, toString()=Suppe [wasser=100, gemuese=30]]", 
+				kaesesuppe.toString());
 	}
 
 }

@@ -8,8 +8,6 @@ import java.math.BigDecimal;
  *
  */
 public class Gemeinschaftskonto {
-	
-	public void bewegeGeld(BigDecimal geld) {	
+	public void bewegeGeld( BigDecimal geld ) {		
 	}
-
 }
