@@ -12,7 +12,9 @@ public class SalsaTanzschuleTest {
 	public void teste01() {
 		SalsaTanzschule salsaTanzschule = new SalsaTanzschule();
 		String ergebnis = salsaTanzschule.workshopDurchfuehren();
-		assertEquals("Ich habe Salsa unterrichtet.", ergebnis);
+		assertEquals(
+				"Ich habe Salsa unterrichtet.", 
+				ergebnis);
 	}
 
 }

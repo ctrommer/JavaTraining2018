@@ -13,7 +13,6 @@ import java.util.ArrayList;
  *
  */
 public class Thermometer {
-	
 	/**
 	 * Fachbegriff: Observer ( Beobachter ), aber auch : Subscriber 
 	 */
@@ -44,5 +43,4 @@ public class Thermometer {
 			benachrichtigeBeobachter( temperatur );
 		}
 	}
-
 }

@@ -33,8 +33,8 @@ public class Kaesesuppe extends Suppe{
 		}		
 	}
 
-	public Kaesesuppe(Builder builder) {
-		super(builder);
+	public Kaesesuppe( Builder builder ) {
+		super( builder );
 		this.kaese = builder.kaese;
 	}
 

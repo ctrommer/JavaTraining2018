@@ -17,7 +17,7 @@ public class SteuerTest {
 	 * Gewinn nach Steuern
 	 */
 	public Long immobilieMitEinkommsteuer( Long gewinnVorSteuern ) {
-		Immobilie immobilie = new Immobilie(gewinnVorSteuern, new EinkommensteuerAbziehStrategie());
+		Immobilie immobilie = new Immobilie( gewinnVorSteuern, new EinkommensteuerAbziehStrategie() );
 		return immobilie.gewinnNachSteuern();
 	}
 	

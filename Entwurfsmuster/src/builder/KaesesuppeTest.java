@@ -17,10 +17,11 @@ public class KaesesuppeTest {
 	 * @return Kaesesuppe speziell für den Test
 	 */
 	public static Kaesesuppe erzeugeKaesesuppeFuerTest() {
-		Kaesesuppe kaesesuppe = new Kaesesuppe.Builder(100)
-												.gemuese(30)
-												.kaese(20)
-												.build();
+		Kaesesuppe kaesesuppe = new Kaesesuppe
+											.Builder(100)
+											.gemuese(30)
+											.kaese(20)
+											.build();
 		return kaesesuppe;
 	}
 	
@@ -28,7 +29,9 @@ public class KaesesuppeTest {
 	@DisplayName("Kann man die Kaesesuppe erzeugen?")
 	public void test01() {
 		Kaesesuppe kaesesuppe = erzeugeKaesesuppeFuerTest();
-		assertEquals("Kaesesuppe [kaese=20, toString()=Suppe [wasser=100, gemuese=30]]", kaesesuppe.toString());
+		assertEquals(
+				"Kaesesuppe [kaese=20, toString()=Suppe [wasser=100, gemuese=30]]", 
+				kaesesuppe.toString());
 	}
 
 }

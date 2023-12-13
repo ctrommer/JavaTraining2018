@@ -7,22 +7,26 @@ import org.junit.jupiter.api.Test;
 
 public class KampfsportschuleTest {
 	
-	@DisplayName("Wurde das Entwurfsmuster abstrakte Fabrik für das Boxtraining richtig verwendet?")
 	@Test
+	@DisplayName("Wurde das Entwurfsmuster abstrakte Fabrik für das Boxtraining richtig verwendet?")
 	public void test01() {
-		KampfsportSchule kampfsportSchule = new KampfsportSchule(new BoxtrainingFabrik());
+		KampfsportSchule kampfsportSchule = new KampfsportSchule( new BoxtrainingFabrik() );
 		String kampfsportWorkshop = kampfsportSchule.workshopDurchfuehren();
 		
-		assertEquals("Ich habe Boxen trainiert mit Boxhandschuh", kampfsportWorkshop);
+		assertEquals(
+				"Ich habe Boxen trainiert mit Boxhandschuh", 
+				kampfsportWorkshop );
 	}
 	
-	@DisplayName("Wurde das Entwurfsmuster abstrakte Fabrik für das Waffentraining richtig verwendet?")
 	@Test
+	@DisplayName("Wurde das Entwurfsmuster abstrakte Fabrik für das Waffentraining richtig verwendet?")
 	public void test02() {
-		KampfsportSchule kampfsportSchule = new KampfsportSchule(new WaffentrainingFabrik());
+		KampfsportSchule kampfsportSchule = new KampfsportSchule( new WaffentrainingFabrik() );
 		String kampfsportWorkshop = kampfsportSchule.workshopDurchfuehren();
 		
-		assertEquals("Ich habe Waffen trainiert mit Messer", kampfsportWorkshop);
+		assertEquals(
+				"Ich habe Waffen trainiert mit Messer", 
+				kampfsportWorkshop );
 	}	
 
 }

@@ -63,7 +63,7 @@ public class Naehrwertangaben {
 		 * die neu erzeugten Naehrwertangaben
 		 */
 		public Naehrwertangaben build() {
-			return new Naehrwertangaben(this);
+			return new Naehrwertangaben( this );
 		}
 		
 	}
@@ -71,7 +71,8 @@ public class Naehrwertangaben {
 	/**
 	 * Konstruktor.
 	 * @param builder
-	 * Der Builder beinhaltet die Pflichtparameter. Er kann auch zusätzliche optionale Parameter haben.
+	 * Der Builder beinhaltet die Pflichtparameter. 
+	 * Er kann auch zusätzliche optionale Parameter haben.
 	 */
 	private Naehrwertangaben( Builder builder ) {
 		this.kalorien = builder.kalorien;
@@ -83,7 +84,8 @@ public class Naehrwertangaben {
 
 	@Override
 	public String toString() {
-		return "Naehrwertangaben [kalorien=" + kalorien + ", eiweis=" + eiweis + ", kohlehydrate=" + kohlehydrate
+		return "Naehrwertangaben [kalorien=" + kalorien + ", eiweis=" 
+				+ eiweis + ", kohlehydrate=" + kohlehydrate
 				+ ", fett=" + fett + ", vegan=" + vegan + "]";
 	}
 	

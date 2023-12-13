@@ -47,10 +47,13 @@ public class CalzoneTest {
 			.of(fields)
 			.forEach( field -> {
 				int modifiers = field.getModifiers();
-				assertTrue( Modifier.isFinal(modifiers), field.getName() + " muss final sein." );
-				assertTrue( Modifier.isPrivate(modifiers), field.getName() + " muss private sein.");				
-			});	
-		
+				assertTrue( 
+						Modifier.isFinal( modifiers ), 
+						field.getName() + " muss final sein." );
+				assertTrue( 
+						Modifier.isPrivate( modifiers ), 
+						field.getName() + " muss private sein.");				
+			});		
 	}
 	
 	@Test
@@ -62,8 +65,12 @@ public class CalzoneTest {
 			.of(fields)
 			.forEach( field -> {
 				int modifiers = field.getModifiers();
-				assertTrue( Modifier.isFinal(modifiers), field.getName() + " muss final sein." );
-				assertTrue( Modifier.isPrivate(modifiers), field.getName() + " muss private sein.");				
+				assertTrue( 
+						Modifier.isFinal(modifiers), 
+						field.getName() + " muss final sein." );
+				assertTrue( 
+						Modifier.isPrivate(modifiers), 
+						field.getName() + " muss private sein.");				
 			});	
 	}
 	
@@ -72,8 +79,9 @@ public class CalzoneTest {
 	public void test04() {
 		CalzoneDirector calzoneDirector = new CalzoneDirector();
 		Calzone calzoneMitSosse = calzoneDirector.erzeugeCalzoneMitSosse();
-		assertEquals("Calzone [sosseDrin=true, toString()=Pizza [belaege=[]]]", 
-						calzoneMitSosse.toString() );		
+		assertEquals(
+				"Calzone [sosseDrin=true, toString()=Pizza [belaege=[]]]", 
+				calzoneMitSosse.toString() );		
 	}
 
 }

@@ -26,11 +26,11 @@ public class NaehrwertangabenTest {
 	 * @return Pudding für Test 
 	 */
 	public static Naehrwertangaben erzeugePuddingFuerTest() {
-		Naehrwertangaben pudding = new Naehrwertangaben.Builder(100)
-				.eiweis(10)
-				.kohlehydrate(20)
-				.fett(30)
-				.vegan(true)
+		Naehrwertangaben pudding = new Naehrwertangaben.Builder( 100 )
+				.eiweis( 10 )
+				.kohlehydrate( 20 )
+				.fett( 30 )
+				.vegan( true )
 				.build();
 		return pudding;
 	}
@@ -53,9 +53,12 @@ public class NaehrwertangabenTest {
 			.of(fields)
 			.forEach( field -> {
 				int modifiers = field.getModifiers();
-				assertTrue( Modifier.isFinal(modifiers), field.getName() + " muss final sein." );
-				assertTrue( Modifier.isPrivate(modifiers), field.getName() + " muss private sein.");				
+				assertTrue( 
+						Modifier.isFinal(modifiers), 
+						field.getName() + " muss final sein." );
+				assertTrue( 
+						Modifier.isPrivate(modifiers), 
+						field.getName() + " muss private sein.");				
 			});
 	}
-
 }

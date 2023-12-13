@@ -8,7 +8,7 @@ public class Haus {
 	private Integer jahresMieteinnahmen;
 	private Predicate<Haus> bewertungsstrategie;
 
-	public Haus(Integer marktpreis, Integer buchwert, Integer jahresMieteinnahmen ) {
+	public Haus( Integer marktpreis, Integer buchwert, Integer jahresMieteinnahmen ) {
 		this.marktpreis = marktpreis;
 		this.buchwert = buchwert;
 		this.jahresMieteinnahmen = jahresMieteinnahmen;
@@ -46,5 +46,4 @@ public class Haus {
 	public void setBewertungsstrategie(Predicate<Haus> bewertungsstrategie) {
 		this.bewertungsstrategie = bewertungsstrategie;
 	}
-
 }

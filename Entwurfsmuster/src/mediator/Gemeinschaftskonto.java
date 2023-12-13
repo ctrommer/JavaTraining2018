@@ -13,11 +13,11 @@ public class Gemeinschaftskonto {
 	List<GemeinschaftsKontoinhaber> kontoinhabers = new ArrayList<GemeinschaftsKontoinhaber>();
 
 	public void fuegeKontoinhaberHinzu( GemeinschaftsKontoinhaber kontoinhaber ) {
-		kontoinhabers.add(kontoinhaber);
+		kontoinhabers.add( kontoinhaber );
 	}
 
-	public void bewegeGeld(BigDecimal geld) {
-		kontoinhabers.forEach(element->element.benachrichtigeUeberGeldbewegung( geld ));		
+	public void bewegeGeld( BigDecimal geld ) {
+		kontoinhabers.forEach( element -> element.benachrichtigeUeberGeldbewegung( geld ) );		
 	}
 
 }

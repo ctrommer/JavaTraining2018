@@ -18,15 +18,22 @@ public class MediatorTest {
 		GemeinschaftsKontoinhaber karl = new GemeinschaftsKontoinhaber( "Karl", gemeinschaftskonto );		
 		GemeinschaftsKontoinhaber egon = new GemeinschaftsKontoinhaber( "Egon", gemeinschaftskonto );
 		
-		karl.bewegeGeld(new BigDecimal(100));
-		egon.bewegeGeld(new BigDecimal(-50));		
+		karl.bewegeGeld( new BigDecimal( 100 ) );
+		egon.bewegeGeld( new BigDecimal( -50 ) );		
 		
 		List<String> karlsKontoauszug = karl.getKontoauszug();
 		List<String> egonsKontoauszug = egon.getKontoauszug();
-		assertEquals("Karl hat diese Nachricht erhalten: 100 Euro wurden bewegt.", karlsKontoauszug.get(0));
-		assertEquals("Karl hat diese Nachricht erhalten: -50 Euro wurden bewegt.", karlsKontoauszug.get(1));
-		assertEquals("Egon hat diese Nachricht erhalten: 100 Euro wurden bewegt.", egonsKontoauszug.get(0));
-		assertEquals("Egon hat diese Nachricht erhalten: -50 Euro wurden bewegt.", egonsKontoauszug.get(1));
-	}
-	
+		assertEquals(
+				"Karl hat diese Nachricht erhalten: 100 Euro wurden bewegt.", 
+				karlsKontoauszug.get( 0 ) );
+		assertEquals(
+				"Karl hat diese Nachricht erhalten: -50 Euro wurden bewegt.", 
+				karlsKontoauszug.get( 1 ) );
+		assertEquals(
+				"Egon hat diese Nachricht erhalten: 100 Euro wurden bewegt.", 
+				egonsKontoauszug.get( 0 ) );
+		assertEquals(
+				"Egon hat diese Nachricht erhalten: -50 Euro wurden bewegt.", 
+				egonsKontoauszug.get( 1 ) );
+	}	
 }

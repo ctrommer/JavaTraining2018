@@ -13,9 +13,9 @@ public abstract class Pizza {
 	private final Set<Belag> belaege;
 
 	abstract static class Builder<T extends Builder<T>> {
-		private final EnumSet<Belag> belaege = EnumSet.noneOf(Belag.class);
+		private final EnumSet<Belag> belaege = EnumSet.noneOf( Belag.class );
 		public T fuegeBelagHinzu( Belag belag ) {
-			belaege.add( Objects.requireNonNull(belag) );
+			belaege.add( Objects.requireNonNull( belag ) );
 			return self();
 		}
 		abstract Pizza build();
@@ -31,7 +31,5 @@ public abstract class Pizza {
 	@Override
 	public String toString() {
 		return "Pizza [belaege=" + belaege + "]";
-	}
-	
-	
+	}	
 }

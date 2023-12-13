@@ -23,7 +23,8 @@ public class SchreienTrainer {
 		Function<String, String> zuGrossBuchstaben = String::toUpperCase;
 		Function<String, String> ausrufezeichenAnfuegen = text -> text + "!";
 
-		Function<String, String> textZuSchreien = zuGrossBuchstaben.andThen(ausrufezeichenAnfuegen);
+		Function<String, String> textZuSchreien 
+									= zuGrossBuchstaben.andThen( ausrufezeichenAnfuegen );
 
 		return textZuSchreien.apply(gesprochen);
 	}
@@ -31,7 +32,7 @@ public class SchreienTrainer {
 	@DisplayName("Hallo soll in HALLO! umgewandelt werden.")
 	@Test
 	public void test01() {
-		assertEquals( "HALLO!", verwandleInSchreien("Hallo") );		
+		assertEquals( "HALLO!", verwandleInSchreien( "Hallo" ) );		
 	}
 
 }

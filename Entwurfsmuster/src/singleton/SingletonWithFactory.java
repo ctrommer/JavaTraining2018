@@ -14,7 +14,7 @@ public class SingletonWithFactory {
 		return inhalt;
 	}
 
-	public void setInhalt(String inhalt) {
+	public void setInhalt( String inhalt ) {
 		this.inhalt = inhalt;
 	}
 

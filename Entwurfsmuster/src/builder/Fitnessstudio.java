@@ -14,19 +14,20 @@ public class Fitnessstudio {
 	private final Set<Trainingsmoeglichkeit> trainingsmoeglichkeiten;
 	
 	public static class Builder {
-		private final EnumSet<Trainingsmoeglichkeit> trainingsmoeglichkeiten = EnumSet.noneOf(Trainingsmoeglichkeit.class);
+		private final EnumSet<Trainingsmoeglichkeit> trainingsmoeglichkeiten 
+														= EnumSet.noneOf( Trainingsmoeglichkeit.class );
 		
 		public Builder fuegeTrainingsartHinzu( Trainingsmoeglichkeit trainingsart ) {
-			trainingsmoeglichkeiten.add(Objects.requireNonNull(trainingsart));
+			trainingsmoeglichkeiten.add( Objects.requireNonNull( trainingsart ) );
 			return this;
 		}
 		
 		public Fitnessstudio build() {
-			return new Fitnessstudio(this);
+			return new Fitnessstudio( this );
 		}
 	}
 
-	public Fitnessstudio(Builder builder) {
+	public Fitnessstudio( Builder builder ) {
 		this.trainingsmoeglichkeiten = builder.trainingsmoeglichkeiten.clone();
 	}
 

@@ -15,19 +15,18 @@ public class GemeinschaftsKontoinhaber {
 		this.name = name;
 		this.gemeinschaftskonto = Objects.requireNonNull( gemeinschaftskonto );
 
-		gemeinschaftskonto.fuegeKontoinhaberHinzu(this);
+		gemeinschaftskonto.fuegeKontoinhaberHinzu( this );
 	}
 
 	public void bewegeGeld( BigDecimal geld ) {
-		gemeinschaftskonto.bewegeGeld(geld);
+		gemeinschaftskonto.bewegeGeld( geld );
 	}
 
-	public void benachrichtigeUeberGeldbewegung(BigDecimal geld) {
+	public void benachrichtigeUeberGeldbewegung( BigDecimal geld ) {
 		kontoauszug.add( name + " hat diese Nachricht erhalten: " + geld + " Euro wurden bewegt." );
 	}
 
 	public List<String> getKontoauszug() {
 		return kontoauszug;
 	}
-
 }
