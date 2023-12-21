@@ -14,7 +14,7 @@ public class Produkt {
 		return kunden;
 	}
 
-	public void setKunden(List<Kunde> kunden) {
+	public void setKunden( List<Kunde> kunden ) {
 		this.kunden = kunden;
 	}
 
@@ -51,7 +51,5 @@ public class Produkt {
 		return "Produkt [idProdukt=" + idProdukt + ", bezeichnung=" + bezeichnung + ", preis=" + preis + ", kunden="
 				+ kunden + "]";
 	}
-
-	
 
 }

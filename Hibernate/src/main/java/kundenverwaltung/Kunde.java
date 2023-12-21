@@ -14,12 +14,11 @@ import javax.persistence.Transient;
 public class Kunde {
 
 	@Id
-    @Column(name = "idKunde" )	
+    @Column( name = "idKunde" )	
 	private int idKunde;
-	
+
 	private int geburtsjahr;
-	
-	
+
 	/**
 	 * Embedded, also keine eigene Tabelle
 	 */
@@ -28,8 +27,8 @@ public class Kunde {
 	/**
 	 * One to One mit Foreign key
 	 */
-	@OneToOne(cascade = CascadeType.ALL)
-	@JoinColumn(name="idEhepartner", referencedColumnName  = "idKunde")	
+	@OneToOne( cascade = CascadeType.ALL )
+	@JoinColumn( name="idEhepartner", referencedColumnName  = "idKunde" )	
 	private Ehepartner ehepartner;
 
 	@Transient
@@ -38,7 +37,11 @@ public class Kunde {
 	public Kunde() {
 	}
 
-	public Kunde(int idKunde, int geburtsjahr, Name name, Ehepartner ehepartner) {
+	public Kunde( 
+				int idKunde, 
+				int geburtsjahr, 
+				Name name, 
+				Ehepartner ehepartner) {
 		super();
 		this.idKunde = idKunde;
 		this.geburtsjahr = geburtsjahr;

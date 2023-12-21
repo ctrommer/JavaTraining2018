@@ -11,13 +11,13 @@ import javax.persistence.Table;
 public class Ehepartner {
 
 	@Id
-    @Column(name = "idKunde" )
+    @Column( name = "idKunde" )
 	private int idKunde;
 	
 	/**
-	 *One to One Beziehung mit Foreign key
+	 * One to One Beziehung mit Foreign key
 	 */
-	@OneToOne(mappedBy="ehepartner")
+	@OneToOne( mappedBy="ehepartner" )
 	private Kunde kunde;
 	
 	private int hochzeitsjahr;
@@ -25,7 +25,10 @@ public class Ehepartner {
 	public Ehepartner() {
 	}
 
-	public Ehepartner(int idKunde, Kunde kunde, int hochzeitsjahr) {
+	public Ehepartner(
+				int idKunde, 
+				Kunde kunde, 
+				int hochzeitsjahr) {
 		super();
 		this.idKunde = idKunde;
 		this.kunde = kunde;
@@ -36,7 +39,7 @@ public class Ehepartner {
 		return idKunde;
 	}
 
-	public void setIdKunde(int idKunde) {
+	public void setIdKunde( int idKunde ) {
 		this.idKunde = idKunde;
 	}
 
@@ -45,7 +48,7 @@ public class Ehepartner {
 		return hochzeitsjahr;
 	}
 
-	public void setHochzeitsjahr(int hochzeitsjahr) {
+	public void setHochzeitsjahr( int hochzeitsjahr ) {
 		this.hochzeitsjahr = hochzeitsjahr;
 	}
 
@@ -53,7 +56,7 @@ public class Ehepartner {
 		return kunde;
 	}
 
-	public void setKunde(Kunde kunde) {
+	public void setKunde( Kunde kunde ) {
 		this.kunde = kunde;
 	}
 
