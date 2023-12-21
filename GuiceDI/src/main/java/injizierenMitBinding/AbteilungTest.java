@@ -11,6 +11,10 @@ public class AbteilungTest {
 	@DisplayName("Wurde die Abteilung richtig zusammengebaut?")
 	public void test01() {
 		Abteilung abteilung = Abteilung.erzeugeAbteilungMitGuice();
-		assertEquals("Abteilung [weihnachtsfeier=Weihnachtsfeier [findetStatt=true], abteilungsleiter=AbteilungsleiterImpl [], adresse=AdresseImpl [], name=Forschung und Entw, spitzname=Nerds]", abteilung.toString());
+		
+		assertEquals(
+				"Abteilung [weihnachtsfeier=Weihnachtsfeier [findetStatt=true], abteilungsleiter=AbteilungsleiterImpl [], "
+				+ "adresse=AdresseImpl [], name=Forschung und Entw, spitzname=Nerds]", 
+				abteilung.toString());
 	}
 }

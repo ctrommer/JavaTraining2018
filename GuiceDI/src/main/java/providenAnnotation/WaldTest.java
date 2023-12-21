@@ -11,7 +11,9 @@ public class WaldTest {
 	@DisplayName("Wurde der Wald richtig zusammengebaut?")
 	public void test01() {
 		Wald wald = Wald.erzeugeWaldMitGuice();
-		assertEquals("Wald [foerster=FoersterImpl [name=Karl, alter=42]]", wald.toString());
+		assertEquals(
+				"Wald [foerster=FoersterImpl [name=Karl, alter=42]]", 
+				wald.toString() );
 	}
 
 }

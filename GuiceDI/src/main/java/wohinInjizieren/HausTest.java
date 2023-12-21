@@ -11,7 +11,9 @@ public class HausTest {
 	@DisplayName("Wurde das Haus richtig zusammengebaut?")
 	public void test01() {
 		Haus haus = Haus.erzeugeHausMitGuice();
-		assertEquals("Haus [tuer=Tuer [], fenster=Fenster [], wand=Wand [], name=Injizierter Wert fuer Name des Hauses, nummer=42]", haus.toString());
+		assertEquals(
+				"Haus [tuer=Tuer [], fenster=Fenster [], wand=Wand [], "
+				+ "name=Injizierter Wert fuer Name des Hauses, nummer=42]", 
+				haus.toString() );
 	}
-
 }

@@ -8,7 +8,7 @@ class Gebaeude {
 	private Hausmeister hausmeister;
 	
 	@Inject
-	public Gebaeude( Hausmeister hausmeister) {
+	public Gebaeude( Hausmeister hausmeister ) {
 	   this.hausmeister = hausmeister;
 	}
 	
@@ -18,7 +18,7 @@ class Gebaeude {
 	}
 	
 	public static Gebaeude erzeugeGebaeudeMitGuice() {
-		Injector gebaeudeZusammenBastler = Guice.createInjector(new GebaeudeZusammenbastlerModule());
-		return gebaeudeZusammenBastler.getInstance(Gebaeude.class);
+		Injector gebaeudeZusammenBastler = Guice.createInjector( new GebaeudeZusammenbastlerModule() );
+		return gebaeudeZusammenBastler.getInstance( Gebaeude.class );
 	}
 }

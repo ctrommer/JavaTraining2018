@@ -4,7 +4,7 @@ class HausmeisterImpl implements Hausmeister {
 	private String name;
 	private Integer geburtsjahr;
 	
-	public HausmeisterImpl(String name, Integer geburtsjahr) {
+	public HausmeisterImpl( String name, Integer geburtsjahr ) {
 		this.name = name;
 		this.geburtsjahr = geburtsjahr;
 	}

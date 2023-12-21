@@ -11,7 +11,12 @@ public class KircheTest {
 	@DisplayName("Wurde die Kirche richtig zusammengebaut?")
 	public void test01() {
 		Kirche kirche = Kirche.erzeugeKircheMitGuice();
-		assertEquals("Kirche [singletonAufKlassenebene=SingletonAufKlassenebeneImpl [], singletonAufKonfigurationsEbene=SingletonAufKonfigurationsEbeneImpl [], singletonAufMethodenEbene=SingletonAufMethodenEbeneImpl []]", kirche.toString());
+		
+		assertEquals(
+				"Kirche [singletonAufKlassenebene=SingletonAufKlassenebeneImpl [], "
+				+ "singletonAufKonfigurationsEbene=SingletonAufKonfigurationsEbeneImpl [], "
+				+ "singletonAufMethodenEbene=SingletonAufMethodenEbeneImpl []]", 
+				kirche.toString());
 	}
 
 }

@@ -33,8 +33,7 @@ public class Abteilung {
 	}
 
 	public static Abteilung erzeugeAbteilungMitGuice() {		
-		Injector abteilungZusammenbastler = Guice.createInjector(new AbteilungZusammenbastlerModule());		   
-		return abteilungZusammenbastler.getInstance(Abteilung.class);
+		Injector abteilungZusammenbastler = Guice.createInjector( new AbteilungZusammenbastlerModule() );		   
+		return abteilungZusammenbastler.getInstance( Abteilung.class );
 	}
-
 }

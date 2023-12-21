@@ -22,8 +22,8 @@ public class Kirche {
 	}
 
 	public static Kirche erzeugeKircheMitGuice() {
-		Injector kircheZusammenbastler = Guice.createInjector(new KircheZusammenbastlerModul());		
-		return kircheZusammenbastler.getInstance(Kirche.class);
+		Injector kircheZusammenbastler = Guice.createInjector( new KircheZusammenbastlerModul() );		
+		return kircheZusammenbastler.getInstance( Kirche.class );
 	}
 
 }

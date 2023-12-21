@@ -8,6 +8,8 @@ public class HausZusammenbastlerModul extends AbstractModule {
 	@Override
 	protected void configure() {
 		super.configure();
-			bind( String.class).annotatedWith(Names.named("Hausname")).toInstance("Injizierter Wert fuer Name des Hauses");
+			bind( String.class )
+					.annotatedWith( Names.named("Hausname") )
+					.toInstance("Injizierter Wert fuer Name des Hauses");
 	}
 }

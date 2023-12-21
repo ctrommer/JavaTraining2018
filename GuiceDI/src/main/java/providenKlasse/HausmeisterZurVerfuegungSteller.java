@@ -6,6 +6,6 @@ class HausmeisterZurVerfuegungSteller implements Provider<Hausmeister>{
 
 	@Override
 	public Hausmeister get() {
-		return new HausmeisterImpl("Karl", 42);
+		return new HausmeisterImpl( "Karl", 42 );
 	}	
 }

@@ -10,8 +10,12 @@ public class PraxisTest {
 	@Test
 	@DisplayName("Wurde die Paxis richtig zusammengebaut?")
 	public void test01() {
+		
 		Praxis praxis = Praxis.erzeugePraxisMitGuice();
-		assertEquals("Praxis [sprechstundenhilfe=SprechstundenhilfeImpl []]", praxis.toString());								
+		
+		assertEquals(
+				"Praxis [sprechstundenhilfe=SprechstundenhilfeImpl []]", 
+				praxis.toString() );								
 	}
 	
 }
