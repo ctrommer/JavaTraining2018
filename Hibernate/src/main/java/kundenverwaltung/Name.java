@@ -1,11 +1,10 @@
 package kundenverwaltung;
 
-
 import javax.persistence.Embeddable;
 import javax.persistence.Table;
 
 @Embeddable
-@Table(name="kunde")
+@Table( name="kunde" )
 public class Name {
 	
 	private String vorname;
@@ -15,7 +14,7 @@ public class Name {
 		super();
 	}
 	
-	public Name(String vorname, String nachname) {
+	public Name( String vorname, String nachname ) {
 		super();
 		this.vorname = vorname;
 		this.nachname = nachname;
@@ -24,13 +23,13 @@ public class Name {
 	public String getVorname() {
 		return vorname;
 	}
-	public void setVorname(String vorname) {
+	public void setVorname( String vorname ) {
 		this.vorname = vorname;
 	}
 	public String getNachname() {
 		return nachname;
 	}
-	public void setNachname(String nachname) {
+	public void setNachname( String nachname ) {
 		this.nachname = nachname;
 	}
 	@Override

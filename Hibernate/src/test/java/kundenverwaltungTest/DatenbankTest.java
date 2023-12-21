@@ -25,7 +25,9 @@ public class DatenbankTest {
 
 	@BeforeAll
 	public static void datenbankVerbindungAufbauen() {
-		session = Datenbankverbindung.holeSessionFactory().openSession();		
+		session = Datenbankverbindung
+							.holeSessionFactory()
+							.openSession();		
 	}
 
 	@AfterAll
@@ -40,10 +42,14 @@ public class DatenbankTest {
 	@DisplayName("Kann ein bereits in der DB gespeicherter Kunde aus der DB gelesen werden?")
 	public void test01() {
 		Serializable idKunde = 100;
-		Kunde kundeAusDB =  ( Kunde ) session.get( Kunde.class, idKunde );
-		assertEquals( idKunde, kundeAusDB.getIdKunde() );
+		Kunde kundeAusDB =  ( Kunde ) session.get( 
+												Kunde.class, 
+												idKunde );
+		assertEquals( 
+				idKunde, 
+				kundeAusDB.getIdKunde() );
 	}
-	
+
 	@Test
 	@DisplayName("Wurde ein neuer Kunde in die DB geschrieben?")
 	public void test02() {
@@ -51,19 +57,19 @@ public class DatenbankTest {
         try {
             session.beginTransaction(); 
             
-    		for(int idKunde = idKundeStart; idKunde <= idKundeStart+1; idKunde++) {
+    		for( int idKunde = idKundeStart; idKunde <= idKundeStart + 1 ; idKunde++ ) {
     			Kunde kunde = new Kunde();
-    			kunde.setIdKunde(idKunde);
-    			kunde.setName(new Name("Vorname" + idKunde, "Nachname" + idKunde));
-    			kunde.setGeburtsjahr(1999);
-    			kunde.setEhepartner(new Ehepartner(idKunde, kunde, 1999));
+    			kunde.setIdKunde( idKunde );
+    			kunde.setName( new Name( "Vorname" + idKunde, "Nachname" + idKunde ) );
+    			kunde.setGeburtsjahr( 1999 );
+    			kunde.setEhepartner( new Ehepartner( idKunde, kunde, 1999 ) );
 
-    			session.save(kunde);
+    			session.save( kunde );
     		}
 
     		session.getTransaction().commit();
             
-        } catch(Exception sqlException) {
+        } catch( Exception sqlException ) {
         	sqlException.printStackTrace();
         	Optional
         		.ofNullable( session )
@@ -72,8 +78,12 @@ public class DatenbankTest {
         	
         }
         // zum testen ob's geklappt hat
-		Kunde kundeAusDB = ( Kunde ) session.get( Kunde.class, idKundeStart );
-		assertEquals( idKundeStart, kundeAusDB.getIdKunde() );
+		Kunde kundeAusDB = ( Kunde ) session.get( 
+												Kunde.class, 
+												idKundeStart );
+		assertEquals( 
+				idKundeStart, 
+				kundeAusDB.getIdKunde() );
 	}
 	
 }
