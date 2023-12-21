@@ -25,8 +25,9 @@ public class FormatiererTester {
 	@DisplayName("Wird das Geburtsjahr in Alter umgewandelt und formatiert?")
 	public void test01() {
 		LocalDate now = LocalDate.now();
-		Assertions.assertEquals("Das Alter betraegt: 25", geburtsjahrZuAlter(now.minusYears(25)));	
-				
+		Assertions.assertEquals(
+						"Das Alter betraegt: 25", 
+						geburtsjahrZuAlter( now.minusYears( 25 ) ) );
 	}
 
 }

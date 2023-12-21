@@ -26,28 +26,32 @@ public class EnumTester {
 	@Test
 	public void test01() {
 		Wochentag montag = erzeugeMontag();
-		Assertions.assertEquals( "Montag", textVonWochentag(montag) );		
+		Assertions.assertEquals( 
+							"Montag", 
+							textVonWochentag( montag ) );		
 	}
 
 	@DisplayName("Wird Dienstag erzeugt und hat er den richtigen Text?")
 	@Test
 	public void test02() {
 		Wochentag dienstag = erzeugeDienstag();
-		Assertions.assertEquals( "Tuesday", textVonWochentag(dienstag) );		
+		Assertions.assertEquals( 
+							"Tuesday", 
+							textVonWochentag( dienstag ) );		
 	}
 	
 	@DisplayName("Funktioniert Prüfung, ob Wochentag ein Montag ist?")
 	@Test
 	public void test03() {
-		Boolean istMontag = istMontag(erzeugeMontag());
-		Assertions.assertTrue(istMontag);		
+		Boolean istMontag = istMontag( erzeugeMontag() );
+		Assertions.assertTrue( istMontag );		
 	}
 
 	@DisplayName("Funktioniert Prüfung, ob Wochentag ein Dienstag ist?")
 	@Test
 	public void test04() {
-		Boolean istMontag = istMontag(erzeugeDienstag());
-		Assertions.assertFalse(istMontag);		
+		Boolean istMontag = istMontag( erzeugeDienstag() );
+		Assertions.assertFalse( istMontag );
 	}
 
 }

@@ -18,7 +18,9 @@ public class ClassObject {
 	@Test
 	@DisplayName("Wurde der Name der Klasse Motorrad richtig ermittelt?")
 	public void test1() {
-		assertEquals("Motorrad", nameDerKlasseMotorrad());
+		assertEquals(
+				"Motorrad", 
+				nameDerKlasseMotorrad() );
 	}
 
 	/**
@@ -31,7 +33,10 @@ public class ClassObject {
 	 * @throws InstantiationException 
 	 * @throws ClassNotFoundException 
 	 */
-	private Motorrad motorradErzeugenAusKlassenname() throws InstantiationException, IllegalAccessException, IllegalArgumentException, InvocationTargetException, NoSuchMethodException, SecurityException, ClassNotFoundException  {
+	private Motorrad motorradErzeugenAusKlassenname() throws InstantiationException, IllegalAccessException, 
+															IllegalArgumentException, InvocationTargetException, 
+															NoSuchMethodException, SecurityException, 
+															ClassNotFoundException  {
 		return null;
 	}
 
@@ -39,12 +44,14 @@ public class ClassObject {
 	@DisplayName("Wurde die Klasse Motorrad aus dem Klassennamen erzeugt?")
 	public void  test2() {
 		try {
-			assertTrue(motorradErzeugenAusKlassenname() instanceof Motorrad );
+			assertTrue( motorradErzeugenAusKlassenname() instanceof Motorrad );
 		} catch (InstantiationException | IllegalAccessException | IllegalArgumentException | InvocationTargetException
 				| NoSuchMethodException | SecurityException | ClassNotFoundException e) {
 			e.printStackTrace();
-			assertFalse("Klasse Motorrad wurde nicht erzeugt.", true);
-		}		
+			assertFalse( 
+					"Klasse Motorrad wurde nicht erzeugt.", 
+					true );
+		}
 	}
 
 
@@ -55,13 +62,13 @@ public class ClassObject {
 	@Test
 	@DisplayName("Erste Variante, die testet, ob das Fahrzeug ein Motorrad ist.")
 	public void test3() {
-		assertTrue(istMotorrad1(new Motorrad()));
+		assertTrue( istMotorrad1( new Motorrad() ) );
 	}
 
 	@Test
 	@DisplayName("Erste Variante, die testet, ob das Fahrzeug KEIN Motorrad ist.")
 	public void test4() {
-		assertFalse(istMotorrad1(new Fahrzeug(42) {	}));
+		assertFalse( istMotorrad1( new Fahrzeug(42) { } ) );
 	}
 
 	private boolean istMotorrad2( Fahrzeug fahrzeug ) {
@@ -71,14 +78,14 @@ public class ClassObject {
 	@Test
 	@DisplayName("Zweite Variante, die testet, ob das Fahrzeug ein Motorrad ist.")
 	public void test5() {
-		assertTrue(istMotorrad2(new Motorrad()));
+		assertTrue( istMotorrad2( new Motorrad() ) );
 	}
 
 	@Test
 	@DisplayName("Zweite Variante, die testet, ob das Fahrzeug KEIN Motorrad ist.")
 	public void test6() {
-		assertFalse(istMotorrad2(new Fahrzeug(42) {	}));
-	}	
+		assertFalse( istMotorrad2( new Fahrzeug( 42 ) {	} ) );
+	}
 
 	private boolean istMotorrad3( Fahrzeug fahrzeug ) {
 		return false;
@@ -87,13 +94,13 @@ public class ClassObject {
 	@Test
 	@DisplayName("Dritte Variante, die testet, ob das Fahrzeug ein Motorrad ist.")
 	public void test7() {
-		assertTrue(istMotorrad3(new Motorrad()));
+		assertTrue( istMotorrad3( new Motorrad() ) );
 	}
 
 	@Test
 	@DisplayName("Dritte Variante, die testet, ob das Fahrzeug KEIN Motorrad ist.")
 	public void test8() {
-		assertFalse(istMotorrad3(new Fahrzeug(42) {	}));
+		assertFalse( istMotorrad3( new Fahrzeug(42) { } ) );
 	}
 	
 }

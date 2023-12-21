@@ -15,6 +15,8 @@ public class StaticImportTrainer {
 	@DisplayName("Wird MAX_VALUE statisch importiert?")
 	@Test
 	public void test01() {
-		Assertions.assertEquals( 2147483647, mitStaticImportIntMaxValue() );
+		Assertions.assertEquals( 
+						2147483647, 
+						mitStaticImportIntMaxValue() );
 	}
 }

@@ -19,17 +19,19 @@ import org.junit.jupiter.api.Test;
 public class AusnahmeTrainer {
 	
 	private boolean methodeWurdeAufgerufen;
-	
+
 	/**
 	 * Wirft eine Ausnahme, die nicht behandelt werden muss ( aber kann ).
 	 */
 	private void wirfUncheckedException() {
 	}
-	
+
 	@Test
 	@DisplayName("Unchecked Ausnahme soll geworfen werden.") 
 	public void test01() {
-		Assertions.assertThrows(RuntimeException.class, ()->wirfUncheckedException());
+		Assertions.assertThrows(
+						RuntimeException.class, 
+						() -> wirfUncheckedException() );
 	}
 
 	/**
@@ -38,14 +40,15 @@ public class AusnahmeTrainer {
 	 * 
 	 * @throws BadStringOperationException
 	 */
-	private void wirfCheckedException() {
-		
+	private void wirfCheckedException() {		
 	}
 
 	@Test
 	@DisplayName("Exception BadStringOperationException soll geworfen werden.")
 	public void test02() {
-		Assertions.assertThrowsExactly( BadStringOperationException.class, () -> wirfCheckedException() );
+		Assertions.assertThrowsExactly( 
+							BadStringOperationException.class, 
+							() -> wirfCheckedException() );
 	}
 
 	/**
@@ -62,7 +65,7 @@ public class AusnahmeTrainer {
 	@DisplayName("Teil, der bei Exception immer ausgefuehrt wird, soll aufgerufen werden.")
 	public void test03() {
 		ruftCheckedExceptionAuf();
-		Assertions.assertTrue(methodeWurdeAufgerufen);				
+		Assertions.assertTrue( methodeWurdeAufgerufen );				
 	}	
-	
+
 }

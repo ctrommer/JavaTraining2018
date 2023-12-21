@@ -20,7 +20,6 @@ public class InnererKlasseTrainer {
 	 * Mit Methode, die die Summe der Zahlen, auf die sie zugreifen darf zurueck gibt.
 	 */
 
-
 	/**
 	 * Lokale innere Klasse, die zeigt, auf welche Elemente der aeusseren Klasse sie zugreifen darf.
 	 * Mit Methode, die die Summe der Zahlen, auf die die innere Klasse zugreifen darf zurueck gibt.
@@ -56,29 +55,29 @@ public class InnererKlasseTrainer {
 	public Integer summeDerVonLokalerInnererKlasseErreichbarenZahlen() {
 		return null;		
 	}
-	
+
 	@DisplayName("Werden die von der inneren Klasse erreichbaren Zahlen der Summe hinzugefuegt?")
 	@Test
 	public void test01() {
 		assertEquals(
 				3, 
-				summeDerVonInnererKlasseErreichbarenZahlen());		
+				summeDerVonInnererKlasseErreichbarenZahlen() );		
 	}
-	
+
 	@DisplayName("Werden die von der statischen inneren Klasse erreichbaren Zahlen der Summe hinzugefuegt?")
 	@Test
 	public void test02() {
 		assertEquals(
-				2, 
-				summeDerVonStatischerInnererKlasseErreichbarenZahlen());		
-	}	
+				2,
+				summeDerVonStatischerInnererKlasseErreichbarenZahlen() );		
+	}
 
 	@DisplayName("Werden die von der lokalen inneren Klasse erreichbaren Zahlen der Summe hinzugefuegt?")
 	@Test
 	public void test03() {
 		assertEquals(
 				3, 
-				summeDerVonLokalerInnererKlasseErreichbarenZahlen());		
+				summeDerVonLokalerInnererKlasseErreichbarenZahlen() );		
 	}
-	
+
 }

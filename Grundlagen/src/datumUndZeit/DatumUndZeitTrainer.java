@@ -18,11 +18,15 @@ public class DatumUndZeitTrainer {
 	@DisplayName("Werden aktuelles Datum und aktuelle Uhrzeit richtig umgewandelt?")
 	public void test01() {
 		LocalDateTime vorTest = LocalDateTime.now();
+		
 		String datumUndZeitAlsString = datumUndZeitAlsString();
+		
 		LocalDateTime testErgebnis = LocalDateTime.parse( datumUndZeitAlsString );
 		LocalDateTime nachTest = LocalDateTime.now();
-		Assertions.assertTrue( vorTest.isBefore( testErgebnis ) );
-		Assertions.assertTrue( nachTest.isAfter( testErgebnis ) );
+		Assertions.assertTrue( 
+						vorTest.isBefore( testErgebnis ) );
+		Assertions.assertTrue( 
+						nachTest.isAfter( testErgebnis ) );
 	}
 
 	private String aktuellesDatumInDreiMonaten() {
@@ -34,8 +38,8 @@ public class DatumUndZeitTrainer {
 	public void test02() {
 		LocalDate testErgebnis = LocalDate.parse( aktuellesDatumInDreiMonaten() );
 		Assertions.assertEquals(
-				LocalDate.now().plusMonths(3).getMonth(), 
-				testErgebnis.getMonth());
+						LocalDate.now().plusMonths(3).getMonth(), 
+						testErgebnis.getMonth() );
 	}
 
 	/**
@@ -46,11 +50,13 @@ public class DatumUndZeitTrainer {
 	public Long dauerVonEinerMinuteInSekunden() {
 		return null;		
 	}
-	
+
 	@Test
 	@DisplayName("Dauer einer Minute in Sekunden.")
 	public void test03() {
-		Assertions.assertEquals(60, dauerVonEinerMinuteInSekunden());		
+		Assertions.assertEquals( 
+							60, 
+							dauerVonEinerMinuteInSekunden() );		
 	}
-	
+
 }

@@ -15,5 +15,4 @@ package enumDemo;
  *
  */
 public enum Wochentag {
-		
 }

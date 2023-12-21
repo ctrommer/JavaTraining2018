@@ -1,7 +1,7 @@
 package begriffe;
 
 /**
- * Erzeugt eine Klasse die nach dem Erzeugen nicht mehr verändert werden kann. 
+ * Erzeugt eine Klasse, die nach dem Erzeugen nicht mehr verändert werden kann. 
  * Sie hat ein Feld das mutable ist und eins, dass immutable ist.
  */
 public class ImmutableTrainer {
@@ -30,6 +30,4 @@ public class ImmutableTrainer {
 		this.stringBuilder = stringBuilder;
 	}
 
-
 }
-
