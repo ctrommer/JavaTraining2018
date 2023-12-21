@@ -11,7 +11,8 @@ public class GebauedeTest {
 	@DisplayName("Wurde das Gebaeude richtig zusammengebaut?")
 	public void test01() {
 		Gebaeude gebaeude = Gebaeude.erzeugeGebaeudeMitGuice();
-		assertEquals("Gebaeude [hausmeister=HausmeisterImpl [name=Karl, geburtsjahr=42]]", gebaeude.toString());				
+		assertEquals(
+				"Gebaeude [hausmeister=HausmeisterImpl [name=Karl, geburtsjahr=42]]", 
+				gebaeude.toString() );
 	}
-
 }

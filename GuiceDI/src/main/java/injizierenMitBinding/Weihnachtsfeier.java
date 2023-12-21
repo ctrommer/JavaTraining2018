@@ -4,7 +4,7 @@ public class Weihnachtsfeier {
 	
 	Boolean findetStatt;
 
-	public Weihnachtsfeier(boolean findetStatt) {
+	public Weihnachtsfeier( boolean findetStatt ) {
 		this.findetStatt = findetStatt;
 	}
 

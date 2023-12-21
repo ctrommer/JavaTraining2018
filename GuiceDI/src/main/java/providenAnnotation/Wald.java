@@ -18,7 +18,7 @@ class Wald {
 	}
 
 	public static Wald erzeugeWaldMitGuice() {
-		Injector waldZusammenbastler = Guice.createInjector(new WaldModule());
-	    return waldZusammenbastler.getInstance(Wald.class);
+		Injector waldZusammenbastler = Guice.createInjector( new WaldModule() );
+	    return waldZusammenbastler.getInstance( Wald.class );
 	}
 }
