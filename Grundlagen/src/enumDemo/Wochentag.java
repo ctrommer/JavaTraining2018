@@ -27,7 +27,7 @@ public enum Wochentag {
 	
 	private String text;
 
-	private Wochentag(String text) {
+	private Wochentag( String text ) {
 		this.text = text;
 	}
 
@@ -35,7 +35,7 @@ public enum Wochentag {
 		return text;
 	}
 
-	public void setText(String text) {
+	public void setText( String text ) {
 		this.text = text;
 	}
 }

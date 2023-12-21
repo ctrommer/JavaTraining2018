@@ -33,7 +33,9 @@ public class VarArgs {
 	@DisplayName("Varargs mit konkretem Typ, hier String")
 	public void teste01() {
 		int anzahlStrings = gebeAnzahlStringsZurueck("eins", "zwei", "drei");
-		assertEquals(3, anzahlStrings);
+		assertEquals(
+				3, 
+				anzahlStrings );
 	}
 
 	@SafeVarargs
@@ -60,7 +62,9 @@ public class VarArgs {
 	@DisplayName("@SafeVarargs richtig verwendet")
 	public void test02() {
 		int anzahlElemente = demonstriereVarargsSafe("erster", "zweiter");
-		assertEquals(2, anzahlElemente);
+		assertEquals(
+				2, 
+				anzahlElemente );
 	}
 
 	static <U> U[] gebeAlsArrayZurueckTypUnbekannt( U ... beliebige ) {
@@ -103,18 +107,22 @@ public class VarArgs {
 	public void test03() {
 		String[] ergebnis = gebeAlsArrayZurueckTypUnbekannt("erster", "zweiter");
 
-		assertEquals("erster", ergebnis[0]);
-		assertEquals("zweiter", ergebnis[1]);
+		assertEquals(
+				"erster", 
+				ergebnis[0] );
+		assertEquals(
+				"zweiter", 
+				ergebnis[1] );
 	}
 
 	@Test
-	@DisplayName("Wenn die Methode nicht Varargs Safe ist und mit parameterisierten Typen aufgerufen wird, soll sie eine Exception werfen")
+	@DisplayName("Wenn die Methode nicht Varargs Safe ist und mit parameterisierten Typen aufgerufen wird, "
+			+ "soll sie eine Exception werfen")
 	@SuppressWarnings("unused")
 	public void test04() {
-		assertThrows(ClassCastException.class, ()-> {
-			String[] ergebnisString = demonstriereNichtVarargsSafe("erster", "zweiter");}
+		assertThrows(
+				ClassCastException.class, 
+				()-> { String[] ergebnisString = demonstriereNichtVarargsSafe("erster", "zweiter");	}
 		);			
-	}
-	
+	}	
 }
-

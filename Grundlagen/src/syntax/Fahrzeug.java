@@ -3,7 +3,7 @@ package syntax;
 public abstract class Fahrzeug {
 	private int gewicht;
 
-	public Fahrzeug(int gewicht) {
+	public Fahrzeug( int gewicht ) {
 		this.gewicht = gewicht;
 	}
 

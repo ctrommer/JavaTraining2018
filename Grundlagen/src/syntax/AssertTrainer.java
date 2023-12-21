@@ -35,37 +35,43 @@ public class AssertTrainer {
 	 * Text, der bei Exception angezeigt werden soll
 	 */
 	public void zweiteFormDesAssert( Boolean bedingung, String fehlerText ) {
-		assert bedingung: fehlerText;		
+		assert bedingung : fehlerText;		
 	}
 
 	@DisplayName("Wirft assert exception, wenn Bedingung nicht erfuellt?")
 	@Test
 	public void test01() {
-		Assertions.assertThrows(AssertionError.class, ()->ersteFormDesAssert(false));
+		Assertions.assertThrows(
+							AssertionError.class, 
+							() -> ersteFormDesAssert( false ) );
 	}
-	
+
 	@DisplayName("Wirft assert keine exception, wenn Bedingung erfuellt?")
 	@Test
 	public void test02() {
-		ersteFormDesAssert(true);
+		ersteFormDesAssert( true );
 	}
 
-	@DisplayName("Wirft das assert mit Fehlertext exception und gibt Text aus, wenn Bedingung nicht erfuellt?")
+	@DisplayName("Wirft das assert mit Fehlertext exception und gibt Text aus, "
+			+ "wenn Bedingung nicht erfuellt?")
 	@Test
 	public void test03() {
 		String fehlertext 
 				= Assertions.assertThrows(
 								AssertionError.class, 
-								()->zweiteFormDesAssert(false,"Fehlertext"))
-							.getLocalizedMessage();
+								() -> zweiteFormDesAssert( false, "Fehlertext" ) )
+																	.getLocalizedMessage();
 		
 		Assertions.assertEquals("Fehlertext", fehlertext);
 	}
 	
-	@DisplayName("Wirft das assert mit Fehlertext keine exception, wenn Bedingung erfuellt?")
+	@DisplayName("Wirft das assert mit Fehlertext keine exception, "
+			+ "wenn Bedingung erfuellt?")
 	@Test
 	public void test04() {
-		zweiteFormDesAssert(true, "Fehlertext");
+		zweiteFormDesAssert(
+						true, 
+						"Fehlertext" );
 	}	
 	
 }

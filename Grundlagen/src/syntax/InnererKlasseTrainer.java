@@ -16,7 +16,7 @@ public class InnererKlasseTrainer {
 	 */
 	public class InnereKlasse {
 		int summeDerErreichbarenZahlen() {
-			return (aeussereZahl + aeussereStaticZahl); 
+			return ( aeussereZahl + aeussereStaticZahl ); 
 		}		
 	}
 	
@@ -26,7 +26,7 @@ public class InnererKlasseTrainer {
 	 */
 	public static class StatischeInnereKlasse {
 		public int summeDerErreichbarenZahlen() {
-			return (aeussereStaticZahl); 
+			return ( aeussereStaticZahl ); 
 		}
 	}
 
@@ -37,7 +37,7 @@ public class InnererKlasseTrainer {
 	Integer methodeMitLokalerInnereKlasse() {
 		final class LokaleInnereKlasse {
 			public int summeDerErreichbarenZahlen() {
-				return (aeussereZahl + aeussereStaticZahl); 
+				return ( aeussereZahl + aeussereStaticZahl ); 
 			}
 		}
 		
@@ -65,7 +65,8 @@ public class InnererKlasseTrainer {
 	 * Summe der erreichbaren Zahlen 
 	 */
 	public Integer summeDerVonStatischerInnererKlasseErreichbarenZahlen() {
-		InnererKlasseTrainer.StatischeInnereKlasse statischeInnereKlasse = new InnererKlasseTrainer.StatischeInnereKlasse();		
+		InnererKlasseTrainer.StatischeInnereKlasse statischeInnereKlasse 
+													= new InnererKlasseTrainer.StatischeInnereKlasse();		
 		return statischeInnereKlasse.summeDerErreichbarenZahlen();		
 	}
 
@@ -77,31 +78,31 @@ public class InnererKlasseTrainer {
 	 * Summe der erreichbaren Zahlen 
 	 */
 	public Integer summeDerVonLokalerInnererKlasseErreichbarenZahlen() {
-		return methodeMitLokalerInnereKlasse();		
+		return methodeMitLokalerInnereKlasse();
 	}
-	
+
 	@DisplayName("Werden die von der inneren Klasse erreichbaren Zahlen der Summe hinzugefuegt?")
 	@Test
 	public void test01() {
 		assertEquals(
 				3, 
-				summeDerVonInnererKlasseErreichbarenZahlen());		
+				summeDerVonInnererKlasseErreichbarenZahlen() );		
 	}
-	
+
 	@DisplayName("Werden die von der statischen inneren Klasse erreichbaren Zahlen der Summe hinzugefuegt?")
 	@Test
 	public void test02() {
 		assertEquals(
-				2, 
-				summeDerVonStatischerInnererKlasseErreichbarenZahlen());		
-	}	
+				2,
+				summeDerVonStatischerInnererKlasseErreichbarenZahlen() );		
+	}
 
 	@DisplayName("Werden die von der lokalen inneren Klasse erreichbaren Zahlen der Summe hinzugefuegt?")
 	@Test
 	public void test03() {
 		assertEquals(
 				3, 
-				summeDerVonLokalerInnererKlasseErreichbarenZahlen());		
+				summeDerVonLokalerInnererKlasseErreichbarenZahlen() );		
 	}
-	
+
 }
