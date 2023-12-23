@@ -13,18 +13,18 @@ public class TestErrorCollector {
 	public void testeErrorCollector() {
 
 		try {
-			int[] zahlen1 = {1,2,3};		
-			System.out.println(zahlen1[3]);
-		} catch (Exception e) {
+			int[] zahlen1 = { 1, 2, 3 };		
+			System.out.println( zahlen1[3] );
+		} catch ( Exception e ) {
 			errorCollector.addError(e);
 		}
 
 		try {
-			int[] zahlen2 = {1,2,3};		
+			int[] zahlen2 = { 1, 2, 3 };		
 			System.out.println(zahlen2[3]);
-		} catch (Exception e) {
-			errorCollector.addError(e);
-		}		
+		} catch ( Exception e ) {
+			errorCollector.addError( e );
+		}
 
 	}
 

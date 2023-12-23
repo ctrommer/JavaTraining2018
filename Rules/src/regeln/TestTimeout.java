@@ -14,7 +14,7 @@ public class TestTimeout {
 	 * Regel, die nach einer Sekunde zum Timeout führt.
 	 */
 	@Rule
-	public Timeout timeoutRule = new Timeout(SEKUNDEN_BIS_TIMEOUT, TimeUnit.SECONDS);
+	public Timeout timeoutRule = new Timeout( SEKUNDEN_BIS_TIMEOUT, TimeUnit.SECONDS );
 	
 	/**
 	 * Provoziert Timeout.
@@ -23,7 +23,7 @@ public class TestTimeout {
 	public void testeTimeout() {
 		for ( int index1 = 1; index1 <= 30000; index1++ ) {
 			for ( int index2 = 1; index2 <= 30000; index2++ ) {			
-				System.out.println(index1 + " " + index2);
+				System.out.println( index1 + " " + index2 );
 			}
 		}			
 	}

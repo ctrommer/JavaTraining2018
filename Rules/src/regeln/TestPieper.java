@@ -13,7 +13,7 @@ public class TestPieper {
 	 */
 	@Test
 	public void testePiepen() {
-		int[] zahlen = {1,2,3};		
-		System.out.println(zahlen[3]);
+		int[] zahlen = { 1, 2, 3 };
+		System.out.println( zahlen[3] );
 	}
 }

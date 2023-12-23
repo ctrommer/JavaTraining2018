@@ -9,11 +9,11 @@ import org.junit.runner.Description;
  * Eigene Rule, die bei Fehler piept.
  *
  */
-public class MeinePieperRule extends TestWatcher{
+public class MeinePieperRule extends TestWatcher {
 
 	@Override
-	protected void failed(Throwable e, Description description) {
+	protected void failed( Throwable e, Description description ) {
 		Toolkit.getDefaultToolkit().beep();
-		super.failed(e, description);
+		super.failed( e, description );
 	}	
 }

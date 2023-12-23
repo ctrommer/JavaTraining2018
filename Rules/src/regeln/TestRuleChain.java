@@ -22,13 +22,15 @@ public class TestRuleChain {
 	 * Verknüpfung der beiden Regeln
 	 */
 	@Rule
-	public RuleChain ruleChain = RuleChain.outerRule(meinePieperRule).around(expectedException);
+	public RuleChain ruleChain = RuleChain
+									.outerRule( meinePieperRule )
+									.around( expectedException );
 
 	@Test
 	public void testeRuleChain() {
-		expectedException.expect(ArrayIndexOutOfBoundsException.class);
+		expectedException.expect( ArrayIndexOutOfBoundsException.class );
 		expectedException.expectMessage("3");
-		int[] zahlen = {1,2,3};		
+		int[] zahlen = { 1, 2, 3 };		
 		System.out.println(zahlen[3]);
 	}
 

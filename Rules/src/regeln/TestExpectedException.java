@@ -19,21 +19,23 @@ public class TestExpectedException {
 	 */
 	@Test
 	public void testeBruchDeprecated() {
-		expectedException.expect(ArrayIndexOutOfBoundsException.class);
+		expectedException.expect( ArrayIndexOutOfBoundsException.class );
 		expectedException.expectMessage("3");
-		int[] zahlen = {1,2,3};		
-		System.out.println(zahlen[3]);
+		int[] zahlen = { 1, 2, 3 };
+		System.out.println( zahlen[3] );
 	}
 	
 	// Aktuelle Variante:
 	@Test
 	public void testeBruchSeidJava8() {
-		ArrayIndexOutOfBoundsException geworfeneAusnahme = assertThrows(ArrayIndexOutOfBoundsException.class, ()-> {
-			int[] zahlen = {1,2,3};		
-			System.out.println(zahlen[3]);			
-		});
-		assertTrue(geworfeneAusnahme.getMessage().contains("3"));
-	}
-	
-	
+		ArrayIndexOutOfBoundsException geworfeneAusnahme = assertThrows( 
+																ArrayIndexOutOfBoundsException.class, 
+																()-> {	
+																		int[] zahlen = { 1, 2, 3 };
+																		System.out.println( zahlen[3] );
+																	});
+		assertTrue( geworfeneAusnahme
+							.getMessage()
+							.contains("3") );
+	}	
 }
