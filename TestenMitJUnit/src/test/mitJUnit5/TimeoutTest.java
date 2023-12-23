@@ -14,23 +14,20 @@ public class TimeoutTest {
     @Test
     void testeTimeoutMitAbbruch() {
     	System.out.println("Timeout mit Abbruch:");
-
     }
     
     @Test
     void testeTimeoutOhneAbbruch() {
     	System.out.println("Timeout aber macht weiter:");
-
     }
 
-    public void brauchtLange(String ausgabe) {
+    public void brauchtLange( String ausgabe ) {
 		for ( int index1 = 1; index1 <= 30; index1++ ) {
-			System.out.print(index1 + ": ");
+			System.out.print( index1 + ": " );
 			for ( int index2 = 1; index2 <= 300; index2++ ) {			
-				System.out.print(ausgabe);
+				System.out.print( ausgabe );
 			}
 			System.out.println("");
 		}			
     }
-
 }

@@ -25,7 +25,7 @@ public class MyJUnit5TestFactory {
 	
 	@AfterAll
 	public static void wurdenAlleTestsAusgefuehrt() {
-		assertEquals(7,ausgefuehrteTests);
+		assertEquals( 7, ausgefuehrteTests );
 	}
 	
 	/**
@@ -35,8 +35,6 @@ public class MyJUnit5TestFactory {
 	 */
     void dynamicTestMitCollection() {
     }
-	
-	
 
 	/**
 	 * Teste MeineMatheUtil.quadriere mit einer Testfactory für die Zahlen von 2 bis 10 und einer for-Schleife
@@ -68,14 +66,14 @@ public class MyJUnit5TestFactory {
 	 * von der zweiten Zeile das erste Element
 	 */
 	public int elementAusZweidimensionalemArray() {
-		
-		
 		return  42;
 	}
 
 	@Test
 	public void testeElementAusZweidimensionalemArray() {		
-		assertEquals(3, elementAusZweidimensionalemArray());
+		assertEquals( 
+				3, 
+				elementAusZweidimensionalemArray() );
 	}
 
 	/**
@@ -87,16 +85,21 @@ public class MyJUnit5TestFactory {
 	 * @return
 	 * Liste, die alle Integer Werte des zweidimensionalen Arrays enthaelt
 	 */
+
 	public List<Integer> zweidimensionalesArrayZuStream(int[][] zweidimensionalesIntArray) {
-		
 		return null;
 	}
 	
 	@Test
 	public void testeZweidimensionalesArrayZuStream() {
-		List<Integer> zutestendeWerte = zweidimensionalesArrayZuStream( new int[][] { { 1, 2 }, { 3, 4 } } );
-		List<Integer> erwarteteWerte = Arrays.asList(1,2,3,4);
-		assertEquals(erwarteteWerte, zutestendeWerte);
+		List<Integer> zutestendeWerte = zweidimensionalesArrayZuStream( new int[][] { 
+																					{ 1, 2 }, 
+																					{ 3, 4 } 
+																					} );
+		List<Integer> erwarteteWerte = Arrays.asList( 1, 2, 3, 4 );
+		assertEquals(
+				erwarteteWerte, 
+				zutestendeWerte);
 	}	
 
     /**
@@ -121,8 +124,8 @@ public class MyJUnit5TestFactory {
 	public static List<String> ermittleMitTestFactoryAnnotierteMethoden() {
 		List<String> listeMitTestFactoryAnnotierteMethoden = new ArrayList<>();
 		for ( final Method methode : MyJUnit5TestFactory.class.getDeclaredMethods() ) {
-			if ( methode.isAnnotationPresent(TestFactory.class)) {
-				listeMitTestFactoryAnnotierteMethoden.add(methode.getName());
+			if ( methode.isAnnotationPresent( TestFactory.class ) ) {
+				listeMitTestFactoryAnnotierteMethoden.add( methode.getName() );
 			}
 		}
 		return listeMitTestFactoryAnnotierteMethoden;
@@ -132,8 +135,13 @@ public class MyJUnit5TestFactory {
 	@DisplayName("Teste, ob die Methoden mit @TestFactory annotiert sind.")
 	public void testeDynamicTestMitCollection() {		
 		List<String> methodsAnnotatedWithTestFactory = ermittleMitTestFactoryAnnotierteMethoden();
-		List<String> expected = Arrays.asList( "gleicherTestUnterschiedlicheDaten", "dynamicTestMitCollection", "testeMitMehrerenDaten", "gleicherTestUnterschiedlicheDatenMitForSchleife" );
-		assertEquals(new HashSet<>(expected), new HashSet<>(methodsAnnotatedWithTestFactory));		
+		List<String> expected = Arrays.asList( 
+										"gleicherTestUnterschiedlicheDaten", 
+										"dynamicTestMitCollection", 
+										"testeMitMehrerenDaten", 
+										"gleicherTestUnterschiedlicheDatenMitForSchleife" );
+		
+		assertEquals( new HashSet<>(expected), new HashSet<>( methodsAnnotatedWithTestFactory ) );		
 	}
 
 }

@@ -1,33 +1,16 @@
 package test.mitJUnit5;
 
 
-import static org.junit.jupiter.api.Assertions.assertAll;
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertFalse;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
-import static org.junit.jupiter.api.Assertions.assertNotSame;
-import static org.junit.jupiter.api.Assertions.assertNull;
-import static org.junit.jupiter.api.Assertions.assertSame;
-import static org.junit.jupiter.api.Assertions.assertTrue;
-import static org.junit.jupiter.api.Assertions.fail;
-
-import org.junit.jupiter.api.AfterAll;
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.Assumptions;
-import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 public class MyJUnit5Tests {
 	
 	public static void bevorDieTestsStarten() {
-		System.out.println("bevor die Tests starten");	
+		System.out.println("bevor die Tests starten");
 	}
 
 	public void vorJedemTest() {
-		System.out.println("vor jedem Test");		
+		System.out.println("vor jedem Test");
 	}
 
 	public void nachJedemTest() {
@@ -45,7 +28,7 @@ public class MyJUnit5Tests {
 	public void testeDivisionDurchNull() 
 	{
 		int x = 1 / 0;
-		System.out.println(x);
+		System.out.println( x );
 	}
 
     /**
@@ -54,8 +37,8 @@ public class MyJUnit5Tests {
      */
     @Test
     public void testeZugriffAufUngueltigenIndexSollExceptionWerfen() {
-    	int[] zahlen = {1,2,3};
-    	System.out.println(zahlen[9]);
+    	int[] zahlen = { 1, 2, 3 };
+    	System.out.println( zahlen[9] );
     }
     
      /**
@@ -72,7 +55,6 @@ public class MyJUnit5Tests {
 
     	// Checks that the boolean condition is true.
 
-
     	// Checks that the boolean condition is false.
 
     	// Tests that two values are the same. Note: for arrays the reference is checked not the content of the arrays.
@@ -84,11 +66,11 @@ public class MyJUnit5Tests {
     	// Checks that the object is not null.
 
     	// Checks that both variables refer to the same object.
-    	Integer x = Integer.valueOf(42);
+    	Integer x = Integer.valueOf( 42 );
 		Integer y = x;
 
     	// Checks that both variables refer to different objects.
-    	Integer z = Integer.valueOf(42);
+
     }
 
     @Test
@@ -102,10 +84,9 @@ public class MyJUnit5Tests {
     public void testeNurUnterBestimmtenBedingungenAusfuehren() {
     	// Nur wenn das Betriebssystem Linux ist ...
 		String betriebssystem = System.getProperty("os.name");		
-
 		// ... dann soll dieser Test ausgeführt werden. 
     	int x = 1 / 0;
-    	System.out.println(x);
+    	System.out.println( x );
     }
 
 }

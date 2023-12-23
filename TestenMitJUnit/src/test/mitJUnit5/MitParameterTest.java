@@ -3,15 +3,6 @@ package test.mitJUnit5;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-import java.util.stream.Stream;
-
-import org.junit.jupiter.params.ParameterizedTest;
-import org.junit.jupiter.params.provider.Arguments;
-import org.junit.jupiter.params.provider.CsvSource;
-import org.junit.jupiter.params.provider.EnumSource;
-import org.junit.jupiter.params.provider.MethodSource;
-import org.junit.jupiter.params.provider.ValueSource;
-
 import main.Wochentag;
 
 public class MitParameterTest {
@@ -21,8 +12,8 @@ public class MitParameterTest {
      * @param zahl
      * die zu parameteriesierende Zahl
      */
-    void testeZahlen(int zahl) {
-    	assertNotNull(zahl);
+    void testeZahlen( int zahl ) {
+    	assertNotNull( zahl );
     }
 
     /**
@@ -30,7 +21,7 @@ public class MitParameterTest {
      * @param wochentag
      */
     void testeEnum( Wochentag wochentag ) {
-    	assertNotNull(wochentag);
+    	assertNotNull( wochentag );
     }
 
     /**
@@ -40,8 +31,8 @@ public class MitParameterTest {
      * @param laenge
      * länge für den Test
      */
-    void testeMitMethodeAlsDatenQuelle(String text, int laenge) {     	
-    	assertTrue(text.length() == laenge);    	
+    void testeMitMethodeAlsDatenQuelle( String text, int laenge ) {     	
+    	assertTrue( text.length() == laenge );    	
     }
 
     /**
@@ -59,8 +50,8 @@ public class MitParameterTest {
      * @param laenge
      * Länge für Test
      */
-    void testeMitCSVAlsDatenQuelle(String text, int laenge) { 
-    	assertTrue(text.length() == laenge ); // Juhu: String::length funktioniert!!!
+    void testeMitCSVAlsDatenQuelle( String text, int laenge ) { 
+    	assertTrue( text.length() == laenge ); // Juhu: String::length funktioniert!!!
     }
     
 }

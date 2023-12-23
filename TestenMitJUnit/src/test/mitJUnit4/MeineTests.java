@@ -43,59 +43,80 @@ public class MeineTests {
 	public void multiplizierenVonGrossenIntegernSollSinnvollenWertErgeben() 
 	{
 		int x = 1 / 0;
-		System.out.println(x);
+		System.out.println( x );
 	}
     
-    @Test( expected = Exception.class)
+    @Test( expected = Exception.class )
     public void testeRichtigeExceptionBeiFalschemIndex() {
-    	int[] zahlen = {1,2,3};
-    	System.out.println(zahlen[9]);
+    	int[] zahlen = { 1, 2, 3 };
+    	System.out.println( zahlen[9] );
     }
     
-    @Test(timeout = 1)
+    @Test( timeout = 1 )
     public void testeAbbruchNachTimeOut() {
 		for ( int index1 = 1; index1 <= 30000; index1++ ) {
 			for ( int index2 = 1; index2 <= 30000; index2++ ) {			
-				System.out.print(index1 + " " + index2);
+				System.out.print( index1 + " " + index2 );
 			}
 		}			
     }
 
     @Test ( expected = ArrayIndexOutOfBoundsException.class ) 
     public void testeErwarteteException() {
-    	int zahlen[] = { 1,2,3 };
-    	System.out.println(zahlen[8]);
+    	int zahlen[] = { 1, 2, 3 };
+    	System.out.println( zahlen[8] );
     }
 
     @Test
     public void testDemonstriertAssertions() {
 
     	// Checks that the boolean condition is true.
-    	assertTrue("Erwartet dass die Bedingung true ist.", true);
+    	assertTrue(
+    			"Erwartet dass die Bedingung true ist.", 
+    			true );
 
     	// Checks that the boolean condition is false.
-    	assertFalse("Erwartet dass die Bedingung false ist.", false);
+    	assertFalse(
+    			"Erwartet dass die Bedingung false ist.", 
+    			false );
 
     	// Tests that two values are the same. Note: for arrays the reference is checked not the content of the arrays.
-    	assertEquals("Erwartet wird, dass beide Werte gleich sind.", "erwartet", "erwartet");
+    	assertEquals(
+    			"Erwartet wird, dass beide Werte gleich sind.", 
+    			"erwartet", 
+    			"erwartet" );
 
     	// Test that float or double values match. The tolerance is the number of decimals which must be the same.
-    	assertEquals("Erwartet, dass die Werte innerhalb der Toleranz gleich sind", 0.1239 , 0.1231, 0.001);
+    	assertEquals(
+    			"Erwartet, dass die Werte innerhalb der Toleranz gleich sind", 
+    			0.1239 , 
+    			0.1231, 
+    			0.001 );
 
     	// Checks that the object is null.
-    	assertNull("Erwartet, dass das Objekt null ist.", null);
+    	assertNull(
+    			"Erwartet, dass das Objekt null ist.", 
+    			null );
 
     	// Checks that the object is not null.
-    	assertNotNull("Erwartet, dass das Objekt nicht null ist.", Integer.valueOf(42));
+    	assertNotNull(
+    			"Erwartet, dass das Objekt nicht null ist.", 
+    			Integer.valueOf( 42 ) );
 
     	// Checks that both variables refer to the same object.
-    	Integer x = Integer.valueOf(42);
+    	Integer x = Integer.valueOf( 42 );
 		Integer y = x;
-		assertSame("Erwartet, dass beide sich auf das gleiche Objekt beziehen. ", x, y );
+		assertSame(
+				"Erwartet, dass beide sich auf das gleiche Objekt beziehen. ", 
+				x, 
+				y );
 
     	// Checks that both variables refer to different objects.
-    	Integer z = Integer.valueOf(43);
-		assertNotSame("Erwartet, dass beide sich auf unterschiedliche Objekte beziehen. ", Integer.valueOf(42), z);
+    	Integer z = Integer.valueOf( 43 );
+		assertNotSame(
+				"Erwartet, dass beide sich auf unterschiedliche Objekte beziehen. ", 
+				Integer.valueOf(42), 
+				z );
     }
     
     @Test
@@ -113,7 +134,7 @@ public class MeineTests {
 		// Assume.assumeTrue(betriebssystem.contains("Windows"));
 		// ... dann soll dieser Test ausgeführt werden. 
     	int x = 1 / 0;
-    	System.out.println(x);
+    	System.out.println( x );
     }
 
 }

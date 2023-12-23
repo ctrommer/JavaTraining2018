@@ -10,7 +10,7 @@ public class TeilweiseLangsam {
 		System.out.println("ohne Kategorie");
 	}
 
-	@Category( KategorieLangsameTests.class)
+	@Category( KategorieLangsameTests.class )
 	@Test
 	public void langsam() {
 		System.out.println("Klasse: TeilweiseLangsam | Methode: langsam");
