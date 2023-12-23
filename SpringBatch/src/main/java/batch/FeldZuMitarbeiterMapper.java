@@ -10,12 +10,12 @@ public class FeldZuMitarbeiterMapper implements FieldSetMapper<Mitarbeiter> {
 
 	
 	@Override
-	public Mitarbeiter mapFieldSet(FieldSet fieldSet) throws BindException {
+	public Mitarbeiter mapFieldSet( FieldSet fieldSet ) throws BindException {
 
 		Mitarbeiter mitarbeiter = new Mitarbeiter();
-		mitarbeiter.setMitarbeiterId(fieldSet.readString(0));
-		mitarbeiter.setMitarbeiterName(fieldSet.readString(1));
-		mitarbeiter.setGewicht(fieldSet.readInt(2));
+		mitarbeiter.setMitarbeiterId( fieldSet.readString( 0 ) );
+		mitarbeiter.setMitarbeiterName( fieldSet.readString( 1 ) );
+		mitarbeiter.setGewicht( fieldSet.readInt( 2 ) );
 		return mitarbeiter;
 	}
 
