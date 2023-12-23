@@ -11,8 +11,7 @@ public class MeineRegelVerwender {
 	@Test
 	public void testeNullDivision() {
 		int x = 1 / 0;
-		System.out.println(meineRegel.getBasis());
-		System.out.println(x);
-	}
-	
+		System.out.println( meineRegel.getBasis() );
+		System.out.println( x );
+	}	
 }

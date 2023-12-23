@@ -24,12 +24,12 @@ public class MyJUnit5Tests {
 	
 	@BeforeAll
 	public static void bevorDieTestsStarten() {
-		System.out.println("bevor die Tests starten");	
+		System.out.println("bevor die Tests starten");
 	}
 
 	@BeforeEach
 	public void vorJedemTest() {
-		System.out.println("vor jedem Test");		
+		System.out.println("vor jedem Test");
 	}
 
 	@AfterEach
@@ -47,17 +47,19 @@ public class MyJUnit5Tests {
 	public void testeDivisionDurchNull() 
 	{
 		int x = 1 / 0;
-		System.out.println(x);
+		System.out.println( x );
 	}
 
     @Test
     public void testeZugriffAufUngueltigenIndexSollExceptionWerfen() {
-    	int[] zahlen = {1,2,3};
-    	Throwable throwable = Assertions.assertThrows(ArrayIndexOutOfBoundsException.class, () -> System.out.println(zahlen[9]));
+    	int[] zahlen = { 1, 2, 3 };
+    	Throwable throwable = Assertions.assertThrows(
+    										ArrayIndexOutOfBoundsException.class, 
+    										() -> System.out.println( zahlen[9] ) );
     	boolean inhalt = throwable.getMessage().contains("9");
-		assertTrue(inhalt);
+		assertTrue( inhalt );
     }
-    
+
     /**
      * Wenn beide asserts fehlschlagen, werden beide angezeigt.
      */
@@ -65,38 +67,62 @@ public class MyJUnit5Tests {
     void testeMehrereAssertions() {
     	int x = 5;
     	int y = 6;
-    	assertAll("Erwartet wird, dass x = 5 und y = 6 ist. ", () -> assertEquals(x, 5), () -> assertEquals(y, 6));
+    	assertAll(
+    			"Erwartet wird, dass x = 5 und y = 6 ist. ", 
+    			() -> assertEquals( x, 5 ), 
+    			() -> assertEquals( y, 6 ) );
     }
 
     @Test
     public void testDemonstriertAssertions() {
 
     	// Checks that the boolean condition is true.
-    	assertTrue(true, "Erwartet, dass die Bedingung true ist.");
+    	assertTrue(
+    			true, 
+    			"Erwartet, dass die Bedingung true ist.");
 
     	// Checks that the boolean condition is false.
-    	assertFalse(false, "Erwartet, dass die Bedingung false ist.");
+    	assertFalse(
+    			false, 
+    			"Erwartet, dass die Bedingung false ist.");
 
     	// Tests that two values are the same. Note: for arrays the reference is checked not the content of the arrays.
-    	assertEquals("erwartet", "erwartet", "Erwartet wird, dass beide Werte gleich sind.");
+    	assertEquals(
+    			"erwartet", 
+    			"erwartet", 
+    			"Erwartet wird, dass beide Werte gleich sind." );
 
     	// Test that float or double values match. The tolerance is the number of decimals which must be the same.
-    	assertEquals( 0.1239 , 0.1231, 0.001, "Erwartet, dass die Werte innerhalb der Toleranz gleich sind");
+    	assertEquals( 
+    			0.1239 , 
+    			0.1231, 
+    			0.001, 
+    			"Erwartet, dass die Werte innerhalb der Toleranz gleich sind" );
 
     	// Checks that the object is null.
-    	assertNull(null,"Erwartet, dass das Objekt null ist.");
+    	assertNull(
+    			null,
+    			"Erwartet, dass das Objekt null ist." );
 
     	// Checks that the object is not null.
-    	assertNotNull(Integer.valueOf(42), "Erwartet, dass das Objekt nicht null ist.");
+    	assertNotNull(
+    			Integer.valueOf( 42 ), 
+    			"Erwartet, dass das Objekt nicht null ist." );
 
     	// Checks that both variables refer to the same object.
-    	Integer x = Integer.valueOf(42);
+    	Integer x = Integer.valueOf( 42 );
 		Integer y = x;
-		assertSame(x, y, "Erwartet, dass beide sich auf das gleiche Objekt beziehen." );
+		assertSame(
+				x, 
+				y, 
+				"Erwartet, dass beide sich auf das gleiche Objekt beziehen.");
 
     	// Checks that both variables refer to different objects.
-    	Integer z = Integer.valueOf(42);
-		assertNotSame(z, Integer.valueOf(42), "Erwartet, dass beide sich auf das gleiche Objekt beziehen. ");
+    	Integer z = Integer.valueOf( 42 );
+		assertNotSame(
+				z, 
+				Integer.valueOf(42), 
+				"Erwartet, dass beide sich auf das gleiche Objekt beziehen.");
     }
 
     @Test
@@ -110,11 +136,11 @@ public class MyJUnit5Tests {
     public void testeNurUnterBestimmtenBedingungenAusfuehren() {
     	// Nur wenn das Betriebssystem Linux ist ...
 		String betriebssystem = System.getProperty("os.name");		
-		Assumptions.assumeTrue(betriebssystem.contains("Linux"));
+		Assumptions.assumeTrue( betriebssystem.contains("Linux") );
 		// Assumptions.assumeTrue(betriebssystem.contains("Windows"));
 		// ... dann soll dieser Test ausgeführt werden. 
     	int x = 1 / 0;
-    	System.out.println(x);
+    	System.out.println( x );
     }
 
 }

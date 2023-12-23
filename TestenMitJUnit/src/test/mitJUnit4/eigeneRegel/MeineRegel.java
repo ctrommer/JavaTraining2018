@@ -25,13 +25,21 @@ public class MeineRegel implements TestRule{
 
 		@Override
 		public void evaluate() throws Throwable {
-			System.out.println( "Start von MeinRegel - Klasse " + beschreibung.getClassName() + " Methode: " + beschreibung.getMethodName() );
+			System.out.println( 
+								"Start von MeinRegel - Klasse " 
+								+ beschreibung.getClassName() 
+								+ " Methode: " 
+								+ beschreibung.getMethodName() );
             try {            	
                 basis.evaluate();
             } finally {
-            	System.out.println( "Ende von MeinRegel - Klasse " + beschreibung.getClassName() + " Methode: " + beschreibung.getMethodName() );
+            	System.out.println( 
+            					"Ende von MeinRegel - Klasse " 
+            					+ beschreibung.getClassName() 
+            					+ " Methode: " 
+            					+ beschreibung.getMethodName() );
             }
-		}		
+		}
 	}
 
 	public Statement getBasis() {
