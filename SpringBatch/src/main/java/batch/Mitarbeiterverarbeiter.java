@@ -8,11 +8,11 @@ public class Mitarbeiterverarbeiter implements
 		ItemProcessor<Mitarbeiter, Mitarbeiter> {
 
 	@Override
-	public Mitarbeiter process(Mitarbeiter mitarbeiter) throws Exception {
+	public Mitarbeiter process( Mitarbeiter mitarbeiter ) throws Exception {
 
-		System.out.println("Processing..." + mitarbeiter);
-		System.out.println(mitarbeiter.getMitarbeiterName());
-		System.out.println(mitarbeiter.getGewicht());
+		System.out.println( "Processing..." + mitarbeiter );
+		System.out.println( mitarbeiter.getMitarbeiterName() );
+		System.out.println( mitarbeiter.getGewicht() );
 		return mitarbeiter;
 	}
 

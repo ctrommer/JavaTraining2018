@@ -7,22 +7,22 @@ import org.springframework.batch.core.launch.JobLauncher;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 public class App {
-	public static void main(String[] args) {
+	public static void main( String[] args ) {
 
 		String[] quelle = { "batch-job-mensch.xml" };
 
-		try (ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext(quelle)) {
+		try ( ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext( quelle ) ) {
 
-			JobLauncher jobLauncher = (JobLauncher) context.getBean("jobLauncher");
-			Job job = (Job) context.getBean("menschBatchJob");
+			JobLauncher jobLauncher = ( JobLauncher ) context.getBean("jobLauncher");
+			Job job = ( Job ) context.getBean("menschBatchJob");
 	
-			JobExecution jobExecution = jobLauncher.run(job, new JobParameters());
-			System.out.println("Batch Job Status: " + jobExecution.getStatus());
+			JobExecution jobExecution = jobLauncher.run( job, new JobParameters() );
+			System.out.println( "Batch Job Status: " + jobExecution.getStatus() );
 
-		} catch (Exception e) {
+		} catch ( Exception e ) {
 			e.printStackTrace();
 		}
 
-		System.out.println("Batch complete");
+		System.out.println( "Batch complete" );
 	}
 }
