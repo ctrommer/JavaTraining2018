@@ -3,7 +3,7 @@ package modul.serviceWirdGebraucht;
 public class MyServiceClass implements MyServiceInterface {
 
 	@Override
-	public int plusDrei(int zahl) {
+	public int plusDrei( int zahl ) {
 		return zahl + 3;
 	}
 

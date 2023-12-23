@@ -7,8 +7,8 @@ public class ServiceVerwender {
 
 	public static void main(String[] args) {
 		MyServiceInterface myServiceInterface = new MyServiceClass();
-		int ergebnis = myServiceInterface.plusDrei(3);
-		System.out.println(ergebnis);
+		int ergebnis = myServiceInterface.plusDrei( 3 );
+		System.out.println( ergebnis );
 	}
 
 }
