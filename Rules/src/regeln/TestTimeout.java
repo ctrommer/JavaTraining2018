@@ -1,10 +1,6 @@
 package regeln;
 
-import java.util.concurrent.TimeUnit;
-
-import org.junit.Rule;
 import org.junit.Test;
-import org.junit.rules.Timeout;
 
 public class TestTimeout {
 	
@@ -13,7 +9,6 @@ public class TestTimeout {
 	/**
 	 * Regel, die nach einer Sekunde zum Timeout führt.
 	 */
-
 	
 	/**
 	 * Provoziert Timeout.
@@ -22,7 +17,7 @@ public class TestTimeout {
 	public void testeTimeout() {
 		for ( int index1 = 1; index1 <= 30000; index1++ ) {
 			for ( int index2 = 1; index2 <= 30000; index2++ ) {			
-				System.out.println(index1 + " " + index2);
+				System.out.println( index1 + " " + index2 );
 			}
 		}			
 	}

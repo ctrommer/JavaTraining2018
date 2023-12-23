@@ -9,5 +9,4 @@ import org.junit.runner.Description;
  * Eigene Rule, die bei Fehler piept.
  *
  */
-
 //		Toolkit.getDefaultToolkit().beep();

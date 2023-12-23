@@ -23,7 +23,6 @@ public class TestExpectedException {
 	// Aktuelle Variante:
 	@Test
 	public void testeBruchSeidJava8() {
-	}
-	
-	
+	}	
 }
+

@@ -19,7 +19,6 @@ public class TestRuleChain {
 	 * Verknüpfung der beiden Regeln
 	 */
 
-
 	@Test
 	public void testeRuleChain() {
 		int[] zahlen = {1,2,3};		
