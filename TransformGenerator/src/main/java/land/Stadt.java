@@ -3,7 +3,7 @@ package land;
 public class Stadt {
 	private int hoehe;
 
-	public Stadt(int hoehe) {
+	public Stadt( int hoehe ) {
 		super();
 		this.hoehe = hoehe;
 	}

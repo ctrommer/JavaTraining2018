@@ -6,7 +6,7 @@ public class Ship {
 	private String colour;
 	private double weightInLBS;
 	
-	public Ship(String name, String colour, double weightInLBS) {
+	public Ship( String name, String colour, double weightInLBS ) {
 		super();
 		this.name = name;
 		this.colour = colour;

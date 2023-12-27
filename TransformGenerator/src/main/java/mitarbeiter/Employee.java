@@ -11,7 +11,7 @@ public class Employee {
 		super();
 	}
 
-	public Employee(String name, Employee boss, List<Employee> team) {
+	public Employee( String name, Employee boss, List<Employee> team ) {
 		super();
 		this.name = name;
 		this.boss = boss;

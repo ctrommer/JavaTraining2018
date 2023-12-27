@@ -11,7 +11,7 @@ public class Taxpayer {
 	public Taxpayer() {
 	}
 
-	public Taxpayer(Long investmentAmount, String investmentCurrency) {
+	public Taxpayer( Long investmentAmount, String investmentCurrency ) {
 		this.investmentAmount = investmentAmount;
 		this.investmentCurrency = investmentCurrency;
 	}
