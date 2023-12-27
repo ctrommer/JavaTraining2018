@@ -7,7 +7,7 @@ public class Investition {
 	public Investition() {
 	}
 
-	public Investition(Long investitionBetrag, String investitionWaehrung) {
+	public Investition( Long investitionBetrag, String investitionWaehrung ) {
 		this.investitionBetrag = investitionBetrag;
 		this.investitionWaehrung = investitionWaehrung;
 	}

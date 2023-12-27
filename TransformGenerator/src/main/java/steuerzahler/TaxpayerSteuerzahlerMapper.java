@@ -21,5 +21,4 @@ public abstract class TaxpayerSteuerzahlerMapper {
 	public abstract Steuerzahler taxpayerZuSteuerzahler( Taxpayer taxpayer );
 
     public abstract Taxpayer steuerzahlerZuTaxpayer( Steuerzahler steuerzahler );
-    
 }

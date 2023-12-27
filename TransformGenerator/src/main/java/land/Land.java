@@ -12,7 +12,8 @@ public class Land {
 	private List<Stadt> staedte = new ArrayList<Stadt>();
 
 	
-	public Land(String name, Integer einwohnerzahl, Stadt hauptstadt, String letzterFussballWMTietel, List<Stadt> staedte) {
+	public Land( String name, Integer einwohnerzahl, Stadt hauptstadt, 
+			String letzterFussballWMTietel, List<Stadt> staedte ) {
 		super();
 		this.name = name;
 		this.einwohnerzahl = einwohnerzahl;

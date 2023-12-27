@@ -9,7 +9,7 @@ public class Steuerzahler {
 	public Steuerzahler() {
 	}
 
-	public Steuerzahler(Investition investition) {
+	public Steuerzahler( Investition investition ) {
 		super();
 		this.investition = investition;
 	}
