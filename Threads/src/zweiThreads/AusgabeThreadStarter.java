@@ -1,9 +1,8 @@
 package zweiThreads;
 
-
 public class AusgabeThreadStarter {
 
-	public static void main(String[] args) {
+	public static void main( String[] args ) {
 		ohneLambda();
 		mitLambda();
 	}
@@ -15,7 +14,7 @@ public class AusgabeThreadStarter {
 		
 		// die beiden Threads starten
 	}
-	
+
 	public static void mitLambda() {
 		// Lambda, dass Hallo ausgibt für Thread erzeugen
 		
