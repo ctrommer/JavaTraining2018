@@ -1,9 +1,9 @@
-package comparatorBeispiel;
+package training;
 
-public class Angestellter implements Comparable<Angestellter>{
+public class Angestellter implements Comparable<Angestellter> {
 	Integer gehalt;
 	
-	public Angestellter(Integer gehalt) {
+	public Angestellter( Integer gehalt ) {
 		super();
 		this.gehalt = gehalt;
 	}
@@ -14,15 +14,15 @@ public class Angestellter implements Comparable<Angestellter>{
 	}	
 	
 	@Override
-	public int compareTo(Angestellter o) {
-		return gehalt.compareTo(o.gehalt);
+	public int compareTo( Angestellter o ) {
+		return gehalt.compareTo( o.gehalt );
 	}
 
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((gehalt == null) ? 0 : gehalt.hashCode());
+		result = prime * result + ( ( gehalt == null ) ? 0 : gehalt.hashCode() );
 		return result;
 	}
 

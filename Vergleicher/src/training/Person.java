@@ -1,20 +1,19 @@
-package comparatorBeispiel;
+package training;
 
 public class Person {
-	
+
     private final String name;
     private final Integer alter;
 
-    public Person(String name, Integer alter) {
+    public Person( String name, Integer alter ) {
 		this.name = name;
 		this.alter = alter;
 	}    
-    
-    public Person(String name, Integer alter, String vorname ) {
+
+    public Person( String name, Integer alter, String vorname ) {
 		this.name = name;
 		this.alter = alter;
 	}
-    
 
 	@Override
 	public String toString() {
@@ -54,6 +53,4 @@ public class Person {
 			return false;
 		return true;
 	}    
-    
-    
 }

@@ -26,11 +26,13 @@ public interface Vergleicher<T> {
 	 * @return
 	 * {@code Vergleicher}, der nach dem durch die übergebene Funktion extrahiertem Schlüssel vergleicht.
 	 */
-	static <T, U extends Comparable<U>> Vergleicher<T> erzeugeVergleicher(Funktion<T, U> vergleichsKriteriumExtrahierer) {
+	static <T, U extends Comparable<U>> Vergleicher<T> erzeugeVergleicher( Funktion<T, U> vergleichsKriteriumExtrahierer ) {
 		
-		Objects.requireNonNull(vergleichsKriteriumExtrahierer);
+		Objects.requireNonNull( vergleichsKriteriumExtrahierer );
 		
-		return ( p1, p2 ) -> vergleichsKriteriumExtrahierer.machEtwas( p1 ).compareTo( vergleichsKriteriumExtrahierer.machEtwas( p2 ) );
+		return ( p1, p2 ) -> vergleichsKriteriumExtrahierer
+													.machEtwas( p1 )
+													.compareTo( vergleichsKriteriumExtrahierer.machEtwas( p2 ) );
 	}
 
 	/**
@@ -43,11 +45,17 @@ public interface Vergleicher<T> {
 	 * @return
 	 * {@codeVergleicher}, der mit dem übergebenen {@code Vergleicher} nach dem durch die übergebene {@codeFunktion} extrahiertem Schlüssel vergleicht.
 	 */ 
-	static<T,U> Vergleicher<T> erzeugeVergleicher(Funktion<T,U> vergleichskriteriumExtrahierer, Vergleicher<U> schluesselVergleicher ) {
-		Objects.requireNonNull(vergleichskriteriumExtrahierer);
-		Objects.requireNonNull(schluesselVergleicher);
+	static<T,U> Vergleicher<T> erzeugeVergleicher( 
+									Funktion<T,U> vergleichskriteriumExtrahierer, 
+									Vergleicher<U> schluesselVergleicher ) {
+		Objects.requireNonNull( vergleichskriteriumExtrahierer );
+		Objects.requireNonNull( schluesselVergleicher );
 
-		Vergleicher<T> vergleicher = (p1, p2) -> schluesselVergleicher.vergleiche(vergleichskriteriumExtrahierer.machEtwas(p1), vergleichskriteriumExtrahierer.machEtwas(p2)); 
+		Vergleicher<T> vergleicher 
+							= ( p1, p2 ) 
+							-> schluesselVergleicher.vergleiche( 
+														vergleichskriteriumExtrahierer.machEtwas( p1 ), 
+														vergleichskriteriumExtrahierer.machEtwas( p2 ) ); 
 
 		return vergleicher;
 	}
@@ -61,10 +69,10 @@ public interface Vergleicher<T> {
 	 * @return
 	 * {@code Vergleicher}, der um das hinzugefügte Vergleichskriterium erweitert ist.
 	 */
-	default <U extends Comparable<U>> Vergleicher<T> erzeugeMitNaechstemVergleichsKriterium(Funktion<T,U> vergleichskriteriumExtrahierer) {
-		Objects.requireNonNull(vergleichskriteriumExtrahierer);
-		Vergleicher<T> zusaetlicherVergleicher = erzeugeVergleicher(vergleichskriteriumExtrahierer);		
-		return fuegeNaechstenVergleicherHinzu(zusaetlicherVergleicher);
+	default <U extends Comparable<U>> Vergleicher<T> erzeugeMitNaechstemVergleichsKriterium( Funktion<T,U> vergleichskriteriumExtrahierer ) {
+		Objects.requireNonNull( vergleichskriteriumExtrahierer );
+		Vergleicher<T> zusaetlicherVergleicher = erzeugeVergleicher( vergleichskriteriumExtrahierer );
+		return fuegeNaechstenVergleicherHinzu( zusaetlicherVergleicher );
 	}
 
 	/**
@@ -77,14 +85,16 @@ public interface Vergleicher<T> {
 	 * {@code Vergleicher}, der um das hinzugefügte Vergleichskriterium erweitert ist.
 	 */
 	default Vergleicher<T> fuegeNaechstenVergleicherHinzu( Vergleicher<T > nachsterVergleicher ) {
-		
-		Objects.requireNonNull(nachsterVergleicher);
-		
-		Vergleicher<T> erweiterterVergleicher = (p1, p2) -> { 
+
+		Objects.requireNonNull( nachsterVergleicher );
+
+		Vergleicher<T> erweiterterVergleicher = ( p1, p2 ) -> { 
 			int ergebnis = vergleiche( p1, p2 );
-			return ( ergebnis != 0 ) ? ergebnis : nachsterVergleicher.vergleiche(p1, p2);
+			return ( ergebnis != 0 ) ? 
+								ergebnis 
+								: nachsterVergleicher.vergleiche( p1, p2 );
 		};
-		return erweiterterVergleicher;	
+		return erweiterterVergleicher;
 	}
 
 	/**
@@ -106,12 +116,14 @@ public interface Vergleicher<T> {
 	 * Vergleicher, der umgedreht vergleicht.
 	 */
 	default Vergleicher<T> erzeugeDarausRueckwaertsVergleicher() {
-		Vergleicher<T> rueckwaertsVergleicher = ( p1, p2 ) -> vergleiche(p2, p1);
+		Vergleicher<T> rueckwaertsVergleicher 
+									= ( p1, p2 ) 
+									-> vergleiche( p2, p1 );
 		return rueckwaertsVergleicher;
 	}
 	
 	static <T extends Comparable<T>> Vergleicher<T> erzeugeRueckwaertsVergleicher() {
-		return ( t1, t2 ) -> t2.compareTo(t1);
+		return ( t1, t2 ) -> t2.compareTo( t1 );
 	}
 	
 	/**
@@ -121,13 +133,13 @@ public interface Vergleicher<T> {
 	 * @return
 	 * neuer Vergleicher, der zusätzlich null berücksichtig.
 	 */
-	static <T> Vergleicher<T> erzeugeNullZuerstVergleicher(Vergleicher<T> vergleicher) {
+	static <T> Vergleicher<T> erzeugeNullZuerstVergleicher( Vergleicher<T> vergleicher ) {
 		return new VergleicherUnterstuetzer.NullBeruecksichtigenderVergleicher<>( true, vergleicher );
 	}
 
 	@SuppressWarnings("unchecked")
 	static <T extends Comparable<T>> Vergleicher<T> erzeugeVergleicherWieComparable() {
-		return (Vergleicher<T>) VergleicherUnterstuetzer.VergleicherWieComparable.INSTANCE; 
+		return ( Vergleicher<T> ) VergleicherUnterstuetzer.VergleicherWieComparable.INSTANCE; 
 	}
 
 }

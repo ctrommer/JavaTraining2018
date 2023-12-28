@@ -4,7 +4,7 @@ public class Fussballer implements Comparable<Fussballer>{
 	
 	Integer nummer;
 
-	public Fussballer(Integer nummer) {
+	public Fussballer( Integer nummer ) {
 		this.nummer = nummer;
 	}
 
