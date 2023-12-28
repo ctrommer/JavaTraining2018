@@ -7,5 +7,5 @@ public class Zeichenkette{
 	public Zeichenkette(String text) {
 		this.text = text;
 	}
-	
+
 }

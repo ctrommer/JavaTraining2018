@@ -13,37 +13,46 @@ public class VergleicherTrainer {
 	private static final Spieler GUSTAV_11 = new Spieler("Gustav", 11, "Gustel");
 	private static final Spieler BERTRAM_33 = new Spieler("Bertram", 33, "Bert");
 
-	private int vergleicheSpielerNachAlterMitAnonymerInnererKlasse(Spieler links, Spieler rechts) {
-
+	private int vergleicheSpielerNachAlterMitAnonymerInnererKlasse( Spieler links, Spieler rechts ) {
 		return 0;
 	}
 
 	@Test
 	@DisplayName("vergleiche Spieler nach Alter mit anonymer innerer Klasse")
 	public void test01() {		
-		assertEquals(-1, vergleicheSpielerNachAlterMitAnonymerInnererKlasse(KARL_11, ALBERT_22) );		
-		assertEquals(0, vergleicheSpielerNachAlterMitAnonymerInnererKlasse(KARL_11, GUSTAV_11));		
-		assertEquals(1, vergleicheSpielerNachAlterMitAnonymerInnererKlasse(ALBERT_22, KARL_11 ));
+		assertEquals(
+				-1, 
+				vergleicheSpielerNachAlterMitAnonymerInnererKlasse( KARL_11, ALBERT_22 ) );		
+		assertEquals(
+				0, 
+				vergleicheSpielerNachAlterMitAnonymerInnererKlasse( KARL_11, GUSTAV_11 ));		
+		assertEquals(
+				1, 
+				vergleicheSpielerNachAlterMitAnonymerInnererKlasse( ALBERT_22, KARL_11 ) );
 	}
 
 	private int vergleicheSpielerNachAlterMitLambda(Spieler links, Spieler rechts ) {
-
 		return 0;
 	}
 
 	@Test
 	@DisplayName("vergleiche Spieler nach Alter mit Lamda")
 	public void test02() {		
-		assertEquals(-1, vergleicheSpielerNachAlterMitLambda(KARL_11, ALBERT_22) );		
-		assertEquals(0, vergleicheSpielerNachAlterMitLambda(KARL_11, GUSTAV_11));		
-		assertEquals(1, vergleicheSpielerNachAlterMitLambda(ALBERT_22, KARL_11 ));
+		assertEquals(
+				-1, 
+				vergleicheSpielerNachAlterMitLambda( KARL_11, ALBERT_22) );		
+		assertEquals(
+				0, 
+				vergleicheSpielerNachAlterMitLambda( KARL_11, GUSTAV_11 ) );		
+		assertEquals(
+				1, 
+				vergleicheSpielerNachAlterMitLambda( ALBERT_22, KARL_11 ) );
 	}	
 	
 	/**
 	 * Ein bereits existierender Vergleicher soll in einen Rückwärtsvergleicher verwandelt werden.
 	 */
 	private int vergleicheSpielerNachAlterMitLambdaRueckwaerts(Spieler links, Spieler rechts ) {
-
 		return 0;
 	}
 
@@ -56,29 +65,39 @@ public class VergleicherTrainer {
 	}
 
 	private int vergleicheSpielerNachAlterMitFunktion(Spieler links, Spieler rechts ) {		
-
 		return 0;
 	}
 
 	@Test
 	@DisplayName("vergleiche Spieler nach Alter mit Lamda und ( erst mal unnoetiger ) Funktion")
 	public void test04() {
-		assertEquals(-1, vergleicheSpielerNachAlterMitFunktion(KARL_11, ALBERT_22) );		
-		assertEquals(0, vergleicheSpielerNachAlterMitFunktion(KARL_11, GUSTAV_11));		
-		assertEquals(1, vergleicheSpielerNachAlterMitFunktion(ALBERT_22, KARL_11 ));
+		assertEquals(
+				-1, 
+				vergleicheSpielerNachAlterMitFunktion( KARL_11, ALBERT_22) );
+		assertEquals(
+				0, 
+				vergleicheSpielerNachAlterMitFunktion( KARL_11, GUSTAV_11) );		
+		assertEquals(
+				1, 
+				vergleicheSpielerNachAlterMitFunktion( ALBERT_22, KARL_11 ) );
 	}	
 
 	private int vergleicheSpielerNachAlterMitFunktionUndStatischerMethodeVonVergleicher( Spieler links, Spieler rechts ) {
-
 		return 0;
 	}
 
 	@Test
 	@DisplayName("vergleiche Spieler nach Alter mit Lamda, Funktion und statischer Methode von Vergleicher")
 	public void test05() {
-		assertEquals(-1, vergleicheSpielerNachAlterMitFunktionUndStatischerMethodeVonVergleicher(KARL_11, ALBERT_22));
-		assertEquals(0, vergleicheSpielerNachAlterMitFunktionUndStatischerMethodeVonVergleicher(KARL_11, GUSTAV_11));
-		assertEquals(1, vergleicheSpielerNachAlterMitFunktionUndStatischerMethodeVonVergleicher(ALBERT_22, KARL_11 ));
+		assertEquals(
+				-1, 
+				vergleicheSpielerNachAlterMitFunktionUndStatischerMethodeVonVergleicher( KARL_11, ALBERT_22 ) );
+		assertEquals(
+				0, 
+				vergleicheSpielerNachAlterMitFunktionUndStatischerMethodeVonVergleicher( KARL_11, GUSTAV_11 ) );
+		assertEquals(
+				1, 
+				vergleicheSpielerNachAlterMitFunktionUndStatischerMethodeVonVergleicher( ALBERT_22, KARL_11 ) );
 	}
 
 	/**
@@ -87,16 +106,21 @@ public class VergleicherTrainer {
 	 * Verwende die Methode, um Integer rückwärts zu sortieren.
 	 */
 	private int vergleicheIntegerRueckwaerts(Integer links, Integer rechts) {
-
 		return 0;
 	}
 
 	@Test
 	@DisplayName("Integer rueckwaerts vergleichen")
 	public void test06() {
-		assertEquals(1, vergleicheIntegerRueckwaerts(11, 22));
-		assertEquals(0, vergleicheIntegerRueckwaerts(11,11));
-		assertEquals(-1, vergleicheIntegerRueckwaerts(22,11));
+		assertEquals(
+				1, 
+				vergleicheIntegerRueckwaerts( 11, 22 ) );
+		assertEquals(
+				0, 
+				vergleicheIntegerRueckwaerts( 11, 11 ) );
+		assertEquals(
+				-1, 
+				vergleicheIntegerRueckwaerts( 22,11 ) );
 	}
 	
 	/**
@@ -108,23 +132,27 @@ public class VergleicherTrainer {
 	 * 
 	 */
 	private int vergleicheSpielerNachAlterRueckwaertsMitVergleichskriteriumextrahiererUndRueckwaertsvergleicher( Spieler links, Spieler rechts ) {
-
 		return 0;
 	}
 
 	@Test
 	@DisplayName("vergleiche Spieler nach Alter rueckwaerts mit Vergleichskriteriumextrahierer und Rueckwaertsvergleicher")
 	public void test07() {
-		assertEquals(1, vergleicheSpielerNachAlterRueckwaertsMitVergleichskriteriumextrahiererUndRueckwaertsvergleicher(KARL_11, ALBERT_22) );
-		assertEquals(0, vergleicheSpielerNachAlterRueckwaertsMitVergleichskriteriumextrahiererUndRueckwaertsvergleicher(KARL_11, GUSTAV_11));
-		assertEquals(-1, vergleicheSpielerNachAlterRueckwaertsMitVergleichskriteriumextrahiererUndRueckwaertsvergleicher(ALBERT_22, KARL_11 ));
+		assertEquals(
+				1, 
+				vergleicheSpielerNachAlterRueckwaertsMitVergleichskriteriumextrahiererUndRueckwaertsvergleicher( KARL_11, ALBERT_22 ) );
+		assertEquals(
+				0, 
+				vergleicheSpielerNachAlterRueckwaertsMitVergleichskriteriumextrahiererUndRueckwaertsvergleicher( KARL_11, GUSTAV_11 ) );
+		assertEquals(
+				-1, 
+				vergleicheSpielerNachAlterRueckwaertsMitVergleichskriteriumextrahiererUndRueckwaertsvergleicher( ALBERT_22, KARL_11 ) );
 	}
 
 	/**
 	 * Hierzu nested class in Zeichenkette, von der dann in Zeichenkette eine Konstante erzeugt wird.
 	 */	
 	private int vergleicheZeichenketteGrossKleinSchreibungIgnorierend( Zeichenkette links, Zeichenkette rechts ) {
-
 		return 0;
 	}
 
@@ -184,37 +212,54 @@ public class VergleicherTrainer {
 	 * Über Vergleicherunterstützer und nestend class.
 	 */
 	public int vergleicheSpielerNachAlterNullBeruecksichtigend( Spieler links, Spieler rechts ) {
-
 		return 0;
 	}
 
 	@Test
 	@DisplayName("vergleiche Spieler nach Alter null beruecksichtigend")
 	public void test11() {
-		assertEquals (-1, vergleicheSpielerNachAlterNullBeruecksichtigend( KARL_11, ALBERT_22 ) );
-		assertEquals( 1, vergleicheSpielerNachAlterNullBeruecksichtigend( ALBERT_22, KARL_11 ) );
-		assertEquals( -1, vergleicheSpielerNachAlterNullBeruecksichtigend( null, ALBERT_22 ) );
-		assertEquals( 1, vergleicheSpielerNachAlterNullBeruecksichtigend( KARL_11, null ) );
-		assertEquals( 0, vergleicheSpielerNachAlterNullBeruecksichtigend( null, null) );		
+		assertEquals (
+				-1, 
+				vergleicheSpielerNachAlterNullBeruecksichtigend( KARL_11, ALBERT_22 ) );
+		assertEquals( 
+				1, 
+				vergleicheSpielerNachAlterNullBeruecksichtigend( ALBERT_22, KARL_11 ) );
+		assertEquals( 
+				-1, 
+				vergleicheSpielerNachAlterNullBeruecksichtigend( null, ALBERT_22 ) );
+		assertEquals( 
+				1, 
+				vergleicheSpielerNachAlterNullBeruecksichtigend( KARL_11, null ) );
+		assertEquals( 
+				0, 
+				vergleicheSpielerNachAlterNullBeruecksichtigend( null, null) );		
 	}
 
 	public int vergleicheSpielerNachAlterNullBeruecksichtigendRueckwaerts( Spieler links, Spieler rechts ) {
-
 		return 0;
 	}
 
 	@Test
 	@DisplayName("vergleiche Spieler nach Alter null beruecksichtigend rueckwaerts")
 	public void test12() {
-		assertEquals (1, vergleicheSpielerNachAlterNullBeruecksichtigendRueckwaerts( KARL_11, ALBERT_22 ) );
-		assertEquals( -1, vergleicheSpielerNachAlterNullBeruecksichtigendRueckwaerts( ALBERT_22, KARL_11 ) );
-		assertEquals( 1, vergleicheSpielerNachAlterNullBeruecksichtigendRueckwaerts( null, ALBERT_22 ) );
-		assertEquals( -1, vergleicheSpielerNachAlterNullBeruecksichtigendRueckwaerts( KARL_11, null ) );
-		assertEquals( 0, vergleicheSpielerNachAlterNullBeruecksichtigendRueckwaerts( null, null) );		
+		assertEquals (
+				1, 
+				vergleicheSpielerNachAlterNullBeruecksichtigendRueckwaerts( KARL_11, ALBERT_22 ) );
+		assertEquals( 
+				-1, 
+				vergleicheSpielerNachAlterNullBeruecksichtigendRueckwaerts( ALBERT_22, KARL_11 ) );
+		assertEquals( 
+				1, 
+				vergleicheSpielerNachAlterNullBeruecksichtigendRueckwaerts( null, ALBERT_22 ) );
+		assertEquals( 
+				-1, 
+				vergleicheSpielerNachAlterNullBeruecksichtigendRueckwaerts( KARL_11, null ) );
+		assertEquals( 
+				0, 
+				vergleicheSpielerNachAlterNullBeruecksichtigendRueckwaerts( null, null) );		
 	}	
 
 	private int vergleicheSpielerNachAlterNullBeruecksichtigendUndDannNachName( Spieler links, Spieler rechts ) {
-
 		return 0;
 	}
 
@@ -286,8 +331,8 @@ public class VergleicherTrainer {
 	@Test
 	@DisplayName("sortiere nach natuerlicher Ordnung")
 	public void test15() {		
-		Fussballer groesser = new Fussballer(42);
-		Fussballer kleiner = new Fussballer(40);
+		Fussballer groesser = new Fussballer( 42 );
+		Fussballer kleiner = new Fussballer( 40 );
 		assertTrue( sortiereNachNatuerlicherOrdnung(groesser, kleiner) > 0 );
 		assertTrue( sortiereNachNatuerlicherOrdnung(kleiner, groesser) < 0 );
 		assertTrue( sortiereNachNatuerlicherOrdnung(kleiner, kleiner) == 0 );
