@@ -27,8 +27,10 @@ public class FutureTraining {
 	@Test
 	public void testOhneThreadQuadrieren() {
 		try {
-			assertEquals(81, ohneThreadQuadrieren(9).get());
-		} catch (InterruptedException | ExecutionException e) {
+			assertEquals( 
+					81, 
+					ohneThreadQuadrieren( 9 ).get() );
+		} catch ( InterruptedException | ExecutionException e ) {
 			e.printStackTrace();
 		}		
 	}
@@ -40,15 +42,17 @@ public class FutureTraining {
 	 */	
 	private Future<Integer> inEigenemThreadQuadrieren( int zahl ) {
 		Supplier<Integer> inThreadAuszufuehren = () -> zahl * zahl;
-		CompletableFuture<Integer> beinhaltetZukuenftigesErgebnis = CompletableFuture.supplyAsync(inThreadAuszufuehren);
+		CompletableFuture<Integer> beinhaltetZukuenftigesErgebnis = CompletableFuture.supplyAsync( inThreadAuszufuehren );
 		return beinhaltetZukuenftigesErgebnis;
 	}
 	
 	@Test
 	public void testInEigenemThreadQuadrieren() {
 		try {
-			assertEquals(81, inEigenemThreadQuadrieren(9).get());		
-		} catch (InterruptedException | ExecutionException e) {
+			assertEquals( 
+					81, 
+					inEigenemThreadQuadrieren( 9 ).get() );		
+		} catch ( InterruptedException | ExecutionException e ) {
 			e.printStackTrace();
 		}
 	}
@@ -61,12 +65,12 @@ public class FutureTraining {
 	 */	
 	private Future<Integer> inEigenemThreadQuadrierenDannMit2Multiplizieren( int zahl ) {
 		Supplier<Integer> inThreadAuszufuehren = () -> zahl * zahl;
-		
+
 		CompletableFuture<Integer> beinhaltetZukuenftigesErgebnis 
-			= CompletableFuture.supplyAsync(inThreadAuszufuehren);
+										= CompletableFuture.supplyAsync( inThreadAuszufuehren );
 		
 		CompletableFuture<Integer> beinhaltetZukuenftigesErgebnisKombiniert 
-			= beinhaltetZukuenftigesErgebnis.thenApply( ergebnis -> ergebnis * 2 );
+										= beinhaltetZukuenftigesErgebnis.thenApply( ergebnis -> ergebnis * 2 );
 		
 		return beinhaltetZukuenftigesErgebnisKombiniert;
 	}
@@ -74,8 +78,10 @@ public class FutureTraining {
 	@Test
 	public void testInEigenemThreadQuadrierenDannMit2Multiplizieren() {
 		try {
-			assertEquals(162, inEigenemThreadQuadrierenDannMit2Multiplizieren(9).get());		
-		} catch (InterruptedException | ExecutionException e) {
+			assertEquals( 
+					162, 
+					inEigenemThreadQuadrierenDannMit2Multiplizieren( 9 ).get() );		
+		} catch ( InterruptedException | ExecutionException e ) {
 			e.printStackTrace();
 		}
 	}
@@ -88,10 +94,10 @@ public class FutureTraining {
 	 */		
 	private Future<Integer> inEigenemThreadQuadrierenDannMit2InThreadMultiplizieren( int zahl ) {
 		CompletableFuture<Integer> beinhaltetZukuenftigesErgebnis 
-			= CompletableFuture.supplyAsync( () -> zahl * zahl );
+										= CompletableFuture.supplyAsync( () -> zahl * zahl );
 
 		CompletableFuture<Integer> beinhaltetZukuenftigesErgebnisVerkettet 
-			= beinhaltetZukuenftigesErgebnis.thenApplyAsync( ergebnis -> ergebnis * 2 );
+										= beinhaltetZukuenftigesErgebnis.thenApplyAsync( ergebnis -> ergebnis * 2 );
 		
 		return beinhaltetZukuenftigesErgebnisVerkettet; 
 	}
@@ -99,8 +105,10 @@ public class FutureTraining {
 	@Test
 	public void testInEigenemThreadQuadrierenDannMit2InThreadMultiplizieren() {
 		try {
-			assertEquals(162, inEigenemThreadQuadrierenDannMit2InThreadMultiplizieren(9).get());		
-		} catch (InterruptedException | ExecutionException e) {
+			assertEquals( 
+					162, 
+					inEigenemThreadQuadrierenDannMit2InThreadMultiplizieren( 9 ).get() );		
+		} catch ( InterruptedException | ExecutionException e ) {
 			e.printStackTrace();
 		}
 	}
@@ -113,19 +121,26 @@ public class FutureTraining {
 	 * @return Future, dass das Ergebnis enthält
 	 */
 	private Future<Integer> inEigenemThreadQuadrierenDannMitMit2InThreadMultiplizieren( int zahl ) {
-		CompletableFuture<Integer> beinhaltetZukuenftigesErgebnis = CompletableFuture.supplyAsync( () -> zahl * zahl );
+		CompletableFuture<Integer> beinhaltetZukuenftigesErgebnis 
+												= CompletableFuture.supplyAsync( () -> zahl * zahl );
 		
 		CompletableFuture<Integer> beinhaltetZukuenftigesErgebnisVerkettet 
-			= beinhaltetZukuenftigesErgebnis.thenCompose( ergebnis -> CompletableFuture.supplyAsync( () ->  ergebnis * 2 ) );
-		
+												= beinhaltetZukuenftigesErgebnis.thenCompose( 
+																						ergebnis 
+																						-> CompletableFuture.supplyAsync( 
+																													() ->  
+																													ergebnis * 2 ) );
+			
 		return beinhaltetZukuenftigesErgebnisVerkettet;
 	}
 	
 	@Test
 	public void testInEigenemThreadQuadrierenDannMitMit2InThreadMultiplizieren() {
 		try {
-			assertEquals(162, inEigenemThreadQuadrierenDannMitMit2InThreadMultiplizieren(9).get());		
-		} catch (InterruptedException | ExecutionException e) {
+			assertEquals( 
+					162, 
+					inEigenemThreadQuadrierenDannMitMit2InThreadMultiplizieren( 9 ).get() );		
+		} catch ( InterruptedException | ExecutionException e ) {
 			e.printStackTrace();
 		}
 	}	
@@ -139,13 +154,18 @@ public class FutureTraining {
 	 */
 	private Future<Integer> ersterThreadQuadriertZweiterThreadMultipliziertMit2Kombiniert( int zahl ) {
 		
-		CompletableFuture<Integer> beinhaltetErstesZukuenftigesTeilergebnis = CompletableFuture.supplyAsync( () -> zahl * zahl );
-		CompletableFuture<Integer> beinhaltetZweitesZukuenftigesTeilergebnis = CompletableFuture.supplyAsync( () -> zahl * 2 );
+		CompletableFuture<Integer> beinhaltetErstesZukuenftigesTeilergebnis 
+															= CompletableFuture.supplyAsync( () -> zahl * zahl );
+		CompletableFuture<Integer> beinhaltetZweitesZukuenftigesTeilergebnis 
+															= CompletableFuture.supplyAsync( () -> zahl * 2 );
 		
 
 		CompletableFuture<Integer> beinhaltetZukuenftigesErgebnisKombiniert 
-		= beinhaltetErstesZukuenftigesTeilergebnis.thenCombine( beinhaltetZweitesZukuenftigesTeilergebnis,
-				( ergebnisAusErstemThread, ergebnisAusZweitemThread ) -> ergebnisAusErstemThread + ergebnisAusZweitemThread );
+															= beinhaltetErstesZukuenftigesTeilergebnis
+																						.thenCombine( 
+																								beinhaltetZweitesZukuenftigesTeilergebnis,
+																								( ergebnisAusErstemThread, ergebnisAusZweitemThread ) 
+																								-> ergebnisAusErstemThread + ergebnisAusZweitemThread );
 		
 		return beinhaltetZukuenftigesErgebnisKombiniert;
 	}
@@ -153,10 +173,12 @@ public class FutureTraining {
 	@Test
 	public void testErsterThreadQuadriertZweiterThreadMultipliziertMit2Kombiniert() {
 		try {
-			assertEquals(99, ersterThreadQuadriertZweiterThreadMultipliziertMit2Kombiniert(9).get());		
-		} catch (InterruptedException | ExecutionException e) {
+			assertEquals( 
+					99, 
+					ersterThreadQuadriertZweiterThreadMultipliziertMit2Kombiniert( 9 ).get() );		
+		} catch ( InterruptedException | ExecutionException e ) {
 			e.printStackTrace();
-		}		
+		}
 	}
 
 	/**
@@ -177,20 +199,28 @@ public class FutureTraining {
 
 		Stream<Integer> zukuenftigeErgebnisse 
 			= Stream
-				.of(beinhaltetZukuenftigesErgebnis1, beinhaltetZukuenftigesErgebnis2, beinhaltetZukuenftigesErgebnis3)
-				.map(CompletableFuture::join);
+				.of(
+					beinhaltetZukuenftigesErgebnis1, 
+					beinhaltetZukuenftigesErgebnis2, 
+					beinhaltetZukuenftigesErgebnis3)
+				.map( CompletableFuture::join );
 		
 		// CompletableFuture<Void> erstFertigWennAlleThreadsFertig = 
-				CompletableFuture.allOf(beinhaltetZukuenftigesErgebnis1, beinhaltetZukuenftigesErgebnis2, beinhaltetZukuenftigesErgebnis3);
+				CompletableFuture.allOf(
+									beinhaltetZukuenftigesErgebnis1, 
+									beinhaltetZukuenftigesErgebnis2, 
+									beinhaltetZukuenftigesErgebnis3);
 				
 		return zukuenftigeErgebnisse;
 	}
 	
 	@Test
 	public void testDreiTheadsParallelDannGejoint( ) {
-		List<Integer> dreiTheadsParallelDannGejoint = dreiTheadsParallelDannGejoint(9).collect(Collectors.toList());		
+		List<Integer> dreiTheadsParallelDannGejoint = dreiTheadsParallelDannGejoint( 9 ).collect( Collectors.toList() );		
 		List<Integer> expected = List.of( 81, 18, 90 );
-		assertEquals(expected, dreiTheadsParallelDannGejoint);
+		assertEquals( 
+				expected, 
+				dreiTheadsParallelDannGejoint );
 	}
 
 	/**
@@ -202,17 +232,22 @@ public class FutureTraining {
 	 * Wenn Exception: "Zahl zu gross."
 	 */	
 	private Future<String> inEigenemThreadQuadrierenAusnameBehandeln( int zahl ) {
-		Supplier<String> inThreadAuszufuehren = () -> { 
-			if ( zahl > 46340 ) { 
-				throw new IllegalArgumentException("Zahl zu gross.");
-			}
-			return String.valueOf( zahl * zahl );
-		};
+		Supplier<String> inThreadAuszufuehren = 
+											() 
+											-> { if ( zahl > 46340 ) {
+													throw new IllegalArgumentException("Zahl zu gross.");
+												}
+												return String.valueOf( zahl * zahl );
+											};
 		
 		CompletableFuture<String> beinhaltetZukuenftigesErgebnis 
-			= CompletableFuture
-				.supplyAsync(inThreadAuszufuehren)
-				.handle(( rueckgabe, ausnahme ) -> rueckgabe == null ? ausnahme.getCause().getMessage() : rueckgabe);
+													= CompletableFuture
+														.supplyAsync( inThreadAuszufuehren )
+														.handle(
+																( rueckgabe, ausnahme ) 
+																-> rueckgabe == null ? 
+																		ausnahme.getCause().getMessage() 
+																		: rueckgabe );
 		
 		return beinhaltetZukuenftigesErgebnis;
 	}
@@ -220,8 +255,10 @@ public class FutureTraining {
 	@Test
 	public void testInEigenemThreadQuadrierenAusnameBehandelnOhneException() {
 		try {
-			assertEquals("81", inEigenemThreadQuadrierenAusnameBehandeln(9).get());		
-		} catch (InterruptedException | ExecutionException e) {
+			assertEquals( 
+					"81", 
+					inEigenemThreadQuadrierenAusnameBehandeln( 9 ).get() );		
+		} catch ( InterruptedException | ExecutionException e ) {
 			e.printStackTrace();
 		}
 	}
@@ -229,9 +266,13 @@ public class FutureTraining {
 	@Test
 	public void testInEigenemThreadQuadrierenAusnameBehandelnMitException() {
 		try {
-			assertDoesNotThrow(() -> inEigenemThreadQuadrierenAusnameBehandeln(46341).get() );
+			assertDoesNotThrow(
+							() 
+							-> inEigenemThreadQuadrierenAusnameBehandeln( 46341 ).get() );
 			
-			assertEquals("Zahl zu gross.", inEigenemThreadQuadrierenAusnameBehandeln(46341).get());		
+			assertEquals(
+					"Zahl zu gross.", 
+					inEigenemThreadQuadrierenAusnameBehandeln( 46341 ).get());		
 		} catch (InterruptedException | ExecutionException e) {
 			e.printStackTrace();
 		}
@@ -250,10 +291,11 @@ public class FutureTraining {
 		
 		// zeitintensive Aufgabe in eigenem Thread starten
 		Supplier<Integer> inThreadAuszufuehren = () -> zahl * zahl;
-		CompletableFuture<Integer> beinhaltetZukuenftigesErgebnis = CompletableFuture.supplyAsync(inThreadAuszufuehren);
+		CompletableFuture<Integer> beinhaltetZukuenftigesErgebnis 
+										= CompletableFuture.supplyAsync( inThreadAuszufuehren );
 		
 		// solange der Thread noch kein Ergebnis geliefert hat, kann man was anderes machen
-		while ( !beinhaltetZukuenftigesErgebnis.isDone()) {
+		while ( !beinhaltetZukuenftigesErgebnis.isDone() ) {
 			System.out.println("Aus main: Ich mach solange was anderes, bis Thread Ergebnis liefert.");
 		}
 		
@@ -270,7 +312,9 @@ public class FutureTraining {
 
 	@Test
 	public void testErledigeAufgabeUndParallelDazuUnteraufgabeInThread() {
-		assertEquals(81, erledigeAufgabeUndParallelDazuUnteraufgabeInThread(9));		
+		assertEquals(
+				81, 
+				erledigeAufgabeUndParallelDazuUnteraufgabeInThread( 9 ) );		
 	}
 
 }

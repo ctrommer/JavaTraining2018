@@ -11,12 +11,12 @@ public class ThreadMitCompletedFuture {
 
 	public static void main( String[] args ) {
 		
-		Future<Integer> completedFuture = CompletableFuture.completedFuture(42);
+		Future<Integer> completedFuture = CompletableFuture.completedFuture( 42 );
 		
 		try {
 			Integer ergebnis = completedFuture.get();
-			System.out.println(ergebnis);
-		} catch (InterruptedException | ExecutionException e) {
+			System.out.println( ergebnis );
+		} catch ( InterruptedException | ExecutionException e ) {
 			e.printStackTrace();
 		}
 	}

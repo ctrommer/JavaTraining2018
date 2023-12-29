@@ -31,7 +31,7 @@ public class ExecutorLiefertFuture {
 			return 42;	// Ergebnis, das man vom Feature aus abrufen kann.
 		};
 		
-		Future<Integer> beinhaltetZukuenftigesErgebnis = dienstDerThreadAusfuehrt.submit(inThreadAuszufuehren);
+		Future<Integer> beinhaltetZukuenftigesErgebnis = dienstDerThreadAusfuehrt.submit( inThreadAuszufuehren );
 		
 		return beinhaltetZukuenftigesErgebnis;		
 	}
@@ -42,10 +42,10 @@ public class ExecutorLiefertFuture {
 	public void erledigeAufgabeUndParallelDazuUnteraufgabeInThread() {
 		
 		// zeitintensive Aufgabe in eigenem Thread starten
-		Future<Integer> zukuenftigesErgebnisVonThread = gebeZahlenAusInEigenemThread(10);
+		Future<Integer> zukuenftigesErgebnisVonThread = gebeZahlenAusInEigenemThread( 10 );
 		
 		// solange der Thread noch kein Ergebnis geliefert hat, kann man was anderes machen
-		while ( !zukuenftigesErgebnisVonThread.isDone()) {
+		while ( !zukuenftigesErgebnisVonThread.isDone() ) {
 			System.out.println("Aus main: Ich mach solange was anderes, bis Thread Ergebnis liefert.");
 		}
 		
@@ -53,9 +53,9 @@ public class ExecutorLiefertFuture {
 		try {
 			// gibt erst Wert zurück, wenn Thread beendet
 			Integer ergebnisVonThread = zukuenftigesErgebnisVonThread.get();
-			System.out.println(ergebnisVonThread);			
+			System.out.println( ergebnisVonThread );
 			dienstDerThreadAusfuehrt.shutdown();
-		} catch (InterruptedException | ExecutionException e) {
+		} catch ( InterruptedException | ExecutionException e ) {
 			e.printStackTrace();
 		}		
 	}
