@@ -22,12 +22,18 @@ public class TestUebersetzerMitAnnotation {
 	@Before
 	public void setUp() {
 		
-	    Mockito.doReturn("World").when(mockUebersetzer).uebersetze("Welt");
+	    Mockito
+	    	.doReturn("World")
+	    	.when(mockUebersetzer)
+	    	.uebersetze("Welt");
 	    
 	    listeUebersetzungen = new ArrayList<String>();
 	    listeUebersetzungen.add("World");
 	    listeUebersetzungen.add("Earth");
-	    Mockito.doReturn(listeUebersetzungen).when(mockUebersetzer).uebersetzeMitMehrerenErgebnissen("Welt");
+	    Mockito
+	    	.doReturn(listeUebersetzungen)
+	    	.when(mockUebersetzer)
+	    	.uebersetzeMitMehrerenErgebnissen("Welt");
 	}	
 
 	@Test
@@ -37,12 +43,14 @@ public class TestUebersetzerMitAnnotation {
 		UebersetzerSchnittstelle uebersetzerSchnittstelle = new UebersetzerSchnittstelle();
 
 		// testet die Uebersetzerschnittstelle mit dem Mock
-		String uebersetzung = uebersetzerSchnittstelle.uebersetze( mockUebersetzer, "Welt" );
+		String uebersetzung = uebersetzerSchnittstelle.uebersetze( 
+																mockUebersetzer, 
+																"Welt" );
 
 		// prueft, ob das Ergebnis korrekt ist
-		Assert.assertTrue(uebersetzung.equals("World"));
+		Assert.assertTrue( uebersetzung.equals("World") );
 	}
-	
+
 	@Test
 	public void testeUebersetzerMitMehrerenErgebnissen() {
 
@@ -50,10 +58,11 @@ public class TestUebersetzerMitAnnotation {
 		UebersetzerSchnittstelle uebersetzerSchnittstelle = new UebersetzerSchnittstelle();
 
 		// testet die Uebersetzerschnittstelle mit dem Mock
-		List<String> uebersetzungen = uebersetzerSchnittstelle.uebersetzeMitMehrerenErgebnissen(mockUebersetzer, "Welt");
-
+		List<String> uebersetzungen = uebersetzerSchnittstelle.uebersetzeMitMehrerenErgebnissen(
+																					mockUebersetzer, 
+																					"Welt");
 		// prueft, ob das Ergebnis korrekt ist
-		Assert.assertTrue(uebersetzungen.equals(listeUebersetzungen));
+		Assert.assertTrue( uebersetzungen.equals( listeUebersetzungen ) );
 	}
 
 }

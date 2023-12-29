@@ -17,6 +17,5 @@ public class TestUebersetzer {
 		// testet die Uebersetzerschnittstelle mit dem Mock
 		
 		// prueft, ob das Ergebnis korrekt ist
-
 	}
 }
