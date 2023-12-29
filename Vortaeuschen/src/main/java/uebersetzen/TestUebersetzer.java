@@ -12,15 +12,17 @@ public class TestUebersetzer {
 		Uebersetzer mockUebersetzer = Mockito.mock(Uebersetzer.class);
 		
 		// der Mock übersetzt "Welt" mit "World"
-		Mockito.when(mockUebersetzer.uebersetze("Welt")).thenReturn("World");
+		Mockito
+			.when( mockUebersetzer.uebersetze("Welt") )
+			.thenReturn("World");
 		
 		// erzeugt die Uebersetzerschnittstelle mit dem Mock
 		UebersetzerSchnittstelle zuTesten = new UebersetzerSchnittstelle();
 		
 		// testet die Uebersetzerschnittstelle mit dem Mock
-		String uebersetzung = zuTesten.uebersetze(mockUebersetzer, "Welt");
+		String uebersetzung = zuTesten.uebersetze(  mockUebersetzer, "Welt" );
 		
 		// prueft, ob das Ergebnis korrekt ist
-		Assert.assertTrue(uebersetzung.equals("World"));
+		Assert.assertTrue( uebersetzung.equals("World") );
 	}
 }

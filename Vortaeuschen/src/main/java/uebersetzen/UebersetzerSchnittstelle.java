@@ -9,11 +9,10 @@ import java.util.List;
 public class UebersetzerSchnittstelle {
 	
 	String uebersetze( Uebersetzer uebersetzer, String zuUebersetzen ) {
-		return uebersetzer.uebersetze(zuUebersetzen);
+		return uebersetzer.uebersetze( zuUebersetzen );
 	}
 	
 	List<String> uebersetzeMitMehrerenErgebnissen( Uebersetzer uebersetzer, String zuUebersetzen ) {
-		return uebersetzer.uebersetzeMitMehrerenErgebnissen(zuUebersetzen);
-	}
-	
+		return uebersetzer.uebersetzeMitMehrerenErgebnissen( zuUebersetzen );
+	}	
 }
