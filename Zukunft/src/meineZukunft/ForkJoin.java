@@ -18,7 +18,7 @@ public class ForkJoin extends RecursiveTask<Integer> {
 	@Override
 	protected Integer compute() {
 		
-		System.out.println("aus Thread mit Zahl: " + zahl);
+		System.out.println( "aus Thread mit Zahl: " + zahl );
 		
 		if ( zahl >= 3 ) {
 			return zahl;
@@ -26,7 +26,7 @@ public class ForkJoin extends RecursiveTask<Integer> {
 		
 
 		// erzeuge neuen Task
-		ForkJoin forkJoinRekursiv = new ForkJoin(zahl+1);
+		ForkJoin forkJoinRekursiv = new ForkJoin( zahl + 1 );
 		// starte neuen Task
 		forkJoinRekursiv.fork();
 		
@@ -35,7 +35,7 @@ public class ForkJoin extends RecursiveTask<Integer> {
    }
 
 	public static void main(String[] args) {
-		ForkJoin forkJoin = new ForkJoin(1);
+		ForkJoin forkJoin = new ForkJoin( 1 );
 		Integer ergebnis = forkJoin.compute();
 		System.out.println("aus main: " + ergebnis);
 	}

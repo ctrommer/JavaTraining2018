@@ -27,8 +27,10 @@ public class FutureTraining {
 	@Test
 	public void testOhneThreadQuadrieren() {
 		try {
-			assertEquals(81, ohneThreadQuadrieren(9).get());
-		} catch (InterruptedException | ExecutionException e) {
+			assertEquals( 
+					81, 
+					ohneThreadQuadrieren( 9 ).get() );
+		} catch ( InterruptedException | ExecutionException e ) {
 			e.printStackTrace();
 		}		
 	}
@@ -45,8 +47,10 @@ public class FutureTraining {
 	@Test
 	public void testInEigenemThreadQuadrieren() {
 		try {
-			assertEquals(81, inEigenemThreadQuadrieren(9).get());		
-		} catch (InterruptedException | ExecutionException e) {
+			assertEquals( 
+					81, 
+					inEigenemThreadQuadrieren( 9 ).get() );		
+		} catch ( InterruptedException | ExecutionException e ) {
 			e.printStackTrace();
 		}
 	}
@@ -58,15 +62,16 @@ public class FutureTraining {
 	 * @return Future, dass das Ergebnis enthält
 	 */	
 	private Future<Integer> inEigenemThreadQuadrierenDannMit2Multiplizieren( int zahl ) {
-		
 		return null;
 	}
 	
 	@Test
 	public void testInEigenemThreadQuadrierenDannMit2Multiplizieren() {
 		try {
-			assertEquals(162, inEigenemThreadQuadrierenDannMit2Multiplizieren(9).get());		
-		} catch (InterruptedException | ExecutionException e) {
+			assertEquals( 
+					162, 
+					inEigenemThreadQuadrierenDannMit2Multiplizieren( 9 ).get() );		
+		} catch ( InterruptedException | ExecutionException e ) {
 			e.printStackTrace();
 		}
 	}
@@ -84,8 +89,10 @@ public class FutureTraining {
 	@Test
 	public void testInEigenemThreadQuadrierenDannMit2InThreadMultiplizieren() {
 		try {
-			assertEquals(162, inEigenemThreadQuadrierenDannMit2InThreadMultiplizieren(9).get());		
-		} catch (InterruptedException | ExecutionException e) {
+			assertEquals( 
+					162, 
+					inEigenemThreadQuadrierenDannMit2InThreadMultiplizieren( 9 ).get() );		
+		} catch ( InterruptedException | ExecutionException e ) {
 			e.printStackTrace();
 		}
 	}
@@ -98,15 +105,16 @@ public class FutureTraining {
 	 * @return Future, dass das Ergebnis enthält
 	 */
 	private Future<Integer> inEigenemThreadQuadrierenDannMitMit2InThreadMultiplizieren( int zahl ) {
-		
 		return null;
 	}
 	
 	@Test
 	public void testInEigenemThreadQuadrierenDannMitMit2InThreadMultiplizieren() {
 		try {
-			assertEquals(162, inEigenemThreadQuadrierenDannMitMit2InThreadMultiplizieren(9).get());		
-		} catch (InterruptedException | ExecutionException e) {
+			assertEquals( 
+					162, 
+					inEigenemThreadQuadrierenDannMitMit2InThreadMultiplizieren( 9 ).get() );		
+		} catch ( InterruptedException | ExecutionException e ) {
 			e.printStackTrace();
 		}
 	}	
@@ -119,17 +127,18 @@ public class FutureTraining {
 	 * @return Future, dass das Ergebnis enthält
 	 */
 	private Future<Integer> ersterThreadQuadriertZweiterThreadMultipliziertMit2Kombiniert( int zahl ) {
-		
 		return null;
 	}
 
 	@Test
 	public void testErsterThreadQuadriertZweiterThreadMultipliziertMit2Kombiniert() {
 		try {
-			assertEquals(99, ersterThreadQuadriertZweiterThreadMultipliziertMit2Kombiniert(9).get());		
-		} catch (InterruptedException | ExecutionException e) {
+			assertEquals( 
+					99, 
+					ersterThreadQuadriertZweiterThreadMultipliziertMit2Kombiniert( 9 ).get() );		
+		} catch ( InterruptedException | ExecutionException e ) {
 			e.printStackTrace();
-		}		
+		}
 	}
 
 	/**
@@ -143,15 +152,16 @@ public class FutureTraining {
 	 * @return Future, dass das Ergebnis enthält
 	 */
 	private Stream<Integer> dreiTheadsParallelDannGejoint( int zahl ) {
-				
 		return null;
 	}
 	
 	@Test
 	public void testDreiTheadsParallelDannGejoint( ) {
-		List<Integer> dreiTheadsParallelDannGejoint = dreiTheadsParallelDannGejoint(9).collect(Collectors.toList());		
+		List<Integer> dreiTheadsParallelDannGejoint = dreiTheadsParallelDannGejoint( 9 ).collect( Collectors.toList() );		
 		List<Integer> expected = List.of( 81, 18, 90 );
-		assertEquals(expected, dreiTheadsParallelDannGejoint);
+		assertEquals( 
+				expected, 
+				dreiTheadsParallelDannGejoint );
 	}
 
 	/**
@@ -162,15 +172,17 @@ public class FutureTraining {
 	 * Wenn keine Exception: Zahl quadriert als String.
 	 * Wenn Exception: "Zahl zu gross."
 	 */	
-	private Future<String> inEigenemThreadQuadrierenAusnameBehandeln( int zahl ) {		
+	private Future<String> inEigenemThreadQuadrierenAusnameBehandeln( int zahl ) {
 		return null;
 	}
 
 	@Test
 	public void testInEigenemThreadQuadrierenAusnameBehandelnOhneException() {
 		try {
-			assertEquals("81", inEigenemThreadQuadrierenAusnameBehandeln(9).get());		
-		} catch (InterruptedException | ExecutionException e) {
+			assertEquals( 
+					"81", 
+					inEigenemThreadQuadrierenAusnameBehandeln( 9 ).get() );		
+		} catch ( InterruptedException | ExecutionException e ) {
 			e.printStackTrace();
 		}
 	}
@@ -178,9 +190,13 @@ public class FutureTraining {
 	@Test
 	public void testInEigenemThreadQuadrierenAusnameBehandelnMitException() {
 		try {
-			assertDoesNotThrow(() -> inEigenemThreadQuadrierenAusnameBehandeln(46341).get() );
+			assertDoesNotThrow(
+							() 
+							-> inEigenemThreadQuadrierenAusnameBehandeln( 46341 ).get() );
 			
-			assertEquals("Zahl zu gross.", inEigenemThreadQuadrierenAusnameBehandeln(46341).get());		
+			assertEquals(
+					"Zahl zu gross.", 
+					inEigenemThreadQuadrierenAusnameBehandeln( 46341 ).get());		
 		} catch (InterruptedException | ExecutionException e) {
 			e.printStackTrace();
 		}
@@ -200,6 +216,7 @@ public class FutureTraining {
 		// zeitintensive Aufgabe in eigenem Thread starten
 		
 		// solange der Thread noch kein Ergebnis geliefert hat, kann man was anderes machen
+
 			System.out.println("Aus main: Ich mach solange was anderes, bis Thread Ergebnis liefert.");
 
 		
@@ -210,7 +227,9 @@ public class FutureTraining {
 
 	@Test
 	public void testErledigeAufgabeUndParallelDazuUnteraufgabeInThread() {
-		assertEquals(81, erledigeAufgabeUndParallelDazuUnteraufgabeInThread(9));		
+		assertEquals(
+				81, 
+				erledigeAufgabeUndParallelDazuUnteraufgabeInThread( 9 ) );		
 	}
 
 }
