@@ -1047,7 +1047,8 @@ public class VielleichtMitInhaltTester {
 	@Test
 	@DisplayName("Testet inhaltOderErzeuge mit erzeuger gleich null")
 	public void test50() {
-		Erzeuger<Object> erzeuger = null;
+		@SuppressWarnings("rawtypes")
+		Erzeuger erzeuger = null;
 		
 		// siehe Kommentar zu InvocationTargetException in test03
 		InvocationTargetException exceptionWegenReflektion 
