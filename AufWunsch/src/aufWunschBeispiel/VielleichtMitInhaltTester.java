@@ -1,5 +1,7 @@
 package aufWunschBeispiel;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.lang.reflect.Modifier;
@@ -7,6 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.NoSuchElementException;
 import java.util.Objects;
+import java.util.stream.Stream;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
@@ -73,7 +76,7 @@ public class VielleichtMitInhaltTester {
 		
 		Assertions.assertTrue(
 				erwarteteException instanceof NullPointerException, 
-				"wenn man erzeugeAus mit null aufruft soll eine NullPointerException geworfen werden. " );
+				"wenn man erzeugeAus mit null aufruft soll eine NullPointerException geworfen werden." );
 	}
 	
 	@Test
@@ -170,7 +173,7 @@ public class VielleichtMitInhaltTester {
 		Object mitInhalt 
 			= VielleichtMitInhalt.class
 				.getMethod("erzeugeAus", Object.class)
-				.invoke(VielleichtMitInhalt.class, inhaltUngleichNull);
+				.invoke( VielleichtMitInhalt.class, inhaltUngleichNull );
 		
 		List<String> testListe = new ArrayList<>();
 		
@@ -854,4 +857,421 @@ public class VielleichtMitInhaltTester {
 											.contains("VielleichtMitInhalt [inhalt=") );
 	}	
 	
+	@Test
+	@DisplayName("Testet istLeer, wenn inhalt null")
+	public void test44() throws 
+							IllegalAccessException, 
+							InvocationTargetException, 
+							NoSuchMethodException, 
+							SecurityException {
+		
+		Assertions.assertTrue ( ( boolean ) VielleichtMitInhalt
+															.class
+															.getMethod("istLeer")
+															.invoke( erzeugeMitInhaltNull() ) );
+	}
+
+	@Test
+	@DisplayName("Testet istLeer, wenn inhalt ungleich null")
+	public void test45() throws 
+							IllegalAccessException, 
+							InvocationTargetException, 
+							NoSuchMethodException, 
+							SecurityException {
+		
+		Assertions.assertFalse ( ( boolean ) VielleichtMitInhalt
+															.class
+															.getMethod("istLeer")
+															.invoke( erzeugeMitInhaltUngleichNull() ) );
+	}
+
+	@Test
+	@DisplayName("Testet wennVorhandenBenutzerSonstLauffaehig, wenn inhalt ungleich null und benutzer ungleich null")
+	public void test46 () throws 
+							IllegalAccessException, 
+							InvocationTargetException, 
+							NoSuchMethodException, 
+							SecurityException   {
+		Object inhaltUngleichNull = new Object();			
+		
+		Object mitInhalt 
+				= VielleichtMitInhalt
+									.class
+									.getMethod( 
+											"erzeugeAus", 
+											Object.class )
+									.invoke( 
+											VielleichtMitInhalt.class, 
+											inhaltUngleichNull );
+		
+		List<String> testListe = new ArrayList<>();
+		
+		@SuppressWarnings("rawtypes")	// Das interface Benutzer muss ja erst noch als Uebung geschrieben werden.
+		class BenutzerImpl implements Benutzer {	
+			public void machWasMit( Object o ) {
+				testListe.add( o.toString() );
+			}								
+		}
+
+		class LauffaehigImpl implements Lauffaehig {
+			@Override
+			public void laufe() {
+				Assertions.assertTrue( false );
+			}	
+		}
+		
+		VielleichtMitInhalt
+						.class
+						.getMethod( 
+								"wennVorhandenBenutzerSonstLauffaehig", 
+								Benutzer.class, 
+								Lauffaehig.class )
+						.invoke( 
+								mitInhalt, 
+								new BenutzerImpl(), 
+								new LauffaehigImpl() );
+		
+		Assertions.assertEquals( 
+						inhaltUngleichNull.toString(), 
+						testListe.get( 0 ) );
+	}
+
+	@Test
+	@DisplayName("Testet wennVorhandenBenutzerSonstLauffaehig, wenn inhalt gleich null und lauffaehig ungleich null")
+	public void test47 () throws 
+							IllegalAccessException, 
+							InvocationTargetException, 
+							NoSuchMethodException, 
+							SecurityException {
+		List<String> testListe = new ArrayList<>();
+		String erwartet = "Lauffaehig wurde aufgerufen";
+
+		@SuppressWarnings("rawtypes")	// Das interface Benutzer muss ja erst noch als Uebung geschrieben werden.
+		class BenutzerImpl implements Benutzer {	
+			public void machWasMit( Object t ) {
+				Assertions.assertTrue( false );
+			}								
+		}
+
+		class LauffaehigImpl implements Lauffaehig {
+			@Override
+			public void laufe() {
+				testListe.add( erwartet );				
+			}	
+		}
+		
+		VielleichtMitInhalt
+						.class
+						.getMethod( 
+								"wennVorhandenBenutzerSonstLauffaehig", 
+								Benutzer.class, 
+								Lauffaehig.class )
+						.invoke( 
+								erzeugeMitInhaltNull(), 
+								new BenutzerImpl(), 
+								new LauffaehigImpl() );
+		
+		Assertions.assertEquals( 
+							erwartet, 
+							testListe.get( 0 ) );		
+	}
+
+	@Test
+	@DisplayName("Testet wennVorhandenBenutzerSonstLauffaehig, wenn inhalt ungleich null und benutzer gleich null")
+	public void test48 () {
+		
+		class LauffaehigImpl implements Lauffaehig {
+			@Override
+			public void laufe() {
+				Assertions.assertTrue( false );
+			}	
+		}
+	
+		// siehe Kommentar zu InvocationTargetException in test03
+		InvocationTargetException exceptionWegenReflektion 
+									= Assertions.assertThrows( 
+													InvocationTargetException.class , 
+													() -> VielleichtMitInhalt
+																		.class
+																		.getMethod( 
+																				"wennVorhandenBenutzerSonstLauffaehig", 
+																				Benutzer.class, 
+																				Lauffaehig.class )
+																		.invoke( 
+																				erzeugeMitInhaltUngleichNull(), 
+																				null, 
+																				new LauffaehigImpl() ) );
+		Throwable erwarteteException = exceptionWegenReflektion.getTargetException();
+		
+		Assertions.assertTrue(
+						erwarteteException instanceof NullPointerException,
+						"wenn man wennVorhandenBenutzerSonstLauffaehig mit "
+						+ "inhalt ungleich null und benutzer gleich null aufruft, "
+						+ "soll  eine NullPointerException geworfen werden." );		
+	}
+	
+	@Test
+	@DisplayName("Testet wennVorhandenBenutzerSonstLauffaehig, wenn inhalt gleich null und lauffaehig gleich null")
+	public void test49 () {
+		
+		@SuppressWarnings("rawtypes")	// Das interface Benutzer muss ja erst noch als Uebung geschrieben werden.
+		class BenutzerImpl implements Benutzer {	
+			public void machWasMit( Object t ) {
+				Assertions.assertTrue( false );
+			}								
+		}
+		
+		// siehe Kommentar zu InvocationTargetException in test03
+		InvocationTargetException exceptionWegenReflektion 
+									= Assertions.assertThrows( 
+													InvocationTargetException.class , 
+													() -> VielleichtMitInhalt
+																		.class
+																		.getMethod( 
+																				"wennVorhandenBenutzerSonstLauffaehig", 
+																				Benutzer.class, 
+																				Lauffaehig.class )
+																		.invoke( 
+																				erzeugeMitInhaltNull(), 
+																				new BenutzerImpl(), 
+																				null ) );
+		Throwable erwarteteException = exceptionWegenReflektion.getTargetException();
+		
+		Assertions.assertTrue(
+						erwarteteException instanceof NullPointerException,
+						"wenn man wennVorhandenBenutzerSonstLauffaehig mit "
+						+ "inhalt gleich null und lauffaehig gleich null aufruft, "
+						+ "soll  eine NullPointerException geworfen werden." );
+	}
+	
+	@Test
+	@DisplayName("Testet inhaltOderErzeuge mit erzeuger gleich null")
+	public void test50() {
+		Erzeuger<Object> erzeuger = null;
+		
+		// siehe Kommentar zu InvocationTargetException in test03
+		InvocationTargetException exceptionWegenReflektion 
+									= Assertions.assertThrows( 
+													InvocationTargetException.class , 
+													() -> VielleichtMitInhalt
+																		.class
+																		.getMethod( 
+																				"inhaltOderErzeuge", 
+																				Erzeuger.class )
+																		.invoke( 
+																				erzeugeMitInhaltUngleichNull(),
+																				erzeuger ) );
+		Throwable erwarteteException = exceptionWegenReflektion.getTargetException();
+		
+		Assertions.assertTrue(
+						erwarteteException instanceof NullPointerException,
+						"wenn man inhaltOderErzeuge mit erzeuger gleich null aufruft, "
+						+ "soll  eine NullPointerException geworfen werden." );
+	}
+
+	@Test
+	@DisplayName("Testet inhaltOderErzeuge wenn erzeuger und inhalt ungleich null")
+	public void test51() throws 
+							IllegalAccessException, 
+							InvocationTargetException, 
+							NoSuchMethodException, 
+							SecurityException {
+		
+
+		VielleichtMitInhalt<Object> mitInhalt = erzeugeMitInhaltUngleichNull(); 
+
+		@SuppressWarnings("rawtypes")
+		class ErzeugerImpl implements Erzeuger{
+			public Integer erzeuge() {
+				return 42;
+			}
+		}
+
+		Assertions.assertEquals(
+						mitInhalt, 
+						VielleichtMitInhalt
+										.class
+										.getMethod( 
+												"inhaltOderErzeuge", 
+												Erzeuger.class )
+										.invoke( 
+												mitInhalt, 
+												new ErzeugerImpl()) );
+	}
+
+	@Test
+	@DisplayName("Testet inhaltOderErzeuge wenn inhalt null und erzeuger ungleich null "
+			+ "und ein Ergebnis ungleich null liefert")
+	public void test52() throws 
+							IllegalAccessException, 
+							InvocationTargetException, 
+							NoSuchMethodException, 
+							SecurityException {
+
+		VielleichtMitInhalt<Object> mitInhaltUngleichNull = erzeugeMitInhaltUngleichNull();
+
+		@SuppressWarnings("rawtypes")
+		class ErzeugerImpl implements Erzeuger{
+			public VielleichtMitInhalt<Object> erzeuge() {
+				return mitInhaltUngleichNull;
+			}
+		}
+
+		Assertions.assertEquals(
+						mitInhaltUngleichNull,
+						VielleichtMitInhalt
+										.class
+										.getMethod( 
+												"inhaltOderErzeuge", 
+												Erzeuger.class )
+										.invoke( 
+												erzeugeMitInhaltNull(), 
+												new ErzeugerImpl() ) );
+	}
+	
+	@Test
+	@DisplayName("Testet inhaltOderErzeuge wenn inhalt null und erzeuger ungleich null "
+			+ "und ein Ergebnis gleich null liefert")
+	public void test53() throws 
+							IllegalAccessException, 
+							InvocationTargetException, 
+							NoSuchMethodException, 
+							SecurityException {
+
+		@SuppressWarnings("rawtypes")
+		class ErzeugerImpl implements Erzeuger{
+			public VielleichtMitInhalt<Object> erzeuge() {
+				return null;
+			}
+		}
+
+		// siehe Kommentar zu InvocationTargetException in test03
+		InvocationTargetException exceptionWegenReflektion 
+									= Assertions.assertThrows( 
+													InvocationTargetException.class , 
+													() -> VielleichtMitInhalt
+																		.class
+																		.getMethod( 
+																				"inhaltOderErzeuge", 
+																				Erzeuger.class )
+																		.invoke( 
+																				erzeugeMitInhaltNull(), 
+																				new ErzeugerImpl() ) );
+
+		Throwable erwarteteException = exceptionWegenReflektion.getTargetException();
+		
+		Assertions.assertTrue(
+						erwarteteException instanceof NullPointerException,
+						"wenn man inhaltOderErzeuge mit erzeuger ungleich null aufruft, "
+						+ "erzeuger aber null erzeugt soll Seine NullPointerException geworfen werden." );		
+		
+	}
+	
+	@Test
+	@DisplayName("Testet erzeugeStream wenn inhalt null")
+	public void test54() throws 
+							IllegalAccessException, 
+							InvocationTargetException, 
+							NoSuchMethodException, 
+							SecurityException {
+		
+		Object object = VielleichtMitInhalt
+										.class
+										.getMethod( "erzeugeStream" )
+										.invoke( erzeugeMitInhaltNull() );
+		
+		try ( Stream<?> stream = ( Stream<?>) object ) {
+			Assertions.assertTrue( stream
+										.findAny()
+										.isEmpty() );
+		}
+
+	}
+
+	@Test
+	@DisplayName("Testet erzeugeStream wenn inhalt ungleich null")
+	public void test55() throws 
+							IllegalAccessException, 
+							InvocationTargetException, 
+							NoSuchMethodException, 
+							SecurityException {
+		
+		Object inhaltUngleichNull = new Object();			
+		
+		Object mitInhalt = VielleichtMitInhalt
+											.class
+											.getMethod( 
+													"erzeugeAus", 
+													Object.class )
+											.invoke( 
+													VielleichtMitInhalt.class, 
+													inhaltUngleichNull );
+		
+		Object streamOfObject = VielleichtMitInhalt
+												.class
+												.getMethod( "erzeugeStream" )
+												.invoke( mitInhalt );
+		
+		try ( Stream<?> stream = (Stream<?>) streamOfObject ) {
+			Assertions.assertEquals( 
+								inhaltUngleichNull, 
+								stream
+									.findFirst()
+									.orElse( null ) 
+								);
+		}
+
+	}
+	
+	@Test
+	@DisplayName("Testet wertOderException wenn inhalt null")
+	public void test56() throws 
+							IllegalAccessException, 
+							InvocationTargetException, 
+							NoSuchMethodException, 
+							SecurityException {
+		
+		// siehe Kommentar zu InvocationTargetException in test03
+		InvocationTargetException exceptionWegenReflektion 
+									= Assertions.assertThrows( 
+													InvocationTargetException.class , 
+													() -> VielleichtMitInhalt
+																		.class
+																		.getMethod( "wertOderException" )
+																		.invoke( erzeugeMitInhaltNull() ) );
+
+		Throwable erwarteteException = exceptionWegenReflektion.getTargetException();
+		
+		Assertions.assertTrue( erwarteteException instanceof NoSuchElementException );				
+	}	
+
+	@Test
+	@DisplayName("Testet wertOderException wenn inhalt ungleich null")
+	public void test57() throws 
+							IllegalAccessException, 
+							InvocationTargetException, 
+							NoSuchMethodException, 
+							SecurityException {
+		Object inhaltUngleichNull = new Object();			
+		
+		Object mitInhalt = VielleichtMitInhalt
+											.class
+											.getMethod( 
+													"erzeugeAus", 
+													Object.class )
+											.invoke( 
+													VielleichtMitInhalt.class, 
+													inhaltUngleichNull );
+
+		Object ergebnis = VielleichtMitInhalt
+										.class
+										.getMethod( "wertOderException" )
+										.invoke( mitInhalt );
+
+		Assertions.assertEquals( 
+							inhaltUngleichNull, 
+							ergebnis );
+		
+	}
+
 }

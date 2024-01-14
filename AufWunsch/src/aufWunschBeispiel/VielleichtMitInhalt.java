@@ -1,10 +1,5 @@
 package aufWunschBeispiel;
 
-import java.util.NoSuchElementException;
-import java.util.Objects;
-import java.util.Optional;
-import java.util.function.Function;
-
 public class VielleichtMitInhalt<T> {
     /**
      * Common instance for {@code empty()}.
@@ -82,6 +77,15 @@ public class VielleichtMitInhalt<T> {
 	// istInhaltVorhanden
 
     /**
+     * If a value is  not present, returns {@code true}, otherwise
+     * {@code false}.
+     *
+     * @return  {@code true} if a value is not present, otherwise {@code false}
+     * @since   11
+     */
+    // istLeer()
+
+    /**
      * If a value is present, invoke the specified consumer with the value,
      * otherwise do nothing.
      *
@@ -91,6 +95,20 @@ public class VielleichtMitInhalt<T> {
      */
 	// wennInhaltDannMache
 
+    /**
+     * If a value is present, performs the given action with the value,
+     * otherwise performs the given empty-based action.
+     *
+     * @param benutzer the action to be performed, if a value is present
+     * @param lauffaehig the empty-based action to be performed, if no value is
+     *        present
+     * @throws NullPointerException if a value is present and the given action
+     *         is {@code null}, or no value is present and the given empty-based
+     *         action is {@code null}.
+     * @since 9
+     */
+    // wennVorhandenBenutzerSonstLauffaehig
+	
     /**
      * If a value is present, and the value matches the given predicate,
      * return an {@code Optional} describing the value, otherwise return an
@@ -103,7 +121,6 @@ public class VielleichtMitInhalt<T> {
      * @throws NullPointerException if the predicate is null
      */
 	// filtere
-
 
     /**
      * If a value is present, apply the provided mapping function to it,
@@ -156,6 +173,38 @@ public class VielleichtMitInhalt<T> {
 	// transformiereFlach
 
     /**
+     * If a value is present, returns an {@code Optional} describing the value,
+     * otherwise returns an {@code Optional} produced by the supplying function.
+     *
+     * @param supplier the supplying function that produces an {@code Optional}
+     *        to be returned
+     * @return returns an {@code Optional} describing the value of this
+     *         {@code Optional}, if a value is present, otherwise an
+     *         {@code Optional} produced by the supplying function.
+     * @throws NullPointerException if the supplying function is {@code null} or
+     *         produces a {@code null} result
+     * @since 9
+     */
+    // inhaltOderErzeuge
+	
+    /**
+     * If a value is present, returns a sequential {@link Stream} containing
+     * only that value, otherwise returns an empty {@code Stream}.
+     *
+     * @apiNote
+     * This method can be used to transform a {@code Stream} of optional
+     * elements to a {@code Stream} of present value elements:
+     * <pre>{@code
+     *     Stream<Optional<T>> os = ..
+     *     Stream<T> s = os.flatMap(Optional::stream)
+     * }</pre>
+     *
+     * @return the optional value as a {@code Stream}
+     * @since 9
+     */
+    // erzeugeStream
+	
+    /**
      * Return the value if present, otherwise return {@code other}.
      *
      * @param other the value to be returned if there is no value present, may
@@ -175,6 +224,16 @@ public class VielleichtMitInhalt<T> {
      * null
      */
 	// holeWennVorhandenSonstRufeAuf
+
+    /**
+     * If a value is present, returns the value, otherwise throws
+     * {@code NoSuchElementException}.
+     *
+     * @return the non-{@code null} value described by this {@code Optional}
+     * @throws NoSuchElementException if no value is present
+     * @since 10
+     */
+    // wertOderException
 
     /**
      * Return the contained value, if present, otherwise throw an exception
