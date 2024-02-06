@@ -5,6 +5,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Locale;
 import java.util.Map;
 
 import org.junit.jupiter.api.DisplayName;
@@ -27,7 +28,7 @@ public class MethodReferenz {
 	@DisplayName("Werden Kleinbuchstaben in Grossbuchstaben umgewandelt?")
 	public void test01() {
 		assertEquals(
-				("kleinbuchstaben").toUpperCase(), 
+				("kleinbuchstaben").toUpperCase(Locale.GERMAN), 
 				kleinZuGrossMitMethodReferenz("kleinbuchstaben") );
 	}
 

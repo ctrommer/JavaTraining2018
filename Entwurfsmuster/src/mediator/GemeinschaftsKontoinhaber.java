@@ -21,6 +21,6 @@ public class GemeinschaftsKontoinhaber {
 	}
 
 	public List<String> getKontoauszug() {
-		return kontoauszug;
+		return new ArrayList<String>( kontoauszug );
 	}
 }
