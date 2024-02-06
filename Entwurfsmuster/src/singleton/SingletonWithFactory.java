@@ -5,7 +5,7 @@ public class SingletonWithFactory {
 	
 	private static final SingletonWithFactory INSTANCE = new SingletonWithFactory();
 	
-	private String inhalt = new String();
+	private String inhalt = "";
 
 	private SingletonWithFactory() {
 	}
@@ -18,7 +18,7 @@ public class SingletonWithFactory {
 		this.inhalt = inhalt;
 	}
 
-	public static SingletonWithFactory getInstance() {
+	protected static SingletonWithFactory getInstance() {
 		return INSTANCE;
 	}
 

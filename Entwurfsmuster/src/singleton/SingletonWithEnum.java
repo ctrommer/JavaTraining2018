@@ -3,13 +3,13 @@ package singleton;
 public enum SingletonWithEnum {
 	INSTANCE;
 
-	private String inhalt = new String();
+	private String inhalt = "";
 
 	public String getInhalt() {
 		return inhalt;
 	}
 
-	public void setInhalt( String inhalt ) {
+	protected void setInhalt( String inhalt ) {
 		this.inhalt = inhalt;
 	}
 

@@ -19,6 +19,6 @@ public class Schauspieler {
 	}
 
 	public List<Mitarbeiter> getFans() {
-		return fans;
+		return new ArrayList<Mitarbeiter>( fans );
 	}
 }

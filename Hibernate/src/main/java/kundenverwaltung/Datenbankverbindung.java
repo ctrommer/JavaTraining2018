@@ -12,7 +12,7 @@ public class Datenbankverbindung {
     /**
      * Nur eine pro Anwendung
      */
-    static SessionFactory sessionFactory;
+    static volatile SessionFactory sessionFactory;
  
     public static SessionFactory holeSessionFactory() {
     	if ( sessionFactory == null ) { 

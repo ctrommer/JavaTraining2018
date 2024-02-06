@@ -2,6 +2,7 @@ package training;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
 public class Mitarbeiter {
 	private String name;
@@ -21,7 +22,7 @@ public class Mitarbeiter {
 	}
 	
 	public static List<Mitarbeiter> getBestenMitarbeiter() {
-		return bestenMitarbeiter;
+		return new ArrayList<Mitarbeiter>( bestenMitarbeiter );
 	}
 
 	public void gebeNameAus() {
@@ -29,7 +30,7 @@ public class Mitarbeiter {
 	}
 	
 	public void nameZuGrossbuchstaben() {
-		name = name.toUpperCase();
+		name = name.toUpperCase(Locale.GERMAN);
 	}
 
 	public String getName() {

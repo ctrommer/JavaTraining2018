@@ -130,12 +130,12 @@ public class SchleifeTrainer {
 	}
 
 	private String collectionMitIteratorZuString( Collection<String> namenCollection ) {
-		String aneinandergehaengt = new String();
+		StringBuilder aneinandergehaengt = new StringBuilder();
 
 		for ( Iterator<String> iterator = namenCollection.iterator(); iterator.hasNext(); ) {
-			aneinandergehaengt += iterator.next();			
+			aneinandergehaengt.append( iterator.next() );			
 		}
-		return aneinandergehaengt;
+		return aneinandergehaengt.toString();
 	}
 
 	@Test
@@ -148,14 +148,14 @@ public class SchleifeTrainer {
 	}
 
 	private String collectionMitForInZuString( Collection<String> namenCollection ) {
-		String aneinandergehaengt = new String();
+		StringBuilder aneinandergehaengt = new StringBuilder();
 
 		for (String element: namenCollection) {
-			aneinandergehaengt += element;			
+			aneinandergehaengt.append( element );
 		}
-		return aneinandergehaengt;
+		return aneinandergehaengt.toString();
 	}
-	
+
 	@Test
 	@DisplayName("collectionMitForInZuString soll"
 			+ "die Werte mit for in loop zu einem String zusammenfuegen")
@@ -166,13 +166,13 @@ public class SchleifeTrainer {
 	}	
 
 	private String collectionMitWhileZuString( Collection<String> namenCollection ) {
-		String aneinandergehaengt = new String();
+		StringBuilder aneinandergehaengt = new StringBuilder();
 
 		Iterator<String> iterator = namenCollection.iterator();
 		while ( iterator.hasNext( ) ) {
-			aneinandergehaengt+= iterator.next();			
+			aneinandergehaengt.append( iterator.next() );
 		}
-		return aneinandergehaengt;
+		return aneinandergehaengt.toString();
 	}
 
 	@Test
@@ -263,7 +263,7 @@ public class SchleifeTrainer {
 	 * @return key und value aller Eintaege ohne Leerzeichen
 	 */
 	private String mapMitWhileZuString( Map<String, String> map  ) {
-		String aneinandergehaengt = new String();
+		String aneinandergehaengt = "";
 
 		Iterator<Map.Entry<String, String>> iterator = map.entrySet().iterator();
 		while( iterator.hasNext() ) {
@@ -283,7 +283,7 @@ public class SchleifeTrainer {
 	}
 
 	private String mapMitIteratorZuString( Map<String, String> map  ) {
-		String aneinandergehaengt = new String();
+		String aneinandergehaengt = "";
 
 		Set<Map.Entry<String, String>> entrySet = nameWohnortMap.entrySet();		
 		for( Iterator<Map.Entry<String, String>> iterator = entrySet.iterator(); iterator.hasNext(); ) {
@@ -301,7 +301,7 @@ public class SchleifeTrainer {
 	}
 
 	private String mapMitForInZuString( Map<String, String> map  ) {
-		String aneinandergehaengt = new String();
+		String aneinandergehaengt = "";
 
 		Set<Map.Entry<String, String>> entrySet = nameWohnortMap.entrySet();
 		for ( Map.Entry<String, String> entry : entrySet ) {

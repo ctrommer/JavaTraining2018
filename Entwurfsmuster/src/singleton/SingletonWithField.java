@@ -4,7 +4,7 @@ public class SingletonWithField {
 	
 	public static final SingletonWithField INSTANCE = new SingletonWithField();
 	
-	private String inhalt = new String();
+	private String inhalt = "";
 
 	private SingletonWithField() {
 	}

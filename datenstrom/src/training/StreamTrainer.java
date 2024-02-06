@@ -431,7 +431,7 @@ public class StreamTrainer {
 		assertEquals( haeufigkeitUndText, woerterNachHaeufigkeitGruppiert );
 	}
 
-	class Person {
+	static class Person {
 		String name;
 		Integer alter;
 

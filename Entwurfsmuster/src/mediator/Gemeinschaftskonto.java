@@ -12,7 +12,7 @@ import java.util.List;
 public class Gemeinschaftskonto {
 	List<GemeinschaftsKontoinhaber> kontoinhabers = new ArrayList<GemeinschaftsKontoinhaber>();
 
-	public void fuegeKontoinhaberHinzu( GemeinschaftsKontoinhaber kontoinhaber ) {
+	public final void fuegeKontoinhaberHinzu( GemeinschaftsKontoinhaber kontoinhaber ) {
 		kontoinhabers.add( kontoinhaber );
 	}
 
