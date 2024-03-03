@@ -285,7 +285,7 @@ public class SchleifeTrainer {
 	private String mapMitIteratorZuString( Map<String, String> map  ) {
 		String aneinandergehaengt = "";
 
-		Set<Map.Entry<String, String>> entrySet = nameWohnortMap.entrySet();		
+		Set<Map.Entry<String, String>> entrySet = map.entrySet();		
 		for( Iterator<Map.Entry<String, String>> iterator = entrySet.iterator(); iterator.hasNext(); ) {
 			Map.Entry<String, String> entry = iterator.next();
 			aneinandergehaengt+= entry.getKey() + entry.getValue();
@@ -303,7 +303,7 @@ public class SchleifeTrainer {
 	private String mapMitForInZuString( Map<String, String> map  ) {
 		String aneinandergehaengt = "";
 
-		Set<Map.Entry<String, String>> entrySet = nameWohnortMap.entrySet();
+		Set<Map.Entry<String, String>> entrySet = map.entrySet();
 		for ( Map.Entry<String, String> entry : entrySet ) {
 			aneinandergehaengt +=entry.getKey()  + entry.getValue();
 		}
@@ -322,7 +322,7 @@ public class SchleifeTrainer {
 	private Map<String, String> mapMitForEachZuMapKeyValueVertauscht( Map<String, String> map ) {
 		Map<String, String> keyValueVertauscht = new LinkedHashMap<String, String>();
 
-		nameWohnortMap.forEach( ( key, value ) -> keyValueVertauscht.put( value, key) );
+		map.forEach( ( key, value ) -> keyValueVertauscht.put( value, key) );
 		
 		return keyValueVertauscht;
 	}
