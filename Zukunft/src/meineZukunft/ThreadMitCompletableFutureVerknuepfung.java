@@ -55,8 +55,8 @@ public class ThreadMitCompletableFutureVerknuepfung {
 														CompletableFuture.supplyAsync(
 																			() 
 																			->  " zweiter Teil aus thenCombine"),
-																			( ergebnisAusErstemThread, ergebnisAusZweitemThread ) 
-																			-> ergebnisAusErstemThread + ergebnisAusZweitemThread );
+														( ergebnisAusErstemThread, ergebnisAusZweitemThread ) 
+														-> ergebnisAusErstemThread + ergebnisAusZweitemThread );
 		try {
 			System.out.println( completableFuture.get() );
 		} catch ( InterruptedException | ExecutionException e ) {
