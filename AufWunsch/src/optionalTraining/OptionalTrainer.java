@@ -215,6 +215,20 @@ public class OptionalTrainer {
 	private Stream<String> optionalToStream( Optional<String> optional ) {
 		return optional.stream();
 	}
+
+	/**
+	 * Inhalt von Optional wenn vorhanden, sonst erzeuge
+	 * Wert mit dem Supplier 
+	 * @param opti Inhalt wird zurueckgegeben, wenn vorhanden
+	 * @param ergebnisVonSupplier erzeugt Rueckgabewert, wenn Optional ohne Inhalt
+	 * @return Inhalt von Optional wenn vorhanden, sonst von Supplier
+	 * erzeugter Wert
+	 */
+	private Integer wertOderErzeugeMitSupplier( 
+									Optional<Integer> opti, 
+									Integer ergebnisVonSupplier ) {
+		return opti.orElseGet( () -> ergebnisVonSupplier );
+	}	
 	
 	@Test
 	@DisplayName( "erzeugeLeeresOptional soll ein leeres Optional erzeugen" )
@@ -353,20 +367,6 @@ public class OptionalTrainer {
 						.getBeruf()
 						.equals( "Kanzler:in" ) );		
 	}	
-
-	/**
-	 * Inhalt von Optional wenn vorhanden, sonst erzeuge
-	 * Wert mit dem Supplier 
-	 * @param opti Inhalt wird zurueckgegeben, wenn vorhanden
-	 * @param ergebnisVonSupplier erzeugt Rueckgabewert, wenn Optional ohne Inhalt
-	 * @return Inhalt von Optional wenn vorhanden, sonst von Supplier
-	 * erzeugter Wert
-	 */
-	private Integer wertOderErzeugeMitSupplier( 
-									Optional<Integer> opti, 
-									Integer ergebnisVonSupplier ) {
-		return opti.orElseGet( () -> ergebnisVonSupplier );
-	}
 
 	@Test
 	@DisplayName("demonstriereVeraltetenZugriff soll leer liefern, wenn das Optional leer ist")
