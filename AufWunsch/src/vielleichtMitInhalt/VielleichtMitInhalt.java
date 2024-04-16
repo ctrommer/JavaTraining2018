@@ -1,4 +1,4 @@
-package aufWunschBeispiel;
+package vielleichtMitInhalt;
 
 import java.util.NoSuchElementException;
 import java.util.Objects;

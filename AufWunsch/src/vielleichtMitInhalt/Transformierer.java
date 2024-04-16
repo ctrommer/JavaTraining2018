@@ -1,4 +1,4 @@
-package aufWunschBeispiel;
+package vielleichtMitInhalt;
 
 @FunctionalInterface
 interface Transformierer<T,R> {

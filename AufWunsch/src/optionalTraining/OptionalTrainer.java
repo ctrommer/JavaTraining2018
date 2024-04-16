@@ -1,4 +1,4 @@
-package training;
+package optionalTraining;
 
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
@@ -17,7 +17,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 public class OptionalTrainer {
-
+	
 	/**
 	 * Erzeuge ein leeres Optional.
 	 * @return
@@ -26,15 +26,7 @@ public class OptionalTrainer {
 	private Optional<Object> erzeugeLeeresOptional( ) {
 		 return Optional.empty();
 	}
-	
-	@Test
-	@DisplayName( "erzeugeLeeresOptional soll ein leeres Optional erzeugen" )
-	public void test01() {
-		assertEquals( 
-				Optional.empty(), 
-				erzeugeLeeresOptional() );
-	}
-	
+		
 	/**
 	 * Erzeuge ein Optional aus dem übergebenen Wert. Gib den Inhalt des
 	 * Optional zurück, wenn der Inhalt ungleich null ist, sonst den defaultwert.   
@@ -52,25 +44,6 @@ public class OptionalTrainer {
 					.orElse( defaultWert );
 	}
 
-	@Test
-	@DisplayName( "wennTextNullDannDefault soll Optional aus dem übergebenen Text erzeugen " )
-	public void test02() {
-		String erwartetesErgebnis = "Inhalt des Optionals";
-		
-		assertSame(
-				erwartetesErgebnis, 
-				wennTextNullDannDefault( erwartetesErgebnis, "nicht verwendeter default Wert" ) );		
-	}
-
-	@Test
-	@DisplayName( "wennTextNullDannDefault soll Default Wert verwenden, wenn der übergebene Text null ist" )
-	public void test03() {
-		String erwartetesErgebnis = "kein Text";
-		assertSame( 
-				erwartetesErgebnis, 
-				wennTextNullDannDefault( null, erwartetesErgebnis) );
-	}	
-
 	/**
 	 * Erzeuge aus dem übergebenen Wert ein Optional.
 	 * @param text
@@ -83,24 +56,6 @@ public class OptionalTrainer {
 	 */
 	private Optional<String> erzeugeOderWirfExceptionWennNull( String text ) {
 		return Optional.of( text );
-	}
-
-	@Test
-	@DisplayName( "erzeugeOderWirfExceptionWennNull soll ein Optional erzeugen, wenn der übergebene Wert ungleich null ist" )
-	public void test04() {
-		String erwartetesErgebnis = "Hallo";
-
-		assertSame( 
-				erwartetesErgebnis, 
-				erzeugeOderWirfExceptionWennNull( erwartetesErgebnis ).orElse("falscher Wert") );
-	}
-
-	@Test
-	@DisplayName( "erzeugeOderWirfExceptionWennNull soll Nullpointer exception werfen, wenn der übergebene Wert null ist" )
-	public void test05() {
-		assertThrows(
-				NullPointerException.class, 
-				()-> erzeugeOderWirfExceptionWennNull( null ) );
 	}
 	
 	/**
@@ -121,6 +76,190 @@ public class OptionalTrainer {
 										}
 									} );
 	}
+
+	/**
+	 * Mit Lambda.
+	 * 
+	 * Wenn inhalt vorhanden, gib diesen Inhalt zurueck.
+	 * Sonst wirf eine IllegalStateException.
+	 * 
+	 * @param vielleichtText
+	 * @return inhalt, wenn dieser ungleich null
+	 */
+	private String inhaltOderIllegalStateExceptionMitLambda( Optional<String> vielleichtText ) {
+		return vielleichtText
+						.orElseThrow( () -> new IllegalStateException() );
+	}
+
+	/**
+	 * Mit Method Referenz.
+	 * 
+	 * Wenn inhalt vorhanden, gib diesen Inhalt zurueck.
+	 * Sonst wirf eine IllegalStateException.
+	 * 
+	 * @param vielleichtText
+	 * @return inhalt, wenn dieser ungleich null
+	 */
+	private String inhaltOderIllegalStateExceptionMitMethodReferenz( Optional<String> vielleichtText ) {
+		return vielleichtText
+						.orElseThrow( IllegalStateException::new );
+	}
+
+	/**
+	 * Wenn Person ungleich null ist,  
+	 * Beruf von Person ungleich null ist 
+	 * und Beruf einen Inhalt ungleich Whitespaces hat,
+	 * wird dem Beruf der Person ein ":in" angehaengt.
+	 * @param person
+	 * person, darf auch null sein.
+	 */
+	private void berufGendern( Person person ) {
+		Optional
+			.ofNullable( person )
+			.map( Person::getBeruf )
+			.filter( beruf -> !beruf.isBlank()  )
+			.ifPresent( beruf -> person.setBeruf( beruf + ":in") );
+	}
+	
+	/**
+	 * Achtung: Sollte man nur im äussersten Notfall verwenden.
+	 * 
+	 * @param vielleichtText
+	 * Inhalt kann auch leer sein.
+	 * @param wertWennOptionalLeer
+	 * Wert für den Fall, das Optional leer ist
+	 * @return
+	 * Inhalt wenn vorhanden, sonst wertWennOptionalLeer.
+	 */
+	private String demonstriereVeraltetenZugriff( 
+										Optional<String> vielleichtText, 
+										String wertWennOptionalLeer ) {
+		if ( vielleichtText.isPresent() ) {
+			return vielleichtText.get();
+		}
+		return wertWennOptionalLeer;
+	}
+
+	/**
+	 * Erzeuge aus der Person ein Optional, ermittle daraus das Gewicht.
+	 * @param person
+	 * Darf null sein, ihr Gewicht darf auch null sein.
+	 * @return
+	 * Wenn das Gewicht der Person nicht leer ist, das Gewicht der Person, 100 sonst.
+	 */
+	private Integer vielleichtGewichtOder100( Person person ) {
+		
+		return Optional.ofNullable( person )
+				.flatMap( Person::getVielleichtGewicht )
+				.orElse( 100 );
+	}
+
+	/**
+	 * Ob Inhalt leer ist.
+	 * 
+	 * @param vielleichtText Text der geprueft wird
+	 * @return {@code true} wenn Wert nicht vorhanden, sonst {@codefalse}
+	 */
+	private boolean istLeer( Optional<String> vielleichtText  ) {
+		return vielleichtText.isEmpty();
+	}
+
+	/**
+	 * Wenn Person null ist, wird eine NullpointerException
+	 * geworfen.  
+	 * 
+	 * Wenn Beruf von Person ungleich null ist 
+	 * und einen Inhalt ungleich Whitespaces hat,
+	 * wird dem Beruf der Person ein ":in" angehaengt,
+	 * sonst wird der Beruf der Person auf 
+	 * "Arbeitslos:in" gesetzt.
+	 * 
+	 * @param person
+	 * zu gendernde person, darf nicht null sein
+	 * @throws NullPointerException if person is null
+	 */
+	private void berufGendernSonstArbeislosIn( Person person ) {
+		Objects.requireNonNull( person );
+		Optional
+			.ofNullable( person )
+			.map( Person::getBeruf )
+			.filter( beruf -> !beruf.isBlank()  )
+			.ifPresentOrElse(
+						beruf -> person.setBeruf( beruf + ":in" ),
+						() -> person.setBeruf("Arbeitslos:in") );
+	}
+
+	/**
+	 * Verwende Supplier.
+	 * 
+	 * Wenn das Optional vorhanden ist, liefere es zurück,
+	 * sonst erzeuge mit einem Supplier ein Optional aus dem defaultWert.
+	 * 
+	 * @param optional wird zurueckgegeben, wenn inhalt vorhanden
+	 * @param defaultWert Optional mit Supplier hieraus wird übergeben, wenn Optional leer
+	 * @return Optional wenn inhalt vorhanden, sonst Optional 
+	 * mit Supplier aus Defaultwert
+	 */
+	private Optional<Integer> optionalOderDefaultMitSupplier( 
+															Optional<Integer> optional, 
+															Integer defaultWert ) {
+		return optional.or( () -> Optional.ofNullable( defaultWert ) );
+	}
+	
+	/**
+	 * Optional mit einem Wert soll in einen Stream mit diesem Wert umgewandelt werden.
+	 * Also nicht Stream von Optional
+	 * @param optional optional, mit dessen Inhalt ein Stream erzeugt wird
+	 * @return Stream mit dem Inhalt von Optional
+	 */
+	private Stream<String> optionalToStream( Optional<String> optional ) {
+		return optional.stream();
+	}
+	
+	@Test
+	@DisplayName( "erzeugeLeeresOptional soll ein leeres Optional erzeugen" )
+	public void test01() {
+		assertEquals( 
+				Optional.empty(), 
+				erzeugeLeeresOptional() );
+	}	
+	
+	@Test
+	@DisplayName( "wennTextNullDannDefault soll Optional aus dem übergebenen Text erzeugen " )
+	public void test02() {
+		String erwartetesErgebnis = "Inhalt des Optionals";
+		
+		assertSame(
+				erwartetesErgebnis, 
+				wennTextNullDannDefault( erwartetesErgebnis, "nicht verwendeter default Wert" ) );		
+	}
+
+	@Test
+	@DisplayName( "wennTextNullDannDefault soll Default Wert verwenden, wenn der übergebene Text null ist" )
+	public void test03() {
+		String erwartetesErgebnis = "kein Text";
+		assertSame( 
+				erwartetesErgebnis, 
+				wennTextNullDannDefault( null, erwartetesErgebnis) );
+	}	
+	
+	@Test
+	@DisplayName( "erzeugeOderWirfExceptionWennNull soll ein Optional erzeugen, wenn der übergebene Wert ungleich null ist" )
+	public void test04() {
+		String erwartetesErgebnis = "Hallo";
+
+		assertSame( 
+				erwartetesErgebnis, 
+				erzeugeOderWirfExceptionWennNull( erwartetesErgebnis ).orElse("falscher Wert") );
+	}
+
+	@Test
+	@DisplayName( "erzeugeOderWirfExceptionWennNull soll Nullpointer exception werfen, wenn der übergebene Wert null ist" )
+	public void test05() {
+		assertThrows(
+				NullPointerException.class, 
+				()-> erzeugeOderWirfExceptionWennNull( null ) );
+	}	
 	
 	@Test
 	@DisplayName("inhaltOderIllegalStateExceptionMitAnonymerKlasse soll Inhalt zurueckgegeben, wenn er vorhanden ist")
@@ -139,21 +278,7 @@ public class OptionalTrainer {
 		Assertions.assertThrows(
 							IllegalStateException.class, 
 							() -> inhaltOderIllegalStateExceptionMitAnonymerKlasse( Optional.empty() ) );
-	}
-
-	/**
-	 * Mit Lambda.
-	 * 
-	 * Wenn inhalt vorhanden, gib diesen Inhalt zurueck.
-	 * Sonst wirf eine IllegalStateException.
-	 * 
-	 * @param vielleichtText
-	 * @return inhalt, wenn dieser ungleich null
-	 */
-	private String inhaltOderIllegalStateExceptionMitLambda( Optional<String> vielleichtText ) {
-		return vielleichtText
-						.orElseThrow( () -> new IllegalStateException() );
-	}
+	}	
 	
 	@Test
 	@DisplayName("inhaltOderIllegalStateExceptionMitLambda soll Inhalt zurueckgegeben, wenn er vorhanden ist")
@@ -170,21 +295,7 @@ public class OptionalTrainer {
 		Assertions.assertThrows(
 							IllegalStateException.class, 
 							() -> inhaltOderIllegalStateExceptionMitLambda( Optional.empty() ) );
-	}
-
-	/**
-	 * Mit Method Referenz.
-	 * 
-	 * Wenn inhalt vorhanden, gib diesen Inhalt zurueck.
-	 * Sonst wirf eine IllegalStateException.
-	 * 
-	 * @param vielleichtText
-	 * @return inhalt, wenn dieser ungleich null
-	 */
-	private String inhaltOderIllegalStateExceptionMitMethodReferenz( Optional<String> vielleichtText ) {
-		return vielleichtText
-						.orElseThrow( IllegalStateException::new );
-	}
+	}	
 
 	@Test
 	@DisplayName("inhaltOderIllegalStateExceptionMitMethodReferenz soll Inhalt zurueckgegeben, wenn er vorhanden ist")
@@ -202,22 +313,6 @@ public class OptionalTrainer {
 							IllegalStateException.class, 
 							() -> inhaltOderIllegalStateExceptionMitMethodReferenz( Optional.empty() ) );
 	}	
-
-	/**
-	 * Wenn Person ungleich null ist,  
-	 * Beruf von Person ungleich null ist 
-	 * und Beruf einen Inhalt ungleich Whitespaces hat,
-	 * wird dem Beruf der Person ein ":in" angehaengt.
-	 * @param person
-	 * person, darf auch null sein.
-	 */
-	private void berufGendern( Person person ) {
-		Optional
-			.ofNullable( person )
-			.map( Person::getBeruf )
-			.filter( beruf -> !beruf.isBlank()  )
-			.ifPresent( beruf -> person.setBeruf( beruf + ":in") );
-	}
 
 	@Test
 	@DisplayName("berufGendern soll Beruf nicht gendern, wenn Person null ist")
@@ -257,25 +352,20 @@ public class OptionalTrainer {
 		assertTrue( person
 						.getBeruf()
 						.equals( "Kanzler:in" ) );		
-	}
-	
+	}	
+
 	/**
-	 * Achtung: Sollte man nur im äussersten Notfall verwenden.
-	 * 
-	 * @param vielleichtText
-	 * Inhalt kann auch leer sein.
-	 * @param wertWennOptionalLeer
-	 * Wert für den Fall, das Optional leer ist
-	 * @return
-	 * Inhalt wenn vorhanden, sonst wertWennOptionalLeer.
+	 * Inhalt von Optional wenn vorhanden, sonst erzeuge
+	 * Wert mit dem Supplier 
+	 * @param opti Inhalt wird zurueckgegeben, wenn vorhanden
+	 * @param ergebnisVonSupplier erzeugt Rueckgabewert, wenn Optional ohne Inhalt
+	 * @return Inhalt von Optional wenn vorhanden, sonst von Supplier
+	 * erzeugter Wert
 	 */
-	private String demonstriereVeraltetenZugriff( 
-										Optional<String> vielleichtText, 
-										String wertWennOptionalLeer ) {
-		if ( vielleichtText.isPresent() ) {
-			return vielleichtText.get();
-		}
-		return wertWennOptionalLeer;
+	private Integer wertOderErzeugeMitSupplier( 
+									Optional<Integer> opti, 
+									Integer ergebnisVonSupplier ) {
+		return opti.orElseGet( () -> ergebnisVonSupplier );
 	}
 
 	@Test
@@ -300,29 +390,15 @@ public class OptionalTrainer {
 				demonstriereVeraltetenZugriff(
 										Optional.ofNullable( erwartetesErgebnis ), 
 										"default Wert" ) );		
-	}
-
-	/**
-	 * Erzeuge aus der Person ein Optional, ermittle daraus das Gewicht.
-	 * @param person
-	 * Darf null sein, ihr Gewicht darf auch null sein.
-	 * @return
-	 * Wenn das Gewicht der Person nicht leer ist, das Gewicht der Person, 100 sonst.
-	 */
-	private Integer vielleichtGewichtOder100( Person person ) {
-		
-		return Optional.ofNullable( person )
-				.flatMap( Person::getVielleichtGewicht )
-				.orElse( 100 );
-	}
-
+	}	
+	
 	@Test
 	@DisplayName("vielleichtGewichtOder100 soll 100 liefern, wenn die Person null ist")
 	public void test18() {
 		assertSame( 
 				100, 
 				vielleichtGewichtOder100( null ) );
-	}
+	}	
 	
 	@Test
 	@DisplayName("vielleichtGewichtOder100 soll 100 liefern, wenn das Gewicht der Person null ist")
@@ -344,17 +420,7 @@ public class OptionalTrainer {
 		assertSame( 
 				120, 
 				vielleichtGewichtOder100( arnold ) );
-	}
-
-	/**
-	 * Ob Inhalt leer ist.
-	 * 
-	 * @param vielleichtText Text der geprueft wird
-	 * @return {@code true} wenn Wert nicht vorhanden, sonst {@codefalse}
-	 */
-	private boolean istLeer( Optional<String> vielleichtText  ) {
-		return vielleichtText.isEmpty();
-	}
+	}	
 	
 	@Test
 	@DisplayName("istLeer soll true liefern, wenn leer")
@@ -366,33 +432,8 @@ public class OptionalTrainer {
 	@DisplayName("istLeer soll false liefern, wenn Inhalt vorhanden")
 	public void test22() {
 		assertFalse( istLeer( Optional.ofNullable("mit Inhalt") ) );		
-	}
-
-	/**
-	 * Wenn Person null ist, wird eine NullpointerException
-	 * geworfen.  
-	 * 
-	 * Wenn Beruf von Person ungleich null ist 
-	 * und einen Inhalt ungleich Whitespaces hat,
-	 * wird dem Beruf der Person ein ":in" angehaengt,
-	 * sonst wird der Beruf der Person auf 
-	 * "Arbeitslos:in" gesetzt.
-	 * 
-	 * @param person
-	 * zu gendernde person, darf nicht null sein
-	 * @throws NullPointerException if person is null
-	 */
-	private void berufGendernSonstArbeislosIn( Person person ) {
-		Objects.requireNonNull( person );
-		Optional
-			.ofNullable( person )
-			.map( Person::getBeruf )
-			.filter( beruf -> !beruf.isBlank()  )
-			.ifPresentOrElse(
-						beruf -> person.setBeruf( beruf + ":in" ),
-						() -> person.setBeruf("Arbeitslos:in") );
-	}
-
+	}	
+	
 	@Test
 	@DisplayName("berufGendernSonstArbeislosIn soll Beruf als Arbeitslos:in setzen, wenn Beruf null ist")
 	public void test23() {
@@ -438,23 +479,7 @@ public class OptionalTrainer {
 				NullPointerException.class, 
 				() -> berufGendernSonstArbeislosIn( person ) );
 	}
-
-	/**
-	 * Verwende Supplier.
-	 * 
-	 * Wenn das Optional vorhanden ist, liefere es zurück,
-	 * sonst erzeuge mit einem Supplier ein Optional aus dem defaultWert.
-	 * 
-	 * @param optional wird zurueckgegeben, wenn inhalt vorhanden
-	 * @param defaultWert Optional mit Supplier hieraus wird übergeben, wenn Optional leer
-	 * @return Optional wenn inhalt vorhanden, sonst Optional 
-	 * mit Supplier aus Defaultwert
-	 */
-	private Optional<Integer> optionalOderDefaultMitSupplier( 
-															Optional<Integer> optional, 
-															Integer defaultWert ) {
-		return optional.or( () -> Optional.ofNullable( defaultWert ) );
-	}
+	
 	
 	@Test
 	@DisplayName("optionalOderDefaultMitSupplier soll Optional liefern, wenn ungleich null")
@@ -482,17 +507,7 @@ public class OptionalTrainer {
 		assertEquals( 
 				Optional.ofNullable( 44 ).orElse( 0 ), 
 				ergebnis.orElse( 1 ) );
-	}
-
-	/**
-	 * Optional mit einem Wert soll in einen Stream mit diesem Wert umgewandelt werden.
-	 * Also nicht Stream von Optional
-	 * @param optional optional, mit dessen Inhalt ein Stream erzeugt wird
-	 * @return Stream mit dem Inhalt von Optional
-	 */
-	private Stream<String> optionalToStream( Optional<String> optional ) {
-		return optional.stream();
-	}
+	}	
 	
 	@Test	
 	@DisplayName("optionalToStream soll bei leerem Optional leeren Stream liefern")
@@ -516,22 +531,8 @@ public class OptionalTrainer {
 				inhalt, 
 				ergebnis.orElse("leider Falsch")
 				);
-	}
-
-	/**
-	 * Inhalt von Optional wenn vorhanden, sonst erzeuge
-	 * Wert mit dem Supplier 
-	 * @param opti Inhalt wird zurueckgegeben, wenn vorhanden
-	 * @param ergebnisVonSupplier erzeugt Rueckgabewert, wenn Optional ohne Inhalt
-	 * @return Inhalt von Optional wenn vorhanden, sonst von Supplier
-	 * erzeugter Wert
-	 */
-	private Integer wertOderErzeugeMitSupplier( 
-									Optional<Integer> opti, 
-									Integer ergebnisVonSupplier ) {
-		return opti.orElseGet( () -> ergebnisVonSupplier );
-	}
-
+	}	
+	
 	@Test
 	@DisplayName("wertOderErzeugeMitSupplier soll Wert liefern, wenn Optional Wert enthaelt")
 	public void test31() {
