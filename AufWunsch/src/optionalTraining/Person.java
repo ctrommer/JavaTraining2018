@@ -1,4 +1,4 @@
-package training;
+package optionalTraining;
 
 import java.util.Optional;
 

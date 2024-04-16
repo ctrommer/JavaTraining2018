@@ -1,4 +1,4 @@
-package aufWunschBeispiel;
+package vielleichtMitInhalt;
 
 /**
  * The {@code Runnable} interface should be implemented by any
