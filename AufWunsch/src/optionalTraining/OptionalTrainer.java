@@ -200,7 +200,7 @@ public class OptionalTrainer {
 	private Integer wertOderErzeugeMitSupplier( 
 									Optional<Integer> opti, 
 									Integer ergebnisVonSupplier ) {
-		return opti.orElseGet( () -> ergebnisVonSupplier );
+		return null;
 	}	
 	
 	@Test
