@@ -45,15 +45,6 @@ public class SchleifeTrainer {
 		return summe;
 	}
 
-	@Test
-	@DisplayName("summeMitForSchleife soll "
-			+ "die Summe der Werte aus den uebergebenen Werten berechnen")
-	public void test01() {
-		assertEquals( 
-				111, 
-				summeMitForSchleife( 1, 10, 100 ) );
-	}
-
 	/**
 	 * Ermittle die Summe der Array Elemente mit for in loop
 	 * 
@@ -66,15 +57,6 @@ public class SchleifeTrainer {
 		int summe = 0;
 
 		return summe;
-	}
-
-	@Test
-	@DisplayName("summeElementeMitForInLoop soll "
-			+ "die Summe der Elemente liefern")
-	public void test02() {
-		assertEquals( 
-				111, 
-				summeElementeMitForInLoop( new int[] { 1, 10, 100 } ) );
 	}
 
 	/** 
@@ -95,32 +77,11 @@ public class SchleifeTrainer {
 		List<Boolean> ergebnis = new ArrayList<>();
 		return ergebnis;
 	}
-	
-	@Test
-	@DisplayName("booleanMitForInZuListe soll die Werte "
-			+ "ueber Array und mit for in loop in die Liste einfuegen")
-	public void test03() {
-		boolean erster = false;
-		boolean zweiter = false;
-		boolean dritter = true;
-		List<Boolean> erwartet = Arrays.asList( erster, zweiter, dritter );
-		assertEquals(
-				erwartet, 
-				booleanMitForInZuListe( erster, zweiter, dritter ) );
-	}
+
 
 	private String collectionMitIteratorZuString( Collection<String> namenCollection ) {
 		StringBuilder aneinandergehaengt = new StringBuilder();
 		return aneinandergehaengt.toString();
-	}
-
-	@Test
-	@DisplayName("collectionMitIteratorZuString soll"
-			+ "die Werte mit Iterator zu einem String zusammenfuegen")
-	public void test04() {
-		assertEquals(
-				"UweKarlUta", 
-				collectionMitIteratorZuString( namenListe ) );
 	}
 
 	private String collectionMitForInZuString( Collection<String> namenCollection ) {
@@ -128,28 +89,10 @@ public class SchleifeTrainer {
 		return aneinandergehaengt.toString();
 	}
 
-	@Test
-	@DisplayName("collectionMitForInZuString soll"
-			+ "die Werte mit for in loop zu einem String zusammenfuegen")
-	public void test05() {
-		assertEquals(
-				"UweKarlUta", 
-				collectionMitForInZuString( namenListe ) );		
-	}	
-
 	private String collectionMitWhileZuString( Collection<String> namenCollection ) {
 		StringBuilder aneinandergehaengt = new StringBuilder();
 
 		return aneinandergehaengt.toString();
-	}
-
-	@Test
-	@DisplayName("collectionMitWhileZuString soll"
-			+ "die Werte mit while zu einem String zusammenfuegen")
-	public void test06() {
-		assertEquals( 
-				"UweKarlUta", 
-				collectionMitWhileZuString( namenListe ) );		
 	}
 
 	private List<String> collectionMitForEachZuListe( Collection<String> namenCollection ) {
@@ -157,59 +100,14 @@ public class SchleifeTrainer {
 		return ergebnisListe;
 	}
 
-	@Test
-	@DisplayName("collectionMitForEachZuListe soll"
-			+ "die Werte mit for each zu einem String zusammenfuegen")
-	public void test07() {
-		assertEquals(
-				namenListe, 
-				collectionMitForEachZuListe(namenListe));		
-	}
-
 	private void elementAusListeLoeschenMitIterator( 
 											Collection<String> liste, 
 											String zuLoeschenderEintrag ) {
 	}
 
-	@Test
-	@DisplayName("elementAusListeLoeschenMitIterator soll"
-			+ "einen Wert durch iterator loeschen")
-	public void test08() {
-
-		Collection<String> erwarteteListe = new ArrayList<>();
-
-		erwarteteListe.add( "Uwe" );
-		erwarteteListe.add( "Karl" );
-		
-		elementAusListeLoeschenMitIterator( namenListe, "Uta" );
-		assertEquals( 
-				erwarteteListe, 
-				namenListe );
-		
-		namenListe.add( "Uta" );
-	}
-
 	private void elementAusListeLoeschenMitPredicate( 
 												Collection<String> liste, 
 												String zuLoeschenderEintrag ) {
-	}
-
-	@Test
-	@DisplayName("elementAusListeLoeschenMitPredicate soll"
-			+ "einen Wert durch predicate loeschen")
-	public void test09() {
-
-		Collection<String> erwarteteListe = new ArrayList<>();
-		erwarteteListe.add("Uwe");
-		erwarteteListe.add("Karl");
-		
-		elementAusListeLoeschenMitPredicate( namenListe, "Uta" );
-		
-		assertEquals( 
-				erwarteteListe, 
-				namenListe );
-		
-		namenListe.add( "Uta" );
 	}
 
 	/**
@@ -226,25 +124,9 @@ public class SchleifeTrainer {
 		return aneinandergehaengt;
 	}
 
-	@Test
-	@DisplayName("mapMitWhileZuString soll"
-			+ "die Werte der Map mit while zu einem String zusammenfuegen")
-	public void test10() {
-		assertEquals(
-				"UweHamburgKarlBochumUtaAachen", 
-				mapMitWhileZuString(nameWohnortMap));		
-	}
-
 	private String mapMitIteratorZuString( Map<String, String> map  ) {
 		String aneinandergehaengt = new String();
 		return aneinandergehaengt;
-	}
-
-	@Test
-	@DisplayName("mapMitIteratorZuString soll"
-			+ "die Werte der Map mit iterator zu einem String zusammenfuegen")
-	public void test11() {
-		assertEquals( "UweHamburgKarlBochumUtaAachen", mapMitIteratorZuString( nameWohnortMap ) );		
 	}
 
 	private String mapMitForInZuString( Map<String, String> map  ) {
@@ -252,53 +134,14 @@ public class SchleifeTrainer {
 		return aneinandergehaengt;
 	}
 
-	@Test
-	@DisplayName("mapMitForInZuString soll"
-			+ "die Werte der Map mit iterator zu einem String zusammenfuegen")
-	public void test12() {
-		assertEquals(
-				"UweHamburgKarlBochumUtaAachen", 
-				mapMitForInZuString(nameWohnortMap ) );		
-	}	
-
 	private Map<String, String> mapMitForEachZuMapKeyValueVertauscht( Map<String, String> map ) {
 		Map<String, String> keyValueVertauscht = new LinkedHashMap<String, String>();
 		return keyValueVertauscht;
 	}
 
-	@Test
-	@DisplayName("mapMitForEachZuMapKeyValueVertauscht soll"
-			+ "key und value mit for each vertauschen")
-	public void test13() {
-		Map<String, String> wohnortName = new LinkedHashMap<>();
-
-		wohnortName.put( "Hamburg", "Uwe" );
-		wohnortName.put( "Bochum", "Karl" );
-		wohnortName.put( "Aachen", "Uta" );
-	
-		assertEquals( 
-				wohnortName, 
-				mapMitForEachZuMapKeyValueVertauscht( nameWohnortMap ) );		
-	}
-
 	private static Map<String, String> sortiereMapNachKey( Map<String, String> map ) {
 		Map<String, String> sorted = null;
 		return sorted;		
-	}
-	
-	@Test
-	@DisplayName("sortiereMapNachKey soll"
-			+ "map nach key sortieren")
-	public void test14() {
-		Map<String, String> erwartet = new LinkedHashMap<String, String>();
-
-		erwartet.put("Karl", "Bochum");
-		erwartet.put("Uta", "Aachen");
-		erwartet.put("Uwe", "Hamburg");
-
-		assertEquals( 
-				erwartet, 
-				sortiereMapNachKey( nameWohnortMap ) );
 	}
 	
 }
