@@ -16,14 +16,6 @@ public class ClassObject {
 		return clazz.getSimpleName();
 	}
 	
-	@Test
-	@DisplayName("Wurde der Name der Klasse Motorrad richtig ermittelt?")
-	public void test1() {
-		assertEquals(
-				"Motorrad", 
-				nameDerKlasseMotorrad() );
-	}
-
 	/**
 	 * Klasse erzeugen aus Klassename als String
 	 * @throws SecurityException 
@@ -35,13 +27,32 @@ public class ClassObject {
 	 * @throws ClassNotFoundException 
 	 */
 	private Motorrad motorradErzeugenAusKlassenname() throws InstantiationException, IllegalAccessException, 
-															IllegalArgumentException, InvocationTargetException, 
-															NoSuchMethodException, SecurityException, 
-															ClassNotFoundException  {
+										IllegalArgumentException, InvocationTargetException, 
+										NoSuchMethodException, SecurityException, ClassNotFoundException  {
 		Class<?> clazz = Class.forName("syntax.Motorrad");			
 		return ( Motorrad ) clazz
-								.getDeclaredConstructor()
-								.newInstance();
+				.getDeclaredConstructor()
+				.newInstance();
+	}
+	
+	private boolean istMotorrad1( Fahrzeug fahrzeug ) {
+		return fahrzeug instanceof Motorrad;
+	}
+	
+	private boolean istMotorrad2( Fahrzeug fahrzeug ) {
+		return Motorrad.class.isInstance( fahrzeug );
+	}
+	
+	private boolean istMotorrad3( Fahrzeug fahrzeug ) {
+		return fahrzeug.getClass() == Motorrad.class;
+	}
+	
+	@Test
+	@DisplayName("Wurde der Name der Klasse Motorrad richtig ermittelt?")
+	public void test1() {
+		assertEquals(
+				"Motorrad", 
+				nameDerKlasseMotorrad() );
 	}
 
 	@Test
@@ -58,10 +69,6 @@ public class ClassObject {
 		}
 	}
 
-	private boolean istMotorrad1( Fahrzeug fahrzeug ) {
-		return fahrzeug instanceof Motorrad;
-	}
-
 	@Test
 	@DisplayName("Erste Variante, die testet, ob das Fahrzeug ein Motorrad ist.")
 	public void test3() {
@@ -72,10 +79,6 @@ public class ClassObject {
 	@DisplayName("Erste Variante, die testet, ob das Fahrzeug KEIN Motorrad ist.")
 	public void test4() {
 		assertFalse( istMotorrad1( new Fahrzeug(42) { } ) );
-	}
-
-	private boolean istMotorrad2( Fahrzeug fahrzeug ) {
-		return Motorrad.class.isInstance( fahrzeug );
 	}
 	
 	@Test
@@ -88,10 +91,6 @@ public class ClassObject {
 	@DisplayName("Zweite Variante, die testet, ob das Fahrzeug KEIN Motorrad ist.")
 	public void test6() {
 		assertFalse( istMotorrad2( new Fahrzeug( 42 ) {	} ) );
-	}
-
-	private boolean istMotorrad3( Fahrzeug fahrzeug ) {
-		return fahrzeug.getClass() == Motorrad.class;
 	}
 
 	@Test
