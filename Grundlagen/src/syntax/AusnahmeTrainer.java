@@ -26,14 +26,6 @@ public class AusnahmeTrainer {
 	private void wirfUncheckedException() {
 	}
 
-	@Test
-	@DisplayName("Unchecked Ausnahme soll geworfen werden.") 
-	public void test01() {
-		Assertions.assertThrows(
-						RuntimeException.class, 
-						() -> wirfUncheckedException() );
-	}
-
 	/**
 	 * Die Methode soll eine BadStringOperationException werfen, 
 	 * die gecheckt werden muss.
@@ -41,14 +33,6 @@ public class AusnahmeTrainer {
 	 * @throws BadStringOperationException
 	 */
 	private void wirfCheckedException() {		
-	}
-
-	@Test
-	@DisplayName("Exception BadStringOperationException soll geworfen werden.")
-	public void test02() {
-		Assertions.assertThrowsExactly( 
-							BadStringOperationException.class, 
-							() -> wirfCheckedException() );
 	}
 
 	/**
@@ -61,6 +45,22 @@ public class AusnahmeTrainer {
 	public void ruftCheckedExceptionAuf() {
 	}
 
+	@Test
+	@DisplayName("Unchecked Ausnahme soll geworfen werden.") 
+	public void test01() {
+		Assertions.assertThrows(
+				RuntimeException.class, 
+				() -> wirfUncheckedException() );
+	}
+	
+	@Test
+	@DisplayName("Exception BadStringOperationException soll geworfen werden.")
+	public void test02() {
+		Assertions.assertThrowsExactly( 
+				BadStringOperationException.class, 
+				() -> wirfCheckedException() );
+	}
+	
 	@Test
 	@DisplayName("Teil, der bei Exception immer ausgefuehrt wird, soll aufgerufen werden.")
 	public void test03() {

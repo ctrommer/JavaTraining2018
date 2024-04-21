@@ -30,17 +30,7 @@ public class VarArgs {
 		return 0;
 	}
 
-	@Test
-	@DisplayName("Varargs mit konkretem Typ, hier String")
-	public void teste01() {
-		int anzahlStrings = gebeAnzahlStringsZurueck("eins", "zwei", "drei");
-		assertEquals(
-				3, 
-				anzahlStrings );
-	}
-
 	static <T> int gebeAnzahlElementeZurueck( T durchVarArgsErsetzen1, T durchVarArgsErsetzen2 ) {
-
 		// Verwende Varargs.
 		
 		// Ist diese Methode varargs safe? Warum?
@@ -58,15 +48,6 @@ public class VarArgs {
 	
 	static <T> int demonstriereVarargsSafe( T erster, T zweiter ) {
 		return gebeAnzahlElementeZurueck(erster, zweiter);
-	}
-
-	@Test
-	@DisplayName("@SafeVarargs richtig verwendet")
-	public void test02() {
-		int anzahlElemente = demonstriereVarargsSafe("erster", "zweiter");
-		assertEquals(
-				2, 
-				anzahlElemente );
 	}
 
 	static <U> U[] gebeAlsArrayZurueckTypUnbekannt( U durchVarArgsErsetzen1, U durchVarArgsErsetzen2 ) {
@@ -107,6 +88,24 @@ public class VarArgs {
 	static <V> V[] demonstriereNichtVarargsSafe( V erster, V zweiter ) {
 		return gebeAlsArrayZurueckTypUnbekannt(erster, zweiter);
 	}
+
+	@Test
+	@DisplayName("Varargs mit konkretem Typ, hier String")
+	public void teste01() {
+		int anzahlStrings = gebeAnzahlStringsZurueck("eins", "zwei", "drei");
+		assertEquals(
+				3, 
+				anzahlStrings );
+	}	
+	
+	@Test
+	@DisplayName("@SafeVarargs richtig verwendet")
+	public void test02() {
+		int anzahlElemente = demonstriereVarargsSafe("erster", "zweiter");
+		assertEquals(
+				2, 
+				anzahlElemente );
+	}	
 	
 	@Test
 	@DisplayName("Wenn die Methode nicht Varargs Safe ist, aber mit konkretem Typ aufgerufen wird, ist es OK")
