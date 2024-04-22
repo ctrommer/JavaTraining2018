@@ -33,15 +33,15 @@ public class ClassObject {
 	}
 	
 	private boolean istMotorrad1( Fahrzeug fahrzeug ) {
-		return fahrzeug instanceof Motorrad;
+		return false;
 	}
 	
 	private boolean istMotorrad2( Fahrzeug fahrzeug ) {
-		return Motorrad.class.isInstance( fahrzeug );
+		return false;
 	}
 	
 	private boolean istMotorrad3( Fahrzeug fahrzeug ) {
-		return fahrzeug.getClass() == Motorrad.class;
+		return false;
 	}
 	
 	@Test

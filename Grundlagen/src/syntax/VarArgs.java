@@ -19,7 +19,9 @@ public class VarArgs {
 	 * @return Anzahl der uebergebenen Strings
 	 * 
 	 */
-	static int gebeAnzahlStringsZurueck( String durchVarArgsErsetzen1, String durchVarArgsErsetzen2, String durchVarArgsErsetzen3) {
+	static int gebeAnzahlStringsZurueck( String durchVarArgsErsetzen1, 
+										String durchVarArgsErsetzen2, 
+										String durchVarArgsErsetzen3) {
 		
 		// Verwende Varargs.
 		
@@ -50,7 +52,8 @@ public class VarArgs {
 		return gebeAnzahlElementeZurueck(erster, zweiter);
 	}
 
-	static <U> U[] gebeAlsArrayZurueckTypUnbekannt( U durchVarArgsErsetzen1, U durchVarArgsErsetzen2 ) {
+	static <U> U[] gebeAlsArrayZurueckTypUnbekannt( U durchVarArgsErsetzen1, 
+													U durchVarArgsErsetzen2 ) {
 
 		// Verwende Varargs.
 
@@ -85,7 +88,8 @@ public class VarArgs {
 		return null;
 	}
 
-	static <V> V[] demonstriereNichtVarargsSafe( V erster, V zweiter ) {
+	static <V> V[] demonstriereNichtVarargsSafe( V erster, 
+													V zweiter ) {
 		return gebeAlsArrayZurueckTypUnbekannt(erster, zweiter);
 	}
 
