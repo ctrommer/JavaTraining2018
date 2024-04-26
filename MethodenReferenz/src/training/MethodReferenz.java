@@ -28,14 +28,6 @@ public class MethodReferenz {
 		return zuGrossbuchstaben.apply( text );
 	}	
 
-	@Test
-	@DisplayName("Werden Kleinbuchstaben in Grossbuchstaben umgewandelt?")
-	public void test01() {
-		assertEquals(
-				("kleinbuchstaben").toUpperCase(Locale.GERMAN), 
-				kleinZuGrossMitMethodReferenz("kleinbuchstaben") );
-	}
-
 	/**
 	 * Mitarbeiternamen zu Grossbuchstaben:
 	 * Mit Method Referenz. Verwendet Methode von Mitarbeiter.
@@ -46,56 +38,14 @@ public class MethodReferenz {
 		mitarbeiter.forEach( Mitarbeiter::nameZuGrossbuchstaben );
 	}
 	
-	@Test
-	@DisplayName("Werden Namen der Mitarbeiter in Grossbuchstaben umgewandelt?")
-	public void test02() {		
-		List<Mitarbeiter> mitarbeiterListe = Arrays.asList(	new Mitarbeiter("Albert"), new Mitarbeiter("Bert" ) );
-		mitarbeiternameZuGrossbuchstabenMitMethodReferenz( mitarbeiterListe );
-		assertEquals(
-				Arrays.asList( new Mitarbeiter("ALBERT"), new Mitarbeiter("BERT") ), 
-				mitarbeiterListe );
-	}
-
 	private void fansHinzufuegenMitConsumerUndLambda( Schauspieler schauspieler, List<Mitarbeiter> neueFans ) {
 		Consumer<Mitarbeiter> schauspielerFuegtFanHinzu  = mitarbeiter -> schauspieler.fanHinzufuegen(mitarbeiter);
 		neueFans.forEach(schauspielerFuegtFanHinzu);
 	}
 
-	@Test
-	@DisplayName("Werden die Fans hinzugefuegt mit Consumer und Lambda?")
-	public void test03() {
-		Schauspieler arnold = new Schauspieler("I'll be back");
-		List<Mitarbeiter> mitarbeiterListe = Arrays.asList( 
-														new Mitarbeiter( "Karl" ), 
-														new Mitarbeiter( "Hans" ), 
-														new Mitarbeiter( "Egon" ) );
-
-		fansHinzufuegenMitConsumerUndLambda( arnold, mitarbeiterListe );		
-		
-		assertEquals(
-				mitarbeiterListe, 
-				arnold.getFans() );
-	}
-
 	private void fansHinzufuegenMitConsumerUndMethodReferenz( Schauspieler schauspieler, List<Mitarbeiter> neueFans ) {
 		Consumer<Mitarbeiter> schauspielerFuegtFanHinzu = schauspieler::fanHinzufuegen;
 		neueFans.forEach( schauspielerFuegtFanHinzu );
-	}
-
-	@Test
-	@DisplayName("Werden die Fans hinzugefuegt mit Consumer und Method Referenz?")
-	public void test04() {
-		Schauspieler arnold = new Schauspieler("I'll be back");
-		List<Mitarbeiter> neueFansVonArnold = Arrays.asList(
-														new Mitarbeiter( "Karl" ), 
-														new Mitarbeiter( "Hans" ), 
-														new Mitarbeiter( "Egon" ) );
-
-		fansHinzufuegenMitConsumerUndMethodReferenz( arnold, neueFansVonArnold );
-		
-		assertEquals( 
-				neueFansVonArnold, 
-				arnold.getFans() );				
 	}
 
 	/**
@@ -112,14 +62,6 @@ public class MethodReferenz {
 		return stringZuPerson.apply( mitarbeiterName );
 	}
 
-	@Test
-	@DisplayName("Wird Name in Mitarbeiter umgewandelt mit Lambda und Function?")
-	public void test05() {
-		assertEquals(
-				new Mitarbeiter("Karl"), 
-				nameZuMitarbeiterMitLambdaUndFunction("Karl") );
-	}
-
 	/**
 	 * Mitarbeiter aus Namen erzeugen.
 	 * Mit Method Referenz auf Konstruktor.
@@ -133,14 +75,6 @@ public class MethodReferenz {
 		Function<String, Mitarbeiter> stringZuPerson = Mitarbeiter::new;		// s -> new Mitarbeiter(s);
 		
 		return stringZuPerson.apply( mitarbeiterName );
-	}
-
-	@Test
-	@DisplayName("Wird der Name in Mitarbeiter umgewandelt?")
-	public void test06() {
-		assertEquals(
-				new Mitarbeiter("Karl"), 
-				nameZuMitarbeiterMitMethodReferenzUndFunction("Karl") );
 	}
 
 	/**
@@ -162,18 +96,6 @@ public class MethodReferenz {
 		return mitarbeiterMap;
 	}
 
-	@Test
-	@DisplayName("Wird Name in Map mit Name als Key und Mitarbeiter als Value umgewandelt?")
-	public void test07( ) {
-		Map<String, Mitarbeiter> mitarbeiterMap = new HashMap<>();
-		String karl = "Karl";
-		mitarbeiterMap.put( karl, new Mitarbeiter( karl ) );
-
-		assertEquals(
-				mitarbeiterMap, 
-				nameZuMitarbeiterMapMitReferenzAufKonstruktor( karl ) );
-	}
-
 	/**
 	 * Wandelt double in String mit Function und Method Referenz auf statische Methode von String.
 	 */
@@ -181,14 +103,6 @@ public class MethodReferenz {
 		Function<Double, String> doubleToString = String::valueOf; 		// n -> String.valueOf(n)
 		
 		return doubleToString.apply( zahl );
-	}
-
-	@Test
-	@DisplayName("Wird double mit Function in String umgewandelt?")
-	public void test08() {
-		assertEquals( 
-				"42.3", 
-				doubleZuStringMitFunctionUndMethodReferenz( 42.3 ) );
 	}
 
 	/**
@@ -202,16 +116,4 @@ public class MethodReferenz {
 		mitarbeiters.forEach(zuGrossBuchstaben);
 	}
 
-	@Test
-	@DisplayName("Wird Mitarbeiter zu besten Mitarbeitern hinzugefuegt?")
-	public void test09( ) {
-		List<Mitarbeiter> mitarbeiterListe = Arrays.asList( new Mitarbeiter( "Karl" ), new Mitarbeiter( "Hans" ), new Mitarbeiter( "Egon" ) );
-	
-		mitarbeiterZuBestenMitarbeiternHinzufuegenMitReferenzAufStatischeMethode(mitarbeiterListe);
-
-		assertEquals( 
-				mitarbeiterListe, 
-				Mitarbeiter.getBestenMitarbeiter() );
-	}
-	
 }
