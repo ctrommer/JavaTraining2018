@@ -34,6 +34,22 @@ public class TestTemporaryFolder {
 
 		return null;
 	}
+	
+	public File demonstriereAlternativeZuTemporaryFolder() throws IOException {
+
+
+		// Lese die Datei quellDatei.xml ein als Stream von Strings.
+
+		// Erzeuge eine temporaere Datei im gleichen Pfad, aber ohne TemporaryFolder
+		
+		// damit Datei am Ende wieder geloescht wird
+		
+
+		// Schreibe das, was aus der Datei quellDatei.xml ausgelesen wurde in die
+		// temporaere Datei
+		
+		return null;
+	}
 
 	@Test
 	public void testeDemonstriereTemporaryFolder() throws IOException{
@@ -52,22 +68,6 @@ public class TestTemporaryFolder {
 			e.printStackTrace();
 			throw e;
 		};
-	}
-
-	public File demonstriereAlternativeZuTemporaryFolder() throws IOException {
-
-
-		// Lese die Datei quellDatei.xml ein als Stream von Strings.
-
-		// Erzeuge eine temporaere Datei im gleichen Pfad, aber ohne TemporaryFolder
-		
-		// damit Datei am Ende wieder geloescht wird
-		
-
-		// Schreibe das, was aus der Datei quellDatei.xml ausgelesen wurde in die
-		// temporaere Datei
-		
-		return null;
 	}
 
 	@Test
