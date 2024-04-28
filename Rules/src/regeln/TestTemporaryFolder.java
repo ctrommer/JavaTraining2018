@@ -41,6 +41,30 @@ public class TestTemporaryFolder {
 
 		return zielDatei;
 	}
+	
+	public File demonstriereAlternativeZuTemporaryFolder() throws IOException {
+		
+		// Lese die Datei quellDatei.xml ein als Stream von Strings.
+		Path verzeichnisUndDateinameQuelldatei = Paths.get("src\\regeln\\quellDatei.xml");
+		Stream<String> zeilen = Files.lines( verzeichnisUndDateinameQuelldatei );
+		
+		// Erzeuge eine temporaere Datei im gleichen Pfad, aber ohne TemporaryFolder
+		File erzeugteDatei = new File("src\\regeln\\temp.xml");
+		
+		// damit Datei am Ende wieder geloescht wird
+		erzeugteDatei.deleteOnExit();
+		
+		// Schreibe das, was aus der Datei quellDatei.xml ausgelesen wurde in die
+		// temporaere Datei
+		Files.write(
+				erzeugteDatei.toPath(), 
+				zeilen.collect( Collectors.toList() ),
+				StandardCharsets.UTF_8 );
+		
+		zeilen.close();
+		
+		return erzeugteDatei;
+	}
 
 	@Test
 	public void testeDemonstriereTemporaryFolder() throws IOException{
@@ -59,30 +83,6 @@ public class TestTemporaryFolder {
 			e.printStackTrace();
 			throw e;
 		};
-	}
-
-	public File demonstriereAlternativeZuTemporaryFolder() throws IOException {
-
-		// Lese die Datei quellDatei.xml ein als Stream von Strings.
-		Path verzeichnisUndDateinameQuelldatei = Paths.get("src\\regeln\\quellDatei.xml");
-		Stream<String> zeilen = Files.lines( verzeichnisUndDateinameQuelldatei );
-
-		// Erzeuge eine temporaere Datei im gleichen Pfad, aber ohne TemporaryFolder
-		File erzeugteDatei = new File("src\\regeln\\temp.xml");
-		
-		// damit Datei am Ende wieder geloescht wird
-		erzeugteDatei.deleteOnExit();
-
-		// Schreibe das, was aus der Datei quellDatei.xml ausgelesen wurde in die
-		// temporaere Datei
-		Files.write(
-				erzeugteDatei.toPath(), 
-				zeilen.collect( Collectors.toList() ),
-				StandardCharsets.UTF_8 );
-
-		zeilen.close();
-		
-		return erzeugteDatei;
 	}
 
 	@Test
