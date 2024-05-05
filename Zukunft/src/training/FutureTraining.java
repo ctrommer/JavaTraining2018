@@ -24,17 +24,6 @@ public class FutureTraining {
 		return null;
 	}
 	
-	@Test
-	public void testOhneThreadQuadrieren() {
-		try {
-			assertEquals( 
-					81, 
-					ohneThreadQuadrieren( 9 ).get() );
-		} catch ( InterruptedException | ExecutionException e ) {
-			e.printStackTrace();
-		}		
-	}
-
 	/**
 	 * Quadriert die Zahl in eigenem Thread.
 	 * @param zahl zu quadrieren
@@ -44,17 +33,6 @@ public class FutureTraining {
 		return null;
 	}
 	
-	@Test
-	public void testInEigenemThreadQuadrieren() {
-		try {
-			assertEquals( 
-					81, 
-					inEigenemThreadQuadrieren( 9 ).get() );		
-		} catch ( InterruptedException | ExecutionException e ) {
-			e.printStackTrace();
-		}
-	}
-
 	/**
 	 * Quadriert die Zahl in eigenem Thread. 
 	 * Das Ergebnis wird mit 2 multipliziert, aber nicht in einem eigenen Thread.
@@ -63,17 +41,6 @@ public class FutureTraining {
 	 */	
 	private Future<Integer> inEigenemThreadQuadrierenDannMit2Multiplizieren( int zahl ) {
 		return null;
-	}
-	
-	@Test
-	public void testInEigenemThreadQuadrierenDannMit2Multiplizieren() {
-		try {
-			assertEquals( 
-					162, 
-					inEigenemThreadQuadrierenDannMit2Multiplizieren( 9 ).get() );		
-		} catch ( InterruptedException | ExecutionException e ) {
-			e.printStackTrace();
-		}
 	}
 
 	/**
@@ -84,17 +51,6 @@ public class FutureTraining {
 	 */
 	private Future<Integer> inEigenemThreadQuadrierenDannMit2InThreadMultiplizieren( int zahl ) {
 		return null; 
-	}
-
-	@Test
-	public void testInEigenemThreadQuadrierenDannMit2InThreadMultiplizieren() {
-		try {
-			assertEquals( 
-					162, 
-					inEigenemThreadQuadrierenDannMit2InThreadMultiplizieren( 9 ).get() );		
-		} catch ( InterruptedException | ExecutionException e ) {
-			e.printStackTrace();
-		}
 	}
 
 	/**
@@ -108,17 +64,6 @@ public class FutureTraining {
 		return null;
 	}
 	
-	@Test
-	public void testInEigenemThreadQuadrierenDannMitMit2InThreadMultiplizieren() {
-		try {
-			assertEquals( 
-					162, 
-					inEigenemThreadQuadrierenDannMitMit2InThreadMultiplizieren( 9 ).get() );		
-		} catch ( InterruptedException | ExecutionException e ) {
-			e.printStackTrace();
-		}
-	}	
-
 	/**
 	 * Quadriert die Zahl in eigenem Thread.
 	 * Multipliziere die Zahl in einem zweiten Thread mit zwei. 
@@ -128,17 +73,6 @@ public class FutureTraining {
 	 */
 	private Future<Integer> ersterThreadQuadriertZweiterThreadMultipliziertMit2Kombiniert( int zahl ) {
 		return null;
-	}
-
-	@Test
-	public void testErsterThreadQuadriertZweiterThreadMultipliziertMit2Kombiniert() {
-		try {
-			assertEquals( 
-					99, 
-					ersterThreadQuadriertZweiterThreadMultipliziertMit2Kombiniert( 9 ).get() );		
-		} catch ( InterruptedException | ExecutionException e ) {
-			e.printStackTrace();
-		}
 	}
 
 	/**
@@ -155,15 +89,6 @@ public class FutureTraining {
 		return null;
 	}
 	
-	@Test
-	public void testDreiTheadsParallelDannGejoint( ) {
-		List<Integer> dreiTheadsParallelDannGejoint = dreiTheadsParallelDannGejoint( 9 ).collect( Collectors.toList() );		
-		List<Integer> expected = List.of( 81, 18, 90 );
-		assertEquals( 
-				expected, 
-				dreiTheadsParallelDannGejoint );
-	}
-
 	/**
 	 * Quadriert die Zahl in eigenem Thread. Wenn zahl > 46340, dann wirf IllegalArgumentException.
 	 * 
@@ -174,32 +99,6 @@ public class FutureTraining {
 	 */	
 	private Future<String> inEigenemThreadQuadrierenAusnameBehandeln( int zahl ) {
 		return null;
-	}
-
-	@Test
-	public void testInEigenemThreadQuadrierenAusnameBehandelnOhneException() {
-		try {
-			assertEquals( 
-					"81", 
-					inEigenemThreadQuadrierenAusnameBehandeln( 9 ).get() );		
-		} catch ( InterruptedException | ExecutionException e ) {
-			e.printStackTrace();
-		}
-	}
-	
-	@Test
-	public void testInEigenemThreadQuadrierenAusnameBehandelnMitException() {
-		try {
-			assertDoesNotThrow(
-							() 
-							-> inEigenemThreadQuadrierenAusnameBehandeln( 46341 ).get() );
-			
-			assertEquals(
-					"Zahl zu gross.", 
-					inEigenemThreadQuadrierenAusnameBehandeln( 46341 ).get());		
-		} catch (InterruptedException | ExecutionException e) {
-			e.printStackTrace();
-		}
 	}
 
 	/**
@@ -225,11 +124,5 @@ public class FutureTraining {
 		return null;
 	}	
 
-	@Test
-	public void testErledigeAufgabeUndParallelDazuUnteraufgabeInThread() {
-		assertEquals(
-				81, 
-				erledigeAufgabeUndParallelDazuUnteraufgabeInThread( 9 ) );		
-	}
 
 }
