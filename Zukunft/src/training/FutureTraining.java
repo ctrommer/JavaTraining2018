@@ -11,6 +11,7 @@ import java.util.function.Supplier;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 public class FutureTraining {
@@ -52,8 +53,7 @@ public class FutureTraining {
 		
 		return beinhaltetZukuenftigesErgebnisKombiniert;
 	}
-	
-	
+
 	/**
 	 * Quadriert die Zahl in eigenem Thread. 
 	 * Das Ergebnis wird in eigenem Thrad mit 2 multipliziert.
@@ -77,7 +77,7 @@ public class FutureTraining {
 	 * @param zahl als Eingabe
 	 * @return Future, dass das Ergebnis enthält
 	 */
-	private Future<Integer> inEigenemThreadQuadrierenDannMitMit2InThreadMultiplizieren( int zahl ) {
+	private Future<Integer> inEigenemThreadQuadrierenDannZusammensetzenMitMit2InThreadMultiplizieren( int zahl ) {
 		CompletableFuture<Integer> beinhaltetZukuenftigesErgebnis 
 												= CompletableFuture.supplyAsync( () -> zahl * zahl );
 		
@@ -210,5 +210,121 @@ public class FutureTraining {
 		return null;
 	}	
 
+	@Test
+	@DisplayName("ohne Thread quadrieren")
+	public void test01() {
+		try {
+			assertEquals( 
+					81, 
+					ohneThreadQuadrieren( 9 ).get() );
+		} catch ( InterruptedException | ExecutionException e ) {
+			e.printStackTrace();
+		}		
+	}
 
+	@Test
+	@DisplayName("in eigenem Thread quadrieren")
+	public void test02() {
+		try {
+			assertEquals( 
+					81, 
+					inEigenemThreadQuadrieren( 9 ).get() );		
+		} catch ( InterruptedException | ExecutionException e ) {
+			e.printStackTrace();
+		}
+	}
+
+	@Test
+	@DisplayName("in eigenem Thread quadrieren dann mit 2 multiplizieren")
+	public void test03() {
+		try {
+			assertEquals( 
+					162, 
+					inEigenemThreadQuadrierenDannMit2Multiplizieren( 9 ).get() );		
+		} catch ( InterruptedException | ExecutionException e ) {
+			e.printStackTrace();
+		}
+	}
+
+	@Test
+	@DisplayName("in eigenem Thread quadrieren dann mit 2 in Thread multiplizieren")
+	public void test04() {
+		try {
+			assertEquals( 
+					162, 
+					inEigenemThreadQuadrierenDannMit2InThreadMultiplizieren( 9 ).get() );		
+		} catch ( InterruptedException | ExecutionException e ) {
+			e.printStackTrace();
+		}
+	}
+
+	@Test
+	@DisplayName("in eigenem Thread quadrieren dann zusammensetzen mit mit 2 in ThreadMultiplizieren")
+	public void test05() {
+		try {
+			assertEquals( 
+					162, 
+					inEigenemThreadQuadrierenDannZusammensetzenMitMit2InThreadMultiplizieren( 9 ).get() );		
+		} catch ( InterruptedException | ExecutionException e ) {
+			e.printStackTrace();
+		}
+	}	
+
+	@Test
+	@DisplayName("erster Thread quadriert zweiter Thread multipliziert mit 2 kombiniert")
+	public void test06() {
+		try {
+			assertEquals( 
+					99, 
+					ersterThreadQuadriertZweiterThreadMultipliziertMit2Kombiniert( 9 ).get() );		
+		} catch ( InterruptedException | ExecutionException e ) {
+			e.printStackTrace();
+		}
+	}
+
+	@Test
+	@DisplayName("drei Theads parallel dann gejoint")
+	public void test07( ) {
+		List<Integer> dreiTheadsParallelDannGejoint = dreiTheadsParallelDannGejoint( 9 ).collect( Collectors.toList() );		
+		List<Integer> expected = List.of( 81, 18, 90 );
+		assertEquals( 
+				expected, 
+				dreiTheadsParallelDannGejoint );
+	}
+
+	@Test
+	@DisplayName("in eigenem Thread quadrieren Ausname behandeln ohne Exception")
+	public void test08() {
+		try {
+			assertEquals( 
+					"81", 
+					inEigenemThreadQuadrierenAusnameBehandeln( 9 ).get() );		
+		} catch ( InterruptedException | ExecutionException e ) {
+			e.printStackTrace();
+		}
+	}
+	
+	@Test
+	@DisplayName("In eigenem Thread quadrieren Ausname behandeln mit Exception")
+	public void test09() {
+		try {
+			assertDoesNotThrow(
+							() 
+							-> inEigenemThreadQuadrierenAusnameBehandeln( 46341 ).get() );
+			
+			assertEquals(
+					"Zahl zu gross.", 
+					inEigenemThreadQuadrierenAusnameBehandeln( 46341 ).get());		
+		} catch (InterruptedException | ExecutionException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	@Test
+	@DisplayName("erledige Aufgabe und parallel dazu Unteraufgabe in Thread")
+	public void test10() {
+		assertEquals(
+				81, 
+				erledigeAufgabeUndParallelDazuUnteraufgabeInThread( 9 ) );		
+	}
 }
