@@ -1,7 +1,5 @@
 package providenAnnotation;
 
-import com.google.inject.Inject;
-
 class FoersterImpl implements Foerster {
 	
 	private String name;
