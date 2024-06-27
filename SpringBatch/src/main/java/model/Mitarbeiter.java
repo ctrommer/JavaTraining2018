@@ -9,6 +9,11 @@ public class Mitarbeiter {
 	private String mitarbeiterName;
 	private int gewicht;
 	
+	@Override
+	public String toString() {
+		return "Mitarbeiter [mitarbeiterId=" + mitarbeiterId + ", mitarbeiterName=" + mitarbeiterName + ", gewicht="
+				+ gewicht + "]";
+	}
 	public String getMitarbeiterId() {
 		return mitarbeiterId;
 	}

@@ -17,16 +17,9 @@ geschrieben
 
 
 -------------------------
- TODO
+ Aufgabe
 -------------------------
 
-Test hierzu schreiben
-
-Person mit Name und Gewicht in kg bzw. Pfund
-
-mehrere Steps:
-Step 1:
-Zuerst von csv Datei in xml
-
-Step 2:
-Dann das xml nehmen und von kg in Pfund umrechnen
+Fuege einen zweiten Step hinzu, in dem die .csv Datei gelesen wird und
+kg in lbs umgerechnet wird.
+Schreibe das Ergebnis in eine zweite Datei mitarbeiter2.xml.

@@ -10,16 +10,24 @@
 	<import resource="batch-database.xml" />
 
 	<bean id="mitarbeiter" class="model.Mitarbeiter" />
-	<bean id="itemMitarbeiterverarbeiter" class="batch.Mitarbeiterverarbeiter" />
+	<bean id="itemMitarbeiterverarbeiter1" class="batch.Mitarbeiterverarbeiter1" />
+	<bean id="itemMitarbeiterverarbeiter2" class="batch.Mitarbeiterverarbeiter2" />
 
 	<batch:job id="menschBatchJob">
-		<batch:step id="step1">
+		<batch:step id="step1" next="step2">
 			<batch:tasklet>
-				<batch:chunk reader="cvsFileItemReader" writer="xmlItemWriter"
-					processor="itemMitarbeiterverarbeiter" commit-interval="10">
+				<batch:chunk reader="cvsFileItemReader" writer="xmlItemWriter1"
+					processor="itemMitarbeiterverarbeiter1" commit-interval="10">
 				</batch:chunk>
 			</batch:tasklet>
-		</batch:step>
+		</batch:step>		
+		<batch:step id="step2">
+			<batch:tasklet>
+				<batch:chunk reader="cvsFileItemReader" writer="xmlItemWriter2"
+					processor="itemMitarbeiterverarbeiter2" commit-interval="10">
+				</batch:chunk>
+			</batch:tasklet>
+		</batch:step>				
 	</batch:job>
 
 	<bean id="cvsFileItemReader" class="org.springframework.batch.item.file.FlatFileItemReader">
@@ -41,12 +49,18 @@
 		</property>
 
 	</bean>
-
-	<bean id="xmlItemWriter" class="org.springframework.batch.item.xml.StaxEventItemWriter">
-		<property name="resource" value="file:c://xml/outputs/mitarbeiter.xml" />
+	
+	<bean id="xmlItemWriter1" class="org.springframework.batch.item.xml.StaxEventItemWriter">
+		<property name="resource" value="file:c://xml/outputs/mitarbeiter1.xml" />
 		<property name="marshaller" ref="mitarbeiterMarshaller" />
 		<property name="rootTagName" value="mitarbeiter" />
 	</bean>
+	
+	<bean id="xmlItemWriter2" class="org.springframework.batch.item.xml.StaxEventItemWriter">
+		<property name="resource" value="file:c://xml/outputs/mitarbeiter2.xml" />
+		<property name="marshaller" ref="mitarbeiterMarshaller" />
+		<property name="rootTagName" value="mitarbeiter" />
+	</bean>	
 
 	<bean id="mitarbeiterMarshaller" class="org.springframework.oxm.jaxb.Jaxb2Marshaller">
 		<property name="classesToBeBound">
