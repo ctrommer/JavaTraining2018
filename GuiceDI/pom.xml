@@ -4,7 +4,7 @@
   <artifactId>GuiceDI</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   <properties>
-	  	<java.version>18</java.version>
+	  	<java.version>22</java.version>
 	</properties>
   	<dependencies>
 		  <dependency>

@@ -3,7 +3,7 @@
   <groupId>com.java.training</groupId>
   <artifactId>vortaeuschen</artifactId>
   <properties>
-		<java.version>18</java.version>
+		<java.version>22</java.version>
   </properties>  
   <version>0.0.1-SNAPSHOT</version>
   	<dependencies>		
