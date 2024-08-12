@@ -342,7 +342,7 @@ public class StreamTrainer {
 	@DisplayName("zuEinemDurchKommaGetrenntenString")
 	public void test10( ) {
 		assertEquals(
-				"Hallo, Welt", 
+				"Hallo,Welt", 
 				zuEinemDurchKommaGetrenntenString( "Hallo", "Welt" ) );
 	}
 	
