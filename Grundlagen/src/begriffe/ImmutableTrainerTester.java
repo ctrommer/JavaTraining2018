@@ -3,7 +3,6 @@ package begriffe;
 import static org.junit.Assert.assertTrue;
 
 import java.lang.reflect.Field;
-import java.lang.reflect.Method;
 import java.lang.reflect.Modifier;
 
 import org.junit.jupiter.api.Assertions;
