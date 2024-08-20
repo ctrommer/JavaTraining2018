@@ -7,15 +7,15 @@ import java.util.function.Function;
 public class FormatiererHelfer {
 	
 	/**
-	 * Nimmt das Geburtsjahr und ruft damit einen Callback auf, 
+	 * Nimmt das Geburtsdatum und ruft damit einen Callback auf, 
 	 * um das Alter formatiert auszugeben.
 	 * 
-	 * @param geburtsJahr
+	 * @param geburtsDatum
 	 * @param alterFormatierer
 	 * @return das Alter formatiert
 	 */
-	public static String geburtsjahrZuAlterFormatieren(  ) {		
-		return null;		
+	public static String geburtsdatumZuAlterFormatieren( ) {
+		return null;
 	}
 
 }

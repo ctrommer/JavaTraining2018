@@ -17,7 +17,6 @@ public class FormatiererTester {
 	public String geburtsjahrZuAlter( LocalDate geburtsJahr ) {
 		// besserer Name fuer callBack: call After
 		// "Das Alter betraegt: "
-		
 		return null;
 	}
 	
