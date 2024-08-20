@@ -18,7 +18,7 @@ public class FormatiererTester {
 		// besserer Name fuer callBack: call After
 		Function<Integer, String> zahlZuText = zahl -> "Das Alter betraegt: " + zahl;
 		
-		return FormatiererHelfer.geburtsjahrZuAlterFormatieren( geburtsJahr, zahlZuText );
+		return FormatiererHelfer.geburtsdatumZuAlterFormatieren( geburtsJahr, zahlZuText );
 	}
 	
 	@Test

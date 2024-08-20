@@ -7,18 +7,18 @@ import java.util.function.Function;
 public class FormatiererHelfer {
 	
 	/**
-	 * Nimmt das Geburtsjahr und ruft damit einen Callback auf, 
+	 * Nimmt das Geburtsdatum und ruft damit einen Callback auf, 
 	 * um das Alter formatiert auszugeben.
 	 * 
-	 * @param geburtsJahr
+	 * @param geburtsDatum
 	 * @param alterFormatierer
 	 * @return das Alter formatiert
 	 */
-	public static String geburtsjahrZuAlterFormatieren( 
-												LocalDate geburtsJahr, 
+	public static String geburtsdatumZuAlterFormatieren( 
+												LocalDate geburtsDatum, 
 												Function<Integer, String> alterFormatierer ) {
 		LocalDate now = LocalDate.now();
-		Period between = Period.between( geburtsJahr, now );
+		Period between = Period.between( geburtsDatum, now );
 		int years = between.getYears();
 		
 		return alterFormatierer.apply(years);		
