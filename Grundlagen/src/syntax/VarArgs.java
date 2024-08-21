@@ -1,7 +1,11 @@
 package syntax;
 
+import static org.junit.Assert.assertNull;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
+
+import java.util.Arrays;
+import java.util.List;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -39,13 +43,16 @@ public class VarArgs {
 		
 		// Wenn die übergebenen Parameter selber parameterisiert sind, 
 		// kann Java daraus kein Array erzeugen.
-		// Das kann Java also nicht: new T[] { ... }.
+		// Das kann Java also nicht: 
+		// 		new T[] { ... }.
 		// Statt dessen macht Java dann:
-		// new Object[] { ... }
-		// Ist aber hier egal, da der Typ der Elemente
-		// des Arrays hier ruhig Object sein kann.
-		
-		return 0;		
+		// 		new KleinsteGemeinsameBasisklasseDerParameter[] { ... }
+		// Kann also dann auch
+		// 		new Object[] { ... }
+		// sein, wenn das die kleinste gemeinsame Basisklasse ist.
+		// Auch fuer diesen Fall muss die Methode funktionieren.
+		// Die Methode ist Varargs-Safe, weil nur eine Methode von Object aufgerufen wird:		
+		return 0;
 	}
 	
 	static <T> int demonstriereVarargsSafe( T erster, T zweiter ) {
@@ -54,36 +61,37 @@ public class VarArgs {
 
 	static <U> U[] gebeAlsArrayZurueckTypUnbekannt( U durchVarArgsErsetzen1, 
 													U durchVarArgsErsetzen2 ) {
-
+		
 		// Verwende Varargs.
-
+		
 		// Ist diese Methode varargs safe? Warum?
 
-		// Was macht der Compiler aus T ... beliebige, wenn T zwar parameterisiert, aber bekannt ist
+		// Was macht der Compiler aus U ... beliebige, wenn U zwar parameterisiert, aber bekannt ist
 		// also z.B. beim Aufruf gebeAlsArrayZurueckTypBekannt( "erster", "zweiter" ) ?
 
 		// Dann macht Java daraus:
-		// new Object[] { ... } wobei Object die kleinste 
-		// gemeinsame Basisklasse der Parameter ist, könnte 
-		// also statt Object auch Fahrzeug sein, wenn das die kleinste
-		// gemeinsame Basisklasse ist.
-		// new Fahrzeug[] { die Fahrzeuge }
-		// In diesem Fall ist alles OK, die Methode macht keine Probleme.
+		// new String[] { ... } 
+		// In diesem Fall ist alles OK, die Methode funktioniert.
 		
 		// *
 		
 		// Was macht der Compiler aus T ... beliebige, wenn T KEIN konreter Typ ist, 
 		// also die übergebenen Parameter selber paramterisiert sind?
 		// Wann wird das zum Problem?
-		
+
 		// Wenn die übergebenen Parameter selber parameterisiert sind, 
 		// kann Java daraus kein Array erzeugen.
-		// Das kann Java also nicht: new T[] { ... }.
+		// Das kann Java also nicht: 
+		// 		new T[] { ... }.
 		// Statt dessen macht Java dann:
-		// new Object[] { ... }
-		
-		// Zur Laufzeit kennt Java aber den richtigen Typ. Wenn man dann Object z.B. 
-		// in String umwandeln möchte, knallt es.
+		// 		new KleinsteGemeinsameBasisklasseDerParameter[] { ... }
+		// Kann also dann auch
+		// 		new Object[] { ... }
+		// sein, wenn das die kleinste gemeinsame Basisklasse ist.
+		// Auch fuer diesen Fall muss die Methode funktionieren.
+		//
+		// Die Methode ist also NICHT Varargs-Safe, weil hier ein
+		// Array von Object zurückgegeben wird.
 
 		return null;
 	}
@@ -91,6 +99,20 @@ public class VarArgs {
 	static <V> V[] demonstriereNichtVarargsSafe( V erster, 
 													V zweiter ) {
 		return gebeAlsArrayZurueckTypUnbekannt(erster, zweiter);
+	}
+	
+	/**
+	 * Demonstriert best Practices fuer SafeVarargs.
+	 * 
+	 * @param <Z>
+	 * @param beliebige
+	 * @return Erstes Element, wenn vorhanden, sonst null
+	 */
+	@SafeVarargs
+	static <Z> Z gebeErstesElementZurueck( Z ... beliebige ) {
+		// Wie kann man sicher gehen, dass diese Methode auf alle Faelle Varargs-Safe ist?
+ 
+		return null;		
 	}
 
 	@Test
@@ -133,5 +155,20 @@ public class VarArgs {
 				ClassCastException.class, 
 				()-> { String[] ergebnisString = demonstriereNichtVarargsSafe("erster", "zweiter");	}
 		);			
+	}
+	
+	@Test
+	@DisplayName("Wenn ein erstes Element vorhanden ist, soll es zurueckgegeben werden.")
+	public void test05() {
+		assertEquals(
+				"erster", 
+				gebeErstesElementZurueck( "erster", "zweiter" ) );
+	}
+	
+	@Test
+	@DisplayName("Wenn kein Element vorhanden ist, soll null zurueckgegeben werden.")
+	public void test06() {
+		assertNull( gebeErstesElementZurueck( ) );
 	}	
+		
 }
