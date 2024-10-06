@@ -5,6 +5,17 @@ Sch**sse: Ist das hier besser als mein Spickzettel?
 https://www.tutorialspoint.com/guice/guice_provider.htm
 ___________________________________________________________
 
+Problem
+Bei JUnit-Test kommt statt aussagekraeftiger Fehlermeldung:
+Unsupported class file major version 66
+Loesung
+leider ist all dies notwendig: 	
+	eclipse neu starten
+	Maven | Update Project | Force Update of Snapshots/Releases
+	Run As | Maven clean
+	Run As | Maven install
+	Project clean
+	
 Allgemein
 
 	Wovon erbt die Klasse, die die Klassen zusammenbastelt?
