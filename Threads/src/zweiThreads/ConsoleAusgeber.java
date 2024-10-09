@@ -2,8 +2,8 @@ package zweiThreads;
 
 public class ConsoleAusgeber implements Runnable{
 	
-	String auszugeben;
-	int	warteZeit;
+	private String auszugeben;
+	private int	warteZeit;
 
 	public ConsoleAusgeber( String auszugeben, int warteZeit ) {
 		super();

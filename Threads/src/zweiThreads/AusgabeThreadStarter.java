@@ -28,7 +28,7 @@ public class AusgabeThreadStarter {
 		// Thread mit dem Lambda initialisieren
 		Thread thread = new Thread( runnable );
 		
-		// Threads starten
+		// Thread starten
 		thread.start();
 	}
 	
