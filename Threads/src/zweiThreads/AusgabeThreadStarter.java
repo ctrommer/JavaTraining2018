@@ -20,7 +20,7 @@ public class AusgabeThreadStarter {
 		
 		// Thread mit dem Lambda initialisieren
 		
-		// Threads starten
+		// Thread starten
 	}
 	
 	public static void gebeHalloInEigenemThreadAus() {
