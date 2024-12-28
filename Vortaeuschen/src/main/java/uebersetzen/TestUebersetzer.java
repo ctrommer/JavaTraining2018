@@ -25,6 +25,8 @@ public class TestUebersetzer {
 												"Welt" );
 		
 		// prueft, ob das Ergebnis korrekt ist
-		Assertions.assertTrue( uebersetzung.equals("World") );
+		Assertions.assertEquals( 
+							"World", 
+							uebersetzung );
 	}
 }

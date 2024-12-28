@@ -36,7 +36,9 @@ public class TestUebersetzerMitAnnotation {
 												"Welt" );
 
 		// prueft, ob das Ergebnis korrekt ist
-		Assertions.assertTrue( uebersetzung.equals("World") );
+		Assertions.assertEquals( 
+							"World", 
+							uebersetzung );
 	}
 
 	@Test
@@ -59,7 +61,9 @@ public class TestUebersetzerMitAnnotation {
 																						mockUebersetzer, 
 																						"Welt");
 		// prueft, ob das Ergebnis korrekt ist
-		Assertions.assertTrue( uebersetzungen.equals( listeUebersetzungen ) );
+		Assertions.assertEquals( 
+							listeUebersetzungen, 
+							uebersetzungen );
 	}
 
 }
