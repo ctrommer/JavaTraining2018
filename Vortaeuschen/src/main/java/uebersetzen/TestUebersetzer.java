@@ -18,6 +18,8 @@ public class TestUebersetzer {
 		String uebersetzung = "";
 		
 		// prueft, ob das Ergebnis korrekt ist
-		Assertions.assertTrue( uebersetzung.equals("World") );
+		Assertions.assertEquals( 
+							"World", 
+							uebersetzung );
 	}
 }
