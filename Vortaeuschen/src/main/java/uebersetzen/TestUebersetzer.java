@@ -1,7 +1,7 @@
 package uebersetzen;
 
-import org.junit.Assert;
-import org.junit.Test;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 
 public class TestUebersetzer {
@@ -9,20 +9,22 @@ public class TestUebersetzer {
 	public void testeUebersetzer() {
 
 		// mockt die Klasse Uebersetzer
-		Uebersetzer mockUebersetzer = Mockito.mock(Uebersetzer.class);
+		Uebersetzer mockUebersetzer = Mockito.mock( Uebersetzer.class );
 		
 		// der Mock übersetzt "Welt" mit "World"
 		Mockito
 			.when( mockUebersetzer.uebersetze("Welt") )
 			.thenReturn("World");
 		
-		// erzeugt die Uebersetzerschnittstelle mit dem Mock
+		// erzeugt die Uebersetzerschnittstelle
 		UebersetzerSchnittstelle zuTesten = new UebersetzerSchnittstelle();
 		
 		// testet die Uebersetzerschnittstelle mit dem Mock
-		String uebersetzung = zuTesten.uebersetze(  mockUebersetzer, "Welt" );
+		String uebersetzung = zuTesten.uebersetze( 
+												mockUebersetzer, 
+												"Welt" );
 		
 		// prueft, ob das Ergebnis korrekt ist
-		Assert.assertTrue( uebersetzung.equals("World") );
+		Assertions.assertTrue( uebersetzung.equals("World") );
 	}
 }

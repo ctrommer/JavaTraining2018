@@ -3,66 +3,63 @@ package uebersetzen;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.junit.Assert;
-import org.junit.Before;
-import org.junit.Test;
-import org.junit.runner.RunWith;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
 import org.mockito.Mockito;
-import org.mockito.junit.MockitoJUnitRunner;
+import org.mockito.junit.jupiter.MockitoExtension;
 
-@RunWith(MockitoJUnitRunner.class)
+@ExtendWith( MockitoExtension.class )
 public class TestUebersetzerMitAnnotation {
 
+	// mockt die Klasse Uebersetzer
+	// entspricht:
+	// Uebersetzer mockUebersetzer = Mockito.mock( Uebersetzer.class );
 	@Mock
 	private Uebersetzer mockUebersetzer;
-	
-	private List<String> listeUebersetzungen;
-	
-	@Before
-	public void setUp() {
-		
-	    Mockito
-	    	.doReturn("World")
-	    	.when(mockUebersetzer)
-	    	.uebersetze("Welt");
-	    
-	    listeUebersetzungen = new ArrayList<String>();
-	    listeUebersetzungen.add("World");
-	    listeUebersetzungen.add("Earth");
-	    Mockito
-	    	.doReturn(listeUebersetzungen)
-	    	.when(mockUebersetzer)
-	    	.uebersetzeMitMehrerenErgebnissen("Welt");
-	}	
 
 	@Test
 	public void testeUebersetzer() {
+		
+		// der Mock übersetzt "Welt" mit "World"
+		Mockito
+			.when( mockUebersetzer.uebersetze("Welt") )
+			.thenReturn("World");
 
-		// erzeugt die Uebersetzerschnittstelle mit dem Mock
-		UebersetzerSchnittstelle uebersetzerSchnittstelle = new UebersetzerSchnittstelle();
+		// erzeugt die Uebersetzerschnittstelle
+		UebersetzerSchnittstelle zuTesten = new UebersetzerSchnittstelle();
 
 		// testet die Uebersetzerschnittstelle mit dem Mock
-		String uebersetzung = uebersetzerSchnittstelle.uebersetze( 
-																mockUebersetzer, 
-																"Welt" );
+		String uebersetzung = zuTesten.uebersetze( 
+												mockUebersetzer, 
+												"Welt" );
 
 		// prueft, ob das Ergebnis korrekt ist
-		Assert.assertTrue( uebersetzung.equals("World") );
+		Assertions.assertTrue( uebersetzung.equals("World") );
 	}
 
 	@Test
 	public void testeUebersetzerMitMehrerenErgebnissen() {
+		List<String> listeUebersetzungen;
+		
+	    listeUebersetzungen = new ArrayList<String>();
+	    listeUebersetzungen.add("World");
+	    listeUebersetzungen.add("Earth");
+	    
+	    Mockito
+	    	.when( mockUebersetzer.uebersetzeMitMehrerenErgebnissen( "Welt" ) )
+	    	.thenReturn( listeUebersetzungen );		
 
-		// erzeugt die Uebersetzerschnittstelle mit dem Mock
+		// erzeugt die Uebersetzerschnittstelle
 		UebersetzerSchnittstelle uebersetzerSchnittstelle = new UebersetzerSchnittstelle();
 
 		// testet die Uebersetzerschnittstelle mit dem Mock
 		List<String> uebersetzungen = uebersetzerSchnittstelle.uebersetzeMitMehrerenErgebnissen(
-																					mockUebersetzer, 
-																					"Welt");
+																						mockUebersetzer, 
+																						"Welt");
 		// prueft, ob das Ergebnis korrekt ist
-		Assert.assertTrue( uebersetzungen.equals( listeUebersetzungen ) );
+		Assertions.assertTrue( uebersetzungen.equals( listeUebersetzungen ) );
 	}
 
 }
