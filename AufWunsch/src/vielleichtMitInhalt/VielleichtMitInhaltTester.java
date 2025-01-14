@@ -1,7 +1,5 @@
 package vielleichtMitInhalt;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.lang.reflect.Modifier;
