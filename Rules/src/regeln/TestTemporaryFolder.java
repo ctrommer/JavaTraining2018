@@ -8,7 +8,6 @@ import java.io.File;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
-import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.Iterator;
 import java.util.stream.Collectors;
@@ -40,13 +39,13 @@ public class TestTemporaryFolder {
 
 		// Lese die Datei quellDatei.xml ein als Stream von Strings.
 
-		// Erzeuge eine temporaere Datei im gleichen Pfad, aber ohne TemporaryFolder
-		
-		// damit Datei am Ende wieder geloescht wird
-		
-
-		// Schreibe das, was aus der Datei quellDatei.xml ausgelesen wurde in die
-		// temporaere Datei
+			// Erzeuge eine temporaere Datei im gleichen Pfad, aber ohne TemporaryFolder
+			
+			// damit Datei am Ende wieder geloescht wird
+			
+	
+			// Schreibe das, was aus der Datei quellDatei.xml ausgelesen wurde in die
+			// temporaere Datei
 		
 		return null;
 	}

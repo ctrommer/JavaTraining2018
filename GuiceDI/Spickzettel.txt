@@ -16,6 +16,14 @@ leider ist all dies notwendig:
 	Run As | Maven install
 	Project clean
 	
+	2025_05_10
+	... nach einem langen Gespräch mit der KI habe ich geschlussfolgert, 
+	dass JAVA22 und Guice nicht zusammenpasen. 
+	Mit JAVA21 ist das Problem nicht aufgetaucht.
+	Immerhin habe ich zusätzlich zu dem Fehler "Unsupported class file major version 66" 
+	bei den Unittest auch den richtigen Fehler angezeigt bekommen.
+	Die Anleitung auf dem Spickzettel hat leider nichts gebracht.
+	
 Allgemein
 
 	Wovon erbt die Klasse, die die Klassen zusammenbastelt?
